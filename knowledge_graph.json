@@ -1,0 +1,2929 @@
+{
+  "nodes": [
+    {
+      "id": "REC_D2",
+      "label": "D2 多巴胺受体 (D2)",
+      "category": "Receptor",
+      "description": "多巴胺 D2 受体，抗精神病药主要治疗靶点（中脑边缘阻断抗阳性，黑质纹状体阻断>80%致 EPS）",
+      "properties": {
+        "type": "GPCR_Gi"
+      }
+    },
+    {
+      "id": "REC_D3",
+      "label": "D3 多巴胺受体 (D3)",
+      "category": "Receptor",
+      "description": "多巴胺 D3 受体，边缘岛与伏隔核高表达，优先调节认知、心境与动机（卡利拉嗪高亲和靶点）",
+      "properties": {
+        "type": "GPCR_Gi"
+      }
+    },
+    {
+      "id": "REC_5HT1A",
+      "label": "5-HT1A 受体",
+      "category": "Receptor",
+      "description": "5-HT1A 自身与突触后受体，激动具抗焦虑/抗抑郁效应，并上调海马 BDNF 促进神经突触可塑性",
+      "properties": {
+        "type": "GPCR_Gi"
+      }
+    },
+    {
+      "id": "REC_5HT1B_1D",
+      "label": "5-HT1B/1D 自身受体",
+      "category": "Receptor",
+      "description": "突触前末梢自身受体，阻断解除负反馈刹车，促进 5-HT 爆发性释放（伏硫西汀靶向）",
+      "properties": {
+        "type": "GPCR_Gi"
+      }
+    },
+    {
+      "id": "REC_5HT2A",
+      "label": "5-HT2A 受体",
+      "category": "Receptor",
+      "description": "非典型抗精神病药核心靶点，拮抗解除多巴胺刹车，降低 EPS 并改善阴性症状",
+      "properties": {
+        "type": "GPCR_Gq"
+      }
+    },
+    {
+      "id": "REC_5HT2C",
+      "label": "5-HT2C 受体",
+      "category": "Receptor",
+      "description": "拮抗解除对前额叶 DA/NE 释放的抑制刹车，抗抑郁改善认知，阿戈美拉汀/米氮平靶向",
+      "properties": {
+        "type": "GPCR_Gq"
+      }
+    },
+    {
+      "id": "REC_5HT3",
+      "label": "5-HT3 受体 (配体门控离子通道)",
+      "category": "Receptor",
+      "description": "离子通道受体，拮抗脱抑制促进乙酰胆碱与单胺释放，显著增强认知与长时程增强 (LTP)",
+      "properties": {
+        "type": "IonChannel"
+      }
+    },
+    {
+      "id": "REC_5HT7",
+      "label": "5-HT7 受体",
+      "category": "Receptor",
+      "description": "调节昼夜节律与突触重塑，拮抗显著增强海马与前额叶突触可塑性",
+      "properties": {
+        "type": "GPCR_Gs"
+      }
+    },
+    {
+      "id": "REC_SERT",
+      "label": "SERT (5-HT 转运体)",
+      "category": "Receptor",
+      "description": "5-HT 再摄取泵，抗抑郁药核心抑制靶点，长期抑制驱动海马神经再生",
+      "properties": {
+        "type": "Transporter"
+      }
+    },
+    {
+      "id": "REC_NET",
+      "label": "NET (NE 转运体)",
+      "category": "Receptor",
+      "description": "NE 再摄取泵，前额叶同时回收 DA 与 NE，ADHD 与抗抑郁关键靶点",
+      "properties": {
+        "type": "Transporter"
+      }
+    },
+    {
+      "id": "REC_DAT",
+      "label": "DAT (DA 转运体)",
+      "category": "Receptor",
+      "description": "DA 再摄取泵，纹状体与伏隔核回收载体，ADHD 兴奋剂与 SNDRI 靶点",
+      "properties": {
+        "type": "Transporter"
+      }
+    },
+    {
+      "id": "REC_ALPHA1",
+      "label": "α1 肾上腺素受体",
+      "category": "Receptor",
+      "description": "阻断导致直立性低血压、反射性心动过速和镇静嗜睡",
+      "properties": {
+        "type": "GPCR_Gq"
+      }
+    },
+    {
+      "id": "REC_ALPHA2A",
+      "label": "α2A 肾上腺素受体",
+      "category": "Receptor",
+      "description": "前额叶突触后受体，激动增强前额叶网络信噪比（信号增强），改善 ADHD 与执行功能",
+      "properties": {
+        "type": "GPCR_Gi"
+      }
+    },
+    {
+      "id": "REC_H1",
+      "label": "H1 组胺受体",
+      "category": "Receptor",
+      "description": "阻断导致嗜睡、镇静、食欲亢进及代谢体重增加",
+      "properties": {
+        "type": "GPCR_Gq"
+      }
+    },
+    {
+      "id": "REC_M1",
+      "label": "M1 毒蕈碱胆碱受体",
+      "category": "Receptor",
+      "description": "阻断导致口干、便秘、视物模糊及认知损害等抗胆碱能副作用",
+      "properties": {
+        "type": "GPCR_Gq"
+      }
+    },
+    {
+      "id": "REC_GABAA",
+      "label": "GABA-A 受体 (氯离子通道)",
+      "category": "Receptor",
+      "description": "配体门控氯离子通道，BZD 类正向变构调节 (PAM) 结合位点，介导快速中枢抑制",
+      "properties": {
+        "type": "IonChannel"
+      }
+    },
+    {
+      "id": "REC_ALPHA2DELTA",
+      "label": "α2δ 电压门控钙通道 (VGCC)",
+      "category": "Receptor",
+      "description": "电压门控钙通道 α2δ 配体结合位点，普瑞巴林结合后抑制突触前过度钙内流，减少病理性兴奋递质释放",
+      "properties": {
+        "type": "IonChannel_Subunit"
+      }
+    },
+    {
+      "id": "REC_VGSC",
+      "label": "VGSC 电压门控钠通道",
+      "category": "Receptor",
+      "description": "卡马西平/拉莫三嗪/丙戊酸钠靶点，延缓失活状态恢复，抑制病理性高频异常放电",
+      "properties": {
+        "type": "IonChannel"
+      }
+    },
+    {
+      "id": "REC_OX1R_OX2R",
+      "label": "OX1R/OX2R 食欲素受体",
+      "category": "Receptor",
+      "description": "下丘脑觉醒中枢神经肽受体，莱博雷生/达利雷生等双重拮抗剂 (DORA) 靶向促进入睡与睡眠维持",
+      "properties": {
+        "type": "GPCR"
+      }
+    },
+    {
+      "id": "REC_NMDA",
+      "label": "NMDA 谷氨酸受体",
+      "category": "Receptor",
+      "description": "钙离子通道受体，艾司氯胺酮阻断 GABA 中间神经元 NMDA 触发谷氨酸爆发；美金刚阻断过度兴奋毒性",
+      "properties": {
+        "type": "IonChannel"
+      }
+    },
+    {
+      "id": "REC_VMAT2",
+      "label": "VMAT2 (囊泡单胺转运体 2)",
+      "category": "Receptor",
+      "description": "囊泡单胺转运泵，伐苯那嗪抑制治疗迟发性运动障碍 (TD)，赖右苯丙胺逆转运促单胺释放",
+      "properties": {
+        "type": "Transporter"
+      }
+    },
+    {
+      "id": "REC_MT1_MT2",
+      "label": "MT1 / MT2 褪黑素受体",
+      "category": "Receptor",
+      "description": "下丘脑视交叉上核 (SCN) 褪黑素受体。MT1 介导中枢神经元抑制与促眠，MT2 介导昼夜节律相位的重调与同步（阿戈美拉汀/雷美替胺强激动）",
+      "properties": {
+        "type": "GPCR_Gi"
+      }
+    },
+    {
+      "id": "REC_AMPA",
+      "label": "AMPA 谷氨酸受体",
+      "category": "Receptor",
+      "description": "介导快速兴奋性神经传递，去极化激活 VDCC 与脱镁解除 NMDA 阻滞，触发长时程增强 (LTP) 与突触发生",
+      "properties": {
+        "type": "IonChannel_Plasticity"
+      }
+    },
+    {
+      "id": "REC_BDNF_TRKB",
+      "label": "BDNF / TrkB 信号轴",
+      "category": "Receptor",
+      "description": "脑源性神经营养因子及其受体 TrkB，驱动树突分支新生、突触棘重塑及神经元存活的核心生命线",
+      "properties": {
+        "type": "Neurotrophin_Receptor"
+      }
+    },
+    {
+      "id": "REC_MTORC1",
+      "label": "mTORC1 突触蛋白合成级联",
+      "category": "Receptor",
+      "description": "下游突触结构蛋白（PSD-95、GluA1）翻译的总控开关，介导快速突触再生与树突新生",
+      "properties": {
+        "type": "Kinase_Complex"
+      }
+    },
+    {
+      "id": "REC_GSK3B",
+      "label": "GSK-3β 激酶",
+      "category": "Receptor",
+      "description": "过度活跃导致神经凋亡与突触退化；锂盐/丙戊酸抑制其活性以发挥神经保护、突触重塑与防自杀",
+      "properties": {
+        "type": "Kinase_Target"
+      }
+    },
+    {
+      "id": "REC_SIGMA1",
+      "label": "Sigma-1 伴侣受体",
+      "category": "Receptor",
+      "description": "内质网分子伴侣，舍曲林/氟伏沙明等结合可促进突触可塑性、自噬及神经营养因子释放",
+      "properties": {
+        "type": "Chaperone_Protein"
+      }
+    },
+    {
+      "id": "PATH_CIRCADIAN_SCN",
+      "label": "视交叉上核 (SCN) 昼夜节律网络",
+      "category": "Pathway",
+      "description": "体内主生物钟起搏器。阿戈美拉汀通过 MT1/MT2 激动结合 5-HT2C 拮抗协同重塑紊乱的昼夜生物节律，恢复慢波睡眠与情绪节律",
+      "properties": {
+        "neurotransmitter": "Melatonin/5-HT/GABA"
+      }
+    },
+    {
+      "id": "PATH_MESOLIMBIC",
+      "label": "中脑边缘多巴胺通路 (Mesolimbic)",
+      "category": "Pathway",
+      "description": "从腹侧被盖区 (VTA) 至伏隔核，功能亢进介导幻觉、妄想等阳性精神病性症状",
+      "properties": {
+        "neurotransmitter": "Dopamine"
+      }
+    },
+    {
+      "id": "PATH_MESOCORTICAL",
+      "label": "中脑皮质多巴胺通路 (Mesocortical)",
+      "category": "Pathway",
+      "description": "从 VTA 至前额叶皮质 (DLPFC/VMPFC)，功能低下介导阴性症状与认知缺陷",
+      "properties": {
+        "neurotransmitter": "Dopamine"
+      }
+    },
+    {
+      "id": "PATH_NIGROSTRIATAL",
+      "label": "黑质纹状体多巴胺通路 (Nigrostriatal)",
+      "category": "Pathway",
+      "description": "控制运动协调，D2 阻断>80%诱发锥体外系反应 (EPS)，VMAT2 调节多巴胺囊泡释放改善迟发性运动障碍",
+      "properties": {
+        "neurotransmitter": "Dopamine"
+      }
+    },
+    {
+      "id": "PATH_TUBEROINFUNDIBULAR",
+      "label": "结节漏斗多巴胺通路 (Tuberoinfundibular)",
+      "category": "Pathway",
+      "description": "多巴胺抑制垂体催乳素释放，D2 阻断导致高催乳素血症",
+      "properties": {
+        "neurotransmitter": "Dopamine"
+      }
+    },
+    {
+      "id": "PATH_PFC_CIRCUITS",
+      "label": "前额叶皮质认知网络 (PFC Circuits)",
+      "category": "Pathway",
+      "description": "执行功能、工作记忆与认知注意力网络（ADHD、抑郁认知迟滞、快感缺失与突触可塑性核心）",
+      "properties": {
+        "neurotransmitter": "Glu/GABA/DA/NE/5-HT"
+      }
+    },
+    {
+      "id": "PATH_AMYGDALA_CIRCUITS",
+      "label": "杏仁核恐惧与焦虑环路 (Amygdala Circuits)",
+      "category": "Pathway",
+      "description": "焦虑与恐惧的核心中枢，GABA-A 增强或 α2δ 钙通道阻断可平息其过度放电",
+      "properties": {
+        "neurotransmitter": "5-HT/GABA/Glu"
+      }
+    },
+    {
+      "id": "PATH_PAIN_PATHWAY",
+      "label": "脊髓后角下行疼痛调制通路 (Pain Pathway)",
+      "category": "Pathway",
+      "description": "5-HT/NE 双重神经元自上而下抑制脊髓后角伤害性信号传导（度洛西汀/普瑞巴林靶向）",
+      "properties": {
+        "neurotransmitter": "5-HT/NE/Glu"
+      }
+    },
+    {
+      "id": "PATH_HYPOTHALAMIC_AROUSAL",
+      "label": "下丘脑觉醒-睡眠节律环路 (Arousal Circuits)",
+      "category": "Pathway",
+      "description": "结节乳头体核与侧下丘脑食欲素/组胺觉醒系统（莱博雷生/达利雷生靶向）",
+      "properties": {
+        "neurotransmitter": "Orexin/Histamine/GABA"
+      }
+    },
+    {
+      "id": "PATH_HIPPOCAMPAL_PLASTICITY",
+      "label": "海马突触再生与神经可塑性环路 (Hippocampal Plasticity)",
+      "category": "Pathway",
+      "description": "海马齿状回 (DG) 神经新生与 CA1/CA3 树突棘重构，逆转慢性应激所致的突触丢失与脑萎缩",
+      "properties": {
+        "neurotransmitter": "BDNF/TrkB/Glu/5-HT"
+      }
+    },
+    {
+      "id": "DIS_MDSI",
+      "label": "伴急性自杀意念或行为的重度抑郁发作 (MDSI)",
+      "category": "Disease",
+      "description": "精神科紧急危重表型（Major Depressive Episode with Acute Suicidal Ideation or Behavior）。艾司氯胺酮联合口服抗抑郁药可在 4~24 小时内快速缓解急性自杀意念，碳酸锂具长期防自杀效应",
+      "properties": {}
+    },
+    {
+      "id": "DIS_TRD",
+      "label": "难治性抑郁障碍 (TRD)",
+      "category": "Disease",
+      "description": "对≥2种不同机制足量足疗程抗抑郁药应答不佳的难治状态（Treatment-Resistant Depression）。艾司氯胺酮 (Spravato)、SNDRI 托鲁地文拉法辛、D2/D3 部分激动剂（布瑞哌唑、阿立哌唑）、喹硫平、锂盐增效为关键方案",
+      "properties": {}
+    },
+    {
+      "id": "DIS_MDD",
+      "label": "抑郁障碍 (Depressive Disorders)",
+      "category": "Disease",
+      "description": "情绪低落、快感缺失 (Anhedonia)、精力减退、认知执行功能障碍及海马突触萎缩",
+      "properties": {}
+    },
+    {
+      "id": "DIS_SCHIZOPHRENIA_POS",
+      "label": "精神分裂症阳性症状 (Positive Symptoms)",
+      "category": "Disease",
+      "description": "幻觉、妄想、瓦解性言语与行为",
+      "properties": {}
+    },
+    {
+      "id": "DIS_SCHIZOPHRENIA_NEG",
+      "label": "精神分裂症阴性与认知症状 (Negative/Cognitive)",
+      "category": "Disease",
+      "description": "情感淡漠、社交退缩、执行功能损害（卡利拉嗪/布瑞哌唑优势）",
+      "properties": {}
+    },
+    {
+      "id": "DIS_BIPOLAR_MANIA",
+      "label": "双相情感障碍躁狂发作 (Bipolar Mania)",
+      "category": "Disease",
+      "description": "心境高涨、夸大、思维奔逸、冲动（锂盐/卡马西平/丙戊酸/非典型抗精神病药一线）",
+      "properties": {}
+    },
+    {
+      "id": "DIS_BIPOLAR_DEP",
+      "label": "双相抑郁发作 (Bipolar Depression)",
+      "category": "Disease",
+      "description": "双相障碍抑郁期，需防止转躁（卡利拉嗪/拉莫三嗪/喹硫平一线）",
+      "properties": {}
+    },
+    {
+      "id": "DIS_GAD",
+      "label": "广泛性焦虑障碍 (GAD)",
+      "category": "Disease",
+      "description": "过度担忧、紧张自主神经亢进（普瑞巴林/SSRI/SNRI/BZD）",
+      "properties": {}
+    },
+    {
+      "id": "DIS_PANIC",
+      "label": "惊恐障碍 (Panic Disorder)",
+      "category": "Disease",
+      "description": "急性突发惊恐发作与濒死感",
+      "properties": {}
+    },
+    {
+      "id": "DIS_INSOMNIA",
+      "label": "失眠障碍 (Insomnia)",
+      "category": "Disease",
+      "description": "入睡困难与睡眠维持困难（莱博雷生/达利雷生/阿戈美拉汀/雷美替胺靶向）",
+      "properties": {}
+    },
+    {
+      "id": "DIS_ADHD",
+      "label": "注意力缺陷多动障碍 (ADHD)",
+      "category": "Disease",
+      "description": "注意力不集中、多动与冲动（赖右苯丙胺/哌甲酯/托莫西汀/胍法辛）",
+      "properties": {}
+    },
+    {
+      "id": "DIS_NEURO_PAIN",
+      "label": "神经病理性疼痛与纤维肌痛 (Neuropathic Pain)",
+      "category": "Disease",
+      "description": "带状疱疹后神经痛、糖尿病周围神经痛、中枢敏化（普瑞巴林/度洛西汀）",
+      "properties": {}
+    },
+    {
+      "id": "DIS_ALZHEIMER",
+      "label": "阿尔茨海默病与认知障碍 (Alzheimer's Disease)",
+      "category": "Disease",
+      "description": "进行性记忆力减退、定向力障碍与突触退行性损害（美金刚/突触可塑性调控）",
+      "properties": {}
+    },
+    {
+      "id": "DIS_TD",
+      "label": "迟发性运动障碍 (TD)",
+      "category": "Disease",
+      "description": "长期使用抗精神病药后多巴胺受体超敏导致的不自主口面部及肢体舞蹈样运动（VMAT2抑制剂治疗）",
+      "properties": {}
+    },
+    {
+      "id": "SE_EPS",
+      "label": "锥体外系反应 (EPS)",
+      "category": "SideEffect",
+      "description": "急性肌张力障碍、静坐不能、类帕金森综合征（D2 阻断>80%）",
+      "properties": {}
+    },
+    {
+      "id": "SE_METABOLIC",
+      "label": "代谢综合征 (Metabolic Syndrome)",
+      "category": "SideEffect",
+      "description": "体重显著增加、高血糖、血脂异常（H1/5-HT2C 强阻断诱发）",
+      "properties": {}
+    },
+    {
+      "id": "SE_HYPERPROLACTIN",
+      "label": "高催乳素血症 (Hyperprolactinemia)",
+      "category": "SideEffect",
+      "description": "催乳素升高、溢乳、月经紊乱、性功能障碍（结节漏斗 D2 阻断）",
+      "properties": {}
+    },
+    {
+      "id": "SE_SEDATION",
+      "label": "嗜睡与过度镇静 (Sedation)",
+      "category": "SideEffect",
+      "description": "日间警觉性下降、困倦（H1/α1/GABA-A 增强诱发）",
+      "properties": {}
+    },
+    {
+      "id": "SE_ADDICTION_TOLERANCE",
+      "label": "耐受与依赖风险 (Tolerance & Dependence)",
+      "category": "SideEffect",
+      "description": "中枢兴奋剂与 BZD 类需评估耐受、成瘾与戒断风险（赖右苯丙胺通过前药机制降低滥用倾向）",
+      "properties": {}
+    },
+    {
+      "id": "SE_ANTICHOLINERGIC",
+      "label": "抗胆碱能不良反应 (Anticholinergic Effects)",
+      "category": "SideEffect",
+      "description": "口干、视物模糊、便秘、嗜睡与认知障碍（M1 受体强阻断诱发）",
+      "properties": {}
+    },
+    {
+      "id": "SE_ORTHOSTATIC_HYPOTENSION",
+      "label": "直立性低血压与头晕 (Orthostatic Hypotension)",
+      "category": "SideEffect",
+      "description": "体位改变时血压急剧下降、头晕、反射性心动过速（α1 肾上腺素受体阻断诱发）",
+      "properties": {}
+    },
+    {
+      "id": "CLS_SNDRI",
+      "label": "5-HT / NE / DA 三重再摄取抑制剂 (SNDRI / TRI)",
+      "category": "DrugClass",
+      "description": "三重单胺再摄取抑制剂。同步高亲和力抑制 SERT、NET 和 DAT，全面提升突触间隙 5-HT、NE 及 DA 浓度，显著攻克抑郁症快感缺失、疲乏及认知迟滞（托鲁地文拉法辛 Toludesvenlafaxine）",
+      "properties": {}
+    },
+    {
+      "id": "CLS_MASSA",
+      "label": "褪黑素受体激动与 5-HT2C 拮抗剂 (MASSA)",
+      "category": "DrugClass",
+      "description": "褪黑素能与单胺能协同抗抑郁药，通过激活 MT1/MT2 受体与拮抗 5-HT2C 协同抗抑郁、重调生物钟且无性功能障碍（阿戈美拉汀 Agomelatine）",
+      "properties": {}
+    },
+    {
+      "id": "CLS_FGA",
+      "label": "第一代典型抗精神病药 (FGA)",
+      "category": "DrugClass",
+      "description": "强效阻断 D2 受体，如氟哌啶醇、氯丙嗪，抗阳性症状确切但 EPS 与催乳素升高风险高",
+      "properties": {}
+    },
+    {
+      "id": "CLS_SDA",
+      "label": "第二代非典型抗精神病药 (SDA / 5-HT2A-D2 拮抗)",
+      "category": "DrugClass",
+      "description": "5-HT2A/D2 拮抗剂（如奥氮平、利培酮、喹硫平、氯氮平）",
+      "properties": {}
+    },
+    {
+      "id": "CLS_D2_PARTIAL",
+      "label": "D2/D3 部分激动剂 (SDAM / DPA)",
+      "category": "DrugClass",
+      "description": "多巴胺活性稳定器（阿立哌唑、布瑞哌唑、卡利拉嗪）",
+      "properties": {}
+    },
+    {
+      "id": "CLS_SSRI",
+      "label": "选择性 5-HT 再摄取抑制剂 (SSRI)",
+      "category": "DrugClass",
+      "description": "一线抗抑郁抗焦虑药（氟西汀、舍曲林、艾司西酞普兰），长期使用上调 BDNF",
+      "properties": {}
+    },
+    {
+      "id": "CLS_SNRI",
+      "label": "5-HT / NE 双重再摄取抑制剂 (SNRI)",
+      "category": "DrugClass",
+      "description": "双通道提升单胺（文拉法辛、度洛西汀）",
+      "properties": {}
+    },
+    {
+      "id": "CLS_SMS",
+      "label": "5-HT 多模式调节剂 (SMS)",
+      "category": "DrugClass",
+      "description": "再摄取抑制 + 多重 5-HT 受体变构调节，强效增强突触可塑性（伏硫西汀 Vortioxetine）",
+      "properties": {}
+    },
+    {
+      "id": "CLS_SPARI",
+      "label": "5-HT 再摄取抑制与 5-HT1A 部分激动剂 (SPARI)",
+      "category": "DrugClass",
+      "description": "维拉佐酮 (Vilazodone)，快速抗抑郁且较少性功能副作用",
+      "properties": {}
+    },
+    {
+      "id": "CLS_MOOD_STABILIZER",
+      "label": "心境稳定剂 (Mood Stabilizers)",
+      "category": "DrugClass",
+      "description": "锂盐、抗癫痫钠通道调节剂（卡马西平、丙戊酸钠、拉莫三嗪），通过抑制 GSK-3β 促进突触保护与防自杀",
+      "properties": {}
+    },
+    {
+      "id": "CLS_VGCC_LIGAND",
+      "label": "α2δ 钙通道配体 (加巴喷丁类 / VGCC)",
+      "category": "DrugClass",
+      "description": "普瑞巴林 (Pregabalin)、加巴喷丁 (Gabapentin)",
+      "properties": {}
+    },
+    {
+      "id": "CLS_BZD",
+      "label": "苯二氮䓬类药物 (BZD / GABA-A PAM)",
+      "category": "DrugClass",
+      "description": "GABA-A 正向变构调节剂 (劳拉西泮、阿普唑仑、地西泮、氯硝西泮)",
+      "properties": {}
+    },
+    {
+      "id": "CLS_DORA",
+      "label": "双重食欲素受体拮抗剂 (DORA)",
+      "category": "DrugClass",
+      "description": "第二代靶向催眠药（莱博雷生 Lemborexant、达利雷生 Daridorexant）",
+      "properties": {}
+    },
+    {
+      "id": "CLS_ADHD_STIMULANT",
+      "label": "ADHD 中枢兴奋剂与前药 (Stimulants)",
+      "category": "DrugClass",
+      "description": "阻断/逆转 DAT 与 NET（赖右苯丙胺 Lisdexamfetamine、哌甲酯）",
+      "properties": {}
+    },
+    {
+      "id": "CLS_ADHD_NON_STIMULANT",
+      "label": "ADHD 非中枢兴奋剂 (Non-Stimulants)",
+      "category": "DrugClass",
+      "description": "选择性 NET 抑制 (托莫西汀) 或 α2A 激动 (胍法辛)",
+      "properties": {}
+    },
+    {
+      "id": "CLS_VMAT2_INHIBITOR",
+      "label": "VMAT2 抑制剂 (囊泡单胺转运体抑制)",
+      "category": "DrugClass",
+      "description": "伐苯那嗪 (Valbenazine)、氘代丁苯那嗪，靶向治疗迟发性运动障碍",
+      "properties": {}
+    },
+    {
+      "id": "CLS_NMDA_MODULATOR",
+      "label": "NMDA 调节与突触再生剂 (NMDA Modulators)",
+      "category": "DrugClass",
+      "description": "艾司氯胺酮 (激活 AMPA/mTOR 快速突触再生、治疗 TRD 难治抑郁与 MDSI)、美金刚 (阿尔茨海默病神经保护)",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_TOLUDESVENLAFAXINE",
+      "label": "托鲁地文拉法辛 (Toludesvenlafaxine / 若欣林 / Ruoxinlin)",
+      "category": "Drug",
+      "description": "中国首创 1 类创新药，首个上市的三重单胺再摄取抑制剂 (SNDRI)。同时高亲和力抑制 SERT、NET 及 DAT，全面提升 5-HT、NE 和 DA 神经传递，显著逆转抑郁障碍核心快感缺失 (Anhedonia)、精力缺乏及认知迟滞，性功能副反应发生率极低",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_AGOMELATINE",
+      "label": "阿戈美拉汀 (Agomelatine / 韦度)",
+      "category": "Drug",
+      "description": "褪黑素受体激动剂与 5-HT2C 拮抗剂 (MASSA)。强效激动 MT1/MT2 重调下丘脑视交叉上核 (SCN) 昼夜生物节律；选择性拮抗 5-HT2C 脱抑制促进前额叶 DA/NE 释放，强效抗抑郁改善睡眠，无性功能副反应与戒断反应（需监测肝功能）",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_RAMELTEON",
+      "label": "雷美替胺 (Ramelteon / 柔速瑞)",
+      "category": "Drug",
+      "description": "高选择性 MT1/MT2 褪黑素受体激动剂（对 MT1/MT2 亲和力是褪黑素的数倍），特异性作用于视交叉上核起搏器，生理性诱导睡眠，无残留嗜睡、成瘾与反跳性失眠",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_LISDEXAMFETAMINE",
+      "label": "赖右苯丙胺 (Lisdexamfetamine / Vyvanse)",
+      "category": "Drug",
+      "description": "苯丙胺类前药代表。前药结构（赖氨酸-右苯丙胺），在红细胞内酶解平稳释放右苯丙胺，阻断并逆转 DAT/NET/VMAT2，平稳维持 14h 疗效，滥用风险极低，ADHD 与暴食障碍一线",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_HALOPERIDOL",
+      "label": "氟哌啶醇 (Haloperidol)",
+      "category": "Drug",
+      "description": "第一代典型抗精神病药 (FGA) 代表，高亲和力选择性阻断 D2 受体，极强抗幻觉妄想，但 EPS 风险极高",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_CLOZAPINE",
+      "label": "氯氮平 (Clozapine)",
+      "category": "Drug",
+      "description": "难治性精神分裂症黄金标准，5-HT2A/D2/5-HT1A/H1/M1 多受体作用，极低 EPS 但需监测粒缺与代谢",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_OLANZAPINE",
+      "label": "奥氮平 (Olanzapine)",
+      "category": "Drug",
+      "description": "强效 5-HT2A/D2/5-HT2C/H1/M1 拮抗剂，抗精神病与抗躁狂，强镇静但代谢综合征风险高",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_RISPERIDONE",
+      "label": "利培酮 (Risperidone)",
+      "category": "Drug",
+      "description": "强效 5-HT2A/D2/α1 拮抗剂，抗阳性症状确切，高剂量诱发 EPS 与高催乳素血症",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_QUETIAPINE",
+      "label": "喹硫平 (Quetiapine)",
+      "category": "Drug",
+      "description": "快解离型 D2 拮抗，去甲基代谢物强抑制 NET 并激动 5-HT1A，兼具抗抑郁、抗躁狂、难治抑郁增效与镇静助眠",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_ARIPIPRAZOLE",
+      "label": "阿立哌唑 (Aripiprazole)",
+      "category": "Drug",
+      "description": "D2/5-HT1A 部分激动 + 5-HT2A 拮抗，多巴胺系统调节器，无催乳素升高，难治性抑郁 (TRD) 一线增效",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_BREXPIPRAZOLE",
+      "label": "布瑞哌唑 (Brexpiprazole / 旧译依匹哌唑)",
+      "category": "Drug",
+      "description": "5-HT-DA 活性调节剂 (SDAM)。D2 内在活性低于阿立哌唑（静坐不能风险更低），5-HT1A/5-HT2A 作用强，用于精神分裂症及难治性抑郁 (TRD) 一线增效",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_CARIPRAZINE",
+      "label": "卡利拉嗪 (Cariprazine)",
+      "category": "Drug",
+      "description": "D3 偏好型 D3/D2 部分激动剂（对 D3 亲和力是 D2 的 10 倍），显著改善阴性症状、认知缺陷与双相抑郁",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_FLUOXETINE",
+      "label": "氟西汀 (Fluoxetine)",
+      "category": "Drug",
+      "description": "SSRI 代表药，兼具弱 5-HT2C 拮抗，促进前额叶 DA/NE 释放并上调海马 BDNF",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_SERTRALINE",
+      "label": "舍曲林 (Sertraline)",
+      "category": "Drug",
+      "description": "SSRI，兼具弱 DAT 抑制与强 Sigma-1 伴侣受体激动，促进神经突触可塑性",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_ESCITALOPRAM",
+      "label": "艾司西酞普兰 (Escitalopram)",
+      "category": "Drug",
+      "description": "高特异性变构抑制 SERT，抗抑郁障碍与抗焦虑一线，药物相互作用极小",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_VENLAFAXINE",
+      "label": "文拉法辛 (Venlafaxine)",
+      "category": "Drug",
+      "description": "SNRI 代表药，低剂量抑制 SERT，高剂量同时抑制 NET，提升警觉与精力",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_DULOXETINE",
+      "label": "度洛西汀 (Duloxetine)",
+      "category": "Drug",
+      "description": "均衡抑制 SERT 与 NET，激活脊髓下行镇痛通路，抗抑郁伴躯体疼痛一线",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_MIRTAZAPINE",
+      "label": "米氮平 (Mirtazapine)",
+      "category": "Drug",
+      "description": "NaSSA 代表药，拮抗突触前 α2 自调节受体 + 5-HT2A/5-HT2C/H1，促食欲、抗焦虑与强助眠",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_VORTIOXETINE",
+      "label": "伏硫西汀 (Vortioxetine / 旧译沃替西汀)",
+      "category": "Drug",
+      "description": "5-HT 多模式调节剂 (SMS)。抑制 SERT，全激动 5-HT1A，部分激动 5-HT1B/1D，强拮抗 5-HT3 与 5-HT7，强效促进海马 LTP 突触再生与认知重塑",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_VILAZODONE",
+      "label": "维拉佐酮 (Vilazodone)",
+      "category": "Drug",
+      "description": "SPARI 代表药，抑制 SERT 同时部分激动 5-HT1A，起效迅速且性功能障碍发生率低",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_LITHIUM",
+      "label": "碳酸锂 (Lithium)",
+      "category": "Drug",
+      "description": "经典心境稳定剂，直接抑制 GSK-3β，激活 Wnt/β-catenin 与 BDNF/TrkB，强效促进海马突触再生、TRD 增效与防自杀 (MDSI)",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_VALPROATE",
+      "label": "丙戊酸钠 (Valproate)",
+      "category": "Drug",
+      "description": "抑制 GSK-3β 与 HDAC 表观遗传修饰，增强 GABA 抑制，急性抗躁狂一线",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_CARBAMAZEPINE",
+      "label": "卡马西平 (Carbamazepine)",
+      "category": "Drug",
+      "description": "使用依赖性钠通道 (VGSC) 阻滞剂，急性躁狂发作一线心境稳定剂及三叉神经痛治疗药",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_LAMOTRIGINE",
+      "label": "拉莫三嗪 (Lamotrigine)",
+      "category": "Drug",
+      "description": "阻断钠通道减少病理性谷氨酸释放，预防双相抑郁复发一线",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_PREGABALIN",
+      "label": "普瑞巴林 (Pregabalin)",
+      "category": "Drug",
+      "description": "特异性结合 α2δ 钙通道亚基，减少突触前过度钙内流与谷氨酸释放，广泛性焦虑 (GAD) 与神经病理性疼痛一线",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_LORAZEPAM",
+      "label": "劳拉西泮 (Lorazepam)",
+      "category": "Drug",
+      "description": "中效 BZD，葡萄糖醛酸化代谢，急性抗焦虑与镇静",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_ALPRAZOLAM",
+      "label": "阿普唑仑 (Alprazolam)",
+      "category": "Drug",
+      "description": "强效短中效 BZD，急性惊恐障碍与焦虑发作快速缓解",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_DIAZEPAM",
+      "label": "地西泮 (Diazepam)",
+      "category": "Drug",
+      "description": "长效经典 BZD，抗焦虑、镇静催眠与肌松",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_CLONAZEPAM",
+      "label": "氯硝西泮 (Clonazepam)",
+      "category": "Drug",
+      "description": "长效高亲和力 BZD，抗惊恐、抗焦虑与抗惊厥",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_METHYLPHENIDATE",
+      "label": "哌甲酯 (Methylphenidate / 利他林)",
+      "category": "Drug",
+      "description": "ADHD 一线中枢兴奋剂，阻断 DAT 和 NET 再摄取",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_ATOMOXETINE",
+      "label": "托莫西汀 (Atomoxetine / 择思达)",
+      "category": "Drug",
+      "description": "高选择性 NET 抑制剂，非兴奋剂，在前额叶同时提升 NE 与 DA",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_GUANFACINE",
+      "label": "胍法辛 (Guanfacine)",
+      "category": "Drug",
+      "description": "选择性突触后 α2A 受体激动剂，直接增强前额叶树突棘网络连接与突触成熟",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_LEMBOREXANT",
+      "label": "莱博雷生 (Lemborexant / Dayvigo)",
+      "category": "Drug",
+      "description": "第二代 DORA，强效结合 OX1R 和 OX2R，特异性关闭促觉醒信号，改善入睡与维持，次日残留嗜睡极低且无依赖性",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_DARIDOREXANT",
+      "label": "达利雷生 (Daridorexant / Quviviq)",
+      "category": "Drug",
+      "description": "优化半衰期 (8h) DORA，三期临床证实同时改善夜间睡眠质量与日间清醒功能精力",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_ESKETAMINE",
+      "label": "艾司氯胺酮 (Esketamine / Spravato)",
+      "category": "Drug",
+      "description": "快速突触再生革命性药物。瞬时阻断 GABA 抑制神经元 NMDA 受体，导致谷氨酸爆发激活 AMPA，迅速开启 mTORC1 级联并上调 BDNF/TrkB，数小时内完成树突棘新生，获批治疗 TRD (难治性抑郁) 与 MDSI (伴急性自杀意念或行为)",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_MEMANTINE",
+      "label": "美金刚 (Memantine)",
+      "category": "Drug",
+      "description": "中等亲和力非竞争性 NMDA 受体拮抗剂，阻断病理性谷氨酸兴奋毒性，保护残存突触结构，改善中重度阿尔茨海默病认知",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_VALBENAZINE",
+      "label": "伐苯那嗪 (Valbenazine)",
+      "category": "Drug",
+      "description": "高选择性 VMAT2 抑制剂，减少突触前多巴胺囊泡装载与释放，FDA 批准治疗迟发性运动障碍 (TD)",
+      "properties": {}
+    }
+  ],
+  "edges": [
+    {
+      "source": "DRUG_TOLUDESVENLAFAXINE",
+      "target": "CLS_SNDRI",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "中国自主研发 1 类 SNDRI 新药代表",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_AGOMELATINE",
+      "target": "CLS_MASSA",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "MASSA 代表药",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_RAMELTEON",
+      "target": "CLS_MASSA",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "选择性 MT1/MT2 激动剂",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_LISDEXAMFETAMINE",
+      "target": "CLS_ADHD_STIMULANT",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "前药中枢兴奋剂代表",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_METHYLPHENIDATE",
+      "target": "CLS_ADHD_STIMULANT",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_ATOMOXETINE",
+      "target": "CLS_ADHD_NON_STIMULANT",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_GUANFACINE",
+      "target": "CLS_ADHD_NON_STIMULANT",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_HALOPERIDOL",
+      "target": "CLS_FGA",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_CLOZAPINE",
+      "target": "CLS_SDA",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_OLANZAPINE",
+      "target": "CLS_SDA",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_RISPERIDONE",
+      "target": "CLS_SDA",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_QUETIAPINE",
+      "target": "CLS_SDA",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_ARIPIPRAZOLE",
+      "target": "CLS_D2_PARTIAL",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_BREXPIPRAZOLE",
+      "target": "CLS_D2_PARTIAL",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_CARIPRAZINE",
+      "target": "CLS_D2_PARTIAL",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_FLUOXETINE",
+      "target": "CLS_SSRI",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_SERTRALINE",
+      "target": "CLS_SSRI",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_ESCITALOPRAM",
+      "target": "CLS_SSRI",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_VENLAFAXINE",
+      "target": "CLS_SNRI",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_DULOXETINE",
+      "target": "CLS_SNRI",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_MIRTAZAPINE",
+      "target": "CLS_SNRI",
+      "relationship": "IS_A",
+      "label": "归类",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_VORTIOXETINE",
+      "target": "CLS_SMS",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_VILAZODONE",
+      "target": "CLS_SPARI",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_LITHIUM",
+      "target": "CLS_MOOD_STABILIZER",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_VALPROATE",
+      "target": "CLS_MOOD_STABILIZER",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_CARBAMAZEPINE",
+      "target": "CLS_MOOD_STABILIZER",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_LAMOTRIGINE",
+      "target": "CLS_MOOD_STABILIZER",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_PREGABALIN",
+      "target": "CLS_VGCC_LIGAND",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_LORAZEPAM",
+      "target": "CLS_BZD",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_ALPRAZOLAM",
+      "target": "CLS_BZD",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_DIAZEPAM",
+      "target": "CLS_BZD",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_CLONAZEPAM",
+      "target": "CLS_BZD",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_LEMBOREXANT",
+      "target": "CLS_DORA",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_DARIDOREXANT",
+      "target": "CLS_DORA",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_ESKETAMINE",
+      "target": "CLS_NMDA_MODULATOR",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_MEMANTINE",
+      "target": "CLS_NMDA_MODULATOR",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_VALBENAZINE",
+      "target": "CLS_VMAT2_INHIBITOR",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_TOLUDESVENLAFAXINE",
+      "target": "REC_SERT",
+      "relationship": "INHIBITS",
+      "label": "强效抑制 5-HT 再摄取",
+      "description": "提升突触间隙 5-HT 改善心境",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_TOLUDESVENLAFAXINE",
+      "target": "REC_NET",
+      "relationship": "INHIBITS",
+      "label": "强效抑制 NE 再摄取",
+      "description": "提升突触间隙 NE 增强精力与警觉",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_TOLUDESVENLAFAXINE",
+      "target": "REC_DAT",
+      "relationship": "INHIBITS",
+      "label": "抑制 DA 再摄取",
+      "description": "同时提升突触间隙 DA 改善快感缺失与动机",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_TOLUDESVENLAFAXINE",
+      "target": "PATH_PFC_CIRCUITS",
+      "relationship": "MODULATES",
+      "label": "三重单胺协同调谐",
+      "description": "同步增强前额叶与边缘系统 5-HT/NE/DA 信号",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_TOLUDESVENLAFAXINE",
+      "target": "DIS_MDD",
+      "relationship": "TREATS",
+      "label": "突破性一线抗抑郁",
+      "description": "显著改善快感缺失 (Anhedonia)、疲劳及认知障碍",
+      "weight": 2.4
+    },
+    {
+      "source": "DRUG_TOLUDESVENLAFAXINE",
+      "target": "DIS_TRD",
+      "relationship": "TREATS",
+      "label": "难治性抑郁全新机制",
+      "description": "三重机制为双重/单通道抵抗患者提供突破",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_AGOMELATINE",
+      "target": "REC_MT1_MT2",
+      "relationship": "AGONIST",
+      "label": "强效激动 MT1/MT2",
+      "description": "重塑视交叉上核生物钟",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_AGOMELATINE",
+      "target": "REC_5HT2C",
+      "relationship": "ANTAGONIST",
+      "label": "选择性拮抗 5-HT2C",
+      "description": "脱抑制促进前额叶 DA/NE 释放",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_AGOMELATINE",
+      "target": "PATH_CIRCADIAN_SCN",
+      "relationship": "MODULATES",
+      "label": "重调昼夜节律",
+      "description": "恢复慢波睡眠与情绪周期",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_AGOMELATINE",
+      "target": "PATH_PFC_CIRCUITS",
+      "relationship": "MODULATES",
+      "label": "协同提升前额叶 DA/NE",
+      "description": "改善认知动机与心境",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_AGOMELATINE",
+      "target": "DIS_MDD",
+      "relationship": "TREATS",
+      "label": "一线抗抑郁",
+      "description": "重塑节律且无性功能副作用",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_AGOMELATINE",
+      "target": "DIS_INSOMNIA",
+      "relationship": "TREATS",
+      "label": "改善睡眠时相",
+      "description": "促进生理性入睡与节律同步",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_RAMELTEON",
+      "target": "REC_MT1_MT2",
+      "relationship": "AGONIST",
+      "label": "高亲和力激动 MT1/MT2",
+      "description": "靶向下丘脑起搏器",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_RAMELTEON",
+      "target": "PATH_CIRCADIAN_SCN",
+      "relationship": "MODULATES",
+      "label": "诱导睡眠时相转换",
+      "description": "平稳开启入睡",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_RAMELTEON",
+      "target": "DIS_INSOMNIA",
+      "relationship": "TREATS",
+      "label": "入睡困难一线催眠",
+      "description": "无耐受成瘾与次日嗜睡",
+      "weight": 2.2
+    },
+    {
+      "source": "REC_MT1_MT2",
+      "target": "PATH_CIRCADIAN_SCN",
+      "relationship": "MODULATES",
+      "label": "昼夜起搏调控",
+      "description": "同步视交叉上核中枢生物钟",
+      "weight": 2.0
+    },
+    {
+      "source": "PATH_CIRCADIAN_SCN",
+      "target": "DIS_MDD",
+      "relationship": "CORRELATED_WITH",
+      "label": "生物节律紊乱驱动",
+      "description": "昼夜节律失步介导抑郁症状",
+      "weight": 1.8
+    },
+    {
+      "source": "PATH_CIRCADIAN_SCN",
+      "target": "DIS_INSOMNIA",
+      "relationship": "CORRELATED_WITH",
+      "label": "驱动失眠",
+      "description": "昼夜时相延迟/前移导致睡眠障碍",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_LISDEXAMFETAMINE",
+      "target": "REC_DAT",
+      "relationship": "INHIBITS",
+      "label": "阻断并逆转转运体",
+      "description": "强效提升突触间隙 DA",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_LISDEXAMFETAMINE",
+      "target": "REC_NET",
+      "relationship": "INHIBITS",
+      "label": "阻断并逆转转运体",
+      "description": "强效提升前额叶 NE",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_LISDEXAMFETAMINE",
+      "target": "REC_VMAT2",
+      "relationship": "MODULATES",
+      "label": "促进囊泡单胺外排",
+      "description": "逆转 VMAT2 促进胞浆单胺释放",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_LISDEXAMFETAMINE",
+      "target": "PATH_PFC_CIRCUITS",
+      "relationship": "MODULATES",
+      "label": "最佳化 DA/NE 神经调节",
+      "description": "使前额叶锥体神经元调谐至最佳信噪比",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_LISDEXAMFETAMINE",
+      "target": "DIS_ADHD",
+      "relationship": "TREATS",
+      "label": "一线平稳长效治疗",
+      "description": "全天候改善注意力、工作记忆与多动冲动",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_LISDEXAMFETAMINE",
+      "target": "SE_ADDICTION_TOLERANCE",
+      "relationship": "CAUSES",
+      "label": "极低滥用倾向 (前药)",
+      "description": "需经红细胞酶解，静脉或鼻吸无效",
+      "weight": 1.2
+    },
+    {
+      "source": "DRUG_ESKETAMINE",
+      "target": "REC_NMDA",
+      "relationship": "BLOCKER",
+      "label": "非竞争性瞬时阻滞",
+      "description": "阻断 GABA 抑制性中间神经元上的 NMDA 受体",
+      "weight": 2.2
+    },
+    {
+      "source": "REC_NMDA",
+      "target": "REC_AMPA",
+      "relationship": "MODULATES",
+      "label": "谷氨酸脱抑制爆发",
+      "description": "NMDA 阻断导致去抑制，海量谷氨酸瞬间激活突触后 AMPA 受体",
+      "weight": 2.2
+    },
+    {
+      "source": "REC_AMPA",
+      "target": "REC_MTORC1",
+      "relationship": "MODULATES",
+      "label": "触发钙内流与激酶级联",
+      "description": "AMPA 激活开启 Akt/mTORC1 突触结构蛋白翻译总开关",
+      "weight": 2.2
+    },
+    {
+      "source": "REC_MTORC1",
+      "target": "REC_BDNF_TRKB",
+      "relationship": "MODULATES",
+      "label": "突触蛋白爆发与 BDNF 释放",
+      "description": "促进 PSD-95、GluA1 合成并驱动 BDNF 胞外快速释放",
+      "weight": 2.2
+    },
+    {
+      "source": "REC_BDNF_TRKB",
+      "target": "PATH_HIPPOCAMPAL_PLASTICITY",
+      "relationship": "MODULATES",
+      "label": "驱动树突棘重构与神经再生",
+      "description": "数小时内逆转海马与前额叶树突萎缩，重建突触连接",
+      "weight": 2.2
+    },
+    {
+      "source": "PATH_HIPPOCAMPAL_PLASTICITY",
+      "target": "DIS_MDD",
+      "relationship": "TREATS",
+      "label": "快速抗抑郁机制",
+      "description": "从神经结构根源逆转抑郁障碍相关的突触缺失与萎缩",
+      "weight": 2.2
+    },
+    {
+      "source": "PATH_HIPPOCAMPAL_PLASTICITY",
+      "target": "DIS_MDSI",
+      "relationship": "TREATS",
+      "label": "突触重建逆转自杀意念",
+      "description": "数小时内修复前额叶-海马环路断联，阻断急性自杀冲动",
+      "weight": 2.2
+    },
+    {
+      "source": "PATH_HIPPOCAMPAL_PLASTICITY",
+      "target": "DIS_TRD",
+      "relationship": "TREATS",
+      "label": "逆转难治状态",
+      "description": "重建萎缩突触连接打破慢性难治僵局",
+      "weight": 2.2
+    },
+    {
+      "source": "PATH_HIPPOCAMPAL_PLASTICITY",
+      "target": "DIS_ALZHEIMER",
+      "relationship": "TREATS",
+      "label": "神经保护与突触修复",
+      "description": "延缓神经退行性认知衰退",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_ESKETAMINE",
+      "target": "DIS_TRD",
+      "relationship": "TREATS",
+      "label": "FDA/NMPA 难治抑郁一线",
+      "description": "突触再生新机制打破难治僵局",
+      "weight": 2.4
+    },
+    {
+      "source": "DRUG_ESKETAMINE",
+      "target": "DIS_MDSI",
+      "relationship": "TREATS",
+      "label": "FDA/NMPA 急性自杀干预首获批",
+      "description": "4~24 小时内快速阻断急性自杀危机",
+      "weight": 2.4
+    },
+    {
+      "source": "DRUG_BREXPIPRAZOLE",
+      "target": "DIS_TRD",
+      "relationship": "TREATS",
+      "label": "首选增效方案",
+      "description": "SDAM 机制一线增效 (FDA批准)",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_ARIPIPRAZOLE",
+      "target": "DIS_TRD",
+      "relationship": "TREATS",
+      "label": "首选增效方案",
+      "description": "多巴胺稳定器辅助增效",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_QUETIAPINE",
+      "target": "DIS_TRD",
+      "relationship": "TREATS",
+      "label": "辅助增效方案",
+      "description": "代谢物 NET 抑制辅助增效",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_LITHIUM",
+      "target": "DIS_TRD",
+      "relationship": "TREATS",
+      "label": "经典增效方案",
+      "description": "通过 GSK-3β 抑制打破难治状态",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_LITHIUM",
+      "target": "DIS_MDSI",
+      "relationship": "TREATS",
+      "label": "经典长期防自杀",
+      "description": "循证医学证实显著降低自杀死亡率",
+      "weight": 2.2
+    },
+    {
+      "source": "DIS_MDD",
+      "target": "DIS_TRD",
+      "relationship": "CORRELATED_WITH",
+      "label": "慢性难治进展",
+      "description": "重度抑郁障碍发展为难治性抑郁",
+      "weight": 2.0
+    },
+    {
+      "source": "DIS_MDD",
+      "target": "DIS_MDSI",
+      "relationship": "CORRELATED_WITH",
+      "label": "急性高危表型",
+      "description": "重度抑郁发作伴随急性自杀危机",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_LITHIUM",
+      "target": "REC_GSK3B",
+      "relationship": "BLOCKER",
+      "label": "直接竞争性抑制",
+      "description": "抑制 GSK-3β 激酶过度磷酸化，防止突触退行性变",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_VALPROATE",
+      "target": "REC_GSK3B",
+      "relationship": "BLOCKER",
+      "label": "间接抑制",
+      "description": "通过 Akt 激活抑制 GSK-3β 并修饰表观遗传",
+      "weight": 2.0
+    },
+    {
+      "source": "REC_GSK3B",
+      "target": "REC_BDNF_TRKB",
+      "relationship": "MODULATES",
+      "label": "激活 Wnt 与 BDNF 转录",
+      "description": "GSK-3β 抑制解除对 β-catenin 的降解刹车，强效上调 BDNF/TrkB",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_VORTIOXETINE",
+      "target": "REC_5HT1A",
+      "relationship": "AGONIST",
+      "label": "全激动 5-HT1A",
+      "description": "促进海马 neurogenesis 与 BDNF 合成",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_VORTIOXETINE",
+      "target": "REC_5HT3",
+      "relationship": "ANTAGONIST",
+      "label": "强效拮抗 5-HT3",
+      "description": "解除对乙酰胆碱与单胺的抑制，显著增强 LTP 突触长时程增强",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_VORTIOXETINE",
+      "target": "REC_5HT7",
+      "relationship": "ANTAGONIST",
+      "label": "强效拮抗 5-HT7",
+      "description": "重塑突触结构与神经环路连接，改善执行与工作记忆",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_VORTIOXETINE",
+      "target": "PATH_HIPPOCAMPAL_PLASTICITY",
+      "relationship": "MODULATES",
+      "label": "突触结构可塑性重塑",
+      "description": "直接增强海马树突分支与突触可塑性",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_SERTRALINE",
+      "target": "REC_SIGMA1",
+      "relationship": "AGONIST",
+      "label": "强效激动 Sigma-1",
+      "description": "促进内质网与线粒体钙稳态，增强神经元突触重塑",
+      "weight": 2.0
+    },
+    {
+      "source": "REC_SIGMA1",
+      "target": "REC_BDNF_TRKB",
+      "relationship": "MODULATES",
+      "label": "促进 BDNF 翻译分泌",
+      "description": "增强神经营养信号",
+      "weight": 2.0
+    },
+    {
+      "source": "REC_SERT",
+      "target": "PATH_HIPPOCAMPAL_PLASTICITY",
+      "relationship": "MODULATES",
+      "label": "长程神经新生",
+      "description": "持续提升 5-HT 浓度触发 CREB 磷酸化与海马神经新生",
+      "weight": 1.8
+    },
+    {
+      "source": "REC_NET",
+      "target": "PATH_HIPPOCAMPAL_PLASTICITY",
+      "relationship": "MODULATES",
+      "label": "促进海马可塑性",
+      "description": "去甲肾上腺素增强突触重构",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_HALOPERIDOL",
+      "target": "REC_D2",
+      "relationship": "ANTAGONIST",
+      "label": "强效阻断",
+      "description": "控制阳性症状",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_HALOPERIDOL",
+      "target": "REC_ALPHA1",
+      "relationship": "ANTAGONIST",
+      "label": "弱阻断",
+      "description": "轻度低血压",
+      "weight": 1.2
+    },
+    {
+      "source": "DRUG_CLOZAPINE",
+      "target": "REC_5HT2A",
+      "relationship": "ANTAGONIST",
+      "label": "强效拮抗",
+      "description": "解除 DA 刹车",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_CLOZAPINE",
+      "target": "REC_D2",
+      "relationship": "ANTAGONIST",
+      "label": "快解离弱拮抗",
+      "description": "极低 EPS",
+      "weight": 1.5
+    },
+    {
+      "source": "DRUG_CLOZAPINE",
+      "target": "REC_5HT1A",
+      "relationship": "PARTIAL_AGONIST",
+      "label": "部分激动",
+      "description": "促 DA 释放与抗抑郁",
+      "weight": 1.2
+    },
+    {
+      "source": "DRUG_CLOZAPINE",
+      "target": "REC_H1",
+      "relationship": "ANTAGONIST",
+      "label": "强阻断",
+      "description": "镇静与食欲增加",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_CLOZAPINE",
+      "target": "REC_M1",
+      "relationship": "ANTAGONIST",
+      "label": "强阻断",
+      "description": "口干便秘",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_CLOZAPINE",
+      "target": "REC_ALPHA1",
+      "relationship": "ANTAGONIST",
+      "label": "强阻断",
+      "description": "体位性低血压",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_OLANZAPINE",
+      "target": "REC_5HT2A",
+      "relationship": "ANTAGONIST",
+      "label": "强效拮抗",
+      "description": "降低 EPS",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_OLANZAPINE",
+      "target": "REC_D2",
+      "relationship": "ANTAGONIST",
+      "label": "中强拮抗",
+      "description": "抗阳性症状",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_OLANZAPINE",
+      "target": "REC_5HT2C",
+      "relationship": "ANTAGONIST",
+      "label": "强效拮抗",
+      "description": "促前额叶 DA/NE 释放但增食欲",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_OLANZAPINE",
+      "target": "REC_H1",
+      "relationship": "ANTAGONIST",
+      "label": "强阻断",
+      "description": "体重增加与镇静",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_OLANZAPINE",
+      "target": "REC_M1",
+      "relationship": "ANTAGONIST",
+      "label": "中强阻断",
+      "description": "口干便秘",
+      "weight": 1.5
+    },
+    {
+      "source": "DRUG_OLANZAPINE",
+      "target": "REC_ALPHA1",
+      "relationship": "ANTAGONIST",
+      "label": "中强阻断",
+      "description": "直立性低血压",
+      "weight": 1.5
+    },
+    {
+      "source": "DRUG_RISPERIDONE",
+      "target": "REC_5HT2A",
+      "relationship": "ANTAGONIST",
+      "label": "极高亲和力拮抗",
+      "description": "非典型抗精神病特征",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_RISPERIDONE",
+      "target": "REC_D2",
+      "relationship": "ANTAGONIST",
+      "label": "高亲和力拮抗",
+      "description": "控制阳性症状",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_RISPERIDONE",
+      "target": "REC_ALPHA1",
+      "relationship": "ANTAGONIST",
+      "label": "强阻断",
+      "description": "体位性低血压",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_QUETIAPINE",
+      "target": "REC_D2",
+      "relationship": "ANTAGONIST",
+      "label": "快解离弱拮抗",
+      "description": "极低 EPS",
+      "weight": 1.5
+    },
+    {
+      "source": "DRUG_QUETIAPINE",
+      "target": "REC_5HT2A",
+      "relationship": "ANTAGONIST",
+      "label": "中强拮抗",
+      "description": "抗精神病",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_QUETIAPINE",
+      "target": "REC_H1",
+      "relationship": "ANTAGONIST",
+      "label": "强阻断",
+      "description": "镇静助眠",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_QUETIAPINE",
+      "target": "REC_ALPHA1",
+      "relationship": "ANTAGONIST",
+      "label": "强阻断",
+      "description": "直立性低血压",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_QUETIAPINE",
+      "target": "REC_M1",
+      "relationship": "ANTAGONIST",
+      "label": "代谢物中强阻断",
+      "description": "抗胆碱能效应",
+      "weight": 1.5
+    },
+    {
+      "source": "DRUG_QUETIAPINE",
+      "target": "REC_NET",
+      "relationship": "INHIBITS",
+      "label": "去甲基代谢物强抑制",
+      "description": "抗双相抑郁",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_QUETIAPINE",
+      "target": "REC_5HT1A",
+      "relationship": "PARTIAL_AGONIST",
+      "label": "部分激动",
+      "description": "抗焦虑抗抑郁",
+      "weight": 1.5
+    },
+    {
+      "source": "DRUG_ARIPIPRAZOLE",
+      "target": "REC_D2",
+      "relationship": "PARTIAL_AGONIST",
+      "label": "部分激动",
+      "description": "多巴胺系统稳定器",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_ARIPIPRAZOLE",
+      "target": "REC_5HT1A",
+      "relationship": "PARTIAL_AGONIST",
+      "label": "部分激动",
+      "description": "抗焦虑抗抑郁",
+      "weight": 1.5
+    },
+    {
+      "source": "DRUG_ARIPIPRAZOLE",
+      "target": "REC_5HT2A",
+      "relationship": "ANTAGONIST",
+      "label": "强效拮抗",
+      "description": "促皮质 DA 释放",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_BREXPIPRAZOLE",
+      "target": "REC_D2",
+      "relationship": "PARTIAL_AGONIST",
+      "label": "D2部分激动 (低内在活性)",
+      "description": "静坐不能风险极低",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_BREXPIPRAZOLE",
+      "target": "REC_5HT1A",
+      "relationship": "PARTIAL_AGONIST",
+      "label": "强效5-HT1A部分激动",
+      "description": "抑郁障碍强效增效",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_BREXPIPRAZOLE",
+      "target": "REC_5HT2A",
+      "relationship": "ANTAGONIST",
+      "label": "强效拮抗",
+      "description": "改善心境与睡眠",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_BREXPIPRAZOLE",
+      "target": "REC_ALPHA1",
+      "relationship": "ANTAGONIST",
+      "label": "弱拮抗",
+      "description": "低心血管不良反应",
+      "weight": 1.2
+    },
+    {
+      "source": "DRUG_CARIPRAZINE",
+      "target": "REC_D3",
+      "relationship": "PARTIAL_AGONIST",
+      "label": "高选择性D3部分激动 (Ki=0.085nM)",
+      "description": "改善阴性症状与认知缺陷",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_CARIPRAZINE",
+      "target": "REC_D2",
+      "relationship": "PARTIAL_AGONIST",
+      "label": "D2部分激动",
+      "description": "抗阳性与抗躁狂",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_CARIPRAZINE",
+      "target": "REC_5HT1A",
+      "relationship": "PARTIAL_AGONIST",
+      "label": "5-HT1A部分激动",
+      "description": "抗双相抑郁",
+      "weight": 1.5
+    },
+    {
+      "source": "DRUG_FLUOXETINE",
+      "target": "REC_SERT",
+      "relationship": "INHIBITS",
+      "label": "强效抑制",
+      "description": "增加 5-HT",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_FLUOXETINE",
+      "target": "REC_5HT2C",
+      "relationship": "ANTAGONIST",
+      "label": "拮抗受体",
+      "description": "增加前额叶 DA/NE",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_SERTRALINE",
+      "target": "REC_SERT",
+      "relationship": "INHIBITS",
+      "label": "强效抑制",
+      "description": "抗抑郁",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_SERTRALINE",
+      "target": "REC_DAT",
+      "relationship": "INHIBITS",
+      "label": "弱抑制",
+      "description": "增加动机与精力",
+      "weight": 1.5
+    },
+    {
+      "source": "DRUG_ESCITALOPRAM",
+      "target": "REC_SERT",
+      "relationship": "INHIBITS",
+      "label": "纯变构抑制",
+      "description": "高特异性抗抑郁",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_VENLAFAXINE",
+      "target": "REC_SERT",
+      "relationship": "INHIBITS",
+      "label": "强效抑制",
+      "description": "抗抑郁",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_VENLAFAXINE",
+      "target": "REC_NET",
+      "relationship": "INHIBITS",
+      "label": "中高剂量抑制",
+      "description": "提升精力与警觉",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_DULOXETINE",
+      "target": "REC_SERT",
+      "relationship": "INHIBITS",
+      "label": "强效抑制",
+      "description": "抗抑郁",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_DULOXETINE",
+      "target": "REC_NET",
+      "relationship": "INHIBITS",
+      "label": "强效抑制",
+      "description": "激活下行镇痛通路",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_MIRTAZAPINE",
+      "target": "REC_ALPHA2A",
+      "relationship": "ANTAGONIST",
+      "label": "阻断自身受体",
+      "description": "脱抑制促进 5-HT/NE 释放",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_MIRTAZAPINE",
+      "target": "REC_5HT2A",
+      "relationship": "ANTAGONIST",
+      "label": "阻断受体",
+      "description": "消除性功能副作用",
+      "weight": 1.5
+    },
+    {
+      "source": "DRUG_MIRTAZAPINE",
+      "target": "REC_5HT2C",
+      "relationship": "ANTAGONIST",
+      "label": "阻断受体",
+      "description": "抗抑郁并增进食欲",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_MIRTAZAPINE",
+      "target": "REC_H1",
+      "relationship": "ANTAGONIST",
+      "label": "强阻断",
+      "description": "助眠镇静",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_VORTIOXETINE",
+      "target": "REC_SERT",
+      "relationship": "INHIBITS",
+      "label": "抑制 SERT",
+      "description": "抗抑郁",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_VORTIOXETINE",
+      "target": "REC_5HT1B_1D",
+      "relationship": "PARTIAL_AGONIST",
+      "label": "自身受体调节",
+      "description": "促单胺释放",
+      "weight": 1.5
+    },
+    {
+      "source": "DRUG_VILAZODONE",
+      "target": "REC_SERT",
+      "relationship": "INHIBITS",
+      "label": "抑制 SERT",
+      "description": "抗抑郁",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_VILAZODONE",
+      "target": "REC_5HT1A",
+      "relationship": "PARTIAL_AGONIST",
+      "label": "高亲和力部分激动",
+      "description": "快速抗抑郁且较少性功能副反应",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_CARBAMAZEPINE",
+      "target": "REC_VGSC",
+      "relationship": "BLOCKER",
+      "label": "阻滞使用依赖性钠通道",
+      "description": "抑制高频病理性放电",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_VALPROATE",
+      "target": "REC_VGSC",
+      "relationship": "BLOCKER",
+      "label": "抑制钠通道",
+      "description": "抗躁狂",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_VALPROATE",
+      "target": "REC_GABAA",
+      "relationship": "PAM",
+      "label": "增强 GABA 合成与代谢抑制",
+      "description": "中枢抑制抗躁狂",
+      "weight": 1.8
+    },
+    {
+      "source": "DRUG_LAMOTRIGINE",
+      "target": "REC_VGSC",
+      "relationship": "BLOCKER",
+      "label": "抑制钠通道",
+      "description": "减少谷氨酸释放，预防双相抑郁",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_PREGABALIN",
+      "target": "REC_ALPHA2DELTA",
+      "relationship": "BLOCKER",
+      "label": "特异性结合 α2δ 亚基",
+      "description": "抑制突触前钙流入与兴奋性递质释放",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_LORAZEPAM",
+      "target": "REC_GABAA",
+      "relationship": "PAM",
+      "label": "正向变构调节",
+      "description": "抗焦虑与镇静",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_ALPRAZOLAM",
+      "target": "REC_GABAA",
+      "relationship": "PAM",
+      "label": "强效调节",
+      "description": "终止惊恐发作",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_DIAZEPAM",
+      "target": "REC_GABAA",
+      "relationship": "PAM",
+      "label": "广谱调节",
+      "description": "抗焦虑肌松",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_CLONAZEPAM",
+      "target": "REC_GABAA",
+      "relationship": "PAM",
+      "label": "高亲和力调节",
+      "description": "长效抗惊恐",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_METHYLPHENIDATE",
+      "target": "REC_DAT",
+      "relationship": "INHIBITS",
+      "label": "阻断再摄取泵",
+      "description": "增加前额叶 DA",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_METHYLPHENIDATE",
+      "target": "REC_NET",
+      "relationship": "INHIBITS",
+      "label": "阻断再摄取泵",
+      "description": "增加前额叶 NE",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_ATOMOXETINE",
+      "target": "REC_NET",
+      "relationship": "INHIBITS",
+      "label": "高选择性阻断",
+      "description": "前额叶同时提升 NE/DA",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_GUANFACINE",
+      "target": "REC_ALPHA2A",
+      "relationship": "AGONIST",
+      "label": "高选择性激动",
+      "description": "强化前额叶树突棘连接",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_LEMBOREXANT",
+      "target": "REC_OX1R_OX2R",
+      "relationship": "ANTAGONIST",
+      "label": "高亲和力双重阻断",
+      "description": "生理性促进入睡与睡眠维持",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_DARIDOREXANT",
+      "target": "REC_OX1R_OX2R",
+      "relationship": "ANTAGONIST",
+      "label": "平衡双重阻断",
+      "description": "改善睡眠同时提升日间精力",
+      "weight": 2.2
+    },
+    {
+      "source": "DRUG_MEMANTINE",
+      "target": "REC_NMDA",
+      "relationship": "BLOCKER",
+      "label": "中等亲和力非竞争性拮抗",
+      "description": "减少谷氨酸兴奋毒性，保护认知",
+      "weight": 2.0
+    },
+    {
+      "source": "DRUG_VALBENAZINE",
+      "target": "REC_VMAT2",
+      "relationship": "INHIBITS",
+      "label": "高选择性抑制",
+      "description": "减少囊泡多巴胺装载与释放，治疗 TD",
+      "weight": 2.2
+    },
+    {
+      "source": "REC_D2",
+      "target": "PATH_MESOLIMBIC",
+      "relationship": "MODULATES",
+      "label": "介导",
+      "description": "D2过度激活导致幻觉妄想",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_D3",
+      "target": "PATH_MESOCORTICAL",
+      "relationship": "MODULATES",
+      "label": "促进认知与动机",
+      "description": "D3部分激动改善前额叶功能",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_5HT2A",
+      "target": "PATH_MESOCORTICAL",
+      "relationship": "MODULATES",
+      "label": "刹车调控",
+      "description": "5-HT2A拮抗脱抑制增加皮质DA释放",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_5HT2C",
+      "target": "PATH_PFC_CIRCUITS",
+      "relationship": "MODULATES",
+      "label": "脱抑制调控",
+      "description": "5-HT2C拮抗增加前额叶DA/NE释放",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_5HT3",
+      "target": "PATH_PFC_CIRCUITS",
+      "relationship": "MODULATES",
+      "label": "促进乙酰胆碱与单胺释放",
+      "description": "显著增强认知与工作记忆",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_5HT7",
+      "target": "PATH_PFC_CIRCUITS",
+      "relationship": "MODULATES",
+      "label": "增强突触可塑性与LTP",
+      "description": "改善抑郁相关认知迟滞",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_D2",
+      "target": "PATH_NIGROSTRIATAL",
+      "relationship": "MODULATES",
+      "label": "运动协调",
+      "description": "D2占有率>80%导致EPS",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_VMAT2",
+      "target": "PATH_NIGROSTRIATAL",
+      "relationship": "MODULATES",
+      "label": "调节囊泡多巴胺释放",
+      "description": "改善迟发性运动障碍不自主运动",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_D2",
+      "target": "PATH_TUBEROINFUNDIBULAR",
+      "relationship": "MODULATES",
+      "label": "内分泌调节",
+      "description": "D2阻断引发催乳素升高",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_GABAA",
+      "target": "PATH_AMYGDALA_CIRCUITS",
+      "relationship": "MODULATES",
+      "label": "中枢刹车抑制",
+      "description": "增强 GABA-A 降低杏仁核过度放电",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_ALPHA2DELTA",
+      "target": "PATH_AMYGDALA_CIRCUITS",
+      "relationship": "MODULATES",
+      "label": "抑制突触前兴奋性信号",
+      "description": "平息杏仁核恐惧环路过度兴奋",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_ALPHA2DELTA",
+      "target": "PATH_PAIN_PATHWAY",
+      "relationship": "MODULATES",
+      "label": "减少脊髓后角钙流入",
+      "description": "降低中枢痛觉敏化",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_NET",
+      "target": "PATH_PAIN_PATHWAY",
+      "relationship": "MODULATES",
+      "label": "强化下行 NE 抑制",
+      "description": "增强内源性下行镇痛",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_DAT",
+      "target": "PATH_PFC_CIRCUITS",
+      "relationship": "MODULATES",
+      "label": "多巴胺清除",
+      "description": "调控注意聚焦",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_NET",
+      "target": "PATH_PFC_CIRCUITS",
+      "relationship": "MODULATES",
+      "label": "NE清除",
+      "description": "调控警觉与冲动控制",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_ALPHA2A",
+      "target": "PATH_PFC_CIRCUITS",
+      "relationship": "MODULATES",
+      "label": "增强信号信噪比",
+      "description": "强化前额叶锥体细胞连接",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_NMDA",
+      "target": "PATH_PFC_CIRCUITS",
+      "relationship": "MODULATES",
+      "label": "突触可塑性与兴奋毒性",
+      "description": "艾司氯胺酮/美金刚调控认知与抑郁",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_OX1R_OX2R",
+      "target": "PATH_HYPOTHALAMIC_AROUSAL",
+      "relationship": "MODULATES",
+      "label": "维持觉醒状态",
+      "description": "食欲素过度放电导致失眠",
+      "weight": 1.0
+    },
+    {
+      "source": "PATH_MESOLIMBIC",
+      "target": "DIS_SCHIZOPHRENIA_POS",
+      "relationship": "CORRELATED_WITH",
+      "label": "驱动",
+      "description": "阳性症状生化根源",
+      "weight": 1.0
+    },
+    {
+      "source": "PATH_MESOCORTICAL",
+      "target": "DIS_SCHIZOPHRENIA_NEG",
+      "relationship": "CORRELATED_WITH",
+      "label": "关联",
+      "description": "皮质功能不足致阴性/认知损害",
+      "weight": 1.0
+    },
+    {
+      "source": "PATH_NIGROSTRIATAL",
+      "target": "SE_EPS",
+      "relationship": "CORRELATED_WITH",
+      "label": "诱发",
+      "description": "锥体外系运动障碍",
+      "weight": 1.0
+    },
+    {
+      "source": "PATH_NIGROSTRIATAL",
+      "target": "DIS_TD",
+      "relationship": "CORRELATED_WITH",
+      "label": "超敏导致",
+      "description": "迟发性运动障碍",
+      "weight": 1.0
+    },
+    {
+      "source": "PATH_TUBEROINFUNDIBULAR",
+      "target": "SE_HYPERPROLACTIN",
+      "relationship": "CORRELATED_WITH",
+      "label": "诱发",
+      "description": "高催乳素血症与溢乳",
+      "weight": 1.0
+    },
+    {
+      "source": "PATH_AMYGDALA_CIRCUITS",
+      "target": "DIS_GAD",
+      "relationship": "CORRELATED_WITH",
+      "label": "驱动",
+      "description": "广泛性焦虑的核心环路",
+      "weight": 1.0
+    },
+    {
+      "source": "PATH_AMYGDALA_CIRCUITS",
+      "target": "DIS_PANIC",
+      "relationship": "CORRELATED_WITH",
+      "label": "驱动",
+      "description": "惊恐发作核心环路",
+      "weight": 1.0
+    },
+    {
+      "source": "PATH_PFC_CIRCUITS",
+      "target": "DIS_ADHD",
+      "relationship": "CORRELATED_WITH",
+      "label": "功能低下介导",
+      "description": "注意缺陷与多动冲动",
+      "weight": 1.0
+    },
+    {
+      "source": "PATH_PFC_CIRCUITS",
+      "target": "DIS_ALZHEIMER",
+      "relationship": "CORRELATED_WITH",
+      "label": "神经退行性损害",
+      "description": "记忆与执行功能衰退",
+      "weight": 1.0
+    },
+    {
+      "source": "PATH_PAIN_PATHWAY",
+      "target": "DIS_NEURO_PAIN",
+      "relationship": "CORRELATED_WITH",
+      "label": "调控",
+      "description": "神经病理性疼痛与纤维肌痛",
+      "weight": 1.0
+    },
+    {
+      "source": "PATH_HYPOTHALAMIC_AROUSAL",
+      "target": "DIS_INSOMNIA",
+      "relationship": "CORRELATED_WITH",
+      "label": "驱动",
+      "description": "入睡困难与睡眠维持障碍",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_HALOPERIDOL",
+      "target": "DIS_SCHIZOPHRENIA_POS",
+      "relationship": "TREATS",
+      "label": "强效控制",
+      "description": "急性精神病性发作与幻觉妄想",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_CLOZAPINE",
+      "target": "DIS_SCHIZOPHRENIA_POS",
+      "relationship": "TREATS",
+      "label": "黄金标准",
+      "description": "难治性精神分裂症一线",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_OLANZAPINE",
+      "target": "DIS_SCHIZOPHRENIA_POS",
+      "relationship": "TREATS",
+      "label": "一线治疗",
+      "description": "精神分裂症",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_OLANZAPINE",
+      "target": "DIS_BIPOLAR_MANIA",
+      "relationship": "TREATS",
+      "label": "一线治疗",
+      "description": "双相躁狂发作",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_RISPERIDONE",
+      "target": "DIS_SCHIZOPHRENIA_POS",
+      "relationship": "TREATS",
+      "label": "一线治疗",
+      "description": "精神分裂症",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_QUETIAPINE",
+      "target": "DIS_SCHIZOPHRENIA_POS",
+      "relationship": "TREATS",
+      "label": "治疗",
+      "description": "精神分裂症",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_QUETIAPINE",
+      "target": "DIS_BIPOLAR_MANIA",
+      "relationship": "TREATS",
+      "label": "一线治疗",
+      "description": "双相躁狂发作",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_QUETIAPINE",
+      "target": "DIS_BIPOLAR_DEP",
+      "relationship": "TREATS",
+      "label": "一线治疗",
+      "description": "双相抑郁发作 (单药获批)",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_QUETIAPINE",
+      "target": "DIS_MDD",
+      "relationship": "TREATS",
+      "label": "增效治疗",
+      "description": "难治性抑郁障碍辅助增效",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_ARIPIPRAZOLE",
+      "target": "DIS_SCHIZOPHRENIA_POS",
+      "relationship": "TREATS",
+      "label": "治疗",
+      "description": "精神分裂症",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_ARIPIPRAZOLE",
+      "target": "DIS_BIPOLAR_MANIA",
+      "relationship": "TREATS",
+      "label": "治疗",
+      "description": "双相躁狂",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_ARIPIPRAZOLE",
+      "target": "DIS_MDD",
+      "relationship": "TREATS",
+      "label": "首选增效",
+      "description": "抑郁障碍辅助增效",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_BREXPIPRAZOLE",
+      "target": "DIS_SCHIZOPHRENIA_POS",
+      "relationship": "TREATS",
+      "label": "一线治疗",
+      "description": "精神分裂症",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_BREXPIPRAZOLE",
+      "target": "DIS_MDD",
+      "relationship": "TREATS",
+      "label": "首选增效治疗",
+      "description": "抑郁障碍增效 (FDA批准)",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_CARIPRAZINE",
+      "target": "DIS_SCHIZOPHRENIA_POS",
+      "relationship": "TREATS",
+      "label": "治疗",
+      "description": "精神分裂症阳性症状",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_CARIPRAZINE",
+      "target": "DIS_SCHIZOPHRENIA_NEG",
+      "relationship": "TREATS",
+      "label": "优势治疗",
+      "description": "基于 D3 机制显著改善阴性症状",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_CARIPRAZINE",
+      "target": "DIS_BIPOLAR_DEP",
+      "relationship": "TREATS",
+      "label": "一线治疗",
+      "description": "双相 I 型抑郁发作",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_CARIPRAZINE",
+      "target": "DIS_BIPOLAR_MANIA",
+      "relationship": "TREATS",
+      "label": "治疗",
+      "description": "双相躁狂发作",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_FLUOXETINE",
+      "target": "DIS_MDD",
+      "relationship": "TREATS",
+      "label": "一线治疗",
+      "description": "抑郁障碍",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_SERTRALINE",
+      "target": "DIS_MDD",
+      "relationship": "TREATS",
+      "label": "治疗",
+      "description": "抑郁障碍",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_SERTRALINE",
+      "target": "DIS_GAD",
+      "relationship": "TREATS",
+      "label": "治疗",
+      "description": "广泛性焦虑障碍",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_ESCITALOPRAM",
+      "target": "DIS_MDD",
+      "relationship": "TREATS",
+      "label": "一线治疗",
+      "description": "抑郁障碍",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_ESCITALOPRAM",
+      "target": "DIS_GAD",
+      "relationship": "TREATS",
+      "label": "一线治疗",
+      "description": "广泛性焦虑障碍",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_VENLAFAXINE",
+      "target": "DIS_MDD",
+      "relationship": "TREATS",
+      "label": "一线治疗",
+      "description": "抑郁障碍",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_DULOXETINE",
+      "target": "DIS_MDD",
+      "relationship": "TREATS",
+      "label": "治疗",
+      "description": "抑郁伴躯体疼痛",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_DULOXETINE",
+      "target": "DIS_NEURO_PAIN",
+      "relationship": "TREATS",
+      "label": "一线治疗",
+      "description": "周围神经病理性疼痛",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_MIRTAZAPINE",
+      "target": "DIS_MDD",
+      "relationship": "TREATS",
+      "label": "治疗",
+      "description": "伴失眠与食欲不振抑郁障碍",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_VORTIOXETINE",
+      "target": "DIS_MDD",
+      "relationship": "TREATS",
+      "label": "多模式一线治疗",
+      "description": "抗抑郁同时显著改善患者执行与工作记忆等认知障碍",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_VILAZODONE",
+      "target": "DIS_MDD",
+      "relationship": "TREATS",
+      "label": "一线治疗",
+      "description": "抑郁障碍 (少性功能副反应)",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_LITHIUM",
+      "target": "DIS_BIPOLAR_MANIA",
+      "relationship": "TREATS",
+      "label": "经典一线",
+      "description": "双相躁狂及长期预防复发",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_VALPROATE",
+      "target": "DIS_BIPOLAR_MANIA",
+      "relationship": "TREATS",
+      "label": "一线治疗",
+      "description": "急性躁狂发作",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_CARBAMAZEPINE",
+      "target": "DIS_BIPOLAR_MANIA",
+      "relationship": "TREATS",
+      "label": "经典一线",
+      "description": "双相躁狂及预防复发",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_LAMOTRIGINE",
+      "target": "DIS_BIPOLAR_DEP",
+      "relationship": "TREATS",
+      "label": "一线预防",
+      "description": "双相抑郁复发预防",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_PREGABALIN",
+      "target": "DIS_GAD",
+      "relationship": "TREATS",
+      "label": "指南一线",
+      "description": "快速缓解广泛性焦虑",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_PREGABALIN",
+      "target": "DIS_NEURO_PAIN",
+      "relationship": "TREATS",
+      "label": "一线治疗",
+      "description": "糖尿病周围神经痛与纤维肌痛",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_LORAZEPAM",
+      "target": "DIS_GAD",
+      "relationship": "TREATS",
+      "label": "快速缓解",
+      "description": "急性焦虑发作",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_ALPRAZOLAM",
+      "target": "DIS_PANIC",
+      "relationship": "TREATS",
+      "label": "强效治疗",
+      "description": "惊恐发作与惊恐障碍",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_DIAZEPAM",
+      "target": "DIS_GAD",
+      "relationship": "TREATS",
+      "label": "治疗",
+      "description": "焦虑与肌紧张",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_CLONAZEPAM",
+      "target": "DIS_PANIC",
+      "relationship": "TREATS",
+      "label": "长效维持",
+      "description": "惊恐障碍",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_METHYLPHENIDATE",
+      "target": "DIS_ADHD",
+      "relationship": "TREATS",
+      "label": "一线兴奋剂",
+      "description": "改善注意力与多动冲动",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_ATOMOXETINE",
+      "target": "DIS_ADHD",
+      "relationship": "TREATS",
+      "label": "一线非兴奋剂",
+      "description": "改善注意力与执行功能",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_GUANFACINE",
+      "target": "DIS_ADHD",
+      "relationship": "TREATS",
+      "label": "非兴奋剂",
+      "description": "强化前额叶网络连接",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_LEMBOREXANT",
+      "target": "DIS_INSOMNIA",
+      "relationship": "TREATS",
+      "label": "新一代一线催眠",
+      "description": "改善入睡与后半夜维持 (无依赖与宿醉)",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_DARIDOREXANT",
+      "target": "DIS_INSOMNIA",
+      "relationship": "TREATS",
+      "label": "突破性治疗",
+      "description": "改善睡眠同时提升日间精力功能",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_MEMANTINE",
+      "target": "DIS_ALZHEIMER",
+      "relationship": "TREATS",
+      "label": "一线神经保护",
+      "description": "中重度阿尔茨海默病认知改善",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_VALBENAZINE",
+      "target": "DIS_TD",
+      "relationship": "TREATS",
+      "label": "FDA首选治疗",
+      "description": "迟发性运动障碍 (TD)",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_M1",
+      "target": "SE_ANTICHOLINERGIC",
+      "relationship": "MODULATES",
+      "label": "诱发",
+      "description": "口干、视物模糊、便秘与嗜睡",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_ALPHA1",
+      "target": "SE_ORTHOSTATIC_HYPOTENSION",
+      "relationship": "MODULATES",
+      "label": "诱发",
+      "description": "直立性低血压与头晕",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_H1",
+      "target": "SE_SEDATION",
+      "relationship": "MODULATES",
+      "label": "诱发",
+      "description": "嗜睡镇静",
+      "weight": 1.0
+    },
+    {
+      "source": "REC_5HT2C",
+      "target": "SE_METABOLIC",
+      "relationship": "MODULATES",
+      "label": "诱发",
+      "description": "食欲大增与代谢体重上升",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_HALOPERIDOL",
+      "target": "SE_EPS",
+      "relationship": "CAUSES",
+      "label": "极高风险",
+      "description": "急性肌张力障碍/静坐不能/类帕金森",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_HALOPERIDOL",
+      "target": "SE_HYPERPROLACTIN",
+      "relationship": "CAUSES",
+      "label": "极高风险",
+      "description": "催乳素显著上升",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_CLOZAPINE",
+      "target": "SE_METABOLIC",
+      "relationship": "CAUSES",
+      "label": "显著增加",
+      "description": "胰岛素抵抗与体重增加",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_CLOZAPINE",
+      "target": "SE_ANTICHOLINERGIC",
+      "relationship": "CAUSES",
+      "label": "显著口干便秘",
+      "description": "强抗胆碱能效应",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_CLOZAPINE",
+      "target": "SE_ORTHOSTATIC_HYPOTENSION",
+      "relationship": "CAUSES",
+      "label": "高风险",
+      "description": "强 α1 阻断",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_OLANZAPINE",
+      "target": "SE_METABOLIC",
+      "relationship": "CAUSES",
+      "label": "显著增加",
+      "description": "代谢综合征与体重增加",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_OLANZAPINE",
+      "target": "SE_SEDATION",
+      "relationship": "CAUSES",
+      "label": "镇静嗜睡",
+      "description": "H1强阻断",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_RISPERIDONE",
+      "target": "SE_EPS",
+      "relationship": "CAUSES",
+      "label": "高剂量诱发",
+      "description": "锥体外系反应",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_RISPERIDONE",
+      "target": "SE_HYPERPROLACTIN",
+      "relationship": "CAUSES",
+      "label": "高风险",
+      "description": "催乳素显著上升",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_RISPERIDONE",
+      "target": "SE_ORTHOSTATIC_HYPOTENSION",
+      "relationship": "CAUSES",
+      "label": "低血压",
+      "description": "α1 阻断",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_QUETIAPINE",
+      "target": "SE_SEDATION",
+      "relationship": "CAUSES",
+      "label": "镇静嗜睡",
+      "description": "强 H1 阻断",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_QUETIAPINE",
+      "target": "SE_ORTHOSTATIC_HYPOTENSION",
+      "relationship": "CAUSES",
+      "label": "头晕低血压",
+      "description": "强 α1 阻断",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_MIRTAZAPINE",
+      "target": "SE_SEDATION",
+      "relationship": "CAUSES",
+      "label": "嗜睡助眠",
+      "description": "强 H1 阻断",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_MIRTAZAPINE",
+      "target": "SE_METABOLIC",
+      "relationship": "CAUSES",
+      "label": "食欲与体重增加",
+      "description": "5-HT2C/H1阻断",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_LORAZEPAM",
+      "target": "SE_SEDATION",
+      "relationship": "CAUSES",
+      "label": "镇静嗜睡",
+      "description": "中枢抑制",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_LORAZEPAM",
+      "target": "SE_ADDICTION_TOLERANCE",
+      "relationship": "CAUSES",
+      "label": "耐受依赖",
+      "description": "建议短期使用",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_ALPRAZOLAM",
+      "target": "SE_ADDICTION_TOLERANCE",
+      "relationship": "CAUSES",
+      "label": "依赖风险",
+      "description": "反跳与戒断",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_DIAZEPAM",
+      "target": "SE_SEDATION",
+      "relationship": "CAUSES",
+      "label": "镇静与肌松",
+      "description": "日间残留嗜睡",
+      "weight": 1.0
+    }
+  ],
+  "stats": {
+    "total_nodes": 112,
+    "total_edges": 255,
+    "categories": [
+      "DrugClass",
+      "Disease",
+      "Drug",
+      "Receptor",
+      "Pathway",
+      "SideEffect"
+    ],
+    "relationships": [
+      "INHIBITS",
+      "BLOCKER",
+      "PARTIAL_AGONIST",
+      "ANTAGONIST",
+      "AGONIST",
+      "CORRELATED_WITH",
+      "TREATS",
+      "CAUSES",
+      "PAM",
+      "IS_A",
+      "MODULATES"
+    ]
+  }
+}
