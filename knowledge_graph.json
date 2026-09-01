@@ -4,7 +4,7 @@
       "id": "REC_D2",
       "label": "D2 多巴胺受体 (D2)",
       "category": "Receptor",
-      "description": "多巴胺 D2 受体，抗精神病药主要治疗靶点（中脑边缘阻断抗阳性，黑质纹状体阻断>80%致 EPS）",
+      "description": "【受体类型】Gi蛋白偶联受体。\n【生理功能】抑制腺苷酸环化酶，调节运动协调、奖赏强化与催乳素分泌。\n【药理意义】抗精神病药主要治疗靶点。中脑边缘通路阻断抗阳性症状；黑质纹状体阻断>80%诱发锥体外系反应 (EPS)；结节漏斗阻断致高催乳素血症。",
       "properties": {
         "type": "GPCR_Gi"
       }
@@ -13,7 +13,7 @@
       "id": "REC_D3",
       "label": "D3 多巴胺受体 (D3)",
       "category": "Receptor",
-      "description": "多巴胺 D3 受体，边缘岛与伏隔核高表达，优先调节认知、心境与动机（卡利拉嗪高亲和靶点）",
+      "description": "【受体类型】Gi蛋白偶联受体。\n【分布特征】高表达于边缘岛、伏隔核与前额叶皮质。\n【药理意义】优先调节认知、社交动机与心境。卡利拉嗪 (Vraylar) 对 D3 具有超高亲和力（D3>D2 达10倍），显著改善精神分裂症阴性症状与认知缺陷。",
       "properties": {
         "type": "GPCR_Gi"
       }
@@ -22,7 +22,7 @@
       "id": "REC_D1",
       "label": "D1 多巴胺受体 (D1)",
       "category": "Receptor",
-      "description": "前额叶锥体细胞高表达，介导工作记忆与执行功能调谐（倒 U 型曲线最佳信噪比）",
+      "description": "【受体类型】Gs蛋白偶联受体。\n【生理功能】前额叶锥体细胞高表达，介导工作记忆与执行功能调谐。\n【药理意义】呈现典型的“倒 U 型”反应曲线，适度 D1 激活提升前额叶网络信噪比与注意力聚焦。",
       "properties": {
         "type": "GPCR_Gs"
       }
@@ -31,7 +31,7 @@
       "id": "REC_DAT",
       "label": "DAT (DA 转运体)",
       "category": "Receptor",
-      "description": "DA 再摄取泵，纹状体与伏隔核多巴胺回收载体，ADHD 兴奋剂、SNDRI 与 NDRI 靶点",
+      "description": "【靶点类型】12次跨膜单胺再摄取泵。\n【生理功能】快速回收突触间隙多巴胺至胞浆。\n【药理意义】中枢兴奋剂（赖右苯丙胺、哌甲酯）、SNDRI（托鲁地文拉法辛）与 NDRI（安非他酮）核心抑制靶点，提升突触间隙 DA 浓度以改善动机与专注。",
       "properties": {
         "type": "Transporter"
       }
@@ -40,7 +40,7 @@
       "id": "REC_VMAT2",
       "label": "VMAT2 (囊泡单胺转运体 2)",
       "category": "Receptor",
-      "description": "囊泡单胺转运泵，伐苯那嗪抑制治疗迟发性运动障碍 (TD)，赖右苯丙胺逆转运促单胺释放",
+      "description": "【靶点类型】囊泡膜单胺转运蛋白。\n【生理功能】将胞浆内的单胺递质转运装载入突触囊泡。\n【药理意义】伐苯那嗪 (Ingrezza) 高选择性抑制 VMAT2 治疗迟发性运动障碍 (TD)；中枢兴奋剂可逆转其转运方向促进单胺释放。",
       "properties": {
         "type": "Transporter"
       }
@@ -49,7 +49,7 @@
       "id": "REC_5HT1A",
       "label": "5-HT1A 受体",
       "category": "Receptor",
-      "description": "5-HT1A 自身与突触后受体，激动具抗焦虑/抗抑郁效应，并上调海马 BDNF 促进神经突触可塑性",
+      "description": "【受体类型】Gi蛋白偶联受体（胞体树突自身受体 & 突触后受体）。\n【生理功能】降低神经元放电，抗焦虑、抗抑郁，上调海马 BDNF/TrkB 表达。\n【药理意义】丁螺环酮、坦度螺酮部分激动发挥平稳抗焦虑；布瑞哌唑、阿立哌唑激动发挥抗抑郁增效。",
       "properties": {
         "type": "GPCR_Gi"
       }
@@ -58,7 +58,7 @@
       "id": "REC_5HT1B_1D",
       "label": "5-HT1B/1D 自身受体",
       "category": "Receptor",
-      "description": "突触前末梢自身受体，阻断解除负反馈刹车，促进 5-HT 爆发性释放（伏硫西汀靶向）",
+      "description": "【受体类型】突触前轴突末梢自身受体。\n【药理意义】阻断解除负反馈刹车，爆发性促进 5-HT 释放。伏硫西汀 (心达悦®) 靶向调节该受体以增强抗抑郁疗效。",
       "properties": {
         "type": "GPCR_Gi"
       }
@@ -67,7 +67,7 @@
       "id": "REC_5HT2A",
       "label": "5-HT2A 受体",
       "category": "Receptor",
-      "description": "非典型抗精神病药核心靶点，拮抗解除多巴胺刹车，降低 EPS 并改善阴性症状",
+      "description": "【受体类型】Gq蛋白偶联受体。\n【药理意义】非典型抗精神病药关键靶点。拮抗 5-HT2A 解除对多巴胺释放的刹车，降低 EPS、改善阴性症状并提升慢波睡眠。",
       "properties": {
         "type": "GPCR_Gq"
       }
@@ -76,7 +76,7 @@
       "id": "REC_5HT2A_INVERSE",
       "label": "5-HT2A 反向激动位点",
       "category": "Receptor",
-      "description": "匹莫范色林高特异性结合位点，反向激动抑制基底活性，治疗帕金森病精神病 (PDP) 且不加重运动障碍",
+      "description": "【受体类型】构象特异性 GPCR 反向激动结合位点。\n【药理意义】匹莫范色林 (Nuplazid) 高特异性结合，下调受体基底内在活性，特异性治疗帕金森病精神病 (PDP) 且不损害多巴胺运动功能。",
       "properties": {
         "type": "GPCR_Conformation"
       }
@@ -85,7 +85,7 @@
       "id": "REC_5HT2C",
       "label": "5-HT2C 受体",
       "category": "Receptor",
-      "description": "拮抗解除对前额叶 DA/NE 释放的抑制刹车，抗抑郁改善认知，阿戈美拉汀/米氮平靶向",
+      "description": "【受体类型】Gq蛋白偶联受体。\n【生理功能】抑制前额叶多巴胺与去甲肾上腺素释放，抑制食欲。\n【药理意义】拮抗 5-HT2C 脱抑制促进前额叶 DA/NE 释放（阿戈美拉汀、米氮平、氟西汀），抗抑郁但易增加食欲与体重。",
       "properties": {
         "type": "GPCR_Gq"
       }
@@ -94,7 +94,7 @@
       "id": "REC_5HT3",
       "label": "5-HT3 受体 (配体门控离子通道)",
       "category": "Receptor",
-      "description": "离子通道受体，拮抗脱抑制促进乙酰胆碱与单胺释放，显著增强认知与长时程增强 (LTP)",
+      "description": "【受体类型】5-HT 受体家族中唯一的配体门控阳离子通道。\n【生理功能】介导恶心呕吐与抑制神经递质释放。\n【药理意义】伏硫西汀强效拮抗 5-HT3，脱抑制促进乙酰胆碱、多巴胺、去甲肾上腺素及组胺释放，显著增强长时程增强 (LTP) 与认知功能。",
       "properties": {
         "type": "IonChannel"
       }
@@ -103,7 +103,7 @@
       "id": "REC_5HT7",
       "label": "5-HT7 受体",
       "category": "Receptor",
-      "description": "调节昼夜节律与突触重塑，拮抗显著增强海马与前额叶突触可塑性与工作记忆",
+      "description": "【受体类型】Gs蛋白偶联受体。\n【生理功能】调节昼夜生物节律与突触重塑。\n【药理意义】拮抗显著增强海马树突分支与突触可塑性，改善抑郁伴随的认知迟滞（伏硫西汀、鲁拉西酮靶向）。",
       "properties": {
         "type": "GPCR_Gs"
       }
@@ -112,7 +112,7 @@
       "id": "REC_SERT",
       "label": "SERT (5-HT 转运体)",
       "category": "Receptor",
-      "description": "5-HT 再摄取泵，抗抑郁药核心抑制靶点，长期抑制驱动海马神经再生与突触重构",
+      "description": "【靶点类型】5-HT 再摄取泵。\n【药理意义】SSRI/SNRI/SNDRI 核心靶点。抑制 SERT 提高突触间隙 5-HT 浓度，长期作用驱动海马神经新生与神经可塑性修复。",
       "properties": {
         "type": "Transporter"
       }
@@ -121,7 +121,7 @@
       "id": "REC_NET",
       "label": "NET (NE 转运体)",
       "category": "Receptor",
-      "description": "NE 再摄取泵，前额叶同时回收 DA 与 NE，ADHD 与抗抑郁关键靶点",
+      "description": "【靶点类型】NE 再摄取泵。\n【生理特征】在前额叶皮质中由于 DAT 表达极低，NET 同时负责回收 NE 与 DA。\n【药理意义】SNRI、SNDRI、NDRI 及托莫西汀抑制 NET，在前额叶同步提升 NE 与 DA，增强注意聚焦与精力。",
       "properties": {
         "type": "Transporter"
       }
@@ -130,7 +130,7 @@
       "id": "REC_ALPHA1",
       "label": "α1 肾上腺素受体",
       "category": "Receptor",
-      "description": "阻断导致直立性低血压；中枢哌唑嗪阻断可平息蓝斑核过度兴奋，治疗 PTSD 创伤性噩梦",
+      "description": "【受体类型】Gq蛋白偶联受体。\n【药理意义】外周阻断引起直立性低血压；中枢哌唑嗪阻断可平息蓝斑核过度放电，特异性消除 PTSD 创伤性噩梦与过度觉醒。",
       "properties": {
         "type": "GPCR_Gq"
       }
@@ -139,7 +139,7 @@
       "id": "REC_ALPHA2A",
       "label": "α2A 肾上腺素受体",
       "category": "Receptor",
-      "description": "前额叶突触后受体，激动增强前额叶网络信噪比（信号增强），改善 ADHD 与执行功能",
+      "description": "【受体类型】Gi蛋白偶联受体。\n【生理功能】前额叶锥体细胞突触后受体，抑制 cAMP-HCN 通路关闭，强化突触连接。\n【药理意义】胍法辛高亲和力激动 α2A，增强前额叶信号信噪比，改善 ADHD 注意力缺陷与执行功能。",
       "properties": {
         "type": "GPCR_Gi"
       }
@@ -148,7 +148,7 @@
       "id": "REC_BETA_ADRENERGIC",
       "label": "β 肾上腺素受体 (β1/β2)",
       "category": "Receptor",
-      "description": "介导外周自主神经兴奋反应（心悸震颤）与杏仁核恐惧记忆再巩固（普萘洛尔靶向阻断）",
+      "description": "【受体类型】Gs蛋白偶联受体。\n【药理意义】介导心悸手抖等躯体焦虑；普萘洛尔阻断该受体可阻断杏仁核恐惧记忆再巩固，缓解 PTSD 与社交焦虑。",
       "properties": {
         "type": "GPCR_Gs"
       }
@@ -157,7 +157,7 @@
       "id": "REC_TAAR1",
       "label": "TAAR1 (微量胺相关受体 1)",
       "category": "Receptor",
-      "description": "突破性突触前细胞内 GPCR 靶点。乌洛他隆 (Ulotaront) 激动 TAAR1 负反馈调谐多巴胺突触前过度放电，不阻断突触后 D2，抗精神病且完全无 EPS 与代谢异常",
+      "description": "【受体类型】突触前细胞内 GPCR 靶点。\n【药理意义】乌洛他隆 (Ulotaront) 激动 TAAR1，通过细胞内级联负反馈抑制多巴胺神经元过度放电，不阻断突触后 D2，抗精神病且完全无 EPS、催乳素升高与代谢紊乱。",
       "properties": {
         "type": "GPCR_Gs_Gq"
       }
@@ -166,7 +166,7 @@
       "id": "REC_GABAA",
       "label": "GABA-A 受体 (氯离子通道)",
       "category": "Receptor",
-      "description": "配体门控氯离子通道，BZD 类正向变构调节 (PAM) 结合位点，介导快速突触中枢抑制",
+      "description": "【受体类型】五聚体配体门控氯离子通道。\n【药理意义】BZD 类正向变构调节剂 (PAM) 结合位点，增加通道开放频率引起超极化，介导快速中枢镇静、抗焦虑与肌松。",
       "properties": {
         "type": "IonChannel"
       }
@@ -175,7 +175,7 @@
       "id": "REC_GABAA_ALPHA1_PARTIAL",
       "label": "GABA-A α1 亚型部分变构结合位点 (pPAM)",
       "category": "Receptor",
-      "description": "地达西尼 (Dimdazenil / EVT201) 高度特异性结合位点。部分正向变构调节（最大活性约 40-50%），精准产生促眠效应且不诱发肌无力跌倒、宿醉嗜睡、反跳性失眠与依赖耐受",
+      "description": "【受体类型】α1 亚基特异性部分正向变构位点。\n【药理意义】地达西尼 (京诺宁®) 特异性结合，内在活性适中（约 40-50%），精准产生促眠效应，彻底克服了完全激动剂的过度肌松跌倒、宿醉嗜睡、反跳性失眠与依赖成瘾风险。",
       "properties": {
         "type": "IonChannel_Subunit"
       }
@@ -184,7 +184,7 @@
       "id": "REC_GABAA_NEUROSTEROID",
       "label": "GABA-A 神经类固醇受体 (δ 亚基)",
       "category": "Receptor",
-      "description": "突触外高亲和力结合位点，佐拉诺酮 (Zuranolone) 与别孕烷醇酮 (Brexanolone) 正向变构调节，产生强效紧张性抑制，快速治疗产后抑郁 (PPD) 与重度抑郁",
+      "description": "【受体类型】突触外高亲和力变构调节位点。\n【药理意义】佐拉诺酮 (Zurzuvae) 与别孕烷醇酮 (Zulresso) 结合，介导持续紧张性抑制 (Tonic Inhibition)，快速治愈产后抑郁 (PPD) 与重度抑郁。",
       "properties": {
         "type": "IonChannel_Extrasynaptic"
       }
@@ -193,7 +193,7 @@
       "id": "REC_GHB_GABAB",
       "label": "GABA-B / GHB 受体",
       "category": "Receptor",
-      "description": "G 蛋白偶联 GABA-B 与 GHB 特异性受体，羟丁酸钠激动恢复慢波睡眠并抑制发作性睡病猝倒",
+      "description": "【受体类型】Gi偶联受体。\n【药理意义】羟丁酸钠 (Xyrem) 激动该受体，恢复并巩固深慢波睡眠，特异性消除发作性睡病猝倒发作。",
       "properties": {
         "type": "GPCR_Gi"
       }
@@ -202,7 +202,7 @@
       "id": "REC_NMDA",
       "label": "NMDA 谷氨酸受体",
       "category": "Receptor",
-      "description": "钙离子通道受体，艾司氯胺酮/右美沙芬阻断触发谷氨酸爆发；美金刚阻断过度兴奋毒性",
+      "description": "【受体类型】配体与电压双重门控钙离子通道。\n【药理意义】艾司氯胺酮 (速开朗®) 瞬时阻断 GABA 抑制中间神经元 NMDA 触发谷氨酸爆发；美金刚 (易倍申®) 拮抗过度兴奋毒性保护阿尔茨海默病突触。",
       "properties": {
         "type": "IonChannel"
       }
@@ -211,7 +211,7 @@
       "id": "REC_AMPA",
       "label": "AMPA 谷氨酸受体",
       "category": "Receptor",
-      "description": "介导快速兴奋性神经传递，去极化激活 VDCC 与脱镁解除 NMDA 阻滞，触发长时程增强 (LTP) 与突触发生",
+      "description": "【受体类型】配体门控阳离子通道。\n【药理意义】介导快速兴奋性传递。艾司氯胺酮引起的谷氨酸爆发激活突触后 AMPA，开启 VDCC 钙内流与 mTORC1 级联，驱动突触结构再生与长时程增强 (LTP)。",
       "properties": {
         "type": "IonChannel_Plasticity"
       }
@@ -220,7 +220,7 @@
       "id": "REC_BDNF_TRKB",
       "label": "BDNF / TrkB 信号轴",
       "category": "Receptor",
-      "description": "脑源性神经营养因子及其受体 TrkB，驱动树突分支新生、突触棘重塑及神经元存活的核心生命线",
+      "description": "【靶点类型】酪氨酸激酶受体 B (TrkB) 与脑源性神经营养因子。\n【生理功能】促进神经元存活、树突分支发生、突触棘成熟。\n【药理意义】抗抑郁药物长期起效、快速抗抑郁药突触再生的终末共同通路。",
       "properties": {
         "type": "Neurotrophin_Receptor"
       }
@@ -229,7 +229,7 @@
       "id": "REC_MTORC1",
       "label": "mTORC1 突触蛋白合成级联",
       "category": "Receptor",
-      "description": "下游突触结构蛋白（PSD-95、GluA1）翻译的总控开关，介导快速突触再生与树突新生",
+      "description": "【靶点类型】细胞内雷帕霉素靶蛋白复合物 1。\n【药理意义】快速抗抑郁核心开关。激活后迅速启动 PSD-95、GluA1 等关键突触骨架蛋白翻译，数小时内逆转突触萎缩。",
       "properties": {
         "type": "Kinase_Complex"
       }
@@ -238,7 +238,7 @@
       "id": "REC_GSK3B",
       "label": "GSK-3β 激酶",
       "category": "Receptor",
-      "description": "过度活跃导致神经凋亡与突触退化；锂盐/丙戊酸抑制其活性以发挥神经保护、突触重塑与防自杀",
+      "description": "【靶点类型】糖原合酶激酶 3β。\n【生理机制】过度活跃导致突触退化与神经元凋亡。\n【药理意义】碳酸锂直接竞争性抑制 GSK-3β，激活 Wnt/β-catenin 与 BDNF 转录，发挥神经保护、突触重塑与经典防自杀效应。",
       "properties": {
         "type": "Kinase_Target"
       }
@@ -247,7 +247,7 @@
       "id": "REC_SIGMA1",
       "label": "Sigma-1 伴侣受体",
       "category": "Receptor",
-      "description": "内质网分子伴侣，氟伏沙明/舍曲林/右美沙芬结合促进突触可塑性、自噬及神经营养因子释放",
+      "description": "【靶点类型】内质网分子伴侣蛋白。\n【药理意义】氟伏沙明 (兰释®)、舍曲林、右美沙芬激动 Sigma-1，促进突触可塑性、细胞自噬及减轻内质网应激炎症。",
       "properties": {
         "type": "Chaperone_Protein"
       }
@@ -256,7 +256,7 @@
       "id": "REC_ALPHA2DELTA",
       "label": "α2δ 电压门控钙通道 (VGCC)",
       "category": "Receptor",
-      "description": "电压门控钙通道 α2δ 配体结合位点，普瑞巴林/加巴喷丁结合后抑制突触前过度钙内流，减少病理性兴奋递质释放",
+      "description": "【靶点类型】电压门控钙通道 α2δ 辅助亚基。\n【药理意义】普瑞巴林结合 α2δ 抑制过度钙内流，减少病理性谷氨酸、P物质释放，快速抗焦虑与缓解神经病理性疼痛。",
       "properties": {
         "type": "IonChannel_Subunit"
       }
@@ -265,7 +265,7 @@
       "id": "REC_VGSC",
       "label": "VGSC 电压门控钠通道",
       "category": "Receptor",
-      "description": "卡马西平/拉莫三嗪/丙戊酸钠靶点，延缓失活状态恢复，抑制病理性高频异常放电",
+      "description": "【靶点类型】电压依赖性快速钠通道。\n【药理意义】卡马西平、拉莫三嗪使用依赖性阻断钠通道，抑制高频病理性神经元爆发放电，发挥心境稳定与抗癫痫作用。",
       "properties": {
         "type": "IonChannel"
       }
@@ -274,7 +274,7 @@
       "id": "REC_MT1_MT2",
       "label": "MT1 / MT2 褪黑素受体",
       "category": "Receptor",
-      "description": "下丘脑视交叉上核 (SCN) 褪黑素受体。MT1 介导促眠，MT2 介导昼夜节律相位重调（阿戈美拉汀/雷美替胺强激动）",
+      "description": "【受体类型】下丘脑视交叉上核 (SCN) Gi偶联受体。\n【药理意义】MT1 介导促进入睡，MT2 介导昼夜节律相位重调。阿戈美拉汀 (韦度®) 与雷美替胺激动 MT1/MT2 重塑生物钟。",
       "properties": {
         "type": "GPCR_Gi"
       }
@@ -283,7 +283,7 @@
       "id": "REC_OX1R_OX2R",
       "label": "OX1R / OX2R 食欲素受体",
       "category": "Receptor",
-      "description": "下丘脑觉醒中枢神经肽受体。OX2R 直接主导维持觉醒与睡眠开关，OX1R 调控警觉与奖赏动机。双重拮抗剂 (DORA：法赞雷生、沃诺雷生、莱博雷生、达利雷生) 靶向特异性促进入睡与睡眠维持",
+      "description": "【受体类型】下丘脑觉醒中枢神经肽受体。\n【生理机制】OX2R 直接主导睡眠-觉醒开关，OX1R 调控警觉与应激。\n【药理意义】双重食欲素拮抗剂 (DORA：法赞雷生、沃诺雷生 Vorzzz、莱博雷生 达卫可®、达利雷生 Quviviq) 阻断觉醒信号，恢复生理性睡眠结构，无耐受与宿醉。",
       "properties": {
         "type": "GPCR_Trio"
       }
@@ -292,7 +292,7 @@
       "id": "REC_H1",
       "label": "H1 组胺受体",
       "category": "Receptor",
-      "description": "阻断导致嗜睡、镇静、食欲亢进及代谢体重增加（低剂量多虑平助眠）",
+      "description": "【受体类型】Gq蛋白偶联受体。\n【药理意义】中枢阻断导致嗜睡、镇静、食欲亢进及代谢体重增加（低剂量多虑平催眠）。",
       "properties": {
         "type": "GPCR_Gq"
       }
@@ -301,7 +301,7 @@
       "id": "REC_HISTAMINE_H3",
       "label": "H3 组胺自身/异源受体",
       "category": "Receptor",
-      "description": "突触前自身负反馈受体，替洛利生（匹托利生）拮抗/反向激动脱抑制促进脑内组胺释放，强效促醒",
+      "description": "【受体类型】突触前负反馈 Gi 偶联受体。\n【药理意义】替洛利生 (铧可思®) 拮抗/反向激动 H3 解除自身刹车，促进脑内组胺爆发释放，强效促醒并消除发作性睡病猝倒。",
       "properties": {
         "type": "GPCR_Gi"
       }
@@ -310,7 +310,7 @@
       "id": "REC_ACHE",
       "label": "AChE (乙酰胆碱酯酶)",
       "category": "Receptor",
-      "description": "突触间隙乙酰胆碱降解酶，多奈哌齐/卡巴拉汀/加兰他敏抑制以提升胆碱能信号与认知功能",
+      "description": "【靶点类型】胆碱能突触间隙降解酶。\n【药理意义】多奈哌齐 (安理申®)、卡巴拉汀 (艾斯能®)、加兰他敏可逆性抑制 AChE，提升脑内乙酰胆碱水平改善认知。",
       "properties": {
         "type": "Enzyme"
       }
@@ -319,7 +319,7 @@
       "id": "REC_NACHR_ALPHA4BETA2",
       "label": "α4β2 烟碱型乙酰胆碱受体 (nAChR)",
       "category": "Receptor",
-      "description": "中脑奖赏中枢与前额叶高亲和力受体，伐尼克兰部分激动用于戒烟，右美沙芬别构调节",
+      "description": "【靶点类型】中脑多巴胺奖赏中枢配体门控通道。\n【药理意义】伐尼克兰 (畅沛®) 高度选择性部分激动，适度释放多巴胺缓解戒断痛苦，同时阻断尼古丁结合以戒烟。",
       "properties": {
         "type": "IonChannel"
       }
@@ -328,7 +328,7 @@
       "id": "REC_M1",
       "label": "M1 毒蕈碱胆碱受体",
       "category": "Receptor",
-      "description": "皮层与海马重要认知受体；抗精神病药阻断导致口干、便秘、视物模糊及认知损害",
+      "description": "【受体类型】Gq偶联受体。\n【药理意义】皮层与海马重要认知受体；抗精神病药与三环类阻断导致口干、便秘、视物模糊及认知损害。",
       "properties": {
         "type": "GPCR_Gq"
       }
@@ -337,7 +337,7 @@
       "id": "REC_AMYLOID_BETA",
       "label": "Aβ 淀粉样蛋白原纤维 (Amyloid-β)",
       "category": "Receptor",
-      "description": "阿尔茨海默病核心毒性寡聚体/斑块，仑卡奈单抗/多奈单抗特异性结合清除以延缓病程进展",
+      "description": "【靶点类型】阿尔茨海默病核心毒性可溶性原纤维与沉积斑块。\n【药理意义】仑卡奈单抗 (乐意保®) 与多奈单抗 (Kisunla) 特异性结合并清除 Aβ，显著延缓阿尔茨海默病早期认知衰退进程。",
       "properties": {
         "type": "Protein_Aggregate"
       }
@@ -346,7 +346,7 @@
       "id": "REC_MU_OPIOID",
       "label": "μ-阿片受体 (MOR)",
       "category": "Receptor",
-      "description": "介导镇痛与强效奖赏欣快感；美沙酮全激动，丁丙诺啡部分激动，纳曲酮/纳洛酮强效阻断",
+      "description": "【受体类型】Gi蛋白偶联受体。\n【药理意义】介导镇痛与强效奖赏欣快感。丁丙诺啡部分激动用于替代维持；纳曲酮阻断防复吸；纳洛酮纯拮抗用于急性中毒解毒。",
       "properties": {
         "type": "GPCR_Gi"
       }
@@ -355,7 +355,7 @@
       "id": "REC_KAPPA_OPIOID",
       "label": "κ-阿片受体 (KOR)",
       "category": "Receptor",
-      "description": "介导成瘾戒断期烦躁焦虑与负性心境；丁丙诺啡拮抗该受体产生抗抑郁与防复吸效应",
+      "description": "【受体类型】Gi偶联受体。\n【药理意义】介导戒断烦躁负性情绪。丁丙诺啡拮抗 κ-受体产生抗抑郁与防复吸协同效应。",
       "properties": {
         "type": "GPCR_Gi"
       }
@@ -364,7 +364,7 @@
       "id": "REC_ALDH",
       "label": "ALDH (乙醛脱氢酶)",
       "category": "Receptor",
-      "description": "肝脏酒精代谢关键酶，双硫仑不可逆抑制诱发乙醛蓄积产生戒酒厌恶反应",
+      "description": "【靶点类型】肝脏酒精代谢关键酶。\n【药理意义】双硫仑不可逆抑制 ALDH，饮酒后乙醛剧烈蓄积诱发面红恶心胸闷厌恶反应，强制戒酒。",
       "properties": {
         "type": "Enzyme"
       }
@@ -373,7 +373,7 @@
       "id": "PATH_CIRCADIAN_SCN",
       "label": "视交叉上核 (SCN) 昼夜节律网络",
       "category": "Pathway",
-      "description": "体内主生物钟起搏器。阿戈美拉汀通过 MT1/MT2 激动结合 5-HT2C 拮抗协同重塑昼夜生物节律，恢复慢波睡眠与情绪节律",
+      "description": "体内主生物钟起搏器。阿戈美拉汀 (韦度®) 通过 MT1/MT2 激动结合 5-HT2C 拮抗协同重塑昼夜生物节律，恢复慢波睡眠与情绪节律",
       "properties": {
         "neurotransmitter": "Melatonin/5-HT/GABA"
       }
@@ -472,7 +472,7 @@
       "id": "PATH_VLPO_SLEEP_SWITCH",
       "label": "腹外侧视前核 (VLPO) 睡眠开启中枢",
       "category": "Pathway",
-      "description": "中枢睡眠开关，通过 GABA 和甘氨酸抑制脑干觉醒中心，地达西尼与 BZD 类协同激活促进入睡",
+      "description": "中枢睡眠开关，通过 GABA 和甘氨酸抑制脑干觉醒中心，地达西尼 (京诺宁®) 与 BZD 类协同激活促进入睡",
       "properties": {
         "neurotransmitter": "GABA/Glycine"
       }
@@ -481,7 +481,7 @@
       "id": "PATH_TMN_HISTAMINE_AROUSAL",
       "label": "结节乳头体核 (TMN) 组胺促醒通路",
       "category": "Pathway",
-      "description": "释放组胺维持大脑皮层警觉与清醒状态，替洛利生（匹托利生）通过 H3 拮抗激活该通路促醒",
+      "description": "释放组胺维持大脑皮层警觉与清醒状态，替洛利生 (铧可思®) 通过 H3 拮抗激活该通路促醒",
       "properties": {
         "neurotransmitter": "Histamine"
       }
@@ -517,14 +517,14 @@
       "id": "DIS_MDSI",
       "label": "伴急性自杀意念或行为的重度抑郁发作 (MDSI)",
       "category": "Disease",
-      "description": "精神科紧急危重表型（Major Depressive Episode with Acute Suicidal Ideation or Behavior）。艾司氯胺酮联合口服抗抑郁药可在 4~24 小时内快速缓解急性自杀意念，碳酸锂具长期防自杀效应",
+      "description": "精神科紧急危重表型（Major Depressive Episode with Acute Suicidal Ideation or Behavior）。艾司氯胺酮 (速开朗®) 联合口服抗抑郁药可在 4~24 小时内快速缓解急性自杀意念，碳酸锂具长期防自杀效应",
       "properties": {}
     },
     {
       "id": "DIS_TRD",
       "label": "难治性抑郁障碍 (TRD)",
       "category": "Disease",
-      "description": "对≥2种不同机制足量足疗程抗抑郁药应答不佳的难治状态（Treatment-Resistant Depression）。艾司氯胺酮 (Spravato)、SNDRI 托鲁地文拉法辛、Auvelity、D2/D3 部分激动剂（布瑞哌唑、阿立哌唑）、喹硫平、锂盐增效为关键方案",
+      "description": "对≥2种不同机制足量足疗程抗抑郁药应答不佳的难治状态（Treatment-Resistant Depression）。艾司氯胺酮 (速开朗®)、SNDRI 托鲁地文拉法辛 (若欣林®)、Auvelity、D2/D3 部分激动剂（布瑞哌唑 敏达妥®、阿立哌唑）、喹硫平、锂盐增效为关键方案",
       "properties": {}
     },
     {
@@ -538,7 +538,7 @@
       "id": "DIS_PPD",
       "label": "产后抑郁障碍 (PPD)",
       "category": "Disease",
-      "description": "产后神经类固醇急剧骤降导致 GABA-A 受体失调的特异表型，佐拉诺酮 (Zuranolone) 与别孕烷醇酮 (Brexanolone) 靶向快速显效",
+      "description": "产后神经类固醇急剧骤降导致 GABA-A 受体失调的特异表型，佐拉诺酮 (Zurzuvae) 与别孕烷醇酮 (Zulresso) 靶向快速显效",
       "properties": {}
     },
     {
@@ -559,7 +559,7 @@
       "id": "DIS_PDP",
       "label": "帕金森病精神病 (PDP)",
       "category": "Disease",
-      "description": "帕金森患者多巴胺替代治疗后诱发的幻觉妄想，匹莫范色林 5-HT2A 反向激动特异性治疗且不损害运动功能",
+      "description": "帕金森患者多巴胺替代治疗后诱发的幻觉妄想，匹莫范色林 (Nuplazid) 5-HT2A 反向激动特异性治疗且不损害运动功能",
       "properties": {}
     },
     {
@@ -573,7 +573,7 @@
       "id": "DIS_BIPOLAR_DEP",
       "label": "双相抑郁发作 (Bipolar Depression)",
       "category": "Disease",
-      "description": "双相障碍抑郁期，需防止转躁（卡利拉嗪/卢玛哌酮/喹硫平/拉莫三嗪一线）",
+      "description": "双相障碍抑郁期，需防止转躁（卡利拉嗪/卢玛哌酮 Caplyta/喹硫平/拉莫三嗪一线）",
       "properties": {}
     },
     {
@@ -608,28 +608,28 @@
       "id": "DIS_OCD",
       "label": "强迫障碍 (OCD)",
       "category": "Disease",
-      "description": "强迫思维与强迫仪式动作，CSTC 环路功能失调（氟伏沙明/高剂量 SSRI/氯米帕明一线）",
+      "description": "强迫思维与强迫仪式动作，CSTC 环路功能失调（氟伏沙明 兰释®/高剂量 SSRI/氯米帕明一线）",
       "properties": {}
     },
     {
       "id": "DIS_INSOMNIA",
       "label": "失眠障碍 (Insomnia)",
       "category": "Disease",
-      "description": "入睡困难与睡眠维持困难（法赞雷生/沃诺雷生/莱博雷生/达利雷生/地达西尼/阿戈美拉汀靶向）",
+      "description": "入睡困难与睡眠维持困难（地达西尼 京诺宁®/法赞雷生/沃诺雷生 Vorzzz/莱博雷生 达卫可®/达利雷生/阿戈美拉汀靶向）",
       "properties": {}
     },
     {
       "id": "DIS_NARCOLEPSY",
       "label": "发作性睡病与猝倒症 (Narcolepsy)",
       "category": "Disease",
-      "description": "下丘脑食欲素神经元丢失所致日间不可抗拒睡眠与情绪诱发猝倒（莫达非尼/羟丁酸钠/替洛利生）",
+      "description": "下丘脑食欲素神经元丢失所致日间不可抗拒睡眠与情绪诱发猝倒（莫达非尼/替洛利生 铧可思®/羟丁酸钠）",
       "properties": {}
     },
     {
       "id": "DIS_ADHD",
       "label": "注意力缺陷多动障碍 (ADHD)",
       "category": "Disease",
-      "description": "注意力不集中、多动与冲动（赖右苯丙胺（利右苯丙胺）/哌甲酯/托莫西汀/胍法辛/维洛沙嗪）",
+      "description": "注意力不集中、多动与冲动（赖右苯丙胺（利右苯丙胺）/哌甲酯 专注达®/托莫西汀 择思达®/胍法辛/维洛沙嗪 Qelbree）",
       "properties": {}
     },
     {
@@ -643,14 +643,14 @@
       "id": "DIS_ALZHEIMER",
       "label": "阿尔茨海默病与认知障碍 (Alzheimer's Disease)",
       "category": "Disease",
-      "description": "进行性记忆力减退、定向力障碍与突触退行性损害（多奈哌齐/卡巴拉汀/美金刚/仑卡奈单抗）",
+      "description": "进行性记忆力减退、定向力障碍与突触退行性损害（多奈哌齐 安理申®/卡巴拉汀 艾斯能®/美金刚 易倍申®/仑卡奈单抗 乐意保®）",
       "properties": {}
     },
     {
       "id": "DIS_TD",
       "label": "迟发性运动障碍 (TD)",
       "category": "Disease",
-      "description": "长期使用抗精神病药后多巴胺受体超敏导致的不自主口面部及肢体舞蹈样运动（VMAT2 抑制剂伐苯那嗪治疗）",
+      "description": "长期使用抗精神病药后多巴胺受体超敏导致的不自主口面部及肢体舞蹈样运动（VMAT2 抑制剂伐苯那嗪 欣维妥® 治疗）",
       "properties": {}
     },
     {
@@ -671,7 +671,7 @@
       "id": "DIS_TOBACCO",
       "label": "烟草依赖与戒烟 (Tobacco / Nicotine Dependence)",
       "category": "Disease",
-      "description": "尼古丁成瘾与戒断焦虑（伐尼克兰/安非他酮）",
+      "description": "尼古丁成瘾与戒断焦虑（伐尼克兰 畅沛®/安非他酮）",
       "properties": {}
     },
     {
@@ -706,7 +706,7 @@
       "id": "SE_ADDICTION_TOLERANCE",
       "label": "耐受与依赖风险 (Tolerance & Dependence)",
       "category": "SideEffect",
-      "description": "中枢兴奋剂与 BZD 类需评估耐受、成瘾与戒断风险（赖右苯丙胺通过前药机制降低滥用倾向，地达西尼通过部分变构极大降低成瘾）",
+      "description": "中枢兴奋剂与 BZD 类需评估耐受、成瘾与戒断风险（赖右苯丙胺通过前药机制降低滥用倾向，地达西尼 京诺宁® 通过部分变构极大降低成瘾）",
       "properties": {}
     },
     {
@@ -734,14 +734,14 @@
       "id": "CLS_SDA",
       "label": "第二代非典型抗精神病药 (SDA / 5-HT2A-D2 拮抗)",
       "category": "DrugClass",
-      "description": "5-HT2A/D2 拮抗剂（如奥氮平、利培酮、喹硫平、氯氮平、卢玛哌酮）",
+      "description": "5-HT2A/D2 拮抗剂（如奥氮平、利培酮、喹硫平、氯氮平、卢玛哌酮 Caplyta）",
       "properties": {}
     },
     {
       "id": "CLS_D2_PARTIAL",
       "label": "D2/D3 部分激动剂 (SDAM / DPA)",
       "category": "DrugClass",
-      "description": "多巴胺活性稳定器（阿立哌唑、布瑞哌唑、卡利拉嗪）",
+      "description": "多巴胺活性稳定器（阿立哌唑、布瑞哌唑 敏达妥®、卡利拉嗪 Vraylar）",
       "properties": {}
     },
     {
@@ -755,14 +755,14 @@
       "id": "CLS_5HT2A_INVERSE",
       "label": "5-HT2A 反向激动剂 (5-HT2A Inverse Agonists)",
       "category": "DrugClass",
-      "description": "匹莫范色林 (Pimavanserin)，高选择性反向激动 5-HT2A，特异性治疗帕金森病精神病 (PDP)",
+      "description": "匹莫范色林 (Nuplazid)，高选择性反向激动 5-HT2A，特异性治疗帕金森病精神病 (PDP)",
       "properties": {}
     },
     {
       "id": "CLS_SSRI",
       "label": "选择性 5-HT 再摄取抑制剂 (SSRI)",
       "category": "DrugClass",
-      "description": "一线抗抑郁抗焦虑药（氟西汀、舍曲林、艾司西酞普兰、氟伏沙明），长期使用上调 BDNF",
+      "description": "一线抗抑郁抗焦虑药（氟西汀、舍曲林、艾司西酞普兰、氟伏沙明 兰释®），长期使用上调 BDNF",
       "properties": {}
     },
     {
@@ -776,7 +776,7 @@
       "id": "CLS_SNDRI",
       "label": "5-HT / NE / DA 三重再摄取抑制剂 (SNDRI / TRI)",
       "category": "DrugClass",
-      "description": "三重单胺再摄取抑制剂。同步抑制 SERT、NET 和 DAT，改善快感缺失与疲乏（托鲁地文拉法辛 Toludesvenlafaxine）",
+      "description": "三重单胺再摄取抑制剂。同步抑制 SERT、NET 和 DAT，改善快感缺失与疲乏（托鲁地文拉法辛 若欣林®）",
       "properties": {}
     },
     {
@@ -790,42 +790,42 @@
       "id": "CLS_SMS",
       "label": "5-HT 多模式调节剂 (SMS)",
       "category": "DrugClass",
-      "description": "再摄取抑制 + 多重 5-HT 受体变构调节，强效增强突触可塑性（伏硫西汀 Vortioxetine）",
+      "description": "再摄取抑制 + 多重 5-HT 受体变构调节，强效增强突触可塑性（伏硫西汀 心达悦®）",
       "properties": {}
     },
     {
       "id": "CLS_SPARI",
       "label": "5-HT 再摄取抑制与 5-HT1A 部分激动剂 (SPARI)",
       "category": "DrugClass",
-      "description": "维拉佐酮 (Vilazodone)，快速抗抑郁且较少性功能副作用",
+      "description": "维拉佐酮 (Viibryd)，快速抗抑郁且较少性功能副作用",
       "properties": {}
     },
     {
       "id": "CLS_MASSA",
       "label": "褪黑素受体激动与 5-HT2C 拮抗剂 (MASSA)",
       "category": "DrugClass",
-      "description": "褪黑素能与单胺能协同抗抑郁药，激活 MT1/MT2 并拮抗 5-HT2C（阿戈美拉汀 Agomelatine）",
+      "description": "褪黑素能与单胺能协同抗抑郁药，激活 MT1/MT2 并拮抗 5-HT2C（阿戈美拉汀 韦度®）",
       "properties": {}
     },
     {
       "id": "CLS_GABAA_NEUROSTEROID_PAM",
       "label": "GABA-A 神经类固醇受体正向变构调节剂 (Neurosteroids)",
       "category": "DrugClass",
-      "description": "佐拉诺酮 (Zuranolone) 与别孕烷醇酮 (Brexanolone)，靶向突触外 δ-GABA-A 受体，快速治疗产后与重度抑郁",
+      "description": "佐拉诺酮 (Zurzuvae) 与别孕烷醇酮 (Zulresso)，靶向突触外 δ-GABA-A 受体，快速治疗产后与重度抑郁",
       "properties": {}
     },
     {
       "id": "CLS_DXM_BUP",
       "label": "NMDA 拮抗与单胺调节复方 (Auvelity)",
       "category": "DrugClass",
-      "description": "右美沙芬-安非他酮复方，口服快速起效抗抑郁突破药",
+      "description": "右美沙芬-安非他酮复方 (Auvelity)，口服快速起效抗抑郁突破药",
       "properties": {}
     },
     {
       "id": "CLS_NMDA_MODULATOR",
       "label": "NMDA 调节与突触再生剂 (NMDA Modulators)",
       "category": "DrugClass",
-      "description": "艾司氯胺酮 (Spravato，激活 AMPA/mTOR 快速突触再生、治疗 TRD 与 MDSI)、美金刚 (阿尔茨海默病神经保护)",
+      "description": "艾司氯胺酮 (速开朗®，激活 AMPA/mTOR 快速突触再生、治疗 TRD 与 MDSI)、美金刚 (易倍申®，阿尔茨海默病神经保护)",
       "properties": {}
     },
     {
@@ -846,7 +846,7 @@
       "id": "CLS_GABAA_PARTIAL_PAM",
       "label": "GABA-A 受体部分正向变构调节剂 (Partial PAM / 半激动剂)",
       "category": "DrugClass",
-      "description": "地达西尼 (Dimdazenil / EVT201)，高选择性结合 α1 亚基部分激活，精准助眠且无肌无力、宿醉与反跳成瘾",
+      "description": "地达西尼 (京诺宁®)，高选择性结合 α1 亚基部分激活，精准助眠且无肌无力、宿醉与反跳成瘾",
       "properties": {}
     },
     {
@@ -867,560 +867,560 @@
       "id": "CLS_5HT1A_PARTIAL_ANXIOLYTIC",
       "label": "5-HT1A 部分激动抗焦虑剂 (Azapirones)",
       "category": "DrugClass",
-      "description": "丁螺环酮 (Buspirone)、坦度螺酮 (Tandospirone)，无镇静肌松成瘾",
+      "description": "丁螺环酮 (Buspirone)、坦度螺酮 (律康®)，无镇静肌松成瘾",
       "properties": {}
     },
     {
       "id": "CLS_DORA",
       "label": "双重食欲素受体拮抗剂 (DORA / 双食欲素拮抗)",
       "category": "DrugClass",
-      "description": "靶向阻断 OX1R 和 OX2R 受体，生理性诱导入睡与睡眠维持（法赞雷生 Fazamorexant、沃诺雷生（沃替雷生） Vornorexant、莱博雷生 Lemborexant、达利雷生 Daridorexant）",
+      "description": "靶向阻断 OX1R 和 OX2R 受体，生理性诱导入睡与睡眠维持（法赞雷生、沃诺雷生 Vorzzz、莱博雷生 达卫可®、达利雷生 Quviviq）",
       "properties": {}
     },
     {
       "id": "CLS_WAKE_PROMOTING",
       "label": "中枢促醒剂 (Wake-Promoting Agents)",
       "category": "DrugClass",
-      "description": "莫达非尼 (Modafinil)、阿莫达非尼 (Armodafinil)，弱 DAT 抑制促醒",
+      "description": "莫达非尼 (Provigil)、阿莫达非尼 (Nuvigil)，弱 DAT 抑制促醒",
       "properties": {}
     },
     {
       "id": "CLS_H3_ANTAGONIST",
       "label": "H3 组胺受体拮抗/反向激动剂 (H3 Antagonists)",
       "category": "DrugClass",
-      "description": "替洛利生（匹托利生） Pitolisant，促进脑内组胺释放促醒",
+      "description": "替洛利生 (铧可思®)，促进脑内组胺释放促醒",
       "properties": {}
     },
     {
       "id": "CLS_GABAB_GHB",
       "label": "GABA-B / GHB 受体激动剂",
       "category": "DrugClass",
-      "description": "羟丁酸钠 (Sodium Oxybate)，重塑慢波睡眠治疗发作性睡病猝倒",
+      "description": "羟丁酸钠 (Xyrem)，重塑慢波睡眠治疗发作性睡病猝倒",
       "properties": {}
     },
     {
       "id": "CLS_ADHD_STIMULANT",
       "label": "ADHD 中枢兴奋剂与前药 (Stimulants)",
       "category": "DrugClass",
-      "description": "阻断/逆转 DAT 与 NET（赖右苯丙胺（利右苯丙胺） Lisdexamfetamine、哌甲酯）",
+      "description": "阻断/逆转 DAT 与 NET（赖右苯丙胺（利右苯丙胺） Vyvanse、哌甲酯 专注达®）",
       "properties": {}
     },
     {
       "id": "CLS_ADHD_NON_STIMULANT",
       "label": "ADHD 非中枢兴奋剂 (Non-Stimulants)",
       "category": "DrugClass",
-      "description": "选择性 NET 抑制 (托莫西汀、维洛沙嗪) 或 α2A 激动 (胍法辛)",
+      "description": "选择性 NET 抑制 (托莫西汀 择思达®、维洛沙嗪 Qelbree) 或 α2A 激动 (胍法辛)",
       "properties": {}
     },
     {
       "id": "CLS_ACHEI",
       "label": "乙酰胆碱酯酶抑制剂 (AChEI)",
       "category": "DrugClass",
-      "description": "多奈哌齐 (Donepezil)、卡巴拉汀 (Rivastigmine)、加兰他敏 (Galantamine)",
+      "description": "多奈哌齐 (安理申®)、卡巴拉汀 (艾斯能®)、加兰他敏 (Galantamine)",
       "properties": {}
     },
     {
       "id": "CLS_ANTI_AMYLOID_MAB",
       "label": "抗 Aβ 淀粉样蛋白单克隆抗体 (Anti-Aβ mAbs)",
       "category": "DrugClass",
-      "description": "仑卡奈单抗 (Lecanemab)、多奈单抗 (Donanemab)，清除脑内 Aβ 原纤维延缓阿尔茨海默病进展",
+      "description": "仑卡奈单抗 (乐意保®)、多奈单抗 (Kisunla)，清除脑内 Aβ 原纤维延缓阿尔茨海默病进展",
       "properties": {}
     },
     {
       "id": "CLS_ADDICTION_TREATMENT",
       "label": "物质成瘾与戒断治疗药 (Addiction Therapeutics)",
       "category": "DrugClass",
-      "description": "伐尼克兰 (戒烟)、纳曲酮 (戒酒/戒阿片)、阿坎酸 (戒酒维持)、双硫仑、丁丙诺啡、纳洛酮 (急救)",
+      "description": "伐尼克兰 (畅沛® 戒烟)、纳曲酮 (戒酒/戒阿片)、阿坎酸 (戒酒维持)、双硫仑、丁丙诺啡、纳洛酮 (急救)",
       "properties": {}
     },
     {
       "id": "CLS_VMAT2_INHIBITOR",
       "label": "VMAT2 抑制剂 (囊泡单胺转运体抑制)",
       "category": "DrugClass",
-      "description": "伐苯那嗪 (Valbenazine)，靶向治疗迟发性运动障碍 (TD)",
+      "description": "伐苯那嗪 (欣维妥®)，靶向治疗迟发性运动障碍 (TD)",
       "properties": {}
     },
     {
       "id": "DRUG_HALOPERIDOL",
       "label": "氟哌啶醇 (Haloperidol)",
       "category": "Drug",
-      "description": "第一代典型抗精神病药 (FGA) 代表，高亲和力选择性阻断 D2 受体，极强抗幻觉妄想，但 EPS 风险极高",
+      "description": "【药物分类】第一代典型抗精神病药 (FGA)。\n【药理机制】高选择性超强阻断中脑边缘 D2 受体 (Ki=0.7nM)。\n【适应症】精神分裂症急性阳性兴奋、幻觉妄想及抽动秽语综合征。\n【临床特点】抗幻觉妄想迅速强效，但易诱发严重锥体外系反应 (EPS) 及高催乳素血症。",
       "properties": {}
     },
     {
       "id": "DRUG_CLOZAPINE",
       "label": "氯氮平 (Clozapine)",
       "category": "Drug",
-      "description": "难治性精神分裂症黄金标准，5-HT2A/D2/5-HT1A/H1/M1 多受体作用，极低 EPS 但需监测粒缺与代谢",
+      "description": "【药物分类】第二代非典型抗精神病药 (SDA)。\n【药理机制】5-HT2A/D2/5-HT1A/H1/M1/α1 多受体拮抗，D2 快解离。\n【适应症】难治性精神分裂症治疗黄金标准与自杀风险干预。\n【临床优势与警戒】极低 EPS 且不升高催乳素，但需严格定期监测粒细胞缺乏症、心肌炎及代谢综合征。",
       "properties": {}
     },
     {
       "id": "DRUG_OLANZAPINE",
-      "label": "奥氮平 (Olanzapine)",
+      "label": "奥氮平 (Olanzapine / 再普乐®)",
       "category": "Drug",
-      "description": "强效 5-HT2A/D2/5-HT2C/H1/M1 拮抗剂，抗精神病与抗躁狂，强镇静但代谢综合征风险高",
+      "description": "【药物分类】第二代非典型抗精神病药 (SDA)。\n【药理机制】强效拮抗 5-HT2A、D2、5-HT2C、H1 及 M1 受体。\n【适应症】精神分裂症、双相情感障碍急性躁狂发作及预防复发。\n【临床特点】镇静助眠起效快，抗精神病与抗躁狂确切；但 H1/5-HT2C 强阻断导致体重增加与代谢综合征风险高。",
       "properties": {}
     },
     {
       "id": "DRUG_RISPERIDONE",
-      "label": "利培酮 (Risperidone)",
+      "label": "利培酮 (Risperidone / 维思通®)",
       "category": "Drug",
-      "description": "强效 5-HT2A/D2/α1 拮抗剂，抗阳性症状确切，高剂量诱发 EPS 与高催乳素血症",
+      "description": "【药物分类】第二代非典型抗精神病药 (SDA)。\n【药理机制】极高亲和力拮抗 5-HT2A (Ki=0.17nM) 与 D2 (Ki=3.7nM) 及 α1。\n【适应症】精神分裂症、双相躁狂及孤独症易激惹。\n【临床特点】抗阳性症状确切，但高剂量时对 D2 阻断率高，易诱发 EPS 与高催乳素血症。",
       "properties": {}
     },
     {
       "id": "DRUG_QUETIAPINE",
-      "label": "喹硫平 (Quetiapine)",
+      "label": "喹硫平 (Quetiapine / 思瑞康®)",
       "category": "Drug",
-      "description": "快解离型 D2 拮抗，去甲基代谢物强抑制 NET 并激动 5-HT1A，兼具抗抑郁、抗躁狂、难治抑郁增效与镇静助眠",
+      "description": "【药物分类】广谱多靶点非典型抗精神病药。\n【药理机制】D2 快解离弱拮抗；活性代谢产物去甲基喹硫平强效抑制 NET 并部分激动 5-HT1A，同时强阻断 H1/5-HT2A。\n【适应症】精神分裂症、双相情感障碍（单药获批躁狂与抑郁）及难治性抑郁 (TRD) 辅助增效。\n【临床特点】EPS 风险极低，镇静助眠效果显著。",
       "properties": {}
     },
     {
       "id": "DRUG_ARIPIPRAZOLE",
-      "label": "阿立哌唑 (Aripiprazole)",
+      "label": "阿立哌唑 (Aripiprazole / 安律凡®)",
       "category": "Drug",
-      "description": "D2/5-HT1A 部分激动 + 5-HT2A 拮抗，多巴胺系统调节器，无催乳素升高，难治性抑郁 (TRD) 一线增效",
+      "description": "【药物分类】多巴胺受体部分激动剂 (DPA / SDAM)。\n【药理机制】D2 部分激动（内在活性约30%）+ 5-HT1A 部分激动 + 5-HT2A 拮抗。\n【适应症】精神分裂症、双相障碍及抑郁障碍一线辅助增效。\n【临床优势】多巴胺系统“双向调节稳定器”，不引起催乳素升高与镇静，代谢中性。",
       "properties": {}
     },
     {
       "id": "DRUG_BREXPIPRAZOLE",
-      "label": "布瑞哌唑 (Brexpiprazole / 旧译依匹哌唑)",
+      "label": "布瑞哌唑 (Brexpiprazole / 敏达妥® / Rexulti)",
       "category": "Drug",
-      "description": "5-HT-DA 活性调节剂 (SDAM)。D2 内在活性低（静坐不能风险极低），5-HT1A/5-HT2A 作用强，用于精神分裂症及难治性抑郁 (TRD) 一线增效",
+      "description": "【药物分类】新一代 5-HT-DA 活性调节剂 (SDAM)。\n【药理机制】D2 部分激动（内在活性较阿立哌唑更低，静坐不能风险极低）+ 强效 5-HT1A 部分激动 + 5-HT2A 拮抗。\n【适应症】精神分裂症及难治性抑郁障碍 (TRD) 一线增效。\n【临床优势】改善抑郁心境与认知，极少发生镇静、催乳素升高与 EPS。",
       "properties": {}
     },
     {
       "id": "DRUG_CARIPRAZINE",
-      "label": "卡利拉嗪 (Cariprazine)",
+      "label": "卡利拉嗪 (Cariprazine / 罗珊® / Vraylar / Reagila)",
       "category": "Drug",
-      "description": "D3 偏好型 D3/D2 部分激动剂（对 D3 亲和力是 D2 的 10 倍），显著改善阴性症状、认知缺陷与双相抑郁",
+      "description": "【药物分类】D3 偏好型 D3/D2 多巴胺部分激动剂。\n【药理机制】对 D3 亲和力是 D2 的 10 倍 (Ki=0.085nM)，同时激动 5-HT1A。\n【适应症】精神分裂症（尤其阴性症状与认知缺陷优势）、双相 I 型抑郁与躁狂发作。\n【临床优势】显著改善精神分裂症情感淡漠与执行功能损害，超长半衰期活性代谢物保证平稳疗效。",
       "properties": {}
     },
     {
       "id": "DRUG_LUMATEPERONE",
       "label": "卢玛哌酮 (Lumateperone / Caplyta)",
       "category": "Drug",
-      "description": "全新多靶点非典型抗精神病药。超高亲和力拮抗 5-HT2A (比 D2 强 60 倍) + 突触后 D2 磷酸化调控 + SERT 抑制 + 激活 AMPA/NMDA，治疗精神分裂症与双相抑郁且完全无代谢与 EPS 负担",
+      "description": "【药物分类】全新多靶点非典型抗精神病药。\n【药理机制】超高亲和力拮抗 5-HT2A (比 D2 强 60 倍) + 突触后特异性 D2 磷酸化调控 + SERT 抑制 + 激活 AMPA/NMDA。\n【适应症】精神分裂症及双相 I/II 型抑郁障碍（单药及联合锂盐/丙戊酸）。\n【临床优势】代谢中性（完全不增加体重、血糖与血脂），无 EPS 与催乳素升高，心血管安全性卓越。",
       "properties": {}
     },
     {
       "id": "DRUG_PIMAVANSERIN",
       "label": "匹莫范色林 (Pimavanserin / Nuplazid)",
       "category": "Drug",
-      "description": "选择性 5-HT2A 反向激动剂。FDA 批准首个帕金森病精神病 (PDP) 专用药，不作用于 D2，彻底杜绝运动障碍恶化",
+      "description": "【药物分类】选择性 5-HT2A 反向激动剂。\n【药理机制】高特异性反向激动 5-HT2A 受体，完全不结合 D2、组胺或胆碱能受体。\n【适应症】帕金森病精神病 (PDP) 幻觉妄想。\n【临床优势】特异性平息精神病性症状，彻底杜绝了传统抗精神病药导致的帕金森运动症状恶化。",
       "properties": {}
     },
     {
       "id": "DRUG_ULOTARONT",
-      "label": "乌洛他隆 (Ulotaront / SEP-363856)",
+      "label": "乌洛他隆 (Ulotaront)",
       "category": "Drug",
-      "description": "突破性全新机制抗精神病药。激动 TAAR1 与 5-HT1A 受体，通过突触前调谐抑制多巴胺过度放电，不结合突触后 D2，抗阳性阴性症状且无锥体外系反应与催乳素升高",
+      "description": "【药物分类】首创新机制 TAAR1 激动剂 (非 D2 阻断型抗精神病药)。\n【药理机制】激动细胞内微量胺受体 1 (TAAR1) 与 5-HT1A，通过突触前调谐抑制多巴胺过度放电，完全不阻断突触后 D2 受体。\n【适应症】精神分裂症阳性与阴性症状。\n【临床突破】从机制根源消除锥体外系反应 (EPS)、高催乳素血症与代谢综合征。",
       "properties": {}
     },
     {
       "id": "DRUG_FLUOXETINE",
-      "label": "氟西汀 (Fluoxetine)",
+      "label": "氟西汀 (Fluoxetine / 百优解®)",
       "category": "Drug",
-      "description": "SSRI 代表药，兼具弱 5-HT2C 拮抗，促进前额叶 DA/NE 释放并上调海马 BDNF",
+      "description": "【药物分类】选择性 5-HT 再摄取抑制剂 (SSRI)。\n【药理机制】抑制 SERT，兼具弱 5-HT2C 拮抗脱抑制促进前额叶 DA/NE 释放。\n【适应症】抑郁障碍、强迫障碍、神经性贪食症。\n【临床特点】半衰期长，赋能激活效应明显，适合伴精神运动性迟滞患者。",
       "properties": {}
     },
     {
       "id": "DRUG_SERTRALINE",
-      "label": "舍曲林 (Sertraline)",
+      "label": "舍曲林 (Sertraline / 左洛复®)",
       "category": "Drug",
-      "description": "SSRI，兼具弱 DAT 抑制与强 Sigma-1 伴侣受体激动，促进神经突触可塑性",
+      "description": "【药物分类】选择性 5-HT 再摄取抑制剂 (SSRI)。\n【药理机制】抑制 SERT，兼具弱 DAT 抑制与强 Sigma-1 伴侣受体激动。\n【适应症】抑郁障碍、广泛性焦虑、惊恐障碍、创伤后应激障碍 (PTSD) 一线。\n【临床特点】心血管安全性极高，促进神经突触可塑性。",
       "properties": {}
     },
     {
       "id": "DRUG_ESCITALOPRAM",
-      "label": "艾司西酞普兰 (Escitalopram)",
+      "label": "艾司西酞普兰 (Escitalopram / 来士普®)",
       "category": "Drug",
-      "description": "高特异性变构抑制 SERT，抗抑郁障碍与抗焦虑一线，药物相互作用极小",
+      "description": "【药物分类】高选择性变构 SSRI。\n【药理机制】纯变构抑制 SERT，高特异性增加 5-HT。\n【适应症】抑郁障碍、广泛性焦虑障碍 (GAD) 一线。\n【临床特点】起效平稳迅速，药物相互作用极小，耐受性优异。",
       "properties": {}
     },
     {
       "id": "DRUG_FLUVOXAMINE",
-      "label": "氟伏沙明 (Fluvoxamine / 兰释)",
+      "label": "氟伏沙明 (Fluvoxamine / 兰释®)",
       "category": "Drug",
-      "description": "强效抑制 SERT 兼具超强 Sigma-1 伴侣受体激动活性，强迫障碍 (OCD) 指南首选一线药，抗炎抗突触损伤",
+      "description": "【药物分类】选择性 5-HT 再摄取抑制剂 (SSRI)。\n【药理机制】强效抑制 SERT，兼具超强亲和力激动 Sigma-1 受体 (Ki=36nM)。\n【适应症】强迫障碍 (OCD) 指南首选一线药、抑郁障碍。\n【临床优势】显著调控 CSTC 强迫环路，抗炎及抗内质网应激突触损伤。",
       "properties": {}
     },
     {
       "id": "DRUG_VENLAFAXINE",
-      "label": "文拉法辛 (Venlafaxine)",
+      "label": "文拉法辛 (Venlafaxine / 怡诺思®)",
       "category": "Drug",
-      "description": "SNRI 代表药，低剂量抑制 SERT，高剂量同时抑制 NET，提升警觉与精力",
+      "description": "【药物分类】5-HT / NE 双重再摄取抑制剂 (SNRI)。\n【药理机制】低剂量抑制 SERT，中高剂量同步强效抑制 NET。\n【适应症】抑郁障碍、广泛性焦虑障碍、社交焦虑障碍。\n【临床特点】双通道提升单胺，改善精力减退、动力缺乏与注意涣散。",
       "properties": {}
     },
     {
       "id": "DRUG_DULOXETINE",
-      "label": "度洛西汀 (Duloxetine)",
+      "label": "度洛西汀 (Duloxetine / 欣百达®)",
       "category": "Drug",
-      "description": "均衡抑制 SERT 与 NET，激活脊髓下行镇痛通路，抗抑郁伴躯体疼痛一线",
+      "description": "【药物分类】5-HT / NE 双重再摄取抑制剂 (SNRI)。\n【药理机制】全剂量范围内均衡抑制 SERT 与 NET，激活下行镇痛通路。\n【适应症】抑郁障碍、广泛性焦虑、糖尿病周围神经痛及慢性肌肉骨骼疼痛。\n【临床特点】抗抑郁与缓解躯体疼痛双重获益。",
       "properties": {}
     },
     {
       "id": "DRUG_MIRTAZAPINE",
-      "label": "米氮平 (Mirtazapine)",
+      "label": "米氮平 (Mirtazapine / 瑞美隆®)",
       "category": "Drug",
-      "description": "NaSSA 代表药，拮抗突触前 α2 自调节受体 + 5-HT2A/5-HT2C/H1，促食欲、抗焦虑与强助眠",
+      "description": "【药物分类】去甲肾上腺素能与特异性 5-HT 能抗抑郁药 (NaSSA)。\n【药理机制】拮抗突触前 α2 自调节受体脱抑制促单胺释放 + 阻断 5-HT2A/5-HT2C/H1。\n【适应症】伴显著失眠、食欲下降及消瘦的抑郁障碍。\n【临床特点】强效镇静助眠与增进食欲，完全无性功能副作用与胃肠道恶心。",
       "properties": {}
     },
     {
       "id": "DRUG_VORTIOXETINE",
-      "label": "伏硫西汀 (Vortioxetine / 旧译沃替西汀)",
+      "label": "伏硫西汀 (Vortioxetine / 心达悦® / Brintellix)",
       "category": "Drug",
-      "description": "5-HT 多模式调节剂 (SMS)。抑制 SERT，全激动 5-HT1A，部分激动 5-HT1B/1D，强拮抗 5-HT3 与 5-HT7，强效促进海马 LTP 突触再生与认知重塑",
+      "description": "【药物分类】5-HT 多模式调节剂 (SMS)。\n【药理机制】抑制 SERT + 全激动 5-HT1A + 部分激动 5-HT1B/1D + 强拮抗 5-HT3 与 5-HT7。\n【适应症】抑郁障碍（尤其伴认知损害、工作记忆减退者）。\n【临床优势】直接增强海马 LTP 长时程增强与突触再生，显著改善抑郁相关执行功能损害。",
       "properties": {}
     },
     {
       "id": "DRUG_VILAZODONE",
-      "label": "维拉佐酮 (Vilazodone)",
+      "label": "维拉佐酮 (Vilazodone / Viibryd)",
       "category": "Drug",
-      "description": "SPARI 代表药，抑制 SERT 同时部分激动 5-HT1A，起效迅速且性功能障碍发生率低",
+      "description": "【药物分类】5-HT 再摄取抑制与 5-HT1A 部分激动剂 (SPARI)。\n【药理机制】高亲和力抑制 SERT 同时部分激动突触后 5-HT1A 受体。\n【适应症】成人抑郁障碍。\n【临床特点】起效较快，性功能障碍与体重增加发生率极低。",
       "properties": {}
     },
     {
       "id": "DRUG_TOLUDESVENLAFAXINE",
-      "label": "托鲁地文拉法辛 (Toludesvenlafaxine / 若欣林)",
+      "label": "托鲁地文拉法辛 (Toludesvenlafaxine / 若欣林®)",
       "category": "Drug",
-      "description": "中国首创 1 类创新药，首个上市的三重单胺再摄取抑制剂 (SNDRI)。同时高亲和力抑制 SERT、NET 及 DAT，全面改善快感缺失 (Anhedonia)、精力缺乏及认知迟滞",
+      "description": "【药物分类】中国首创 1 类创新药，三重单胺再摄取抑制剂 (SNDRI / TRI)。\n【药理机制】同时高亲和力抑制 SERT、NET 及 DAT 再摄取。\n【适应症】抑郁障碍、难治性抑郁 (TRD)。\n【临床优势】全面突破单/双通道瓶颈，显著攻克快感缺失 (Anhedonia)、疲乏迟滞与认知减退。",
       "properties": {}
     },
     {
       "id": "DRUG_AGOMELATINE",
-      "label": "阿戈美拉汀 (Agomelatine / 韦度)",
+      "label": "阿戈美拉汀 (Agomelatine / 韦度® / Valdoxan)",
       "category": "Drug",
-      "description": "褪黑素受体激动剂与 5-HT2C 拮抗剂 (MASSA)。强效激动 MT1/MT2 重调视交叉上核 (SCN) 昼夜生物节律；拮抗 5-HT2C 脱抑制促进前额叶 DA/NE 释放，抗抑郁改善睡眠",
+      "description": "【药物分类】褪黑素受体激动与 5-HT2C 拮抗剂 (MASSA)。\n【药理机制】激动视交叉上核 (SCN) MT1/MT2 重塑生物钟 + 拮抗 5-HT2C 脱抑制促进前额叶 DA/NE 释放。\n【适应症】抑郁障碍伴睡眠节律紊乱。\n【临床优势】重塑昼夜生理节律，无撤药反应，完全无性功能副作用与体重增加。",
       "properties": {}
     },
     {
       "id": "DRUG_BUPROPION",
-      "label": "安非他酮 (Bupropion / 悦亭)",
+      "label": "安非他酮 (Bupropion / 悦亭® / Wellbutrin)",
       "category": "Drug",
-      "description": "NDRI 代表药。选择性抑制 DAT 与 NET，增强中枢多巴胺与去甲肾上腺素传递，抗抑郁兼戒烟，完全无性功能障碍与体重增加",
+      "description": "【药物分类】去甲肾上腺素-多巴胺再摄取抑制剂 (NDRI)。\n【药理机制】选择性抑制 DAT 与 NET，兼具烟碱受体拮抗。\n【适应症】抑郁障碍、烟草依赖戒烟。\n【临床优势】改善疲劳、嗜睡与精力缺乏，完全无性功能损害与体重增加风险。",
       "properties": {}
     },
     {
       "id": "DRUG_AUVELITY",
-      "label": "右美沙芬-安非他酮 (Auvelity / AXS-05)",
+      "label": "右美沙芬-安非他酮 (Auvelity)",
       "category": "Drug",
-      "description": "首个口服快速起效抗抑郁复方。右美沙芬非竞争性拮抗 NMDA 受体并激动 Sigma-1，安非他酮抑制 CYP2D6 提升其生物利用度并抑制 NET/DAT，1 周内显著显效",
+      "description": "【药物分类】首个口服快速起效谷氨酸-单胺复方抗抑郁药。\n【药理机制】右美沙芬非竞争性拮抗 NMDA 受体并激动 Sigma-1；安非他酮抑制 CYP2D6 提升其血药浓度并抑制 NET/DAT。\n【适应症】重度抑郁障碍、难治性抑郁 (TRD)。\n【临床突破】打破 4~6 周起效延迟，口服 1 周内快速显著改善抑郁症状。",
       "properties": {}
     },
     {
       "id": "DRUG_ZURANOLONE",
       "label": "佐拉诺酮 (Zuranolone / Zurzuvae)",
       "category": "Drug",
-      "description": "首个口服神经类固醇 GABA-A 正向变构调节剂。每日 1 次口服 14 天疗程，特异性靶向突触外 δ 亚基恢复脑内紧张性抑制，快速治愈产后抑郁 (PPD) 与重度抑郁",
+      "description": "【药物分类】首个口服 GABA-A 神经类固醇正向变构调节剂。\n【药理机制】特异性作用于突触外 δ 亚基 GABA-A 受体，重建紧张性神经抑制平衡。\n【适应症】产后抑郁障碍 (PPD)、重度抑郁障碍。\n【临床突破】每日 1 次口服仅需 14 天短程治疗，快速且持久缓解产后抑郁与绝望。",
       "properties": {}
     },
     {
       "id": "DRUG_BREXANOLONE",
       "label": "别孕烷醇酮 (Brexanolone / Zulresso)",
       "category": "Drug",
-      "description": "内源性别孕烷醇酮水溶性静脉制剂，60 小时持续静脉滴注特异性治疗产后抑郁障碍",
+      "description": "【药物分类】内源性神经类固醇静脉注射制剂。\n【药理机制】正向变构调节突触内外 GABA-A 受体。\n【适应症】重度产后抑郁障碍 (PPD)。\n【临床特点】60 小时持续静脉滴注特异性快速逆转产后急性抑郁危机。",
       "properties": {}
     },
     {
       "id": "DRUG_ESKETAMINE",
-      "label": "艾司氯胺酮 (Esketamine / Spravato)",
+      "label": "艾司氯胺酮 (Esketamine / 速开朗® / Spravato)",
       "category": "Drug",
-      "description": "快速突触再生革命性药物。阻断 GABA 抑制神经元 NMDA 受体，导致谷氨酸爆发激活 AMPA，开启 mTORC1 并上调 BDNF，数小时内逆转 MDSI 急性自杀与 TRD 难治抑郁",
+      "description": "【药物分类】NMDA 受体非竞争性拮抗剂 (快速突触再生剂)。\n【药理机制】阻断 GABA 抑制中间神经元 NMDA 触发谷氨酸爆发，激活突触后 AMPA，开启 mTORC1 级联并上调 BDNF/TrkB，数小时内驱动树突棘突触再生。\n【适应症】伴急性自杀意念或行为的重度抑郁发作 (MDSI)、难治性抑郁 (TRD)。\n【临床突破】鼻喷给药 4~24 小时内快速阻断急性自杀冲动，突破传统抗抑郁瓶颈。",
       "properties": {}
     },
     {
       "id": "DRUG_CLOMIPRAMINE",
-      "label": "氯米帕明 (Clomipramine)",
+      "label": "氯米帕明 (Clomipramine / 安拿芬尼®)",
       "category": "Drug",
-      "description": "经典三环类药物，对 SERT 亲和力极高，强迫障碍 (OCD) 经典二线特效药",
+      "description": "【药物分类】三环类抗抑郁药 (TCA)。\n【药理机制】对 SERT 具有极高抑制亲和力，强效提升 5-HT。\n【适应症】强迫障碍 (OCD) 经典二线特效药、抑郁障碍。\n【临床注意】受体阻断广泛，需注意抗胆碱能口干便秘与心脏传导阻滞。",
       "properties": {}
     },
     {
       "id": "DRUG_LITHIUM",
       "label": "碳酸锂 (Lithium)",
       "category": "Drug",
-      "description": "经典心境稳定剂，直接抑制 GSK-3β，激活 Wnt 与 BDNF/TrkB，促进突触保护、TRD 增效与防自杀 (MDSI)",
+      "description": "【药物分类】经典一线心境稳定剂。\n【药理机制】直接抑制 GSK-3β 激酶与肌醇单磷酸酶 (IMPase)，激活 Wnt 与 BDNF/TrkB 突触保护通路。\n【适应症】双相障碍躁狂发作、双相维持期预防复发、抑郁发作防自杀 (MDSI) 及难治抑郁 (TRD) 增效。\n【临床优势与警戒】循证证实显著降低自杀率与突触退化；需定期监测血锂浓度（治疗窗 0.6~1.2 mmol/L）、肾功与甲状腺。",
       "properties": {}
     },
     {
       "id": "DRUG_VALPROATE",
-      "label": "丙戊酸钠 (Valproate)",
+      "label": "丙戊酸钠 (Valproate / 德巴金®)",
       "category": "Drug",
-      "description": "抑制 GSK-3β 与 HDAC 表观遗传修饰，增强 GABA 抑制，急性抗躁狂一线",
+      "description": "【药物分类】广谱抗躁狂心境稳定剂与抗癫痫药。\n【药理机制】抑制 GSK-3β、阻断钠通道、抑制 HDAC 组蛋白去乙酰化酶并促进 GABA 合成。\n【适应症】双相情感障碍急性躁狂发作。\n【临床特点】急性抗躁狂起效迅速；育龄期女性需警惕致畸风险。",
       "properties": {}
     },
     {
       "id": "DRUG_CARBAMAZEPINE",
-      "label": "卡马西平 (Carbamazepine)",
+      "label": "卡马西平 (Carbamazepine / 得理多®)",
       "category": "Drug",
-      "description": "使用依赖性钠通道 (VGSC) 阻滞剂，急性躁狂发作一线心境稳定剂及三叉神经痛治疗药",
+      "description": "【药物分类】使用依赖性钠通道阻滞心境稳定剂。\n【药理机制】延缓失活状态 VGSC 钠通道恢复，抑制病理性高频放电。\n【适应症】双相急性躁狂发作、三叉神经痛。\n【临床特点】经典一线抗躁狂；需监测 CYP3A4 自我诱导与过敏皮疹 (HLA-B*1502)。",
       "properties": {}
     },
     {
       "id": "DRUG_LAMOTRIGINE",
-      "label": "拉莫三嗪 (Lamotrigine)",
+      "label": "拉莫三嗪 (Lamotrigine / 利必通®)",
       "category": "Drug",
-      "description": "阻断钠通道减少病理性谷氨酸释放，预防双相抑郁复发一线",
+      "description": "【药物分类】突触前谷氨酸释放抑制剂。\n【药理机制】使用依赖性抑制电压门控钠通道，特异性减少病理性谷氨酸释放。\n【适应症】双相障碍抑郁发作的长期预防复发一线。\n【临床特点】预防双相抑郁复发优势显著，需缓慢滴定剂量以防重症药疹。",
       "properties": {}
     },
     {
       "id": "DRUG_DIMDAZENIL",
-      "label": "地达西尼 (Dimdazenil / EVT201 / 安适达)",
+      "label": "地达西尼 (Dimdazenil / 京诺宁®)",
       "category": "Drug",
-      "description": "中国首个自主研发 1 类 GABA-A 受体部分正向变构调节剂 (pPAM / 半激动剂)。高选择性结合 α1 亚基部分激活，既有效诱导并维持高质量睡眠，又彻底避免了完全激动剂的过度肌松跌倒、宿醉嗜睡、反跳性失眠与依赖耐受风险",
+      "description": "【药物分类】中国首个自主研发 1 类 GABA-A 受体部分正向变构调节剂 (pPAM / 半激动剂)。\n【药理机制】高选择性作用于 GABA-A 受体 α1 亚型，发挥适度的部分正向变构调节（最大内在活性约 40-50%），温和促使 Cl- 内流。\n【适应症】失眠障碍（入睡困难与睡眠维持障碍）。\n【临床突破】既能快速诱导并维持生理性睡眠，又彻底克服了传统完全激动剂导致的过度肌松跌倒风险、记忆受损、宿醉嗜睡、反跳性失眠与依赖成瘾性。",
       "properties": {}
     },
     {
       "id": "DRUG_PREGABALIN",
-      "label": "普瑞巴林 (Pregabalin)",
+      "label": "普瑞巴林 (Pregabalin / 乐瑞卡®)",
       "category": "Drug",
-      "description": "特异性结合 α2δ 钙通道亚基，减少突触前钙内流与兴奋性递质释放，广泛性焦虑 (GAD) 与神经病理性疼痛一线",
+      "description": "【药物分类】α2δ 电压门控钙通道配体 (加巴喷丁类)。\n【药理机制】高亲和力结合突触前 α2δ 亚基，抑制过度钙内流与兴奋性递质释放。\n【适应症】广泛性焦虑障碍 (GAD) 一线、周围神经病理性疼痛与纤维肌痛。\n【临床优势】快速平息杏仁核焦虑放电，改善睡眠质量，起效迅速且无性功能副作用。",
       "properties": {}
     },
     {
       "id": "DRUG_BUSPIRONE",
       "label": "丁螺环酮 (Buspirone)",
       "category": "Drug",
-      "description": "选择性 5-HT1A 部分激动剂，广泛性焦虑一线，无镇静、肌松与成瘾依赖",
+      "description": "【药物分类】5-HT1A 受体部分激动剂 (Azapirones)。\n【药理机制】选择性部分激动突触前自身与突触后 5-HT1A 受体。\n【适应症】广泛性焦虑障碍 (GAD) 一线。\n【临床优势】无镇静嗜睡、无肌松、无共济失调，完全无依赖耐受与戒断反跳。",
       "properties": {}
     },
     {
       "id": "DRUG_TANDOSPIRONE",
-      "label": "坦度螺酮 (Tandospirone / 律康)",
+      "label": "坦度螺酮 (Tandospirone / 律康®)",
       "category": "Drug",
-      "description": "高选择性 5-HT1A 受体部分激动剂，抗焦虑并显著改善心身躯体化症状",
+      "description": "【药物分类】高选择性 5-HT1A 受体部分激动剂。\n【药理机制】调节 5-HT 神经传递平衡，平复边缘系统自主神经亢进。\n【适应症】广泛性焦虑、躯体化障碍伴焦虑。\n【临床特点】显著改善心身躯体化症状，无依赖成瘾。",
       "properties": {}
     },
     {
       "id": "DRUG_PROPRANOLOL",
-      "label": "普萘洛尔 (Propranolol)",
+      "label": "普萘洛尔 (Propranolol / 心得安®)",
       "category": "Drug",
-      "description": "非选择性 β-受体阻滞剂，缓解社交焦虑躯体震颤、PTSD 恐惧记忆再巩固阻断与抗精神病药静坐不能",
+      "description": "【药物分类】非选择性 β-受体阻滞剂。\n【药理机制】阻断中枢与外周 β1/β2 受体，抑制肾上腺素能过度激活。\n【适应症】社交焦虑障碍（表演型）、PTSD 恐惧记忆再巩固阻断、抗精神病药静坐不能。\n【临床特点】迅速平息心悸、手抖、出汗等自主神经躯体焦虑。",
       "properties": {}
     },
     {
       "id": "DRUG_PRAZOSIN",
       "label": "哌唑嗪 (Prazosin)",
       "category": "Drug",
-      "description": "中枢 α1-肾上腺素受体拮抗剂，抑制蓝斑核过度放电，特异性治疗 PTSD 创伤性噩梦与睡眠障碍",
+      "description": "【药物分类】中枢 α1-肾上腺素受体拮抗剂。\n【药理机制】特异性阻断中枢 α1 受体，平息蓝斑核夜间过度去甲肾上腺素风暴。\n【适应症】创伤后应激障碍 (PTSD) 创伤性噩梦与过度警觉。\n【临床优势】显著减少创伤相关噩梦，改善睡眠连续性。",
       "properties": {}
     },
     {
       "id": "DRUG_LORAZEPAM",
-      "label": "劳拉西泮 (Lorazepam)",
+      "label": "劳拉西泮 (Lorazepam / 罗拉®)",
       "category": "Drug",
-      "description": "中效 BZD，葡萄糖醛酸化代谢，急性抗焦虑与镇静",
+      "description": "【药物分类】中效苯二氮䓬类 (BZD)。\n【药理机制】增强 GABA-A 受体介导的氯离子内流。\n【适应症】急性焦虑发作、失眠短期治疗、紧张症。\n【临床特点】直接经葡萄糖醛酸化代谢，无活性代谢产物，老年及肝功不全者相对安全。",
       "properties": {}
     },
     {
       "id": "DRUG_ALPRAZOLAM",
-      "label": "阿普唑仑 (Alprazolam)",
+      "label": "阿普唑仑 (Alprazolam / 佳静安定®)",
       "category": "Drug",
-      "description": "强效短中效 BZD，急性惊恐障碍与焦虑发作快速缓解",
+      "description": "【药物分类】短中效高亲和力苯二氮䓬类 (BZD)。\n【药理机制】高亲和力正向变构调节 GABA-A 受体。\n【适应症】惊恐障碍急性发作、重度焦虑状态。\n【临床特点】抗惊恐起效极快，需注意避免长期使用引起药物依赖。",
       "properties": {}
     },
     {
       "id": "DRUG_DIAZEPAM",
-      "label": "地西泮 (Diazepam)",
+      "label": "地西泮 (Diazepam / 安定®)",
       "category": "Drug",
-      "description": "长效经典 BZD，抗焦虑、镇静催眠与肌松",
+      "description": "【药物分类】长效经典苯二氮䓬类 (BZD)。\n【药理机制】广谱正向变构调节 GABA-A 受体。\n【适应症】焦虑症、癫痫持续状态急救、中枢性肌痉挛。\n【临床特点】抗惊厥与肌松作用强，代谢产物半衰期长。",
       "properties": {}
     },
     {
       "id": "DRUG_CLONAZEPAM",
       "label": "氯硝西泮 (Clonazepam)",
       "category": "Drug",
-      "description": "长效高亲和力 BZD，抗惊恐、抗焦虑与抗惊厥",
+      "description": "【药物分类】长效高亲和力苯二氮䓬类 (BZD)。\n【药理机制】强效增强 GABA-A 抑制信号。\n【适应症】惊恐障碍、快动眼睡眠行为障碍 (RBD)、难治性癫痫。\n【临床特点】抗惊厥与抗惊恐效力极强。",
       "properties": {}
     },
     {
       "id": "DRUG_FAZAMOREXANT",
-      "label": "法赞雷生 (Fazamorexant / YZJ-1139)",
+      "label": "法赞雷生 (Fazamorexant)",
       "category": "Drug",
-      "description": "中国首个自主研发 1 类双重食欲素受体拮抗剂 (DORA)。高效阻断下丘脑 OX1R 与 OX2R 促觉醒通路，精准改善入睡困难与睡眠维持困难，且不改变正常生理睡眠结构，无次日宿醉嗜睡与依赖性",
+      "description": "【药物分类】中国首个自主研发 1 类双重食欲素受体拮抗剂 (DORA)。\n【药理机制】高亲和力双重阻断下丘脑 OX1R 与 OX2R 促觉醒信号通路。\n【适应症】失眠障碍（入睡困难与睡眠维持障碍）。\n【临床优势】恢复生理性正常睡眠结构，不改变 REM/慢波睡眠比例，无依赖性、耐受性与次日宿醉残留。",
       "properties": {}
     },
     {
       "id": "DRUG_VORNOREXANT",
-      "label": "沃诺雷生（沃替雷生） (Vornorexant / TS-142 / Vorzzz)",
+      "label": "沃诺雷生 (Vornorexant / Vorzzz)",
       "category": "Drug",
-      "description": "新一代超快解离型双重食欲素受体拮抗剂 (DORA)。精准阻断 OX1R 和 OX2R，半衰期短，快速诱导入睡且次日清晨零残留嗜睡，显著提升白天精力功能",
+      "description": "【药物分类】新一代超快解离型双重食欲素受体拮抗剂 (DORA)。\n【药理机制】快速阻断 OX1R 和 OX2R，半衰期短且快解离动力学。\n【适应症】失眠障碍。\n【临床突破】既能迅速促进入睡与延长总睡眠，清晨血药浓度又极速清除，实现“次日清晨零残留嗜睡”，显著提升日间精力。",
       "properties": {}
     },
     {
       "id": "DRUG_LEMBOREXANT",
-      "label": "莱博雷生 (Lemborexant / Dayvigo)",
+      "label": "莱博雷生 (Lemborexant / 达卫可® / Dayvigo)",
       "category": "Drug",
-      "description": "第二代 DORA，强效结合 OX1R 和 OX2R，特异性关闭促觉醒信号，改善入睡与维持，次日残留嗜睡极低且无依赖性",
+      "description": "【药物分类】第二代双重食欲素受体拮抗剂 (DORA)。\n【药理机制】特异性阻断 OX1R 和 OX2R，关闭觉醒驱动中枢。\n【适应症】失眠障碍（入睡困难与睡眠维持障碍）。\n【临床优势】显著缩短入睡潜伏期并减少中途醒来次数，次日宿醉极低且无依赖成瘾。",
       "properties": {}
     },
     {
       "id": "DRUG_DARIDOREXANT",
       "label": "达利雷生 (Daridorexant / Quviviq)",
       "category": "Drug",
-      "description": "优化半衰期 (8h) DORA，改善夜间睡眠质量同时显著提升日间功能精力",
+      "description": "【药物分类】优化半衰期双重食欲素受体拮抗剂 (DORA)。\n【药理机制】阻断 OX1R 和 OX2R，设计半衰期约 8 小时。\n【适应症】成人慢性失眠障碍。\n【临床突破】改善夜间睡眠质量的同时，三期临床明确证实显著提升日间功能与精力。",
       "properties": {}
     },
     {
       "id": "DRUG_RAMELTEON",
-      "label": "雷美替胺 (Ramelteon / 柔速瑞)",
+      "label": "雷美替胺 (Ramelteon / 柔速瑞® / Rozerem)",
       "category": "Drug",
-      "description": "高选择性 MT1/MT2 褪黑素受体激动剂，作用于视交叉上核起搏器，生理性诱导睡眠且无成瘾耐受",
+      "description": "【药物分类】高选择性 MT1/MT2 褪黑素受体激动剂。\n【药理机制】高选择性激动下丘脑视交叉上核 MT1 与 MT2 受体。\n【适应症】入睡困难型失眠障碍。\n【临床优势】生理性诱导睡眠，非管制药物，完全无成瘾依赖与反跳性失眠。",
       "properties": {}
     },
     {
       "id": "DRUG_MODAFINIL",
-      "label": "莫达非尼 (Modafinil)",
+      "label": "莫达非尼 (Modafinil / 保卫达® / Provigil)",
       "category": "Drug",
-      "description": "高选择性弱 DAT 抑制剂，激活下丘脑食欲素与组胺促醒通路，发作性睡病日间嗜睡一线促醒药",
+      "description": "【药物分类】非兴奋剂类中枢促醒药。\n【药理机制】选择性弱阻断 DAT，激活下丘脑食欲素与组胺神经元促醒通路。\n【适应症】发作性睡病日间过度嗜睡 (EDS)、轮班工作睡眠障碍一线。\n【临床优势】强效促醒，不引起外周心血管交感过度兴奋，滥用潜能低。",
       "properties": {}
     },
     {
       "id": "DRUG_ARMODAFINIL",
       "label": "阿莫达非尼 (Armodafinil / Nuvigil)",
       "category": "Drug",
-      "description": "R-莫达非尼单一异构体，血药浓度维持时间更长，全天候平稳改善日间过度嗜睡",
+      "description": "【药物分类】长效单一 R-异构体中枢促醒药。\n【药理机制】选择性抑制 DAT 维持皮层多巴胺稳态。\n【适应症】发作性睡病日间过度嗜睡。\n【临床特点】消除半衰期更长，全天候平稳维持日间警觉性。",
       "properties": {}
     },
     {
       "id": "DRUG_PITOLISANT",
-      "label": "替洛利生（匹托利生） (Pitolisant / Wakix)",
+      "label": "替洛利生 (Pitolisant / 铧可思® / Wakix)",
       "category": "Drug",
-      "description": "首创 H3 组胺受体拮抗/反向激动剂，促进脑内组胺释放，治疗发作性睡病日间嗜睡与猝倒症",
+      "description": "【药物分类】首创新机制 H3 组胺受体拮抗/反向激动剂。\n【药理机制】高选择性阻断突触前 H3 自身受体 (Ki=0.16nM)，脱抑制促进脑内组胺爆发释放。\n【适应症】发作性睡病成人及儿童日间过度嗜睡 (EDS) 或猝倒症。\n【临床突破】首个非中枢管制类促醒与抗猝倒药，显著改善日间嗜睡并减少猝倒发作。",
       "properties": {}
     },
     {
       "id": "DRUG_SODIUM_OXYBATE",
       "label": "羟丁酸钠 (Sodium Oxybate / Xyrem)",
       "category": "Drug",
-      "description": "GABA-B/GHB 受体激动剂，增强慢波睡眠，特异性治疗发作性睡病伴随的突发性猝倒症",
+      "description": "【药物分类】GABA-B / GHB 受体激动剂。\n【药理机制】激动 GABA-B 与 GHB 特异性受体，强化夜间深慢波睡眠。\n【适应症】发作性睡病猝倒症及日间过度嗜睡。\n【临床突破】发作性睡病猝倒特效药，重塑夜间睡眠架构从根源消除白天猝倒。",
       "properties": {}
     },
     {
       "id": "DRUG_LISDEXAMFETAMINE",
-      "label": "赖右苯丙胺（利右苯丙胺） (Lisdexamfetamine / Vyvanse)",
+      "label": "赖右苯丙胺（利右苯丙胺） (Lisdexamfetamine / 维凡斯® / Vyvanse)",
       "category": "Drug",
-      "description": "苯丙胺类前药代表（利右苯丙胺/赖右苯丙胺）。红细胞内酶解平稳释放右苯丙胺，阻断并逆转 DAT/NET/VMAT2，平稳维持 14h 疗效，滥用风险极低，ADHD 一线",
+      "description": "【药物分类】苯丙胺类前药中枢兴奋剂。\n【药理机制】经红细胞代谢水解平稳释放右苯丙胺，阻断并逆转 DAT、NET 与 VMAT2。\n【适应症】注意力缺陷多动障碍 (ADHD) 一线、成人中重度暴食障碍。\n【临床突破】14 小时全天候平稳疗效，前药机制彻底杜绝鼻吸与注射滥用可能。",
       "properties": {}
     },
     {
       "id": "DRUG_METHYLPHENIDATE",
-      "label": "哌甲酯 (Methylphenidate / 利他林)",
+      "label": "哌甲酯 (Methylphenidate / 专注达® / Concerta)",
       "category": "Drug",
-      "description": "ADHD 一线中枢兴奋剂，阻断 DAT 和 NET 再摄取",
+      "description": "【药物分类】中枢兴奋剂。\n【药理机制】选择性阻断 DAT 与 NET 再摄取转运体。\n【适应症】儿童与成人注意力缺陷多动障碍 (ADHD) 一线。\n【临床特点】渗透泵控释剂型维持 12 小时平稳血药浓度，改善注意力与多动冲动。",
       "properties": {}
     },
     {
       "id": "DRUG_ATOMOXETINE",
-      "label": "托莫西汀 (Atomoxetine / 择思达)",
+      "label": "托莫西汀 (Atomoxetine / 择思达® / Strattera)",
       "category": "Drug",
-      "description": "高选择性 NET 抑制剂，非兴奋剂，在前额叶同时提升 NE 与 DA",
+      "description": "【药物分类】选择性去甲肾上腺素再摄取抑制剂 (NRI)。\n【药理机制】高选择性阻断 NET，在前额叶同步提升 NE 与 DA 水平。\n【适应症】ADHD 一线非兴奋剂治疗。\n【临床优势】非中枢兴奋剂，无滥用潜能与依赖风险，适合共病焦虑抽动者。",
       "properties": {}
     },
     {
       "id": "DRUG_GUANFACINE",
-      "label": "胍法辛 (Guanfacine)",
+      "label": "胍法辛 (Guanfacine / 罗瓦西® / Intuniv)",
       "category": "Drug",
-      "description": "选择性突触后 α2A 受体激动剂，直接增强前额叶树突棘网络连接与突触成熟",
+      "description": "【药物分类】选择性突触后 α2A 受体激动剂。\n【药理机制】高选择性激动前额叶突触后 α2A 受体，强化树突棘神经网络连接。\n【适应症】儿童与青少年 ADHD 非兴奋剂一线。\n【临床特点】直接增强前额叶执行控制网络，改善冲动攻击与注意力缺陷。",
       "properties": {}
     },
     {
       "id": "DRUG_VILOXAZINE",
       "label": "维洛沙嗪 (Viloxazine / Qelbree)",
       "category": "Drug",
-      "description": "新型非兴奋剂 ADHD 药物。选择性抑制 NET 兼具 5-HT2B 拮抗与 5-HT7 激动，全面调谐前额叶注意网络",
+      "description": "【药物分类】新型多靶点非兴奋剂 ADHD 治疗药。\n【药理机制】选择性抑制 NET 兼具 5-HT2B 拮抗与 5-HT7 激动。\n【适应症】儿童与成人 ADHD。\n【临床优势】起效较传统非兴奋剂更快，全面调谐前额叶注意网络，无成瘾依赖。",
       "properties": {}
     },
     {
       "id": "DRUG_DONEPEZIL",
-      "label": "多奈哌齐 (Donepezil / 安理申)",
+      "label": "多奈哌齐 (Donepezil / 安理申® / Aricept)",
       "category": "Drug",
-      "description": "高选择性可逆 AChE 抑制剂，轻中重度阿尔茨海默病一线认知改善药",
+      "description": "【药物分类】高选择性可逆乙酰胆碱酯酶抑制剂 (AChEI)。\n【药理机制】特异性抑制 AChE 水解，提高脑内胆碱能传递水平。\n【适应症】轻、中、重度阿尔茨海默病认知损害一线。\n【临床优势】每日一次给药，显著改善患者认知、日常自理能力与行为。",
       "properties": {}
     },
     {
       "id": "DRUG_RIVASTIGMINE",
-      "label": "卡巴拉汀 (Rivastigmine / 艾斯能)",
+      "label": "卡巴拉汀 (Rivastigmine / 艾斯能® / Exelon)",
       "category": "Drug",
-      "description": "AChE 与 BuChE 双重假性不可逆抑制剂，阿尔茨海默病与帕金森痴呆一线透皮贴剂",
+      "description": "【药物分类】双重胆碱酯酶抑制剂 (AChEI & BuChEI)。\n【药理机制】假性不可逆同时抑制 AChE 与丁酰胆碱酯酶 (BuChE)。\n【适应症】阿尔茨海默病及帕金森病痴呆 (PDD) 一线。\n【临床优势】透皮贴剂给药血药浓度极其平稳，极大减轻胃肠道恶心副反应。",
       "properties": {}
     },
     {
       "id": "DRUG_GALANTAMINE",
-      "label": "加兰他敏 (Galantamine)",
+      "label": "加兰他敏 (Galantamine / 希普斯® / Reminyl)",
       "category": "Drug",
-      "description": "AChE 竞争性抑制剂兼烟碱型受体 (nAChR) 变构增敏剂，双重增强胆碱能传递",
+      "description": "【药物分类】AChE 抑制剂兼烟碱受体变构增强剂。\n【药理机制】竞争性抑制 AChE + 变构增强 α4β2 烟碱型乙酰胆碱受体敏感性。\n【适应症】轻中度阿尔茨海默病认知损害。\n【临床特点】双重协同机制放大内源性胆碱能神经信号。",
       "properties": {}
     },
     {
       "id": "DRUG_MEMANTINE",
-      "label": "美金刚 (Memantine)",
+      "label": "美金刚 (Memantine / 易倍申® / Ebixa / Namenda)",
       "category": "Drug",
-      "description": "中等亲和力非竞争性 NMDA 受体拮抗剂，阻断病理性谷氨酸兴奋毒性，保护残存突触结构，改善中重度阿尔茨海默病认知",
+      "description": "【药物分类】中等亲和力非竞争性 NMDA 受体拮抗剂。\n【药理机制】阻断病理性低浓度持续性谷氨酸兴奋毒性，保护残存突触结构，同时保留生理性 LTP 学习记忆信号。\n【适应症】中重度阿尔茨海默病一线。\n【临床优势】神经保护延缓痴呆进展，常与多奈哌齐联合增效。",
       "properties": {}
     },
     {
       "id": "DRUG_LECANEMAB",
-      "label": "仑卡奈单抗 (Lecanemab / 乐意保)",
+      "label": "仑卡奈单抗 (Lecanemab / 乐意保® / Leqembi)",
       "category": "Drug",
-      "description": "突破性抗 Aβ 人源化 IgG1 单抗。特异性结合并清除脑内 Aβ 可溶性原纤维，三期临床证实减缓早期阿尔茨海默病认知衰退 27%",
+      "description": "【药物分类】突破性抗 Aβ 疾病修饰单克隆抗体 (DMT)。\n【药理机制】特异性高亲和力结合并清除脑内最具毒性的 Aβ 可溶性原纤维。\n【适应症】早期阿尔茨海默病（轻度认知障碍 MCI 及轻度痴呆期）。\n【临床里程碑】全球三期临床证实减缓早期阿尔茨海默病认知衰退 27%，改变疾病病程。",
       "properties": {}
     },
     {
       "id": "DRUG_DONANEMAB",
-      "label": "多奈单抗 (Donanemab)",
+      "label": "多奈单抗 (Donanemab / Kisunla)",
       "category": "Drug",
-      "description": "靶向脑内已沉积 N3pG-Aβ 淀粉样蛋白斑块的单抗，实现斑块快速深度清除并延缓痴呆进展",
+      "description": "【药物分类】靶向已沉积斑块的抗 Aβ 疾病修饰单抗。\n【药理机制】特异性结合脑内 N3pG-Aβ 淀粉样沉积斑块，驱动巨噬清除。\n【适应症】早期阿尔茨海默病。\n【临床突破】实现脑内淀粉样斑块深度清除，显著延缓临床痴呆进展。",
       "properties": {}
     },
     {
       "id": "DRUG_VARENICLINE",
-      "label": "伐尼克兰 (Varenicline / 畅沛)",
+      "label": "伐尼克兰 (Varenicline / 畅沛® / Champix)",
       "category": "Drug",
-      "description": "α4β2 烟碱受体高选择性部分激动剂。一线戒烟药，产生中等程度多巴胺释放缓解戒断痛苦，同时竞争性阻断尼古丁结合",
+      "description": "【药物分类】α4β2 烟碱型乙酰胆碱受体高选择性部分激动剂。\n【药理机制】部分激动 α4β2（40-60%内在活性）适度释放多巴胺缓解戒断痛苦，同时竞争性阻断尼古丁结合消除吸烟欣快感。\n【适应症】烟草依赖戒烟指南首选一线药。\n【临床优势】显著提升长期戒烟成功率，戒烟疗效优于安非他酮与尼古丁贴片。",
       "properties": {}
     },
     {
       "id": "DRUG_NALTREXONE",
-      "label": "纳曲酮 (Naltrexone)",
+      "label": "纳曲酮 (Naltrexone / 维威妥® / Vivitrol / ReVia)",
       "category": "Drug",
-      "description": "长效口服 μ-阿片受体拮抗剂。阻断酒精与阿片诱导的中脑边缘多巴胺奖赏释放，显著降低酒精渴求与复饮率",
+      "description": "【药物分类】长效口服与长效注射纯 μ-阿片受体拮抗剂。\n【药理机制】阻断 μ-阿片受体，切断酒精与阿片刺激中脑 VTA 释放多巴胺的奖赏强化回路。\n【适应症】酒精使用障碍 (AUD) 戒酒、阿片类依赖戒断后防复吸。\n【临床优势】显著减少重度饮酒天数与复饮率。",
       "properties": {}
     },
     {
       "id": "DRUG_ACAMPROSATE",
-      "label": "阿坎酸 (Acamprosate)",
+      "label": "阿坎酸 (Acamprosate / 坎普拉® / Campral)",
       "category": "Drug",
-      "description": "NMDA/GABA 调节剂。减轻慢性酒精戒断引起的谷氨酸过度兴奋性神经毒性，维持长期戒酒状态",
+      "description": "【药物分类】NMDA / GABA 神经传递平衡调节剂。\n【药理机制】抑制慢性酒精戒断引起的高谷氨酸兴奋毒性，增强 GABA 抑制。\n【适应症】酒精依赖完全戒断后的长期维持治疗。\n【临床优势】帮助维持长期戒酒状态，完全不经肝脏代谢（肾排泄），肝功能受损者安全。",
       "properties": {}
     },
     {
       "id": "DRUG_DISULFIRAM",
-      "label": "双硫仑 (Disulfiram)",
+      "label": "双硫仑 (Disulfiram / 戒酒硫® / Antabuse)",
       "category": "Drug",
-      "description": "不可逆抑制乙醛脱氢酶 (ALDH)。饮酒后体内乙醛急剧蓄积诱发剧烈面红恶心胸闷等厌恶反应，强制戒酒",
+      "description": "【药物分类】乙醛脱氢酶 (ALDH) 不可逆抑制剂。\n【药理机制】抑制 ALDH 阻断酒精氧化代谢，导致体内乙醛急剧蓄积。\n【适应症】酒精依赖心理厌恶疗法。\n【临床特点】服药后饮酒迅速诱发剧烈面红、头痛、心悸、恶心胸闷厌恶反应，强制戒酒。",
       "properties": {}
     },
     {
       "id": "DRUG_BUPRENORPHINE",
-      "label": "丁丙诺啡 (Buprenorphine)",
+      "label": "丁丙诺啡 (Buprenorphine / 塞宝松® / Suboxone)",
       "category": "Drug",
-      "description": "μ-阿片受体部分激动剂与 κ-受体拮抗剂。阿片依赖替代维持治疗一线，具呼吸抑制天花板效应，安全性极高",
+      "description": "【药物分类】μ-阿片受体部分激动剂与 κ-受体拮抗剂。\n【药理机制】慢解离高亲和力部分激动 μ 受体（内在活性低），拮抗 κ 受体。\n【适应症】阿片类物质使用障碍 (OUD) 替代维持治疗一线。\n【临床优势】具备呼吸抑制天花板效应，安全性极高，消除戒断症状且无剧烈欣快。",
       "properties": {}
     },
     {
       "id": "DRUG_NALOXONE",
-      "label": "纳洛酮 (Naloxone)",
+      "label": "纳洛酮 (Naloxone / 纳洛酮® / Narcan)",
       "category": "Drug",
-      "description": "纯 μ-阿片受体竞争性拮抗剂。脂溶性极高可快速穿透血脑屏障，阿片类过量中毒呼吸抑制急救特效解毒剂",
+      "description": "【药物分类】纯 μ-阿片受体竞争性强效拮抗剂。\n【药理机制】超高亲和力竞争性置换结合于 μ 受体的外源性阿片分子。\n【适应症】急性阿片类药物中毒过量呼吸抑制急救特效解毒剂。\n【临床特点】脂溶性高迅速穿透血脑屏障，数分钟内逆转呼吸抑制抢救生命。",
       "properties": {}
     },
     {
       "id": "DRUG_VALBENAZINE",
-      "label": "伐苯那嗪 (Valbenazine)",
+      "label": "伐苯那嗪 (Valbenazine / 欣维妥® / Ingrezza)",
       "category": "Drug",
-      "description": "高选择性 VMAT2 抑制剂，减少突触前多巴胺囊泡装载与释放，FDA 批准治疗迟发性运动障碍 (TD)",
+      "description": "【药物分类】高选择性囊泡单胺转运体 2 (VMAT2) 抑制剂。\n【药理机制】高选择性抑制 VMAT2，减少突触前多巴胺囊泡装载与释放，降低突触间隙多巴胺信号。\n【适应症】抗精神病药所致迟发性运动障碍 (TD)、亨廷顿舞蹈病。\n【临床突破】FDA 批准首个 TD 靶向特效治疗药，显著改善不自主口面部及肢体异常运动。",
       "properties": {}
     }
   ],
@@ -4503,25 +4503,25 @@
     "total_edges": 384,
     "categories": [
       "DrugClass",
-      "Drug",
-      "Receptor",
       "SideEffect",
       "Pathway",
-      "Disease"
+      "Disease",
+      "Receptor",
+      "Drug"
     ],
     "relationships": [
-      "TREATS",
-      "ANTAGONIST",
-      "PAM",
-      "CAUSES",
-      "INHIBITS",
-      "MODULATES",
-      "AGONIST",
-      "BLOCKER",
       "IS_A",
-      "CORRELATED_WITH",
+      "ANTAGONIST",
+      "MODULATES",
       "PARTIAL_AGONIST",
-      "INVERSE_AGONIST"
+      "BLOCKER",
+      "CORRELATED_WITH",
+      "AGONIST",
+      "TREATS",
+      "CAUSES",
+      "PAM",
+      "INVERSE_AGONIST",
+      "INHIBITS"
     ]
   }
 }
