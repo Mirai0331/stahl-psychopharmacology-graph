@@ -172,6 +172,15 @@
       }
     },
     {
+      "id": "REC_GABAA_ALPHA1_PARTIAL",
+      "label": "GABA-A α1 亚型部分变构结合位点 (pPAM)",
+      "category": "Receptor",
+      "description": "地达西尼 (Dimdazenil / EVT201) 高度特异性结合位点。部分正向变构调节（最大活性约 40-50%），精准产生促眠效应且不诱发肌无力跌倒、宿醉嗜睡、反跳性失眠与依赖耐受",
+      "properties": {
+        "type": "IonChannel_Subunit"
+      }
+    },
+    {
       "id": "REC_GABAA_NEUROSTEROID",
       "label": "GABA-A 神经类固醇受体 (δ 亚基)",
       "category": "Receptor",
@@ -272,11 +281,11 @@
     },
     {
       "id": "REC_OX1R_OX2R",
-      "label": "OX1R/OX2R 食欲素受体",
+      "label": "OX1R / OX2R 食欲素受体",
       "category": "Receptor",
-      "description": "下丘脑觉醒中枢神经肽受体，莱博雷生/达利雷生/苏沃雷生双重拮抗促进入睡与维持",
+      "description": "下丘脑觉醒中枢神经肽受体。OX2R 直接主导维持觉醒与睡眠开关，OX1R 调控警觉与奖赏动机。双重拮抗剂 (DORA：法赞雷生、沃诺雷生、莱博雷生、达利雷生) 靶向特异性促进入睡与睡眠维持",
       "properties": {
-        "type": "GPCR"
+        "type": "GPCR_Trio"
       }
     },
     {
@@ -292,7 +301,7 @@
       "id": "REC_HISTAMINE_H3",
       "label": "H3 组胺自身/异源受体",
       "category": "Receptor",
-      "description": "突触前自身负反馈受体，匹托利生 (Pitolisant) 拮抗/反向激动脱抑制促进脑内组胺释放，强效促醒",
+      "description": "突触前自身负反馈受体，替洛利生（匹托利生）拮抗/反向激动脱抑制促进脑内组胺释放，强效促醒",
       "properties": {
         "type": "GPCR_Gi"
       }
@@ -454,7 +463,7 @@
       "id": "PATH_HYPOTHALAMIC_AROUSAL",
       "label": "下丘脑觉醒-睡眠节律环路 (Arousal Circuits)",
       "category": "Pathway",
-      "description": "结节乳头体核与侧下丘脑食欲素/组胺觉醒系统（莱博雷生/达利雷生靶向）",
+      "description": "结节乳头体核与侧下丘脑食欲素/组胺觉醒系统（法赞雷生/沃诺雷生/莱博雷生/达利雷生靶向）",
       "properties": {
         "neurotransmitter": "Orexin/Histamine/GABA"
       }
@@ -463,7 +472,7 @@
       "id": "PATH_VLPO_SLEEP_SWITCH",
       "label": "腹外侧视前核 (VLPO) 睡眠开启中枢",
       "category": "Pathway",
-      "description": "中枢睡眠开关，通过 GABA 和甘氨酸抑制脑干觉醒中心，促成睡眠启动",
+      "description": "中枢睡眠开关，通过 GABA 和甘氨酸抑制脑干觉醒中心，地达西尼与 BZD 类协同激活促进入睡",
       "properties": {
         "neurotransmitter": "GABA/Glycine"
       }
@@ -472,7 +481,7 @@
       "id": "PATH_TMN_HISTAMINE_AROUSAL",
       "label": "结节乳头体核 (TMN) 组胺促醒通路",
       "category": "Pathway",
-      "description": "释放组胺维持大脑皮层警觉与清醒状态，匹托利生通过 H3 拮抗激活该通路促醒",
+      "description": "释放组胺维持大脑皮层警觉与清醒状态，替洛利生（匹托利生）通过 H3 拮抗激活该通路促醒",
       "properties": {
         "neurotransmitter": "Histamine"
       }
@@ -606,21 +615,21 @@
       "id": "DIS_INSOMNIA",
       "label": "失眠障碍 (Insomnia)",
       "category": "Disease",
-      "description": "入睡困难与睡眠维持困难（莱博雷生/达利雷生/阿戈美拉汀/唑吡坦靶向）",
+      "description": "入睡困难与睡眠维持困难（法赞雷生/沃诺雷生/莱博雷生/达利雷生/地达西尼/阿戈美拉汀靶向）",
       "properties": {}
     },
     {
       "id": "DIS_NARCOLEPSY",
       "label": "发作性睡病与猝倒症 (Narcolepsy)",
       "category": "Disease",
-      "description": "下丘脑食欲素神经元丢失所致日间不可抗拒睡眠与情绪诱发猝倒（莫达非尼/羟丁酸钠/匹托利生）",
+      "description": "下丘脑食欲素神经元丢失所致日间不可抗拒睡眠与情绪诱发猝倒（莫达非尼/羟丁酸钠/替洛利生）",
       "properties": {}
     },
     {
       "id": "DIS_ADHD",
       "label": "注意力缺陷多动障碍 (ADHD)",
       "category": "Disease",
-      "description": "注意力不集中、多动与冲动（赖右苯丙胺/哌甲酯/托莫西汀/胍法辛/维洛沙嗪）",
+      "description": "注意力不集中、多动与冲动（赖右苯丙胺（利右苯丙胺）/哌甲酯/托莫西汀/胍法辛/维洛沙嗪）",
       "properties": {}
     },
     {
@@ -697,7 +706,7 @@
       "id": "SE_ADDICTION_TOLERANCE",
       "label": "耐受与依赖风险 (Tolerance & Dependence)",
       "category": "SideEffect",
-      "description": "中枢兴奋剂与 BZD 类需评估耐受、成瘾与戒断风险（赖右苯丙胺通过前药机制降低滥用倾向）",
+      "description": "中枢兴奋剂与 BZD 类需评估耐受、成瘾与戒断风险（赖右苯丙胺通过前药机制降低滥用倾向，地达西尼通过部分变构极大降低成瘾）",
       "properties": {}
     },
     {
@@ -834,6 +843,13 @@
       "properties": {}
     },
     {
+      "id": "CLS_GABAA_PARTIAL_PAM",
+      "label": "GABA-A 受体部分正向变构调节剂 (Partial PAM / 半激动剂)",
+      "category": "DrugClass",
+      "description": "地达西尼 (Dimdazenil / EVT201)，高选择性结合 α1 亚基部分激活，精准助眠且无肌无力、宿醉与反跳成瘾",
+      "properties": {}
+    },
+    {
       "id": "CLS_VGCC_LIGAND",
       "label": "α2δ 钙通道配体 (加巴喷丁类 / VGCC)",
       "category": "DrugClass",
@@ -856,9 +872,9 @@
     },
     {
       "id": "CLS_DORA",
-      "label": "双重食欲素受体拮抗剂 (DORA)",
+      "label": "双重食欲素受体拮抗剂 (DORA / 双食欲素拮抗)",
       "category": "DrugClass",
-      "description": "第二代靶向催眠药（莱博雷生 Lemborexant、达利雷生 Daridorexant）",
+      "description": "靶向阻断 OX1R 和 OX2R 受体，生理性诱导入睡与睡眠维持（法赞雷生 Fazamorexant、沃诺雷生（沃替雷生） Vornorexant、莱博雷生 Lemborexant、达利雷生 Daridorexant）",
       "properties": {}
     },
     {
@@ -872,7 +888,7 @@
       "id": "CLS_H3_ANTAGONIST",
       "label": "H3 组胺受体拮抗/反向激动剂 (H3 Antagonists)",
       "category": "DrugClass",
-      "description": "匹托利生 (Pitolisant)，促进脑内组胺释放促醒",
+      "description": "替洛利生（匹托利生） Pitolisant，促进脑内组胺释放促醒",
       "properties": {}
     },
     {
@@ -886,7 +902,7 @@
       "id": "CLS_ADHD_STIMULANT",
       "label": "ADHD 中枢兴奋剂与前药 (Stimulants)",
       "category": "DrugClass",
-      "description": "阻断/逆转 DAT 与 NET（赖右苯丙胺 Lisdexamfetamine、哌甲酯）",
+      "description": "阻断/逆转 DAT 与 NET（赖右苯丙胺（利右苯丙胺） Lisdexamfetamine、哌甲酯）",
       "properties": {}
     },
     {
@@ -1149,6 +1165,13 @@
       "properties": {}
     },
     {
+      "id": "DRUG_DIMDAZENIL",
+      "label": "地达西尼 (Dimdazenil / EVT201 / 安适达)",
+      "category": "Drug",
+      "description": "中国首个自主研发 1 类 GABA-A 受体部分正向变构调节剂 (pPAM / 半激动剂)。高选择性结合 α1 亚基部分激活，既有效诱导并维持高质量睡眠，又彻底避免了完全激动剂的过度肌松跌倒、宿醉嗜睡、反跳性失眠与依赖耐受风险",
+      "properties": {}
+    },
+    {
       "id": "DRUG_PREGABALIN",
       "label": "普瑞巴林 (Pregabalin)",
       "category": "Drug",
@@ -1212,6 +1235,20 @@
       "properties": {}
     },
     {
+      "id": "DRUG_FAZAMOREXANT",
+      "label": "法赞雷生 (Fazamorexant / YZJ-1139)",
+      "category": "Drug",
+      "description": "中国首个自主研发 1 类双重食欲素受体拮抗剂 (DORA)。高效阻断下丘脑 OX1R 与 OX2R 促觉醒通路，精准改善入睡困难与睡眠维持困难，且不改变正常生理睡眠结构，无次日宿醉嗜睡与依赖性",
+      "properties": {}
+    },
+    {
+      "id": "DRUG_VORNOREXANT",
+      "label": "沃诺雷生（沃替雷生） (Vornorexant / TS-142 / Vorzzz)",
+      "category": "Drug",
+      "description": "新一代超快解离型双重食欲素受体拮抗剂 (DORA)。精准阻断 OX1R 和 OX2R，半衰期短，快速诱导入睡且次日清晨零残留嗜睡，显著提升白天精力功能",
+      "properties": {}
+    },
+    {
       "id": "DRUG_LEMBOREXANT",
       "label": "莱博雷生 (Lemborexant / Dayvigo)",
       "category": "Drug",
@@ -1248,7 +1285,7 @@
     },
     {
       "id": "DRUG_PITOLISANT",
-      "label": "匹托利生 (Pitolisant / Wakix)",
+      "label": "替洛利生（匹托利生） (Pitolisant / Wakix)",
       "category": "Drug",
       "description": "首创 H3 组胺受体拮抗/反向激动剂，促进脑内组胺释放，治疗发作性睡病日间嗜睡与猝倒症",
       "properties": {}
@@ -1262,9 +1299,9 @@
     },
     {
       "id": "DRUG_LISDEXAMFETAMINE",
-      "label": "赖右苯丙胺 (Lisdexamfetamine / Vyvanse)",
+      "label": "赖右苯丙胺（利右苯丙胺） (Lisdexamfetamine / Vyvanse)",
       "category": "Drug",
-      "description": "苯丙胺类前药代表。红细胞内酶解平稳释放右苯丙胺，阻断并逆转 DAT/NET/VMAT2，平稳维持 14h 疗效，滥用风险极低，ADHD 一线",
+      "description": "苯丙胺类前药代表（利右苯丙胺/赖右苯丙胺）。红细胞内酶解平稳释放右苯丙胺，阻断并逆转 DAT/NET/VMAT2，平稳维持 14h 疗效，滥用风险极低，ADHD 一线",
       "properties": {}
     },
     {
@@ -1645,6 +1682,14 @@
       "weight": 1.0
     },
     {
+      "source": "DRUG_DIMDAZENIL",
+      "target": "CLS_GABAA_PARTIAL_PAM",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "中国首创 1 类 GABA-A 部分变构催眠药",
+      "weight": 1.0
+    },
+    {
       "source": "DRUG_PREGABALIN",
       "target": "CLS_VGCC_LIGAND",
       "relationship": "IS_A",
@@ -1701,6 +1746,22 @@
       "weight": 1.0
     },
     {
+      "source": "DRUG_FAZAMOREXANT",
+      "target": "CLS_DORA",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "中国首款 1 类 DORA 双食欲素拮抗剂",
+      "weight": 1.0
+    },
+    {
+      "source": "DRUG_VORNOREXANT",
+      "target": "CLS_DORA",
+      "relationship": "IS_A",
+      "label": "属于",
+      "description": "新一代超快解离 DORA 双食欲素拮抗剂",
+      "weight": 1.0
+    },
+    {
       "source": "DRUG_LEMBOREXANT",
       "target": "CLS_DORA",
       "relationship": "IS_A",
@@ -1745,7 +1806,7 @@
       "target": "CLS_H3_ANTAGONIST",
       "relationship": "IS_A",
       "label": "属于",
-      "description": "",
+      "description": "首创新机制H3组胺拮抗促醒",
       "weight": 1.0
     },
     {
@@ -1761,7 +1822,7 @@
       "target": "CLS_ADHD_STIMULANT",
       "relationship": "IS_A",
       "label": "属于",
-      "description": "",
+      "description": "前药中枢兴奋剂代表",
       "weight": 1.0
     },
     {
@@ -2933,6 +2994,38 @@
       "weight": 2.2
     },
     {
+      "source": "DRUG_DIMDAZENIL",
+      "target": "REC_GABAA_ALPHA1_PARTIAL",
+      "relationship": "PAM",
+      "label": "高选择性部分正向变构调节 (pPAM)",
+      "description": "适度促进 Cl- 内流产生精准促眠",
+      "weight": 2.4
+    },
+    {
+      "source": "DRUG_DIMDAZENIL",
+      "target": "PATH_VLPO_SLEEP_SWITCH",
+      "relationship": "MODULATES",
+      "label": "温和激活中枢睡眠开关",
+      "description": "生理性缩短入睡潜伏期并延长总睡眠",
+      "weight": 2.4
+    },
+    {
+      "source": "DRUG_DIMDAZENIL",
+      "target": "DIS_INSOMNIA",
+      "relationship": "TREATS",
+      "label": "中国首创 1 类新药一线催眠",
+      "description": "无肌无力、无宿醉嗜睡、无反跳依赖",
+      "weight": 2.4
+    },
+    {
+      "source": "REC_GABAA_ALPHA1_PARTIAL",
+      "target": "PATH_VLPO_SLEEP_SWITCH",
+      "relationship": "MODULATES",
+      "label": "精准中枢镇静催眠调控",
+      "description": "介导生理性入睡",
+      "weight": 2.2
+    },
+    {
       "source": "DRUG_PREGABALIN",
       "target": "REC_ALPHA2DELTA",
       "relationship": "BLOCKER",
@@ -3131,6 +3224,54 @@
       "label": "一线预防",
       "description": "双相抑郁复发预防",
       "weight": 2.2
+    },
+    {
+      "source": "DRUG_FAZAMOREXANT",
+      "target": "REC_OX1R_OX2R",
+      "relationship": "ANTAGONIST",
+      "label": "双重高亲和力阻断 OX1R/OX2R",
+      "description": "特异性关闭下丘脑促觉醒信号",
+      "weight": 2.4
+    },
+    {
+      "source": "DRUG_FAZAMOREXANT",
+      "target": "PATH_HYPOTHALAMIC_AROUSAL",
+      "relationship": "MODULATES",
+      "label": "重塑生理性睡眠觉醒平衡",
+      "description": "显著缩短入睡潜伏期并延长总睡眠",
+      "weight": 2.4
+    },
+    {
+      "source": "DRUG_FAZAMOREXANT",
+      "target": "DIS_INSOMNIA",
+      "relationship": "TREATS",
+      "label": "中国首个自主研发 1 类 DORA 催眠药",
+      "description": "改善入睡与睡眠维持困难且无耐受成瘾",
+      "weight": 2.4
+    },
+    {
+      "source": "DRUG_VORNOREXANT",
+      "target": "REC_OX1R_OX2R",
+      "relationship": "ANTAGONIST",
+      "label": "超快解离阻断 OX1R/OX2R",
+      "description": "快速促进入睡且血药浓度迅速清除",
+      "weight": 2.4
+    },
+    {
+      "source": "DRUG_VORNOREXANT",
+      "target": "PATH_HYPOTHALAMIC_AROUSAL",
+      "relationship": "MODULATES",
+      "label": "高效诱导生理性睡眠",
+      "description": "次日清晨零残留嗜睡",
+      "weight": 2.4
+    },
+    {
+      "source": "DRUG_VORNOREXANT",
+      "target": "DIS_INSOMNIA",
+      "relationship": "TREATS",
+      "label": "新一代短半衰期 DORA 一线催眠",
+      "description": "改善入睡与睡眠维持同时提升日间精力",
+      "weight": 2.4
     },
     {
       "source": "DRUG_LEMBOREXANT",
@@ -4358,29 +4499,29 @@
     }
   ],
   "stats": {
-    "total_nodes": 182,
-    "total_edges": 371,
+    "total_nodes": 187,
+    "total_edges": 384,
     "categories": [
-      "Disease",
-      "Receptor",
-      "Drug",
-      "SideEffect",
       "DrugClass",
-      "Pathway"
+      "Drug",
+      "Receptor",
+      "SideEffect",
+      "Pathway",
+      "Disease"
     ],
     "relationships": [
+      "TREATS",
+      "ANTAGONIST",
+      "PAM",
+      "CAUSES",
       "INHIBITS",
+      "MODULATES",
+      "AGONIST",
       "BLOCKER",
+      "IS_A",
       "CORRELATED_WITH",
       "PARTIAL_AGONIST",
-      "MODULATES",
-      "CAUSES",
-      "AGONIST",
-      "ANTAGONIST",
-      "TREATS",
-      "INVERSE_AGONIST",
-      "IS_A",
-      "PAM"
+      "INVERSE_AGONIST"
     ]
   }
 }
