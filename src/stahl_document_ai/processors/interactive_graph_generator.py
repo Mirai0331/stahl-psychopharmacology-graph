@@ -15,69 +15,69 @@ class InteractiveGraphGenerator:
     CATEGORY_CONFIG = {
         "Drug": {
             "name": "精神药物",
-            "color": "#38BDF8",       # 亮青蓝
-            "borderColor": "#0284C7",
-            "glow": "rgba(56, 189, 248, 0.85)",
+            "color": "#5CC8F5",       # 临床青蓝
+            "borderColor": "#238FBE",
+            "glow": "rgba(92, 200, 245, 0.72)",
             "geometry": "sphere",
             "level": 2,
             "icon": "assets/63653-tablets-min.png",
-            "badgeBg": "linear-gradient(135deg, #0284C7, #0369A1)"
+            "badgeBg": "linear-gradient(135deg, #176786, #104A60)"
         },
         "DrugClass": {
             "name": "药物大类",
-            "color": "#818CF8",       # 靛蓝
-            "borderColor": "#4F46E5",
-            "glow": "rgba(129, 140, 248, 0.85)",
+            "color": "#9B9CF9",       # 柔和靛蓝
+            "borderColor": "#686AC5",
+            "glow": "rgba(155, 156, 249, 0.72)",
             "geometry": "octahedron",
             "level": 1,
             "icon": "assets/Field_Inventory_Menu_02.png",
-            "badgeBg": "linear-gradient(135deg, #4F46E5, #3730A3)"
+            "badgeBg": "linear-gradient(135deg, #5557A7, #3E3F7C)"
         },
         "Receptor": {
             "name": "受体与信号靶点",
-            "color": "#10B981",       # 翡翠荧绿
-            "borderColor": "#059669",
-            "glow": "rgba(16, 185, 129, 0.85)",
+            "color": "#48C9A5",       # 神经递质青绿
+            "borderColor": "#258E73",
+            "glow": "rgba(72, 201, 165, 0.72)",
             "geometry": "icosahedron",
             "level": 3,
             "icon": "assets/mission.png",
-            "badgeBg": "linear-gradient(135deg, #059669, #047857)"
+            "badgeBg": "linear-gradient(135deg, #17634F, #104739)"
         },
         "Pathway": {
             "name": "神经通路与可塑环路",
-            "color": "#C084FC",       # 梦幻极光紫
-            "borderColor": "#9333EA",
-            "glow": "rgba(192, 132, 252, 0.85)",
+            "color": "#B692E6",       # 通路紫
+            "borderColor": "#8063AE",
+            "glow": "rgba(182, 146, 230, 0.72)",
             "geometry": "dodecahedron",
             "level": 4,
             "icon": "assets/complete.png",
-            "badgeBg": "linear-gradient(135deg, #9333EA, #7E22CE)"
+            "badgeBg": "linear-gradient(135deg, #6D5198, #503A70)"
         },
         "Disease": {
             "name": "疾病与危重/难治表型",
-            "color": "#F472B6",       # 玫粉
-            "borderColor": "#DB2777",
-            "glow": "rgba(244, 114, 182, 0.85)",
+            "color": "#E88BB7",       # 临床表型玫粉
+            "borderColor": "#B45D87",
+            "glow": "rgba(232, 139, 183, 0.72)",
             "geometry": "sphere",
             "level": 5,
             "icon": "assets/NOTE.png",
-            "badgeBg": "linear-gradient(135deg, #DB2777, #BE185D)"
+            "badgeBg": "linear-gradient(135deg, #8E4769, #69334D)"
         },
         "SideEffect": {
             "name": "不良反应",
-            "color": "#FB7185",       # 珊瑚红
-            "borderColor": "#E11D48",
-            "glow": "rgba(251, 113, 133, 0.85)",
+            "color": "#F07D8C",       # 风险珊瑚红
+            "borderColor": "#B94E5C",
+            "glow": "rgba(240, 125, 140, 0.72)",
             "geometry": "cone",
             "level": 5,
             "icon": "assets/Goods_Icon_Gem_490_Preset_2.png",
-            "badgeBg": "linear-gradient(135deg, #E11D48, #9F1239)"
+            "badgeBg": "linear-gradient(135deg, #98404B, #6F2D35)"
         },
     }
 
     NODE_IMAGE_MAP = {
         "DRUG_ESKETAMINE": "assets/drug_sukailang.png",
-        "DRUG_LISDEXAMFETAMINE": "assets/Dexmethylphenidate_structure.svg",
+        # 赖右苯丙胺没有专属素材时走类别占位，避免复用其他药物的结构式。
         "DRUG_METHYLPHENIDATE": "assets/drug_concerta_18mg.png",
         "DRUG_PREGABALIN": "assets/Pregabalin.png",
         "DRUG_CLONAZEPAM": "assets/clonazepam.png",
@@ -155,6 +155,7 @@ class InteractiveGraphGenerator:
                 "category": n.category,
                 "categoryName": cfg["name"],
                 "description": n.description,
+                "properties": n.properties,
                 "degree": deg,
                 "level": cfg["level"],
                 "customImage": custom_img,
@@ -188,6 +189,7 @@ class InteractiveGraphGenerator:
                 "relName": rel_cfg["label"],
                 "relType": rel_cfg["type"],
                 "description": e.description,
+                "weight": e.weight,
                 "color": rel_cfg["color"],
                 "particleColor": rel_cfg.get("particleColor", rel_cfg["color"]),
                 "curvature": 0.18 if is_key_edge else 0.12,
@@ -213,53 +215,81 @@ class InteractiveGraphGenerator:
 
   <style>
     :root {{
-      --bg-dark: #050811;
-      --bg-card: rgba(10, 16, 28, 0.94);
-      --bg-card-hover: rgba(16, 24, 42, 0.98);
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-glow: rgba(56, 189, 248, 0.45);
-      --border-glass: rgba(255, 255, 255, 0.14);
-      --text-main: #FFFFFF;
-      --text-sub: #94A3B8;
-      --text-muted: #64748B;
-      --accent-blue: #38BDF8;
-      --accent-purple: #C084FC;
-      --accent-green: #10B981;
-      --accent-amber: #F59E0B;
-      --accent-pink: #F472B6;
-      --accent-cyan: #06B6D4;
+      --bg-dark: #070B14;
+      --bg-deep: #050811;
+      --bg-card: rgba(10, 17, 29, 0.94);
+      --bg-card-solid: #0A111D;
+      --bg-card-hover: rgba(19, 31, 49, 0.98);
+      --bg-soft: rgba(126, 153, 188, 0.08);
+      --border-subtle: rgba(164, 184, 211, 0.13);
+      --border-glow: rgba(92, 200, 245, 0.42);
+      --border-glass: rgba(184, 204, 230, 0.18);
+      --text-main: #F7FAFC;
+      --text-sub: #AAB9CC;
+      --text-muted: #728298;
+      --accent-blue: #5CC8F5;
+      --accent-blue-strong: #2698C9;
+      --accent-purple: #B692E6;
+      --accent-green: #48C9A5;
+      --accent-amber: #F3C17C;
+      --accent-pink: #E88BB7;
+      --accent-cyan: #5CC8F5;
+      --focus-ring: #F6D06F;
+      --font-display: "Segoe UI Variable Display", "HarmonyOS Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --font-body: Inter, "Noto Sans SC", "Segoe UI Variable Text", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --font-data: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      --shadow-panel: 16px 0 48px rgba(0, 0, 0, 0.44);
     }}
-    * {{ box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }}
-    body {{ background: var(--bg-dark); color: var(--text-main); height: 100vh; display: flex; overflow: hidden; }}
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    html {{ color-scheme: dark; background: var(--bg-dark); }}
+    body {{
+      background: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      height: 100dvh;
+      display: flex;
+      overflow: hidden;
+      font-family: var(--font-body);
+      font-size: 16px;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }}
+    button, input {{ font: inherit; }}
+    button {{ appearance: none; }}
+    ::selection {{ background: rgba(92, 200, 245, 0.26); color: #fff; }}
 
     /* 🌌 3D WebGL 视口画布容器 */
     #network-wrapper {{
       flex: 1;
       height: 100%;
       position: relative;
-      background: radial-gradient(circle at 50% 50%, rgba(14, 28, 54, 0.75) 0%, rgba(5, 8, 17, 0.98) 90%);
+      min-width: 0;
+      background: radial-gradient(ellipse at 52% 46%, rgba(20, 43, 70, 0.74) 0%, rgba(7, 11, 20, 0.96) 62%, var(--bg-deep) 100%);
       overflow: hidden;
     }}
     #3d-graph-container {{
       width: 100%;
       height: 100%;
+      outline: none;
     }}
 
     /* 🛡️ 左侧控制侧边栏 (Cyber-Medical Glass) */
     #sidebar {{
-      width: 480px;
+      width: 420px;
+      flex: 0 0 420px;
       background: var(--bg-card);
-      backdrop-filter: blur(28px);
-      -webkit-backdrop-filter: blur(28px);
+      backdrop-filter: blur(24px) saturate(116%);
+      -webkit-backdrop-filter: blur(24px) saturate(116%);
       border-right: 1px solid var(--border-glass);
       display: flex;
       flex-direction: column;
-      padding: 22px;
+      padding: 20px;
       z-index: 20;
-      box-shadow: 18px 0 50px rgba(0, 0, 0, 0.85);
+      box-shadow: var(--shadow-panel);
       overflow-y: auto;
+      overscroll-behavior: contain;
       scrollbar-width: thin;
-      scrollbar-color: rgba(56,189,248,0.3) transparent;
+      scrollbar-color: rgba(92, 200, 245, 0.34) transparent;
     }}
     #sidebar::-webkit-scrollbar {{ width: 5px; }}
     #sidebar::-webkit-scrollbar-thumb {{ background: rgba(56, 189, 248, 0.3); border-radius: 4px; }}
@@ -267,147 +297,232 @@ class InteractiveGraphGenerator:
     .header-box {{
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 8px;
+      gap: 12px;
+      margin-bottom: 10px;
     }}
     .header-logo {{
-      width: 46px;
-      height: 46px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(192, 132, 252, 0.25));
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+      border-radius: 11px;
+      background: linear-gradient(145deg, rgba(92, 200, 245, 0.18), rgba(182, 146, 230, 0.14));
       border: 1px solid var(--border-glow);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+      box-shadow: 0 8px 24px rgba(24, 109, 148, 0.22);
       overflow: hidden;
     }}
-    .header-logo img {{ width: 34px; height: 34px; object-fit: contain; }}
+    .header-logo img {{ width: 32px; height: 32px; object-fit: contain; }}
 
     .header-title {{
-      font-size: 1.30rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #FFFFFF 0%, #38BDF8 50%, #C084FC 100%);
+      font-family: var(--font-display);
+      font-size: 1.14rem;
+      font-weight: 760;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      background: linear-gradient(112deg, #FFFFFF 0%, #B9E9FA 52%, #CFB9ED 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }}
-    .header-sub {{ font-size: 0.78rem; color: var(--text-sub); margin-bottom: 14px; line-height: 1.5; }}
+    .header-kicker {{ font-family: var(--font-data); font-size: 0.66rem; color: var(--text-sub); font-weight: 600; letter-spacing: 0.035em; margin-top: 3px; }}
+    .header-sub {{ font-size: 0.75rem; color: var(--text-sub); margin-bottom: 14px; line-height: 1.58; }}
 
     .mode-banner {{
       display: flex;
       align-items: center;
+      gap: 10px;
       justify-content: space-between;
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(192, 132, 252, 0.08));
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      border-radius: 12px;
-      padding: 9px 14px;
-      margin-bottom: 16px;
-      font-size: 0.78rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      background: rgba(92, 200, 245, 0.075);
+      border: 1px solid rgba(92, 200, 245, 0.26);
+      border-radius: 10px;
+      padding: 9px 10px 9px 12px;
+      margin-bottom: 14px;
+      font-size: 0.74rem;
+      line-height: 1.45;
     }}
     .mode-pill {{
-      background: linear-gradient(135deg, #0284C7, #2563EB);
-      color: #fff;
-      padding: 4px 10px;
-      border-radius: 8px;
+      flex: 0 0 auto;
+      background: rgba(92, 200, 245, 0.14);
+      color: #C7EEFC;
+      padding: 5px 9px;
+      border-radius: 7px;
       font-weight: 700;
-      font-size: 0.70rem;
+      font-size: 0.68rem;
       cursor: pointer;
-      transition: all 0.2s;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: background-color 0.18s, color 0.18s, border-color 0.18s;
+      border: 1px solid rgba(92, 200, 245, 0.32);
     }}
-    .mode-pill:hover {{ background: #0369A1; transform: scale(1.05); }}
+    .mode-pill:hover {{ background: rgba(92, 200, 245, 0.24); color: #fff; }}
 
-    .scenario-section {{ margin-bottom: 16px; }}
-    .section-title {{ font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #94A3B8; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }}
-    .preset-chips {{ display: flex; flex-wrap: wrap; gap: 6px; }}
+    .scenario-section {{ margin-bottom: 15px; }}
+    .section-title {{
+      font-family: var(--font-display);
+      font-size: 0.70rem;
+      font-weight: 720;
+      letter-spacing: 0.045em;
+      color: var(--text-sub);
+      margin-bottom: 9px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }}
+    .section-meta {{ font-family: var(--font-data); font-size: 0.64rem; font-weight: 600; color: var(--accent-blue); letter-spacing: 0; }}
+    .preset-chips {{ display: flex; flex-wrap: wrap; gap: 7px; }}
     .chip {{
-      padding: 6px 11px;
-      border-radius: 20px;
-      font-size: 0.73rem;
+      padding: 6px 9px;
+      border-radius: 8px;
+      font-size: 0.71rem;
+      line-height: 1.25;
       cursor: pointer;
-      background: rgba(255, 255, 255, 0.04);
+      background: var(--bg-soft);
       border: 1px solid var(--border-subtle);
-      color: #CBD5E1;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      color: #C7D3E2;
+      transition: background-color 0.18s, border-color 0.18s, color 0.18s, box-shadow 0.18s;
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      text-align: left;
     }}
     .chip img {{ width: 14px; height: 14px; object-fit: contain; border-radius: 3px; }}
-    .chip:hover {{ background: rgba(56, 189, 248, 0.16); border-color: var(--accent-blue); color: #fff; transform: translateY(-1.5px); box-shadow: 0 4px 12px rgba(56,189,248,0.25); }}
-    .chip.active {{ background: linear-gradient(135deg, #0284C7, #2563EB); border-color: #38BDF8; color: #fff; font-weight: 700; box-shadow: 0 0 16px rgba(56, 189, 248, 0.5); }}
+    .chip:hover {{ background: rgba(92, 200, 245, 0.12); border-color: rgba(92, 200, 245, 0.48); color: #fff; }}
+    .chip.active {{ background: #176786; border-color: #63D3FF; color: #fff; font-weight: 700; box-shadow: 0 0 0 1px rgba(99, 211, 255, 0.12), 0 6px 18px rgba(13, 83, 112, 0.28); }}
 
-    .search-wrapper {{ position: relative; margin-bottom: 16px; }}
+    .search-wrapper {{ position: relative; margin-bottom: 15px; }}
+    .search-row {{ display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 7px; }}
+    .search-field {{ position: relative; min-width: 0; }}
     .search-input {{
       width: 100%;
-      padding: 11px 14px 11px 40px;
-      background: rgba(15, 23, 42, 0.85);
+      min-height: 42px;
+      padding: 10px 12px 10px 39px;
+      background: rgba(11, 20, 33, 0.86);
       border: 1px solid var(--border-glass);
-      border-radius: 12px;
+      border-radius: 10px;
       color: #fff;
-      font-size: 0.88rem;
+      font-size: 0.82rem;
       outline: none;
-      transition: all 0.2s;
+      transition: background-color 0.18s, border-color 0.18s, box-shadow 0.18s;
     }}
-    .search-input:focus {{ border-color: var(--accent-blue); box-shadow: 0 0 16px rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.95); }}
-    .search-icon-img {{ position: absolute; left: 14px; top: 12px; width: 17px; height: 17px; opacity: 0.75; }}
+    .search-input::placeholder {{ color: #718198; }}
+    .search-input:focus {{ border-color: var(--accent-blue); box-shadow: 0 0 0 3px rgba(92, 200, 245, 0.14); background: rgba(12, 23, 38, 0.98); }}
+    .search-icon-img {{ position: absolute; left: 13px; top: 12px; width: 17px; height: 17px; opacity: 0.66; pointer-events: none; }}
+    .search-submit {{
+      min-height: 42px;
+      padding: 0 13px;
+      border-radius: 10px;
+      border: 1px solid rgba(92, 200, 245, 0.42);
+      background: rgba(92, 200, 245, 0.12);
+      color: #C7EEFC;
+      font-size: 0.75rem;
+      font-weight: 720;
+      cursor: pointer;
+      transition: background-color 0.18s, color 0.18s, border-color 0.18s;
+    }}
+    .search-submit:hover {{ background: rgba(92, 200, 245, 0.22); color: #fff; border-color: var(--accent-blue); }}
+    .search-status {{ display: none; margin-top: 7px; padding-left: 2px; color: var(--text-sub); font-size: 0.69rem; line-height: 1.45; }}
+    .search-status.show {{ display: block; }}
+    .search-status.error {{ color: #FFADB8; }}
 
     .layout-switcher {{
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 6px;
-      margin-bottom: 16px;
+      gap: 7px;
+      margin-bottom: 15px;
     }}
     .layout-btn {{
-      padding: 9px 6px;
-      font-size: 0.75rem;
+      min-height: 38px;
+      padding: 8px 6px;
+      font-size: 0.71rem;
       font-weight: 600;
-      background: rgba(15, 23, 42, 0.65);
+      background: var(--bg-soft);
       border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      color: #CBD5E1;
+      border-radius: 9px;
+      color: #C7D3E2;
       cursor: pointer;
       text-align: center;
-      transition: all 0.2s;
+      transition: background-color 0.18s, border-color 0.18s, color 0.18s, box-shadow 0.18s;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 5px;
     }}
-    .layout-btn:hover {{ background: rgba(255, 255, 255, 0.08); border-color: rgba(56, 189, 248, 0.3); }}
-    .layout-btn.active {{ background: rgba(56, 189, 248, 0.22); border-color: var(--accent-blue); color: var(--accent-blue); box-shadow: 0 0 14px rgba(56,189,248,0.3); font-weight: 700; }}
+    .layout-btn:hover {{ background: rgba(92, 200, 245, 0.10); border-color: rgba(92, 200, 245, 0.38); }}
+    .layout-btn.active {{ background: rgba(92, 200, 245, 0.15); border-color: var(--accent-blue); color: #AEE7FA; box-shadow: inset 0 0 0 1px rgba(92, 200, 245, 0.08); font-weight: 700; }}
 
-    .filter-list {{ display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }}
+    .filter-list {{ display: flex; flex-direction: column; gap: 6px; margin-bottom: 15px; }}
     .filter-item {{
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 8px 12px;
-      background: rgba(15, 23, 42, 0.50);
+      padding: 8px 10px;
+      background: rgba(15, 25, 40, 0.58);
+      border: 1px solid var(--border-subtle);
+      border-radius: 9px;
+      cursor: pointer;
+      color: var(--text-main);
+      font-size: 0.76rem;
+      transition: background-color 0.18s, border-color 0.18s, color 0.18s;
+      text-align: left;
+    }}
+    .filter-item:hover {{ background: rgba(92, 200, 245, 0.10); border-color: rgba(92, 200, 245, 0.42); }}
+    .filter-item.active {{ background: rgba(92, 200, 245, 0.15); border-color: var(--accent-blue); font-weight: 700; }}
+    .filter-left {{ display: flex; align-items: center; gap: 9px; min-width: 0; }}
+    .filter-icon {{ width: 16px; height: 16px; object-fit: contain; }}
+    .filter-dot {{ width: 8px; height: 8px; border-radius: 50%; box-shadow: 0 0 10px currentColor; }}
+    .filter-count {{ font-family: var(--font-data); font-size: 0.66rem; color: var(--text-sub); background: rgba(255,255,255,0.07); padding: 2px 7px; border-radius: 999px; }}
+
+    .text-view {{
       border: 1px solid var(--border-subtle);
       border-radius: 10px;
-      cursor: pointer;
-      font-size: 0.80rem;
-      transition: all 0.18s;
+      background: rgba(15, 25, 40, 0.48);
+      overflow: hidden;
     }}
-    .filter-item:hover {{ background: rgba(255, 255, 255, 0.08); border-color: rgba(56, 189, 248, 0.4); transform: translateX(2px); }}
-    .filter-item.active {{ background: rgba(56, 189, 248, 0.22); border-color: var(--accent-blue); font-weight: 700; box-shadow: 0 0 12px rgba(56,189,248,0.25); }}
-    .filter-left {{ display: flex; align-items: center; gap: 10px; }}
-    .filter-icon {{ width: 16px; height: 16px; object-fit: contain; }}
-    .filter-dot {{ width: 9px; height: 9px; border-radius: 50%; }}
-    .filter-count {{ font-size: 0.72rem; color: var(--text-sub); background: rgba(255,255,255,0.08); padding: 2px 7px; border-radius: 12px; }}
+    .text-view summary {{
+      min-height: 40px;
+      padding: 9px 11px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      color: #CFDAE7;
+      font-size: 0.74rem;
+      font-weight: 680;
+      cursor: pointer;
+      list-style: none;
+    }}
+    .text-view summary::-webkit-details-marker {{ display: none; }}
+    .text-view summary::after {{ content: "展开"; font-family: var(--font-data); color: var(--text-muted); font-size: 0.62rem; font-weight: 600; }}
+    .text-view[open] summary {{ border-bottom: 1px solid var(--border-subtle); }}
+    .text-view[open] summary::after {{ content: "收起"; }}
+    .text-view-content {{ padding: 10px; }}
+    .text-view-heading {{ margin: 2px 0 7px; color: var(--text-sub); font-size: 0.67rem; font-weight: 700; }}
+    .accessible-node-list {{ display: flex; flex-wrap: wrap; gap: 6px; max-height: 150px; overflow-y: auto; padding-bottom: 8px; }}
+    .accessible-node-btn {{
+      padding: 5px 7px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 7px;
+      background: rgba(255,255,255,0.045);
+      color: #D3DCE8;
+      font-size: 0.68rem;
+      cursor: pointer;
+      text-align: left;
+    }}
+    .accessible-node-btn:hover {{ border-color: rgba(92, 200, 245, 0.46); background: rgba(92, 200, 245, 0.10); }}
+    .accessible-link-list {{ max-height: 180px; overflow-y: auto; list-style: none; display: grid; gap: 6px; }}
+    .accessible-link-list li {{ padding: 7px 8px; border-left: 2px solid rgba(92, 200, 245, 0.34); background: rgba(255,255,255,0.035); color: #C8D3E0; font-size: 0.67rem; line-height: 1.48; }}
+    .accessible-link-desc {{ display: block; margin-top: 2px; color: var(--text-muted); }}
 
     /* 💎 临床药理多维详情看板 (Clinical Holographic Dashboard) */
     #detail-drawer {{
-      margin-top: 14px;
-      background: linear-gradient(145deg, rgba(14, 22, 38, 0.98), rgba(8, 12, 22, 0.99));
+      margin-top: 10px;
+      background: linear-gradient(150deg, rgba(15, 25, 41, 0.98), rgba(8, 14, 24, 0.99));
       border: 1px solid var(--border-glow);
-      border-radius: 16px;
-      padding: 18px;
+      border-radius: 12px;
+      padding: 15px;
       display: none;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.1);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.42), inset 0 1px 0 rgba(255,255,255,0.07);
       animation: slideInUp 0.24s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
     }}
@@ -419,33 +534,33 @@ class InteractiveGraphGenerator:
     .drawer-badge {{ display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 8px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }}
     
     .drawer-close-btn {{
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #94A3B8;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-sub);
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       font-size: 0.85rem;
       font-weight: 700;
-      transition: all 0.2s;
+      transition: background-color 0.18s, border-color 0.18s, color 0.18s;
     }}
-    .drawer-close-btn:hover {{ background: rgba(239, 68, 68, 0.3); border-color: #EF4444; color: #fff; transform: rotate(90deg); }}
+    .drawer-close-btn:hover {{ background: rgba(240, 125, 140, 0.16); border-color: rgba(240, 125, 140, 0.52); color: #FFD9DE; }}
 
     /* 🖼️ 3D 高精展柜窗口 */
     .drawer-lightbox {{
       width: 100%;
-      height: 120px;
-      border-radius: 12px;
+      height: 110px;
+      border-radius: 10px;
       background: radial-gradient(circle at 50% 50%, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
       border: 1px solid rgba(255, 255, 255, 0.12);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       overflow: hidden;
       position: relative;
       box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
@@ -457,7 +572,7 @@ class InteractiveGraphGenerator:
       filter: drop-shadow(0 6px 16px rgba(0,0,0,0.6));
       transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }}
-    .drawer-lightbox:hover img {{ transform: scale(1.08); }}
+    .drawer-lightbox:hover img {{ transform: scale(1.04); }}
     .lightbox-tag {{
       position: absolute;
       bottom: 6px;
@@ -470,16 +585,16 @@ class InteractiveGraphGenerator:
       border: 1px solid rgba(255,255,255,0.08);
     }}
 
-    .drawer-title {{ font-size: 1.15rem; font-weight: 800; color: #fff; margin-bottom: 10px; line-height: 1.38; letter-spacing: -0.01em; }}
+    .drawer-title {{ font-family: var(--font-display); font-size: 1.08rem; font-weight: 760; color: #fff; margin-bottom: 9px; line-height: 1.38; letter-spacing: -0.016em; }}
     .drawer-desc-card {{
-      font-size: 0.82rem;
-      color: #CBD5E1;
-      line-height: 1.65;
-      margin-bottom: 14px;
-      background: rgba(255, 255, 255, 0.035);
-      padding: 12px 14px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.78rem;
+      color: #CDD8E6;
+      line-height: 1.68;
+      margin-bottom: 12px;
+      background: rgba(154, 179, 210, 0.055);
+      padding: 11px 12px;
+      border-radius: 9px;
+      border: 1px solid var(--border-subtle);
       white-space: pre-line;
     }}
 
@@ -508,9 +623,9 @@ class InteractiveGraphGenerator:
       flex: 1;
       padding: 7px 10px;
       border-radius: 8px;
-      background: rgba(56, 189, 248, 0.15);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      color: #38BDF8;
+      background: rgba(92, 200, 245, 0.10);
+      border: 1px solid rgba(92, 200, 245, 0.32);
+      color: #BCEBFB;
       font-size: 0.75rem;
       font-weight: 700;
       cursor: pointer;
@@ -518,13 +633,14 @@ class InteractiveGraphGenerator:
       align-items: center;
       justify-content: center;
       gap: 5px;
-      transition: all 0.2s;
+      transition: background-color 0.18s, border-color 0.18s, color 0.18s;
     }}
-    .drawer-btn:hover {{ background: rgba(56, 189, 248, 0.3); color: #fff; transform: translateY(-1px); }}
+    .drawer-btn:hover {{ background: rgba(92, 200, 245, 0.20); border-color: var(--accent-blue); color: #fff; }}
 
     .drawer-conns-title {{ font-size: 0.76rem; font-weight: 700; color: var(--text-sub); text-transform: uppercase; margin-bottom: 10px; display: flex; justify-content: space-between; }}
     .drawer-conns-list {{ display: flex; flex-direction: column; gap: 6px; max-height: 180px; overflow-y: auto; font-size: 0.78rem; }}
     .conn-tag {{
+      width: 100%;
       padding: 7px 10px;
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.05);
@@ -532,10 +648,13 @@ class InteractiveGraphGenerator:
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
-      transition: all 0.18s;
+      color: var(--text-main);
+      font: inherit;
+      text-align: left;
+      transition: background-color 0.18s, border-color 0.18s;
       border: 1px solid transparent;
     }}
-    .conn-tag:hover {{ background: rgba(56, 189, 248, 0.18); border-color: var(--accent-blue); transform: translateX(3px); box-shadow: 0 2px 10px rgba(56,189,248,0.25); }}
+    .conn-tag:hover {{ background: rgba(92, 200, 245, 0.14); border-color: var(--accent-blue); }}
     .conn-rel {{ font-weight: 700; }}
     .conn-rel.positive {{ color: #34D399; }}
     .conn-rel.negative {{ color: #F87171; }}
@@ -545,32 +664,54 @@ class InteractiveGraphGenerator:
     /* 🛰️ 悬浮工具栏 (Floating Control Capsule) */
     .top-floating-bar {{
       position: absolute;
-      top: 22px;
-      right: 22px;
+      top: 16px;
+      right: 16px;
       display: flex;
-      gap: 10px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-width: calc(100% - 32px);
       z-index: 10;
     }}
     .tool-btn {{
       background: var(--bg-card);
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(16px);
       border: 1px solid var(--border-glass);
-      color: #E2E8F0;
-      padding: 9px 15px;
-      border-radius: 12px;
-      font-size: 0.82rem;
-      font-weight: 600;
+      color: #D5DEEA;
+      min-height: 38px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      font-weight: 650;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 7px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.28);
+      transition: background-color 0.18s, border-color 0.18s, color 0.18s, box-shadow 0.18s;
     }}
     .tool-btn img {{ width: 15px; height: 15px; object-fit: contain; }}
-    .tool-btn:hover {{ background: rgba(56, 189, 248, 0.25); border-color: var(--accent-blue); color: #fff; transform: translateY(-1.5px); box-shadow: 0 8px 25px rgba(56,189,248,0.3); }}
-    .tool-btn.highlight {{ background: linear-gradient(135deg, #0284C7, #2563EB); border-color: #38BDF8; color: #fff; box-shadow: 0 0 16px rgba(56,189,248,0.45); }}
-    .tool-btn.active {{ background: rgba(56, 189, 248, 0.25); border-color: var(--accent-blue); color: var(--accent-blue); }}
+    .tool-btn:hover {{ background: rgba(92, 200, 245, 0.16); border-color: var(--accent-blue); color: #fff; }}
+    .tool-btn.highlight {{ background: #176786; border-color: #63D3FF; color: #fff; box-shadow: 0 8px 24px rgba(13, 83, 112, 0.34); }}
+    .tool-btn.active {{ background: rgba(92, 200, 245, 0.17); border-color: var(--accent-blue); color: #AEE7FA; }}
+
+    .mobile-panel-toggle {{
+      display: none;
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 60;
+      min-height: 40px;
+      padding: 8px 11px;
+      border-radius: 10px;
+      border: 1px solid rgba(92, 200, 245, 0.48);
+      background: rgba(8, 15, 26, 0.92);
+      color: #D8F4FE;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.34);
+      font-size: 0.73rem;
+      font-weight: 720;
+      cursor: pointer;
+    }}
 
     /* 🎯 悬浮微型卡片 (Hover Tooltip HUD) */
     #hover-hud {{
@@ -595,15 +736,15 @@ class InteractiveGraphGenerator:
     /* 3D 漫游提示条 */
     .controls-hint {{
       position: absolute;
-      bottom: 18px;
-      right: 22px;
+      bottom: 14px;
+      right: 16px;
       background: rgba(10, 16, 28, 0.82);
       backdrop-filter: blur(12px);
       border: 1px solid var(--border-subtle);
       border-radius: 8px;
       padding: 7px 14px;
-      font-size: 0.72rem;
-      color: #94A3B8;
+      font-size: 0.68rem;
+      color: var(--text-sub);
       z-index: 10;
       pointer-events: none;
       display: flex;
@@ -611,86 +752,191 @@ class InteractiveGraphGenerator:
     }}
     .controls-hint span {{ display: flex; align-items: center; gap: 4px; }}
     .controls-hint kbd {{ background: rgba(255,255,255,0.12); padding: 2px 6px; border-radius: 4px; color: #E2E8F0; font-size: 0.68rem; font-weight: 600; }}
+
+    .sr-only {{
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }}
+    :where(button, input, [tabindex]):focus-visible {{
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 3px;
+    }}
+
+    @media (max-width: 1180px) {{
+      #sidebar {{ width: 380px; flex-basis: 380px; padding: 17px; }}
+      .header-title {{ font-size: 1.04rem; }}
+      .top-floating-bar {{ gap: 6px; }}
+      .tool-btn {{ min-height: 36px; padding: 7px 9px; font-size: 0.69rem; }}
+      .controls-hint {{ max-width: calc(100% - 32px); flex-wrap: wrap; justify-content: flex-end; gap: 8px 12px; }}
+    }}
+
+    @media (max-width: 900px) {{
+      body {{ display: block; }}
+      #network-wrapper {{ position: fixed; inset: 0; width: 100%; height: 100dvh; }}
+      #sidebar {{
+        position: fixed;
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+        width: auto;
+        height: min(72dvh, 620px);
+        max-height: calc(100dvh - 72px);
+        padding: 15px;
+        border: 1px solid var(--border-glass);
+        border-radius: 16px;
+        box-shadow: 0 -18px 48px rgba(0,0,0,0.54);
+        transform: translateY(0);
+        transition: transform 0.26s cubic-bezier(0.2, 0.8, 0.2, 1);
+        z-index: 50;
+      }}
+      body.sidebar-collapsed #sidebar {{ transform: translateY(calc(100% + 18px)); }}
+      .mobile-panel-toggle {{ display: inline-flex; align-items: center; }}
+      .top-floating-bar {{
+        top: 12px;
+        left: 118px;
+        right: 10px;
+        max-width: none;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 0 2px 7px;
+        scrollbar-width: none;
+      }}
+      .top-floating-bar::-webkit-scrollbar {{ display: none; }}
+      .tool-btn {{ flex: 0 0 auto; min-height: 40px; }}
+      .tool-btn img {{ width: 14px; height: 14px; }}
+      .controls-hint {{ display: none; }}
+      #hover-hud {{ max-width: min(250px, calc(100vw - 24px)); }}
+      .header-sub {{ margin-bottom: 12px; }}
+      .mode-banner {{ margin-bottom: 12px; }}
+      .scenario-section {{ margin-bottom: 13px; }}
+      .search-row {{ grid-template-columns: minmax(0, 1fr) 54px; }}
+      .search-submit {{ padding: 0 9px; }}
+      .chip {{ min-height: 34px; }}
+    }}
+
+    @media (max-width: 420px) {{
+      #sidebar {{ height: min(76dvh, 640px); padding: 14px; }}
+      .header-title {{ font-size: 1rem; }}
+      .header-sub {{ font-size: 0.71rem; }}
+      .preset-chips {{ gap: 6px; }}
+      .chip {{ max-width: 100%; }}
+      .layout-btn {{ font-size: 0.68rem; }}
+    }}
+
+    @media (prefers-reduced-motion: reduce) {{
+      *, *::before, *::after {{
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }}
+    }}
+
+    @media (forced-colors: active) {{
+      .header-title {{
+        background: none;
+        color: CanvasText;
+        -webkit-text-fill-color: CanvasText;
+      }}
+      :where(button, input, summary, [tabindex]) {{ forced-color-adjust: auto; }}
+      .filter-dot {{ box-shadow: none; }}
+    }}
   </style>
 </head>
 <body>
 
   <!-- 左侧控制面板 -->
-  <div id="sidebar">
+  <aside id="sidebar" aria-label="图谱探索控制面板">
     <div class="header-box">
       <div class="header-logo">
         <img src="assets/drug_sukailang.png" alt="Stahl Graph Logo" />
       </div>
       <div>
         <h1 class="header-title">Stahl 精神药理学精要</h1>
-        <div style="font-size:0.75rem; color:#94A3B8; font-weight:600;">第5版 · 3D 全景立体脑科学知识图谱</div>
+        <div class="header-kicker">第5版 · 3D 神经药理证据图谱</div>
       </div>
     </div>
     <div class="header-sub">
-      覆盖全书 14 大核心章节 · 187 个受体/药物/回路实体 · 384 条机制证据链 · WebGL 3D 动力学粒子飞线与高精图解看板
+      覆盖全书 14 大核心章节 · {len(graph.nodes)} 个药物/受体/回路实体 · {len(graph.edges)} 条关系证据。选择节点，追踪完整药理链路。
     </div>
 
     <div class="mode-banner">
-      <span id="mode-text">单点级联扩散探索 (点击节点展开/点击空白释放)</span>
-      <span class="mode-pill" id="reset-filter-btn">重置开屏</span>
+      <span id="mode-text" aria-live="polite">单点级联探索 · 点击节点展开，点击空白释放</span>
+      <button type="button" class="mode-pill" id="reset-filter-btn">重置</button>
     </div>
 
-    <div class="search-wrapper">
-      <img src="assets/NOTE.png" class="search-icon-img" alt="" />
-      <input type="text" id="search-input" class="search-input" placeholder="输入药名/受体 (如: 艾司氯胺酮, 卢美哌隆, TAAR1, 专注达)..." />
-    </div>
+    <form class="search-wrapper" id="search-form" role="search">
+      <label class="sr-only" for="search-input">搜索药物、受体或疾病</label>
+      <div class="search-row">
+        <div class="search-field">
+          <img src="assets/NOTE.png" class="search-icon-img" alt="" />
+          <input type="search" id="search-input" class="search-input" autocomplete="off" list="search-suggestions" placeholder="搜索药物、受体或疾病" />
+          <datalist id="search-suggestions"></datalist>
+        </div>
+        <button type="submit" class="search-submit">定位</button>
+      </div>
+      <div class="search-status" id="search-status" role="status" aria-live="polite"></div>
+    </form>
 
     <!-- 20+ 核心专病场景矩阵 -->
     <div class="scenario-section">
       <div class="section-title">
         <span>前沿机制与专病透视预设</span>
-        <span style="font-size:0.68rem; color:#38BDF8;">20+ 临床场景</span>
+        <span class="section-meta">20+ 临床场景</span>
       </div>
       <div class="preset-chips">
-        <div class="chip active" data-preset="INITIAL_SEED">
+        <button type="button" class="chip active" data-preset="INITIAL_SEED" aria-pressed="true">
           <img src="assets/drug_sukailang.png" alt="" />
           <span>速开朗® TRD/自杀干预 (开屏)</span>
-        </div>
-        <div class="chip" data-preset="TRD_KETAMINE">
+        </button>
+        <button type="button" class="chip" data-preset="TRD_KETAMINE" aria-pressed="false">
           <img src="assets/mech_nmda_antag.png" alt="" />
           <span>NMDA 阻断与突触可塑性</span>
-        </div>
-        <div class="chip" data-preset="ADHD_OROS">
+        </button>
+        <button type="button" class="chip" data-preset="ADHD_OROS" aria-pressed="false">
           <img src="assets/drug_concerta_18mg.png" alt="" />
           <span>专注达® OROS 控释与前额叶</span>
-        </div>
-        <div class="chip" data-preset="DORA_INSOMNIA">
+        </button>
+        <button type="button" class="chip" data-preset="DORA_INSOMNIA" aria-pressed="false">
           <img src="assets/icon_night.png" alt="" />
           <span>DORA 双食欲素拮抗 (达卫可®)</span>
-        </div>
-        <div class="chip" data-preset="LUMATEPERONE">
+        </button>
+        <button type="button" class="chip" data-preset="LUMATEPERONE" aria-pressed="false">
           <img src="assets/pharma_capsule.png" alt="" />
           <span>卢美哌隆 (Caplyta) 5-HT2A/D2/SERT</span>
-        </div>
-        <div class="chip" data-preset="TAAR1_SCHIZO">
+        </button>
+        <button type="button" class="chip" data-preset="TAAR1_SCHIZO" aria-pressed="false">
           <img src="assets/complete.png" alt="" />
           <span>TAAR1/5-HT1A 激动剂 (Ulotaront)</span>
-        </div>
-        <div class="chip" data-preset="PPD_GABA">
+        </button>
+        <button type="button" class="chip" data-preset="PPD_GABA" aria-pressed="false">
           <img src="assets/pharma_capsule.png" alt="" />
           <span>产后抑郁 GABA PAM (祖拉诺酮)</span>
-        </div>
-        <div class="chip" data-preset="SCN_CIRCADIAN">
+        </button>
+        <button type="button" class="chip" data-preset="SCN_CIRCADIAN" aria-pressed="false">
           <img src="assets/icon_morning.png" alt="" />
           <span>昼夜节律 MT1/MT2/5-HT2C</span>
-        </div>
-        <div class="chip" data-preset="SNDRI_TRIPLE">
+        </button>
+        <button type="button" class="chip" data-preset="SNDRI_TRIPLE" aria-pressed="false">
           <img src="assets/63653-tablets-min.png" alt="" />
           <span>SNDRI 三重再摄取 (若舒达®)</span>
-        </div>
-        <div class="chip" data-preset="DIMDAZENIL">
+        </button>
+        <button type="button" class="chip" data-preset="DIMDAZENIL" aria-pressed="false">
           <img src="assets/63653-tablets-min.png" alt="" />
           <span>地达西尼 (京诺宁®) PAM</span>
-        </div>
-        <div class="chip" data-preset="AD_AMYLOID">
+        </button>
+        <button type="button" class="chip" data-preset="AD_AMYLOID" aria-pressed="false">
           <img src="assets/NOTE.png" alt="" />
           <span>阿尔茨海默病 Aβ 单抗 (仑卡奈)</span>
-        </div>
+        </button>
       </div>
     </div>
 
@@ -698,12 +944,12 @@ class InteractiveGraphGenerator:
     <div class="scenario-section">
       <div class="section-title">
         <span>3D 空间排布引擎</span>
-        <span style="font-size:0.68rem; color:#C084FC;">三维空间几何</span>
+        <span class="section-meta" style="color:var(--accent-purple);">三维空间几何</span>
       </div>
       <div class="layout-switcher">
-        <div class="layout-btn active" id="btn-layout-force">💫 宇宙星云</div>
-        <div class="layout-btn" id="btn-layout-cluster">🎯 同心球层</div>
-        <div class="layout-btn" id="btn-layout-hier">🌲 机制晶体柱</div>
+        <button type="button" class="layout-btn active" id="btn-layout-force" aria-pressed="true">自由星群</button>
+        <button type="button" class="layout-btn" id="btn-layout-cluster" aria-pressed="false">同心分层</button>
+        <button type="button" class="layout-btn" id="btn-layout-hier" aria-pressed="false">机制柱阵</button>
       </div>
     </div>
 
@@ -711,19 +957,32 @@ class InteractiveGraphGenerator:
     <div class="scenario-section">
       <div class="section-title">
         <span>证据闭环实体子图</span>
-        <span style="font-size:0.68rem; color:#94A3B8;">点击以关系连接</span>
+        <span class="section-meta" style="color:var(--text-sub);">按关系连接</span>
       </div>
       <div class="filter-list" id="filter-container"></div>
     </div>
 
+    <!-- WebGL 图谱的键盘与文本等价视图 -->
+    <div class="scenario-section">
+      <details class="text-view" id="text-view">
+        <summary>当前可见节点与关系</summary>
+        <div class="text-view-content">
+          <div class="text-view-heading" id="accessible-node-heading">节点</div>
+          <div class="accessible-node-list" id="accessible-node-list" aria-labelledby="accessible-node-heading"></div>
+          <div class="text-view-heading" id="accessible-link-heading">关系证据</div>
+          <ul class="accessible-link-list" id="accessible-link-list" tabindex="0" aria-labelledby="accessible-link-heading"></ul>
+        </div>
+      </details>
+    </div>
+
     <!-- 临床药理多维看板 (详情抽屉) -->
-    <div id="detail-drawer">
+    <section id="detail-drawer" aria-labelledby="drawer-title" aria-hidden="true">
       <div class="drawer-header">
         <div class="drawer-header-left">
           <span class="drawer-badge" id="drawer-badge">类别</span>
           <span id="drawer-level" style="font-size:0.68rem; color:#94A3B8; font-weight:600;">脑区级联</span>
         </div>
-        <div class="drawer-close-btn" id="drawer-close-btn" title="收起面板并释放视角锁定">✕</div>
+        <button type="button" class="drawer-close-btn" id="drawer-close-btn" title="收起详情并释放视角" aria-label="收起详情并释放视角">×</button>
       </div>
       
       <!-- 3D 晶莹展柜窗口 -->
@@ -732,7 +991,7 @@ class InteractiveGraphGenerator:
         <span class="lightbox-tag" id="drawer-art-tag">3D 药学图解</span>
       </div>
 
-      <div class="drawer-title" id="drawer-title">实体详情</div>
+      <h2 class="drawer-title" id="drawer-title" tabindex="-1">实体详情</h2>
       <div class="drawer-desc-card" id="drawer-desc">...</div>
 
       <!-- 操作快捷按钮 -->
@@ -744,52 +1003,52 @@ class InteractiveGraphGenerator:
 
       <!-- 机制传导流条带 -->
       <div class="flow-ribbon" id="flow-ribbon" style="display:none;">
-        <div class="flow-ribbon-title">⚡ 脑科学药理机制传导流</div>
+        <div class="flow-ribbon-title">药理机制传导流</div>
         <div class="flow-steps" id="flow-steps"></div>
       </div>
 
       <div class="drawer-conns-title">
-        <span>🔗 关联受体靶点与神经回路 (点击 3D 飞掠跳转)</span>
+        <span>关联靶点与神经回路</span>
         <span style="font-size:0.68rem; color:#38BDF8;" id="conns-count">0 关联</span>
       </div>
       <div class="drawer-conns-list" id="drawer-conns"></div>
-    </div>
-  </div>
+    </section>
+  </aside>
 
   <!-- 3D 图谱画布容器 -->
-  <div id="network-wrapper">
-    <div id="3d-graph-container"></div>
+  <main id="network-wrapper" tabindex="-1" aria-label="3D 精神药理学关系图谱">
+    <button type="button" class="mobile-panel-toggle" id="mobile-panel-toggle" aria-controls="sidebar" aria-expanded="true">收起探索面板</button>
+    <div id="3d-graph-container" role="region" aria-label="可旋转、缩放并选择节点的三维关系图"></div>
     <div id="network-container" style="display:none;"></div>
     
     <!-- 悬浮微型 HUD 提示卡 -->
-    <div id="hover-hud">
+    <div id="hover-hud" role="status" aria-live="polite">
       <div id="hover-hud-title">实体名称</div>
       <div id="hover-hud-cat">类别 · 0 关联</div>
     </div>
 
     <!-- 顶部操作胶囊 -->
-    <div class="top-floating-bar">
-      <button class="tool-btn highlight" id="btn-cascade-mode">
+    <nav class="top-floating-bar" aria-label="图谱视图控制">
+      <button type="button" class="tool-btn highlight" id="btn-cascade-mode" aria-pressed="true">
         <img src="assets/mission.png" alt="" />
         单点级联探索
       </button>
-      <button class="tool-btn" id="btn-expand-all">
+      <button type="button" class="tool-btn" id="btn-expand-all" aria-pressed="false">
         <img src="assets/Field_Inventory_Menu_02.png" alt="" />
         全景宏观总网
       </button>
-      <button class="tool-btn" id="btn-auto-rotate">
-        <span>🚀</span>
-        3D 巡航自转
+      <button type="button" class="tool-btn" id="btn-auto-rotate" aria-pressed="false">
+        巡航旋转
       </button>
-      <button class="tool-btn" id="btn-relax-physics">
+      <button type="button" class="tool-btn" id="btn-relax-physics">
         <img src="assets/complete.png" alt="" />
-        💫 3D 空间舒展
+        空间舒展
       </button>
-      <button class="tool-btn" id="btn-zoom-fit">
+      <button type="button" class="tool-btn" id="btn-zoom-fit">
         <img src="assets/NOTE.png" alt="" />
         全景视点 (释放)
       </button>
-    </div>
+    </nav>
 
     <!-- 3D 漫游操作提示 -->
     <div class="controls-hint">
@@ -798,11 +1057,34 @@ class InteractiveGraphGenerator:
       <span><kbd>右键拖拽</kbd> 平移</span>
       <span><kbd>滚轮</kbd> 推拉</span>
     </div>
-  </div>
+  </main>
 
   <script>
     const graphRawData = {graph_data_json};
     const categoryConfig = {json.dumps(cls.CATEGORY_CONFIG, ensure_ascii=False)};
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const cameraDuration = () => prefersReducedMotion.matches ? 0 : 900;
+
+    function setActiveInGroup(selector, activeElement = null) {{
+      document.querySelectorAll(selector).forEach(element => {{
+        const isActive = element === activeElement;
+        element.classList.toggle('active', isActive);
+        if (element.hasAttribute('aria-pressed')) {{
+          element.setAttribute('aria-pressed', String(isActive));
+        }}
+      }});
+    }}
+
+    function setPrimaryViewMode(mode) {{
+      const cascadeButton = document.getElementById('btn-cascade-mode');
+      const expandButton = document.getElementById('btn-expand-all');
+      const cascadeActive = mode === 'cascade';
+      const expandActive = mode === 'all';
+      cascadeButton.classList.toggle('highlight', cascadeActive);
+      expandButton.classList.toggle('highlight', expandActive);
+      cascadeButton.setAttribute('aria-pressed', String(cascadeActive));
+      expandButton.setAttribute('aria-pressed', String(expandActive));
+    }}
     
     const catCounts = {{}};
     graphRawData.nodes.forEach(n => {{
@@ -818,14 +1100,27 @@ class InteractiveGraphGenerator:
       if (adjMap[v]) adjMap[v].add(u);
     }});
 
+    const searchSuggestions = document.getElementById('search-suggestions');
+    graphRawData.nodes
+      .slice()
+      .sort((a, b) => a.fullLabel.localeCompare(b.fullLabel, 'zh-CN'))
+      .forEach(node => {{
+        const option = document.createElement('option');
+        option.value = node.fullLabel;
+        option.label = node.categoryName;
+        searchSuggestions.appendChild(option);
+      }});
+
     // 实体类别侧边栏渲染
     const filterContainer = document.getElementById('filter-container');
     Object.keys(categoryConfig).forEach(cat => {{
       const cfg = categoryConfig[cat];
       const count = catCounts[cat] || 0;
-      const item = document.createElement('div');
+      const item = document.createElement('button');
+      item.type = 'button';
       item.className = 'filter-item';
       item.dataset.category = cat;
+      item.setAttribute('aria-pressed', 'false');
       item.innerHTML = `
         <div class="filter-left">
           <img src="${{cfg.icon}}" class="filter-icon" alt="" />
@@ -836,10 +1131,10 @@ class InteractiveGraphGenerator:
       `;
       
       item.addEventListener('click', function() {{
-        document.querySelectorAll('.filter-item').forEach(f => f.classList.remove('active'));
-        this.classList.add('active');
-        document.querySelectorAll('.preset-chips .chip').forEach(c => c.classList.remove('active'));
+        setActiveInGroup('.filter-item', this);
+        setActiveInGroup('.preset-chips .chip');
         isCascadeMode = false;
+        setPrimaryViewMode('filtered');
 
         const primaryNodes = graphRawData.nodes.filter(n => n.category === cat);
         const primaryIds = new Set(primaryNodes.map(n => n.id));
@@ -879,14 +1174,14 @@ class InteractiveGraphGenerator:
     }};
 
     const Graph = ForceGraph3D()(container)
-      .backgroundColor('#050811')
+      .backgroundColor('#070B14')
       .showNavInfo(false)
       .nodeRelSize(5.5)
       .nodeResolution(16)
       .linkCurvature('curvature')
       .linkCurveRotation(0.25)
-      .linkDirectionalParticles('particles')
-      .linkDirectionalParticleSpeed('particleSpeed')
+      .linkDirectionalParticles(link => prefersReducedMotion.matches ? 0 : link.particles)
+      .linkDirectionalParticleSpeed(link => prefersReducedMotion.matches ? 0 : link.particleSpeed)
       .linkDirectionalParticleWidth(link => highlightLinks.has(link) ? 3.8 : 2.0)
       .linkDirectionalParticleColor(link => link.particleColor || link.color || '#38BDF8')
       .linkColor(link => {{
@@ -938,15 +1233,18 @@ class InteractiveGraphGenerator:
 
         // 3. 3D SpriteText 药学文字标牌 (防深度撕裂闪烁优化)
         const sprite = new SpriteText(node.label);
-        sprite.color = '#FFFFFF';
-        sprite.textHeight = Math.max(3.8, Math.min(6.2, 3.2 + (node.degree || 1) * 0.22));
-        sprite.backgroundColor = 'rgba(5, 8, 17, 0.82)';
+        sprite.color = '#F7FAFC';
+        sprite.textHeight = Math.max(2.8, Math.min(4.2, 2.5 + (node.degree || 1) * 0.14));
+        sprite.backgroundColor = 'rgba(7, 11, 20, 0.88)';
         sprite.borderColor = node.color;
-        sprite.borderWidth = 0.8;
+        sprite.borderWidth = 0.65;
         sprite.borderRadius = 4;
-        sprite.padding = [2, 5];
-        sprite.fontFace = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", sans-serif';
-        sprite.position.y = -(baseRadius + sprite.textHeight * 0.95);
+        sprite.padding = [1.8, 4.2];
+        sprite.fontFace = 'Inter, "Noto Sans SC", "Segoe UI Variable Text", "PingFang SC", "Microsoft YaHei", sans-serif';
+        const isLongDiseaseLabel = node.category === 'Disease' && (node.fullLabel || node.label).length > 18;
+        sprite.position.y = isLongDiseaseLabel
+          ? baseRadius + sprite.textHeight * 1.15
+          : -(baseRadius + sprite.textHeight * 0.95);
         
         // 关键抗闪烁设置
         sprite.material.depthWrite = false;
@@ -959,6 +1257,9 @@ class InteractiveGraphGenerator:
         return group;
       }})
       .onNodeClick(node => {{
+        if (window.matchMedia('(max-width: 900px)').matches) {{
+          setSidebarOpen(true);
+        }}
         focusNode3D(node.id);
         if (isCascadeMode) {{
           expandCascade3D(node.id);
@@ -1060,8 +1361,8 @@ class InteractiveGraphGenerator:
     }});
 
     // 🚀 3D 动力学力导向引擎参数微调
-    Graph.d3Force('charge').strength(-280);
-    Graph.d3Force('link').distance(link => 65 + (link.isKey ? 20 : 0));
+    Graph.d3Force('charge').strength(-360);
+    Graph.d3Force('link').distance(link => 82 + (link.isKey ? 24 : 0));
 
     // 🛸 自动环绕巡航漫游 (平滑无抖动版)
     let rotateAngle = 0;
@@ -1083,6 +1384,8 @@ class InteractiveGraphGenerator:
       isAutoRotating = !isAutoRotating;
       this.classList.toggle('active', isAutoRotating);
       this.classList.toggle('highlight', isAutoRotating);
+      this.setAttribute('aria-pressed', String(isAutoRotating));
+      document.getElementById('mode-text').innerText = isAutoRotating ? '巡航旋转已开启，可再次点击停止' : '巡航旋转已停止';
       if (isAutoRotating) {{
         const pos = Graph.cameraPosition();
         rotateAngle = Math.atan2(pos.x, pos.z) || 0;
@@ -1090,23 +1393,99 @@ class InteractiveGraphGenerator:
     }});
 
     let currentVisibleNodeIds = new Set();
+    let lastDetailTrigger = null;
+    let hasCompletedInitialFocus = false;
+
+    function renderAccessibleGraphView() {{
+      const graphData = Graph.graphData();
+      const nodeList = document.getElementById('accessible-node-list');
+      const linkList = document.getElementById('accessible-link-list');
+      const nodeHeading = document.getElementById('accessible-node-heading');
+      const linkHeading = document.getElementById('accessible-link-heading');
+
+      nodeList.innerHTML = '';
+      linkList.innerHTML = '';
+      nodeHeading.innerText = `节点 · ${{graphData.nodes.length}}`;
+      linkHeading.innerText = `关系证据 · ${{graphData.links.length}}`;
+
+      const nodeById = new Map(graphData.nodes.map(node => [node.id, node]));
+      graphData.nodes
+        .slice()
+        .sort((a, b) => a.fullLabel.localeCompare(b.fullLabel, 'zh-CN'))
+        .forEach(node => {{
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'accessible-node-btn';
+          button.dataset.nodeId = node.id;
+          button.innerText = node.fullLabel;
+          button.setAttribute('aria-label', `${{node.fullLabel}}，${{node.categoryName}}，${{node.degree}} 条关系`);
+          button.addEventListener('click', () => {{
+            focusNode3D(node.id);
+            if (isCascadeMode) expandCascade3D(node.id);
+          }});
+          nodeList.appendChild(button);
+        }});
+
+      graphData.links.forEach(link => {{
+        const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+        const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+        const source = nodeById.get(sourceId) || graphRawData.nodes.find(node => node.id === sourceId);
+        const target = nodeById.get(targetId) || graphRawData.nodes.find(node => node.id === targetId);
+        const item = document.createElement('li');
+        const relation = document.createElement('span');
+        relation.innerText = `${{source ? source.fullLabel : sourceId}} — ${{link.relName}} → ${{target ? target.fullLabel : targetId}}`;
+        item.appendChild(relation);
+        if (link.description) {{
+          const description = document.createElement('span');
+          description.className = 'accessible-link-desc';
+          description.innerText = link.description;
+          item.appendChild(description);
+        }}
+        linkList.appendChild(item);
+      }});
+    }}
 
     // 🌟 释放视角锁定并恢复自由全景
     function resetViewFocus(animate = true) {{
+      const releasedNodeId = activeFocusedNodeId;
+      const returnTarget = lastDetailTrigger;
+      lastDetailTrigger = null;
       activeFocusedNodeId = null;
       hoverNodeObj = null;
-      document.getElementById('detail-drawer').classList.remove('show');
-      document.getElementById('mode-text').innerText = '自由全景漫游模式 (点击任意节点聚焦)';
+      const drawer = document.getElementById('detail-drawer');
+      const drawerWasOpen = drawer.classList.contains('show');
+      drawer.classList.remove('show');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.getElementById('mode-text').innerText = '自由全景漫游 · 选择节点可再次聚焦';
       
       updateVisualHighlights();
 
       if (animate) {{
-        Graph.cameraPosition({{ x: 0, y: 160, z: 560 }}, {{ x: 0, y: 0, z: 0 }}, 900);
+        Graph.cameraPosition({{ x: 0, y: 160, z: 560 }}, {{ x: 0, y: 0, z: 0 }}, cameraDuration());
+      }}
+      if (returnTarget && returnTarget.isConnected && !returnTarget.closest('[inert]')) {{
+        returnTarget.focus();
+      }} else if (drawerWasOpen) {{
+        const stableNodeButton = releasedNodeId
+          ? Array.from(document.querySelectorAll('.accessible-node-btn')).find(button => button.dataset.nodeId === releasedNodeId)
+          : null;
+        if (stableNodeButton && stableNodeButton.offsetParent !== null && !stableNodeButton.closest('[inert]')) {{
+          stableNodeButton.focus();
+          stableNodeButton.scrollIntoView({{ block: 'nearest' }});
+        }} else {{
+          document.getElementById('network-wrapper').focus({{ preventScroll: true }});
+          document.getElementById('sidebar').scrollTo({{ top: 0, behavior: prefersReducedMotion.matches ? 'auto' : 'smooth' }});
+        }}
       }}
     }}
 
     document.getElementById('drawer-close-btn').addEventListener('click', () => resetViewFocus(true));
     document.getElementById('btn-release-focus').addEventListener('click', () => resetViewFocus(true));
+    document.addEventListener('keydown', event => {{
+      if (event.key === 'Escape' && document.getElementById('detail-drawer').classList.contains('show')) {{
+        resetViewFocus(true);
+      }}
+    }});
 
     // 🌟 单点级联扩散呈现（开屏及逐级裂变）
     function loadCascadeSeed3D(seedNodeId, depth = 1) {{
@@ -1125,7 +1504,7 @@ class InteractiveGraphGenerator:
 
       updateGraphSubView(visibleIds);
       focusNode3D(seedNodeId);
-      document.getElementById('mode-text').innerText = '单点级联扩散探索 (点击节点展开/点击空白释放)';
+      document.getElementById('mode-text').innerText = '单点级联探索 · 选择节点继续展开';
     }}
 
     function expandCascade3D(nodeId) {{
@@ -1156,6 +1535,7 @@ class InteractiveGraphGenerator:
       const cleanLinks = subLinks.map(l => ({{ ...l }}));
 
       Graph.graphData({{ nodes: cleanNodes, links: cleanLinks }});
+      renderAccessibleGraphView();
       
       if (currentLayoutMode !== 'force') {{
         applyCustom3DLayout(currentLayoutMode);
@@ -1164,12 +1544,18 @@ class InteractiveGraphGenerator:
 
     // 🎬 电影级 3D 平滑运镜聚焦
     function focusNode3D(nodeId) {{
+      const shouldRevealDetails = hasCompletedInitialFocus;
+      const activeElement = document.activeElement;
+      if (activeElement && activeElement.matches('.accessible-node-btn, .conn-tag, #search-input, .filter-item, .chip')) {{
+        lastDetailTrigger = activeElement;
+      }}
       activeFocusedNodeId = nodeId;
       const currentNodes = Graph.graphData().nodes;
       const node = currentNodes.find(n => n.id === nodeId) || graphRawData.nodes.find(n => n.id === nodeId);
       if (!node) return;
 
-      const distance = 135;
+      const viewportWidth = Math.max(container.clientWidth, 360);
+      const distance = Math.min(720, Math.max(340, 340 * (1020 / viewportWidth)));
       const currentPos = Graph.cameraPosition();
       const nx = node.x || 0;
       const ny = node.y || 0;
@@ -1187,11 +1573,14 @@ class InteractiveGraphGenerator:
         z: nz + (distVec.z / currentDist) * distance
       }};
 
-      Graph.cameraPosition(targetCamPos, {{ x: nx, y: ny, z: nz }}, 900);
+      Graph.cameraPosition(targetCamPos, {{ x: nx, y: ny, z: nz }}, cameraDuration());
 
       // 展开现代化全景看板
-      document.getElementById('detail-drawer').classList.add('show');
-      document.getElementById('drawer-title').innerText = node.fullLabel;
+      const drawer = document.getElementById('detail-drawer');
+      const drawerTitle = document.getElementById('drawer-title');
+      drawer.classList.add('show');
+      drawer.setAttribute('aria-hidden', 'false');
+      drawerTitle.innerText = node.fullLabel;
       document.getElementById('drawer-desc').innerText = node.description || 'Stahl 精神药理学核心实体。';
       
       const badge = document.getElementById('drawer-badge');
@@ -1205,9 +1594,11 @@ class InteractiveGraphGenerator:
       const artTag = document.getElementById('drawer-art-tag');
       if (node.customImage) {{
         artImg.src = node.customImage;
+        artImg.alt = `${{node.fullLabel}}相关药物或机制图像`;
         artTag.innerText = '高精医学素材 / 结构式';
       }} else {{
         artImg.src = (catCfg && catCfg.icon) ? catCfg.icon : 'assets/63653-tablets-min.png';
+        artImg.alt = '';
         artTag.innerText = '分类范畴图解';
       }}
 
@@ -1260,13 +1651,15 @@ class InteractiveGraphGenerator:
         const otherId = u === nodeId ? v : u;
         const otherNode = graphRawData.nodes.find(n => n.id === otherId);
         if (otherNode) {{
-          const tag = document.createElement('div');
+          const tag = document.createElement('button');
+          tag.type = 'button';
           tag.className = 'conn-tag';
           const relType = e.relType || 'link';
           tag.innerHTML = `
             <span><b class="conn-rel ${{relType}}">${{e.relName}}</b> → ${{otherNode.label}}</span>
-            <span style="color:#94A3B8; font-size:0.72rem;">${{e.description ? e.description.substring(0, 20) + '...' : ''}}</span>
+            <span style="color:#94A3B8; font-size:0.68rem;">${{e.description || ''}}</span>
           `;
+          tag.setAttribute('aria-label', `${{e.relName}}，前往 ${{otherNode.fullLabel}}。${{e.description || ''}}`);
           tag.addEventListener('click', function(ev) {{
             ev.stopPropagation();
             if (!currentVisibleNodeIds.has(otherId)) {{
@@ -1281,29 +1674,38 @@ class InteractiveGraphGenerator:
       }});
 
       updateVisualHighlights();
+      if (shouldRevealDetails) {{
+        drawer.scrollIntoView({{ behavior: prefersReducedMotion.matches ? 'auto' : 'smooth', block: 'nearest' }});
+        if (lastDetailTrigger && lastDetailTrigger.matches('.accessible-node-btn, .conn-tag')) {{
+          drawerTitle.focus({{ preventScroll: true }});
+        }}
+      }}
+      hasCompletedInitialFocus = true;
     }}
 
     // 🌟 单点级联探索模式按钮
     document.getElementById('btn-cascade-mode').addEventListener('click', function() {{
       isCascadeMode = true;
-      document.querySelectorAll('.filter-item').forEach(f => f.classList.remove('active'));
-      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-      document.querySelector('[data-preset="INITIAL_SEED"]').classList.add('active');
+      setActiveInGroup('.filter-item');
+      const initialPreset = document.querySelector('[data-preset="INITIAL_SEED"]');
+      setActiveInGroup('.chip', initialPreset);
+      setPrimaryViewMode('cascade');
       loadCascadeSeed3D('DRUG_ESKETAMINE', 1);
     }});
 
     // 🌟 展开全景宏观总网按钮
     document.getElementById('btn-expand-all').addEventListener('click', function() {{
       isCascadeMode = false;
-      document.querySelectorAll('.filter-item').forEach(f => f.classList.remove('active'));
-      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      setActiveInGroup('.filter-item');
+      setActiveInGroup('.chip');
+      setPrimaryViewMode('all');
       
       const allIds = new Set(graphRawData.nodes.map(n => n.id));
       updateGraphSubView(allIds);
 
       Graph.d3ReheatSimulation();
       resetViewFocus(true);
-      document.getElementById('mode-text').innerText = '宏观全景总网 (187点/384连线)';
+      document.getElementById('mode-text').innerText = `宏观全景总网 · ${{graphRawData.nodes.length}} 节点 / ${{graphRawData.links.length}} 关系`;
     }});
 
     // 🌟 20+ 核心场景预设 (精准节点映射)
@@ -1323,10 +1725,10 @@ class InteractiveGraphGenerator:
 
     document.querySelectorAll('.preset-chips .chip').forEach(chip => {{
       chip.addEventListener('click', function() {{
-        document.querySelectorAll('.preset-chips .chip').forEach(c => c.classList.remove('active'));
-        document.querySelectorAll('.filter-item').forEach(f => f.classList.remove('active'));
-        this.classList.add('active');
+        setActiveInGroup('.preset-chips .chip', this);
+        setActiveInGroup('.filter-item');
         isCascadeMode = false;
+        setPrimaryViewMode('filtered');
 
         const presetKey = this.dataset.preset;
         const seedNodeIds = PRESET_CONFIGS[presetKey] || ['DRUG_ESKETAMINE'];
@@ -1343,24 +1745,63 @@ class InteractiveGraphGenerator:
       }});
     }});
 
-    // 🔍 实时搜索与模糊匹配
-    document.getElementById('search-input').addEventListener('input', function(e) {{
-      const query = e.target.value.trim().toLowerCase();
-      if (!query) return;
+    // 🔍 显式提交搜索：避免每次击键都触发 3D 运镜
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search-input');
+    const searchStatus = document.getElementById('search-status');
 
-      const matchedNode = graphRawData.nodes.find(n => 
-        n.label.toLowerCase().includes(query) || 
-        n.fullLabel.toLowerCase().includes(query) ||
-        n.id.toLowerCase().includes(query)
+    function setSearchStatus(message = '', isError = false) {{
+      searchStatus.innerText = message;
+      searchStatus.classList.toggle('show', Boolean(message));
+      searchStatus.classList.toggle('error', isError);
+    }}
+
+    function findMatchingNode(rawQuery) {{
+      const query = rawQuery.trim().toLowerCase();
+      if (!query) return null;
+      const exactMatch = graphRawData.nodes.find(node =>
+        node.label.toLowerCase() === query ||
+        node.fullLabel.toLowerCase() === query ||
+        node.id.toLowerCase() === query
       );
+      return exactMatch || graphRawData.nodes.find(node =>
+        node.label.toLowerCase().includes(query) ||
+        node.fullLabel.toLowerCase().includes(query) ||
+        node.id.toLowerCase().includes(query)
+      );
+    }}
 
-      if (matchedNode) {{
-        if (!currentVisibleNodeIds.has(matchedNode.id)) {{
-          currentVisibleNodeIds.add(matchedNode.id);
-          updateGraphSubView(currentVisibleNodeIds);
-        }}
-        focusNode3D(matchedNode.id);
+    searchForm.addEventListener('submit', event => {{
+      event.preventDefault();
+      const query = searchInput.value.trim();
+      if (!query) {{
+        setSearchStatus('请输入药物、受体、通路或疾病名称。', true);
+        searchInput.focus();
+        return;
       }}
+
+      const matchedNode = findMatchingNode(query);
+      if (!matchedNode) {{
+        setSearchStatus(`未找到“${{query}}”。可尝试中文名、英文名或内部节点 ID。`, true);
+        return;
+      }}
+
+      if (!currentVisibleNodeIds.has(matchedNode.id)) {{
+        currentVisibleNodeIds.add(matchedNode.id);
+        updateGraphSubView(currentVisibleNodeIds);
+      }}
+      setActiveInGroup('.filter-item');
+      setActiveInGroup('.chip');
+      isCascadeMode = false;
+      setPrimaryViewMode('filtered');
+      lastDetailTrigger = searchInput;
+      focusNode3D(matchedNode.id);
+      document.getElementById('mode-text').innerText = `搜索定位 · ${{matchedNode.label}}`;
+      setSearchStatus(`已定位：${{matchedNode.fullLabel}} · ${{matchedNode.categoryName}}`);
+    }});
+
+    searchInput.addEventListener('input', () => {{
+      if (!searchInput.value.trim()) setSearchStatus();
     }});
 
     // 🌟 3D 空间排布算法引擎
@@ -1375,7 +1816,7 @@ class InteractiveGraphGenerator:
           node.fy = undefined;
           node.fz = undefined;
         }});
-        Graph.d3Force('charge').strength(-280);
+        Graph.d3Force('charge').strength(-360);
         Graph.d3ReheatSimulation();
       }} else if (mode === 'sphere') {{
         const categories = ['Receptor', 'Drug', 'DrugClass', 'Pathway', 'Disease', 'SideEffect'];
@@ -1459,21 +1900,21 @@ class InteractiveGraphGenerator:
     }}
 
     document.getElementById('btn-layout-force').addEventListener('click', function() {{
-      document.querySelectorAll('.layout-btn').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
+      setActiveInGroup('.layout-btn', this);
       applyCustom3DLayout('force');
+      document.getElementById('mode-text').innerText = '空间布局：自由星群';
     }});
 
     document.getElementById('btn-layout-cluster').addEventListener('click', function() {{
-      document.querySelectorAll('.layout-btn').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
+      setActiveInGroup('.layout-btn', this);
       applyCustom3DLayout('sphere');
+      document.getElementById('mode-text').innerText = '空间布局：同心分层';
     }});
 
     document.getElementById('btn-layout-hier').addEventListener('click', function() {{
-      document.querySelectorAll('.layout-btn').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
+      setActiveInGroup('.layout-btn', this);
       applyCustom3DLayout('cylinder');
+      document.getElementById('mode-text').innerText = '空间布局：机制柱阵';
     }});
 
     // 💫 3D 空间舒展按钮
@@ -1484,7 +1925,7 @@ class InteractiveGraphGenerator:
       Graph.d3Force('charge').strength(-550);
       Graph.d3ReheatSimulation();
       setTimeout(() => {{
-        Graph.d3Force('charge').strength(-280);
+        Graph.d3Force('charge').strength(-360);
       }}, 1200);
     }});
 
@@ -1493,11 +1934,59 @@ class InteractiveGraphGenerator:
     }});
 
     document.getElementById('reset-filter-btn').addEventListener('click', () => {{
-      document.querySelectorAll('.filter-item').forEach(f => f.classList.remove('active'));
-      document.querySelector('[data-preset="INITIAL_SEED"]').click();
+      setActiveInGroup('.filter-item');
+      document.getElementById('btn-cascade-mode').click();
+    }});
+
+    const mobilePanelToggle = document.getElementById('mobile-panel-toggle');
+    const mobileLayout = window.matchMedia('(max-width: 900px)');
+
+    function setSidebarOpen(isOpen) {{
+      const sidebar = document.getElementById('sidebar');
+      const shouldHideSidebar = mobileLayout.matches && !isOpen;
+      if (shouldHideSidebar && sidebar.contains(document.activeElement)) {{
+        mobilePanelToggle.focus({{ preventScroll: true }});
+      }}
+      document.body.classList.toggle('sidebar-collapsed', !isOpen);
+      mobilePanelToggle.setAttribute('aria-expanded', String(isOpen));
+      mobilePanelToggle.innerText = isOpen ? '收起探索面板' : '打开探索面板';
+      sidebar.toggleAttribute('inert', shouldHideSidebar);
+      if (shouldHideSidebar) {{
+        sidebar.setAttribute('aria-hidden', 'true');
+      }} else {{
+        sidebar.removeAttribute('aria-hidden');
+      }}
+      requestAnimationFrame(() => {{
+        Graph.width(container.clientWidth);
+        Graph.height(container.clientHeight);
+      }});
+    }}
+
+    mobilePanelToggle.addEventListener('click', () => {{
+      const isOpen = mobilePanelToggle.getAttribute('aria-expanded') === 'true';
+      const willOpen = !isOpen;
+      setSidebarOpen(willOpen);
+      if (willOpen) {{
+        requestAnimationFrame(() => document.getElementById('search-input').focus({{ preventScroll: true }}));
+      }}
+    }});
+
+    function syncResponsiveLayout() {{
+      setSidebarOpen(!mobileLayout.matches);
+    }}
+    mobileLayout.addEventListener('change', syncResponsiveLayout);
+    syncResponsiveLayout();
+
+    prefersReducedMotion.addEventListener('change', () => {{
+      Graph.linkDirectionalParticles(link => prefersReducedMotion.matches ? 0 : link.particles);
+      Graph.linkDirectionalParticleSpeed(link => prefersReducedMotion.matches ? 0 : link.particleSpeed);
+      if (prefersReducedMotion.matches && isAutoRotating) {{
+        document.getElementById('btn-auto-rotate').click();
+      }}
     }});
 
     // 🚀 开屏默认：以艾司氯胺酮 Spravato® 为种子单点级联扩散
+    setPrimaryViewMode('cascade');
     loadCascadeSeed3D('DRUG_ESKETAMINE', 1);
   </script>
 </body>
