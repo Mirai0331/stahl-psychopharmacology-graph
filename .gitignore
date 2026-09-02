@@ -1,0 +1,16 @@
+# Python & Virtual Environment
+.venv/
+__pycache__/
+*.py[cod]
+*.class
+.pytest_cache/
+
+# Environment Variables
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build Artifacts & Large archives
+output/stahl_web_deploy.zip

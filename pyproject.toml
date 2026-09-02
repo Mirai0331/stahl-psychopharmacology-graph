@@ -1,0 +1,26 @@
+[project]
+name = "stahl-document-ai"
+version = "0.1.0"
+description = "Stahl's Essential Psychopharmacology Document AI Structured Extractor"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "httpx>=0.27.0",
+    "google-auth>=2.29.0",
+    "pypdf>=4.2.0",
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.2.0",
+    "rich>=13.7.0",
+    "typer>=0.12.0",
+    "requests>=2.34.2",
+    "pymupdf>=1.28.2",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
