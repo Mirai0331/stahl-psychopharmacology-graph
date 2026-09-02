@@ -44,8 +44,9 @@ def test_knowledge_graph_builder(tmp_path):
     assert any("仑卡奈单抗" in l for l in node_labels)
     assert any("托鲁地文拉法辛" in l for l in node_labels)
     assert any("艾司氯胺酮" in l for l in node_labels)
+    assert any("卢美哌隆" in l for l in node_labels)
 
-    # 验证 HTML 图谱生成
+    # 验证 3D HTML 图谱生成
     html_file = tmp_path / "interactive_graph.html"
     InteractiveGraphGenerator.generate_html(graph, html_file)
     assert html_file.exists()
@@ -53,6 +54,9 @@ def test_knowledge_graph_builder(tmp_path):
     assert "法赞雷生" in html_content
     assert "地达西尼" in html_content
     assert "替洛利生" in html_content
+    assert "卢美哌隆" in html_content
+    assert "3d-force-graph" in html_content
+    assert "three-spritetext" in html_content
 
     # 验证 Obsidian 知识库生成
     vault_dir = ObsidianVaultExporter.export_vault(graph, tmp_path)
@@ -62,3 +66,4 @@ def test_knowledge_graph_builder(tmp_path):
     index_text = index_file.read_text(encoding="utf-8")
     assert "[[地达西尼]]" in index_text
     assert "[[法赞雷生]]" in index_text
+    assert "[[卢美哌隆]]" in index_text

@@ -573,7 +573,7 @@
       "id": "DIS_BIPOLAR_DEP",
       "label": "双相抑郁发作 (Bipolar Depression)",
       "category": "Disease",
-      "description": "双相障碍抑郁期，需防止转躁（卡利拉嗪/卢玛哌酮 Caplyta/喹硫平/拉莫三嗪一线）",
+      "description": "双相障碍抑郁期，需防止转躁（卡利拉嗪/卢美哌隆 Caplyta/喹硫平/拉莫三嗪一线）",
       "properties": {}
     },
     {
@@ -734,7 +734,7 @@
       "id": "CLS_SDA",
       "label": "第二代非典型抗精神病药 (SDA / 5-HT2A-D2 拮抗)",
       "category": "DrugClass",
-      "description": "5-HT2A/D2 拮抗剂（如奥氮平、利培酮、喹硫平、氯氮平、卢玛哌酮 Caplyta）",
+      "description": "5-HT2A/D2 拮抗剂（如奥氮平、利培酮、喹硫平、氯氮平、卢美哌隆 Caplyta）",
       "properties": {}
     },
     {
@@ -998,7 +998,7 @@
     },
     {
       "id": "DRUG_LUMATEPERONE",
-      "label": "卢玛哌酮 (Lumateperone / Caplyta)",
+      "label": "卢美哌隆 (Lumateperone / Caplyta)",
       "category": "Drug",
       "description": "【药物分类】全新多靶点非典型抗精神病药。\n【药理机制】超高亲和力拮抗 5-HT2A (比 D2 强 60 倍) + 突触后特异性 D2 磷酸化调控 + SERT 抑制 + 激活 AMPA/NMDA。\n【适应症】精神分裂症及双相 I/II 型抑郁障碍（单药及联合锂盐/丙戊酸）。\n【临床优势】代谢中性（完全不增加体重、血糖与血脂），无 EPS 与催乳素升高，心血管安全性卓越。",
       "properties": {}
@@ -4503,25 +4503,25 @@
     "total_edges": 384,
     "categories": [
       "Drug",
-      "SideEffect",
+      "Pathway",
       "Disease",
-      "DrugClass",
       "Receptor",
-      "Pathway"
+      "SideEffect",
+      "DrugClass"
     ],
     "relationships": [
       "PAM",
-      "IS_A",
-      "MODULATES",
-      "ANTAGONIST",
-      "TREATS",
-      "AGONIST",
-      "PARTIAL_AGONIST",
-      "BLOCKER",
-      "CORRELATED_WITH",
       "CAUSES",
+      "CORRELATED_WITH",
+      "IS_A",
       "INVERSE_AGONIST",
-      "INHIBITS"
+      "BLOCKER",
+      "INHIBITS",
+      "ANTAGONIST",
+      "AGONIST",
+      "MODULATES",
+      "TREATS",
+      "PARTIAL_AGONIST"
     ]
   }
 }

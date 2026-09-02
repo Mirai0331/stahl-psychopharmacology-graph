@@ -1,13 +1,28 @@
 # -*- coding: utf-8 -*-
-"""打包生成标准的静态网站发布包并同步到 GitHub P·L·A·N·A 分支"""
+"""打包生成标准的静态网站发布包并同步到 GitHub P·L·A·N·A 分支与 docs 目录"""
 import os
 import json
 import shutil
 import zipfile
 import subprocess
 from pathlib import Path
+from stahl_document_ai.processors.graph_builder import StahlKnowledgeGraphBuilder
+from stahl_document_ai.processors.interactive_graph_generator import InteractiveGraphGenerator
+from stahl_document_ai.processors.obsidian_exporter import ObsidianVaultExporter
 
-root = Path(__file__).resolve().parent.parent / "output"
+project_root = Path(__file__).resolve().parent.parent
+root = project_root / "output"
+root.mkdir(parents=True, exist_ok=True)
+
+# 0. 重新构建图谱数据、3D 页面与 Obsidian Vault
+graph = StahlKnowledgeGraphBuilder.build_comprehensive_graph()
+kg_json_path = root / "knowledge_graph.json"
+kg_json_path.write_text(json.dumps(graph.to_dict(), ensure_ascii=False, indent=2), encoding="utf-8")
+
+html_path = root / "interactive_graph.html"
+InteractiveGraphGenerator.generate_html(graph, html_path)
+ObsidianVaultExporter.export_vault(graph, root)
+
 dist = root / "dist"
 dist.mkdir(parents=True, exist_ok=True)
 

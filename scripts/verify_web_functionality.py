@@ -43,17 +43,22 @@ def main():
         print(f'Success: All {len(image_refs)} assets exist!')
 
     required_dom_elements = [
-        'network-container', 'sidebar', 'search-input',
-        'btn-cascade-mode', 'btn-expand-all', 'btn-zoom-fit',
+        '3d-graph-container', 'sidebar', 'search-input',
+        'btn-cascade-mode', 'btn-expand-all', 'btn-zoom-fit', 'btn-auto-rotate',
         'detail-drawer', 'drawer-title', 'drawer-desc', 'drawer-conns',
         'btn-layout-force', 'btn-layout-cluster', 'btn-layout-hier',
         'filter-container'
     ]
     for el_id in required_dom_elements:
-        assert f'id=\"{el_id}\"' in html_content, f'Missing DOM element: {el_id}'
+        assert f'id="{el_id}"' in html_content, f'Missing DOM element: {el_id}'
     
-    print('Success: All DOM elements present!')
-    print('===== Web Functionality Verification Passed ! =====')
+    assert "卢美哌隆" in html_content, "Missing 卢美哌隆 in interactive_graph.html"
+    assert "卢玛哌酮" not in html_content, "Found outdated 卢玛哌酮 in interactive_graph.html"
+    assert "3d-force-graph" in html_content, "Missing 3d-force-graph in interactive_graph.html"
+    assert "three-spritetext" in html_content, "Missing three-spritetext in interactive_graph.html"
+
+    print('Success: All 3D DOM elements and translations verified!')
+    print('===== 3D Web Functionality Verification Passed ! =====')
 
 if __name__ == '__main__':
     main()

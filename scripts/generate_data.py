@@ -107,7 +107,7 @@ diseases = [
     {"id": "DIS_PDP", "label": "帕金森病精神病 (PDP)", "category": "Disease", "description": "帕金森患者多巴胺替代治疗后诱发的幻觉妄想，匹莫范色林 (Nuplazid) 5-HT2A 反向激动特异性治疗且不损害运动功能"},
 
     {"id": "DIS_BIPOLAR_MANIA", "label": "双相情感障碍躁狂发作 (Bipolar Mania)", "category": "Disease", "description": "心境高涨、夸大、思维奔逸、冲动（锂盐/卡马西平/丙戊酸/非典型抗精神病药一线）"},
-    {"id": "DIS_BIPOLAR_DEP", "label": "双相抑郁发作 (Bipolar Depression)", "category": "Disease", "description": "双相障碍抑郁期，需防止转躁（卡利拉嗪/卢玛哌酮 Caplyta/喹硫平/拉莫三嗪一线）"},
+    {"id": "DIS_BIPOLAR_DEP", "label": "双相抑郁发作 (Bipolar Depression)", "category": "Disease", "description": "双相障碍抑郁期，需防止转躁（卡利拉嗪/卢美哌隆 Caplyta/喹硫平/拉莫三嗪一线）"},
 
     {"id": "DIS_GAD", "label": "广泛性焦虑障碍 (GAD)", "category": "Disease", "description": "过度担忧、紧张自主神经亢进（普瑞巴林/丁螺环酮/SSRI/SNRI/BZD）"},
     {"id": "DIS_PANIC", "label": "惊恐障碍 (Panic Disorder)", "category": "Disease", "description": "急性突发惊恐发作与濒死感（阿普唑仑/氯硝西泮/SSRI）"},
@@ -143,7 +143,7 @@ diseases = [
 drug_classes = [
     # 精神分裂症与精神病
     {"id": "CLS_FGA", "label": "第一代典型抗精神病药 (FGA)", "category": "DrugClass", "description": "强效阻断 D2 受体，如氟哌啶醇、氯丙嗪，抗阳性症状确切但 EPS 与催乳素升高风险高"},
-    {"id": "CLS_SDA", "label": "第二代非典型抗精神病药 (SDA / 5-HT2A-D2 拮抗)", "category": "DrugClass", "description": "5-HT2A/D2 拮抗剂（如奥氮平、利培酮、喹硫平、氯氮平、卢玛哌酮 Caplyta）"},
+    {"id": "CLS_SDA", "label": "第二代非典型抗精神病药 (SDA / 5-HT2A-D2 拮抗)", "category": "DrugClass", "description": "5-HT2A/D2 拮抗剂（如奥氮平、利培酮、喹硫平、氯氮平、卢美哌隆 Caplyta）"},
     {"id": "CLS_D2_PARTIAL", "label": "D2/D3 部分激动剂 (SDAM / DPA)", "category": "DrugClass", "description": "多巴胺活性稳定器（阿立哌唑、布瑞哌唑 敏达妥®、卡利拉嗪 Vraylar）"},
     {"id": "CLS_TAAR1_AGONIST", "label": "TAAR1 激动剂与非 D2 阻断抗精神病药 (TAAR1 Agonists)", "category": "DrugClass", "description": "乌洛他隆 (Ulotaront)，不阻断突触后 D2，通过突触前 TAAR1 调谐单胺与谷氨酸，无 EPS 及代谢副作用"},
     {"id": "CLS_5HT2A_INVERSE", "label": "5-HT2A 反向激动剂 (5-HT2A Inverse Agonists)", "category": "DrugClass", "description": "匹莫范色林 (Nuplazid)，高选择性反向激动 5-HT2A，特异性治疗帕金森病精神病 (PDP)"},
@@ -202,7 +202,7 @@ drugs = [
     {"id": "DRUG_ARIPIPRAZOLE", "label": "阿立哌唑 (Aripiprazole / 安律凡®)", "category": "Drug", "description": "【药物分类】多巴胺受体部分激动剂 (DPA / SDAM)。\n【药理机制】D2 部分激动（内在活性约30%）+ 5-HT1A 部分激动 + 5-HT2A 拮抗。\n【适应症】精神分裂症、双相障碍及抑郁障碍一线辅助增效。\n【临床优势】多巴胺系统“双向调节稳定器”，不引起催乳素升高与镇静，代谢中性。"},
     {"id": "DRUG_BREXPIPRAZOLE", "label": "布瑞哌唑 (Brexpiprazole / 敏达妥® / Rexulti)", "category": "Drug", "description": "【药物分类】新一代 5-HT-DA 活性调节剂 (SDAM)。\n【药理机制】D2 部分激动（内在活性较阿立哌唑更低，静坐不能风险极低）+ 强效 5-HT1A 部分激动 + 5-HT2A 拮抗。\n【适应症】精神分裂症及难治性抑郁障碍 (TRD) 一线增效。\n【临床优势】改善抑郁心境与认知，极少发生镇静、催乳素升高与 EPS。"},
     {"id": "DRUG_CARIPRAZINE", "label": "卡利拉嗪 (Cariprazine / 罗珊® / Vraylar / Reagila)", "category": "Drug", "description": "【药物分类】D3 偏好型 D3/D2 多巴胺部分激动剂。\n【药理机制】对 D3 亲和力是 D2 的 10 倍 (Ki=0.085nM)，同时激动 5-HT1A。\n【适应症】精神分裂症（尤其阴性症状与认知缺陷优势）、双相 I 型抑郁与躁狂发作。\n【临床优势】显著改善精神分裂症情感淡漠与执行功能损害，超长半衰期活性代谢物保证平稳疗效。"},
-    {"id": "DRUG_LUMATEPERONE", "label": "卢玛哌酮 (Lumateperone / Caplyta)", "category": "Drug", "description": "【药物分类】全新多靶点非典型抗精神病药。\n【药理机制】超高亲和力拮抗 5-HT2A (比 D2 强 60 倍) + 突触后特异性 D2 磷酸化调控 + SERT 抑制 + 激活 AMPA/NMDA。\n【适应症】精神分裂症及双相 I/II 型抑郁障碍（单药及联合锂盐/丙戊酸）。\n【临床优势】代谢中性（完全不增加体重、血糖与血脂），无 EPS 与催乳素升高，心血管安全性卓越。"},
+    {"id": "DRUG_LUMATEPERONE", "label": "卢美哌隆 (Lumateperone / Caplyta)", "category": "Drug", "description": "【药物分类】全新多靶点非典型抗精神病药。\n【药理机制】超高亲和力拮抗 5-HT2A (比 D2 强 60 倍) + 突触后特异性 D2 磷酸化调控 + SERT 抑制 + 激活 AMPA/NMDA。\n【适应症】精神分裂症及双相 I/II 型抑郁障碍（单药及联合锂盐/丙戊酸）。\n【临床优势】代谢中性（完全不增加体重、血糖与血脂），无 EPS 与催乳素升高，心血管安全性卓越。"},
     {"id": "DRUG_PIMAVANSERIN", "label": "匹莫范色林 (Pimavanserin / Nuplazid)", "category": "Drug", "description": "【药物分类】选择性 5-HT2A 反向激动剂。\n【药理机制】高特异性反向激动 5-HT2A 受体，完全不结合 D2、组胺或胆碱能受体。\n【适应症】帕金森病精神病 (PDP) 幻觉妄想。\n【临床优势】特异性平息精神病性症状，彻底杜绝了传统抗精神病药导致的帕金森运动症状恶化。"},
     {"id": "DRUG_ULOTARONT", "label": "乌洛他隆 (Ulotaront)", "category": "Drug", "description": "【药物分类】首创新机制 TAAR1 激动剂 (非 D2 阻断型抗精神病药)。\n【药理机制】激动细胞内微量胺受体 1 (TAAR1) 与 5-HT1A，通过突触前调谐抑制多巴胺过度放电，完全不阻断突触后 D2 受体。\n【适应症】精神分裂症阳性与阴性症状。\n【临床突破】从机制根源消除锥体外系反应 (EPS)、高催乳素血症与代谢综合征。"},
 
@@ -394,7 +394,7 @@ edges_raw = [
     ("DRUG_CARIPRAZINE", "REC_D3", "PARTIAL_AGONIST", "高选择性D3部分激动 (Ki=0.085nM)", "改善阴性症状与认知缺陷", 2.2),
     ("DRUG_CARIPRAZINE", "REC_D2", "PARTIAL_AGONIST", "D2部分激动", "抗阳性与抗躁狂", 1.8),
     ("DRUG_CARIPRAZINE", "REC_5HT1A", "PARTIAL_AGONIST", "5-HT1A部分激动", "抗双相抑郁", 1.5),
-    # 卢玛哌酮 Lumateperone
+    # 卢美哌隆 Lumateperone
     ("DRUG_LUMATEPERONE", "REC_5HT2A", "ANTAGONIST", "超高选择性拮抗 (Ki=0.54nM)", "比D2高60倍亲和力", 2.2),
     ("DRUG_LUMATEPERONE", "REC_D2", "MODULATES", "突触后特异性功能调谐", "改善中脑皮质低多巴胺且不引发EPS", 2.0),
     ("DRUG_LUMATEPERONE", "REC_SERT", "INHIBITS", "抑制 SERT", "抗双相抑郁与心境改善", 2.0),
