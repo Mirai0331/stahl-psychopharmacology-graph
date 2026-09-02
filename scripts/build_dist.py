@@ -24,7 +24,8 @@ if (root / "assets").exists():
 # 3. 复制知识图谱数据
 shutil.copy2(root / "knowledge_graph.json", dist / "knowledge_graph.json")
 
-# 4. 创建 Vercel 静态配置
+# 4. 创建 .nojekyll 与 Vercel 静态配置
+(dist / ".nojekyll").touch()
 vercel_cfg = {
     "version": 2,
     "headers": [
@@ -42,6 +43,7 @@ vercel_cfg = {
 lite_dir = root / "dist_lite"
 shutil.copy2(dist / "index.html", lite_dir / "index.html")
 shutil.copy2(dist / "knowledge_graph.json", lite_dir / "knowledge_graph.json")
+(lite_dir / ".nojekyll").touch()
 
 # 6. 生成精简 ZIP 发布包
 zip_path = root / "stahl_web_deploy.zip"
