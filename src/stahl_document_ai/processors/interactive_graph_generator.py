@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-"""WebGL/Three.js 3D 立体化全景脑科学知识图谱生成器：
+"""WebGL/Three.js 3D 立体化全景脑科学知识图谱生成器 (高帧率防卡顿/抗闪烁/自由视角释放版)：
 3D 立体多面体几何实体、3D 能量粒子流飞线 (Link Particle Streams)、
-三维空间同心球层/机制晶体柱/柔性星云排布引擎、电影级 3D 飞掠聚焦与自转巡航。
+Three.js 材质属性级响应 (零 GC 重构卡顿)、SpriteText 深度测试优化 (零闪烁)、
+点击空白背景与关闭按钮双重释放视角锁定。
 """
 import json
 from pathlib import Path
@@ -74,7 +75,6 @@ class InteractiveGraphGenerator:
         },
     }
 
-    # 节点专属高精素材映射表（结构式、真实药片图、节律图标等）
     NODE_IMAGE_MAP = {
         "DRUG_ESKETAMINE": "assets/drug_sukailang.png",
         "DRUG_LISDEXAMFETAMINE": "assets/Dexmethylphenidate_structure.svg",
@@ -144,7 +144,7 @@ class InteractiveGraphGenerator:
                 "REC_BDNF_TRKB", "REC_AMPA", "REC_MTORC1", "DRUG_VARENICLINE", "DRUG_LECANEMAB",
                 "DRUG_LUMATEPERONE"
             ]
-            node_val = min(14.0, max(4.5, (6.8 if is_critical else 4.2) + deg * 0.32))
+            node_val = min(13.0, max(4.5, (6.5 if is_critical else 4.0) + deg * 0.30))
             clean_label = n.label.split("(")[0].strip() if "(" in n.label else n.label
             custom_img = cls.NODE_IMAGE_MAP.get(n.id, "")
 
@@ -190,10 +190,10 @@ class InteractiveGraphGenerator:
                 "description": e.description,
                 "color": rel_cfg["color"],
                 "particleColor": rel_cfg.get("particleColor", rel_cfg["color"]),
-                "curvature": 0.20 if is_key_edge else 0.14,
-                "particles": 4 if is_key_edge else 2,
-                "particleSpeed": 0.008 if is_key_edge else 0.005,
-                "width": max(1.2, min(3.8, e.weight * (1.8 if is_key_edge else 1.2))),
+                "curvature": 0.18 if is_key_edge else 0.12,
+                "particles": 3 if is_key_edge else 1,
+                "particleSpeed": 0.007 if is_key_edge else 0.004,
+                "width": max(1.2, min(3.6, e.weight * (1.6 if is_key_edge else 1.1))),
                 "isKey": is_key_edge
             })
 
@@ -214,10 +214,10 @@ class InteractiveGraphGenerator:
   <style>
     :root {{
       --bg-dark: #050811;
-      --bg-card: rgba(10, 16, 28, 0.92);
-      --bg-card-hover: rgba(16, 24, 42, 0.96);
+      --bg-card: rgba(10, 16, 28, 0.94);
+      --bg-card-hover: rgba(16, 24, 42, 0.98);
       --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-glow: rgba(56, 189, 248, 0.40);
+      --border-glow: rgba(56, 189, 248, 0.45);
       --border-glass: rgba(255, 255, 255, 0.14);
       --text-main: #FFFFFF;
       --text-sub: #94A3B8;
@@ -402,7 +402,7 @@ class InteractiveGraphGenerator:
     /* 💎 临床药理多维详情看板 (Clinical Holographic Dashboard) */
     #detail-drawer {{
       margin-top: 14px;
-      background: linear-gradient(145deg, rgba(14, 22, 38, 0.96), rgba(8, 12, 22, 0.98));
+      background: linear-gradient(145deg, rgba(14, 22, 38, 0.98), rgba(8, 12, 22, 0.99));
       border: 1px solid var(--border-glow);
       border-radius: 16px;
       padding: 18px;
@@ -414,9 +414,27 @@ class InteractiveGraphGenerator:
     #detail-drawer.show {{ display: block; }}
     @keyframes slideInUp {{ from {{ opacity: 0; transform: translateY(12px); }} to {{ opacity: 1; transform: translateY(0); }} }}
 
-    .drawer-header {{ display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 10px; }}
+    .drawer-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }}
+    .drawer-header-left {{ display: flex; align-items: center; gap: 8px; }}
     .drawer-badge {{ display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 8px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }}
     
+    .drawer-close-btn {{
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #94A3B8;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }}
+    .drawer-close-btn:hover {{ background: rgba(239, 68, 68, 0.3); border-color: #EF4444; color: #fff; transform: rotate(90deg); }}
+
     /* 🖼️ 3D 高精展柜窗口 */
     .drawer-lightbox {{
       width: 100%;
@@ -480,6 +498,29 @@ class InteractiveGraphGenerator:
     .flow-steps {{ display: flex; flex-wrap: wrap; align-items: center; gap: 5px; font-size: 0.74rem; color: #E2E8F0; }}
     .flow-step {{ background: rgba(56, 189, 248, 0.15); padding: 3px 7px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.3); }}
     .flow-arrow {{ color: var(--accent-amber); font-weight: bold; font-size: 0.8rem; }}
+
+    .drawer-actions {{
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }}
+    .drawer-btn {{
+      flex: 1;
+      padding: 7px 10px;
+      border-radius: 8px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38BDF8;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }}
+    .drawer-btn:hover {{ background: rgba(56, 189, 248, 0.3); color: #fff; transform: translateY(-1px); }}
 
     .drawer-conns-title {{ font-size: 0.76rem; font-weight: 700; color: var(--text-sub); text-transform: uppercase; margin-bottom: 10px; display: flex; justify-content: space-between; }}
     .drawer-conns-list {{ display: flex; flex-direction: column; gap: 6px; max-height: 180px; overflow-y: auto; font-size: 0.78rem; }}
@@ -556,20 +597,20 @@ class InteractiveGraphGenerator:
       position: absolute;
       bottom: 18px;
       right: 22px;
-      background: rgba(10, 16, 28, 0.75);
+      background: rgba(10, 16, 28, 0.82);
       backdrop-filter: blur(12px);
       border: 1px solid var(--border-subtle);
       border-radius: 8px;
-      padding: 6px 12px;
+      padding: 7px 14px;
       font-size: 0.72rem;
       color: #94A3B8;
       z-index: 10;
       pointer-events: none;
       display: flex;
-      gap: 12px;
+      gap: 14px;
     }}
     .controls-hint span {{ display: flex; align-items: center; gap: 4px; }}
-    .controls-hint kbd {{ background: rgba(255,255,255,0.1); padding: 1px 5px; border-radius: 4px; color: #E2E8F0; font-size: 0.68rem; }}
+    .controls-hint kbd {{ background: rgba(255,255,255,0.12); padding: 2px 6px; border-radius: 4px; color: #E2E8F0; font-size: 0.68rem; font-weight: 600; }}
   </style>
 </head>
 <body>
@@ -590,7 +631,7 @@ class InteractiveGraphGenerator:
     </div>
 
     <div class="mode-banner">
-      <span id="mode-text">单点级联扩散探索 (点击节点裂变展开)</span>
+      <span id="mode-text">单点级联扩散探索 (点击节点展开/点击空白释放)</span>
       <span class="mode-pill" id="reset-filter-btn">重置开屏</span>
     </div>
 
@@ -678,8 +719,11 @@ class InteractiveGraphGenerator:
     <!-- 临床药理多维看板 (详情抽屉) -->
     <div id="detail-drawer">
       <div class="drawer-header">
-        <span class="drawer-badge" id="drawer-badge">类别</span>
-        <span id="drawer-level" style="font-size:0.68rem; color:#94A3B8; font-weight:600;">脑区级联</span>
+        <div class="drawer-header-left">
+          <span class="drawer-badge" id="drawer-badge">类别</span>
+          <span id="drawer-level" style="font-size:0.68rem; color:#94A3B8; font-weight:600;">脑区级联</span>
+        </div>
+        <div class="drawer-close-btn" id="drawer-close-btn" title="收起面板并释放视角锁定">✕</div>
       </div>
       
       <!-- 3D 晶莹展柜窗口 -->
@@ -690,6 +734,13 @@ class InteractiveGraphGenerator:
 
       <div class="drawer-title" id="drawer-title">实体详情</div>
       <div class="drawer-desc-card" id="drawer-desc">...</div>
+
+      <!-- 操作快捷按钮 -->
+      <div class="drawer-actions">
+        <button class="drawer-btn" id="btn-release-focus">
+          <span>🔓 释放视角锁定 (返回漫游)</span>
+        </button>
+      </div>
 
       <!-- 机制传导流条带 -->
       <div class="flow-ribbon" id="flow-ribbon" style="display:none;">
@@ -736,16 +787,16 @@ class InteractiveGraphGenerator:
       </button>
       <button class="tool-btn" id="btn-zoom-fit">
         <img src="assets/NOTE.png" alt="" />
-        全景视点
+        全景视点 (释放)
       </button>
     </div>
 
     <!-- 3D 漫游操作提示 -->
     <div class="controls-hint">
+      <span><kbd>左键单击空白</kbd> 释放视角/取消固定</span>
       <span><kbd>左键拖拽</kbd> 3D 自由旋转</span>
-      <span><kbd>右键拖拽</kbd> 空间平移</span>
-      <span><kbd>滚轮</kbd> 距离推拉</span>
-      <span><kbd>左键单击</kbd> 电影级运镜聚焦</span>
+      <span><kbd>右键拖拽</kbd> 平移</span>
+      <span><kbd>滚轮</kbd> 推拉</span>
     </div>
   </div>
 
@@ -815,6 +866,17 @@ class InteractiveGraphGenerator:
     let hoverNodeObj = null;
     let isAutoRotating = false;
     let currentLayoutMode = 'force'; // 'force', 'sphere', 'cylinder'
+    let activeFocusedNodeId = null;
+    let isCascadeMode = true;
+
+    // 共享几何体缓存（彻底杜绝 GC 压力与内存浪费）
+    const geomCache = {{
+      sphere: new THREE.SphereGeometry(1, 16, 16),
+      octahedron: new THREE.OctahedronGeometry(1.1),
+      icosahedron: new THREE.IcosahedronGeometry(1.0),
+      dodecahedron: new THREE.DodecahedronGeometry(1.1),
+      cone: new THREE.ConeGeometry(0.9, 1.6, 8)
+    }};
 
     const Graph = ForceGraph3D()(container)
       .backgroundColor('#050811')
@@ -825,7 +887,7 @@ class InteractiveGraphGenerator:
       .linkCurveRotation(0.25)
       .linkDirectionalParticles('particles')
       .linkDirectionalParticleSpeed('particleSpeed')
-      .linkDirectionalParticleWidth(link => highlightLinks.has(link) ? 4.0 : 2.4)
+      .linkDirectionalParticleWidth(link => highlightLinks.has(link) ? 3.8 : 2.0)
       .linkDirectionalParticleColor(link => link.particleColor || link.color || '#38BDF8')
       .linkColor(link => {{
         if (highlightLinks.size > 0) {{
@@ -833,69 +895,67 @@ class InteractiveGraphGenerator:
         }}
         return link.color || '#475569';
       }})
-      .linkWidth(link => highlightLinks.has(link) ? 3.6 : (link.width || 1.4))
-      .linkDirectionalArrowLength(4.5)
+      .linkWidth(link => highlightLinks.has(link) ? 3.4 : (link.width || 1.2))
+      .linkDirectionalArrowLength(4.2)
       .linkDirectionalArrowRelPos(1.0)
       .nodeThreeObject(node => {{
         const group = new THREE.Group();
-        const isHovered = hoverNodeObj && hoverNodeObj.id === node.id;
-        const isDimmed = highlightNodes.size > 0 && !highlightNodes.has(node.id);
-        
-        // 1. 3D 立体多面体几何体构建
         const baseRadius = node.val || 6;
-        let geom;
-        const geomType = node.geometry || 'sphere';
-        if (geomType === 'octahedron') {{
-          geom = new THREE.OctahedronGeometry(baseRadius * 1.05);
-        }} else if (geomType === 'icosahedron') {{
-          geom = new THREE.IcosahedronGeometry(baseRadius * 0.95);
-        }} else if (geomType === 'dodecahedron') {{
-          geom = new THREE.DodecahedronGeometry(baseRadius * 1.05);
-        }} else if (geomType === 'cone') {{
-          geom = new THREE.ConeGeometry(baseRadius * 0.85, baseRadius * 1.5, 6);
-        }} else {{
-          geom = new THREE.SphereGeometry(baseRadius, 16, 16);
-        }}
+        
+        // 1. 3D 多面体几何体
+        const baseGeom = geomCache[node.geometry] || geomCache.sphere;
+        const geom = baseGeom.clone();
+        geom.scale(baseRadius, baseRadius, baseRadius);
 
         const mat = new THREE.MeshPhongMaterial({{
           color: new THREE.Color(node.color),
           emissive: new THREE.Color(node.color),
-          emissiveIntensity: isHovered ? 0.85 : (node.isCritical ? 0.45 : 0.25),
-          shininess: 90,
+          emissiveIntensity: node.isCritical ? 0.45 : 0.25,
+          shininess: 85,
           transparent: true,
-          opacity: isDimmed ? 0.15 : (isHovered ? 1.0 : 0.90)
+          opacity: 0.88,
+          depthWrite: true
         }});
         const mesh = new THREE.Mesh(geom, mat);
         group.add(mesh);
+        node.__threeMesh = mesh;
 
-        // 2. 关键实体外层动态呼吸光环 (Pulse Torus Halo)
-        if (node.isCritical && !isDimmed) {{
-          const ringGeom = new THREE.TorusGeometry(baseRadius * 1.5, 0.4, 8, 32);
+        // 2. 关键实体外层动态呼吸光环 (防 Z-fighting 闪烁优化)
+        if (node.isCritical) {{
+          const ringGeom = new THREE.TorusGeometry(baseRadius * 1.55, 0.38, 8, 32);
           const ringMat = new THREE.MeshBasicMaterial({{
             color: new THREE.Color(node.color),
             transparent: true,
-            opacity: 0.75
+            opacity: 0.70,
+            depthWrite: false // 关键：关闭 depthWrite 消除闪烁
           }});
           const ringMesh = new THREE.Mesh(ringGeom, ringMat);
           ringMesh.rotation.x = Math.PI / 3;
+          ringMesh.renderOrder = 10;
           group.add(ringMesh);
+          node.__threeRing = ringMesh;
         }}
 
-        // 3. 3D SpriteText 药学文字标牌
-        if (!isDimmed) {{
-          const sprite = new SpriteText(node.label);
-          sprite.color = '#FFFFFF';
-          sprite.textHeight = Math.max(3.8, Math.min(6.5, 3.2 + (node.degree || 1) * 0.24));
-          sprite.backgroundColor = 'rgba(5, 8, 17, 0.82)';
-          sprite.borderColor = node.color;
-          sprite.borderWidth = 0.8;
-          sprite.borderRadius = 4;
-          sprite.padding = [2, 5];
-          sprite.fontFace = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", sans-serif';
-          sprite.position.y = -(baseRadius + sprite.textHeight * 0.95);
-          group.add(sprite);
-        }}
+        // 3. 3D SpriteText 药学文字标牌 (防深度撕裂闪烁优化)
+        const sprite = new SpriteText(node.label);
+        sprite.color = '#FFFFFF';
+        sprite.textHeight = Math.max(3.8, Math.min(6.2, 3.2 + (node.degree || 1) * 0.22));
+        sprite.backgroundColor = 'rgba(5, 8, 17, 0.82)';
+        sprite.borderColor = node.color;
+        sprite.borderWidth = 0.8;
+        sprite.borderRadius = 4;
+        sprite.padding = [2, 5];
+        sprite.fontFace = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", sans-serif';
+        sprite.position.y = -(baseRadius + sprite.textHeight * 0.95);
+        
+        // 关键抗闪烁设置
+        sprite.material.depthWrite = false;
+        sprite.material.transparent = true;
+        sprite.renderOrder = 100;
+        group.add(sprite);
+        node.__threeSprite = sprite;
 
+        node.__threeGroup = group;
         return group;
       }})
       .onNodeClick(node => {{
@@ -907,33 +967,17 @@ class InteractiveGraphGenerator:
       .onNodeHover(node => {{
         container.style.cursor = node ? 'pointer' : 'default';
         hoverNodeObj = node;
-        highlightNodes.clear();
-        highlightLinks.clear();
-
+        
         const hoverHud = document.getElementById('hover-hud');
         if (node) {{
           hoverHud.style.display = 'block';
           document.getElementById('hover-hud-title').innerText = node.fullLabel;
           document.getElementById('hover-hud-cat').innerText = `${{node.categoryName}} · ${{node.degree}} 条药理连线`;
-
-          highlightNodes.add(node.id);
-          const neighbors = adjMap[node.id] || new Set();
-          neighbors.forEach(nId => highlightNodes.add(nId));
-
-          const currentLinks = Graph.graphData().links;
-          currentLinks.forEach(l => {{
-            const sId = typeof l.source === 'object' ? l.source.id : l.source;
-            const tId = typeof l.target === 'object' ? l.target.id : l.target;
-            if (sId === node.id || tId === node.id) {{
-              highlightLinks.add(l);
-            }}
-          }});
         }} else {{
           hoverHud.style.display = 'none';
         }}
 
-        // 刷新 3D 对象材质透明度与发光状态
-        Graph.nodeThreeObject(Graph.nodeThreeObject());
+        updateVisualHighlights();
       }})
       .onLinkHover(link => {{
         container.style.cursor = link ? 'pointer' : 'default';
@@ -947,7 +991,59 @@ class InteractiveGraphGenerator:
         }} else if (!hoverNodeObj) {{
           hoverHud.style.display = 'none';
         }}
+      }})
+      .onBackgroundClick(() => {{
+        // 🌟 点击空白画布背景：立即释放视角锁定并恢复全局自由漫游
+        resetViewFocus(true);
       }});
+
+    // 🚀 轻量级属性更新函数（零 GC 重绘，保持 60FPS）
+    function updateVisualHighlights() {{
+      highlightNodes.clear();
+      highlightLinks.clear();
+
+      const hasFocus = activeFocusedNodeId !== null;
+      const hasHover = hoverNodeObj !== null;
+      const activeId = hoverNodeObj ? hoverNodeObj.id : activeFocusedNodeId;
+
+      if (activeId) {{
+        highlightNodes.add(activeId);
+        const neighbors = adjMap[activeId] || new Set();
+        neighbors.forEach(nId => highlightNodes.add(nId));
+
+        const currentLinks = Graph.graphData().links;
+        currentLinks.forEach(l => {{
+          const sId = typeof l.source === 'object' ? l.source.id : l.source;
+          const tId = typeof l.target === 'object' ? l.target.id : l.target;
+          if (sId === activeId || tId === activeId) {{
+            highlightLinks.add(l);
+          }}
+        }});
+      }}
+
+      // 直接修改节点 Mesh 材质，不触发全图重建
+      const currentNodes = Graph.graphData().nodes;
+      currentNodes.forEach(n => {{
+        if (!n.__threeMesh) return;
+        const isTarget = activeId && n.id === activeId;
+        const isNeighbor = activeId && highlightNodes.has(n.id);
+        const isDimmed = (hasFocus || hasHover) && !isNeighbor;
+
+        n.__threeMesh.material.opacity = isDimmed ? 0.16 : (isTarget ? 1.0 : 0.88);
+        n.__threeMesh.material.emissiveIntensity = isTarget ? 0.95 : (isNeighbor ? 0.60 : (n.isCritical ? 0.45 : 0.25));
+
+        if (n.__threeRing) {{
+          n.__threeRing.visible = !isDimmed;
+        }}
+        if (n.__threeSprite) {{
+          n.__threeSprite.visible = !isDimmed;
+          n.__threeSprite.material.opacity = isDimmed ? 0.20 : 1.0;
+        }}
+      }});
+
+      // 仅需通知链接层更新高亮样式
+      Graph.linkColor(Graph.linkColor());
+    }}
 
     // 悬浮微型 HUD 鼠标跟踪
     container.addEventListener('mousemove', function(e) {{
@@ -958,15 +1054,20 @@ class InteractiveGraphGenerator:
       }}
     }});
 
+    // 双击背景画布复位
+    container.addEventListener('dblclick', () => {{
+      resetViewFocus(true);
+    }});
+
     // 🚀 3D 动力学力导向引擎参数微调
-    Graph.d3Force('charge').strength(-320);
+    Graph.d3Force('charge').strength(-280);
     Graph.d3Force('link').distance(link => 65 + (link.isKey ? 20 : 0));
 
-    // 🛸 自动环绕巡航漫游 (Auto-Rotate Orbit Mode)
+    // 🛸 自动环绕巡航漫游 (平滑无抖动版)
     let rotateAngle = 0;
     function animationLoop() {{
       if (isAutoRotating) {{
-        rotateAngle += Math.PI / 1200;
+        rotateAngle += Math.PI / 1600;
         const currentPos = Graph.cameraPosition();
         const dist = Math.hypot(currentPos.x, currentPos.z) || 450;
         Graph.cameraPosition(
@@ -989,8 +1090,23 @@ class InteractiveGraphGenerator:
     }});
 
     let currentVisibleNodeIds = new Set();
-    let isCascadeMode = true;
-    let activeFocusedNodeId = null;
+
+    // 🌟 释放视角锁定并恢复自由全景
+    function resetViewFocus(animate = true) {{
+      activeFocusedNodeId = null;
+      hoverNodeObj = null;
+      document.getElementById('detail-drawer').classList.remove('show');
+      document.getElementById('mode-text').innerText = '自由全景漫游模式 (点击任意节点聚焦)';
+      
+      updateVisualHighlights();
+
+      if (animate) {{
+        Graph.cameraPosition({{ x: 0, y: 160, z: 560 }}, {{ x: 0, y: 0, z: 0 }}, 900);
+      }}
+    }}
+
+    document.getElementById('drawer-close-btn').addEventListener('click', () => resetViewFocus(true));
+    document.getElementById('btn-release-focus').addEventListener('click', () => resetViewFocus(true));
 
     // 🌟 单点级联扩散呈现（开屏及逐级裂变）
     function loadCascadeSeed3D(seedNodeId, depth = 1) {{
@@ -1009,7 +1125,7 @@ class InteractiveGraphGenerator:
 
       updateGraphSubView(visibleIds);
       focusNode3D(seedNodeId);
-      document.getElementById('mode-text').innerText = '单点级联扩散探索 (点击节点裂变展开)';
+      document.getElementById('mode-text').innerText = '单点级联扩散探索 (点击节点展开/点击空白释放)';
     }}
 
     function expandCascade3D(nodeId) {{
@@ -1036,7 +1152,6 @@ class InteractiveGraphGenerator:
         return visibleNodeIds.has(u) && visibleNodeIds.has(v);
       }});
 
-      // 深度拷贝以避免 3d-force-graph 内部对象绑定冲突
       const cleanNodes = subNodes.map(n => ({{ ...n }}));
       const cleanLinks = subLinks.map(l => ({{ ...l }}));
 
@@ -1054,8 +1169,7 @@ class InteractiveGraphGenerator:
       const node = currentNodes.find(n => n.id === nodeId) || graphRawData.nodes.find(n => n.id === nodeId);
       if (!node) return;
 
-      // 3D 摄像机飞掠聚焦 (Fly-To)
-      const distance = 140;
+      const distance = 135;
       const currentPos = Graph.cameraPosition();
       const nx = node.x || 0;
       const ny = node.y || 0;
@@ -1069,11 +1183,11 @@ class InteractiveGraphGenerator:
       const currentDist = Math.hypot(distVec.x, distVec.y, distVec.z) || 1;
       const targetCamPos = {{
         x: nx + (distVec.x / currentDist) * distance,
-        y: ny + (distVec.y / currentDist) * distance * 0.4 + 20,
+        y: ny + (distVec.y / currentDist) * distance * 0.4 + 18,
         z: nz + (distVec.z / currentDist) * distance
       }};
 
-      Graph.cameraPosition(targetCamPos, {{ x: nx, y: ny, z: nz }}, 1000);
+      Graph.cameraPosition(targetCamPos, {{ x: nx, y: ny, z: nz }}, 900);
 
       // 展开现代化全景看板
       document.getElementById('detail-drawer').classList.add('show');
@@ -1165,6 +1279,8 @@ class InteractiveGraphGenerator:
           connsDiv.appendChild(tag);
         }}
       }});
+
+      updateVisualHighlights();
     }}
 
     // 🌟 单点级联探索模式按钮
@@ -1186,7 +1302,7 @@ class InteractiveGraphGenerator:
       updateGraphSubView(allIds);
 
       Graph.d3ReheatSimulation();
-      Graph.cameraPosition({{ x: 0, y: 180, z: 620 }}, {{ x: 0, y: 0, z: 0 }}, 1000);
+      resetViewFocus(true);
       document.getElementById('mode-text').innerText = '宏观全景总网 (187点/384连线)';
     }});
 
@@ -1254,16 +1370,14 @@ class InteractiveGraphGenerator:
       if (!currentNodes || currentNodes.length === 0) return;
 
       if (mode === 'force') {{
-        // 恢复柔性动力学
         currentNodes.forEach(node => {{
           node.fx = undefined;
           node.fy = undefined;
           node.fz = undefined;
         }});
-        Graph.d3Force('charge').strength(-320);
+        Graph.d3Force('charge').strength(-280);
         Graph.d3ReheatSimulation();
       }} else if (mode === 'sphere') {{
-        // 3D 同心球层宇宙排布 (Concentric Spheres via Fibonacci Sphere Algorithm)
         const categories = ['Receptor', 'Drug', 'DrugClass', 'Pathway', 'Disease', 'SideEffect'];
         const baseRadii = {{
           'Receptor': 140,
@@ -1287,10 +1401,10 @@ class InteractiveGraphGenerator:
           const N = group.length;
           if (N === 0) return;
           const R = baseRadii[cat] || 300;
-          const phi = Math.PI * (Math.sqrt(5) - 1); // 黄金角
+          const phi = Math.PI * (Math.sqrt(5) - 1);
 
           group.forEach((node, i) => {{
-            const y = 1 - (i / (N - 1 || 1)) * 2; // y 从 1 到 -1
+            const y = 1 - (i / (N - 1 || 1)) * 2;
             const radiusAtY = Math.sqrt(1 - y * y);
             const theta = phi * i;
 
@@ -1301,7 +1415,6 @@ class InteractiveGraphGenerator:
         }});
         Graph.d3ReheatSimulation();
       }} else if (mode === 'cylinder') {{
-        // 3D 机制层级晶体柱排布 (Hierarchical Crystal Cylinder)
         const catZLevels = {{
           'Receptor': -240,
           'Drug': -80,
@@ -1363,20 +1476,20 @@ class InteractiveGraphGenerator:
       applyCustom3DLayout('cylinder');
     }});
 
-    // 💫 3D 空间舒展按钮：短暂提升斥力并重新舒展三维拓扑
+    // 💫 3D 空间舒展按钮
     document.getElementById('btn-relax-physics').addEventListener('click', function() {{
       if (currentLayoutMode !== 'force') {{
         document.getElementById('btn-layout-force').click();
       }}
-      Graph.d3Force('charge').strength(-600);
+      Graph.d3Force('charge').strength(-550);
       Graph.d3ReheatSimulation();
       setTimeout(() => {{
-        Graph.d3Force('charge').strength(-320);
+        Graph.d3Force('charge').strength(-280);
       }}, 1200);
     }});
 
     document.getElementById('btn-zoom-fit').addEventListener('click', () => {{
-      Graph.cameraPosition({{ x: 0, y: 160, z: 580 }}, {{ x: 0, y: 0, z: 0 }}, 800);
+      resetViewFocus(true);
     }});
 
     document.getElementById('reset-filter-btn').addEventListener('click', () => {{

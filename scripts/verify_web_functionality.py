@@ -46,6 +46,7 @@ def main():
         '3d-graph-container', 'sidebar', 'search-input',
         'btn-cascade-mode', 'btn-expand-all', 'btn-zoom-fit', 'btn-auto-rotate',
         'detail-drawer', 'drawer-title', 'drawer-desc', 'drawer-conns',
+        'drawer-close-btn', 'btn-release-focus',
         'btn-layout-force', 'btn-layout-cluster', 'btn-layout-hier',
         'filter-container'
     ]
@@ -56,8 +57,10 @@ def main():
     assert "卢玛哌酮" not in html_content, "Found outdated 卢玛哌酮 in interactive_graph.html"
     assert "3d-force-graph" in html_content, "Missing 3d-force-graph in interactive_graph.html"
     assert "three-spritetext" in html_content, "Missing three-spritetext in interactive_graph.html"
+    assert "onBackgroundClick" in html_content, "Missing onBackgroundClick in interactive_graph.html"
+    assert "depthWrite = false" in html_content, "Missing depthWrite anti-flicker settings in interactive_graph.html"
 
-    print('Success: All 3D DOM elements and translations verified!')
+    print('Success: All 3D DOM elements, translations, and anti-flicker release-focus verified!')
     print('===== 3D Web Functionality Verification Passed ! =====')
 
 if __name__ == '__main__':
