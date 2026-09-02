@@ -65,14 +65,14 @@ class InteractiveGraphGenerator:
         },
     }
 
-    # 节点专属高精素材映射表（结构式、真实药片图、节律图标等）
+    # 节点专属高精素材映射表（结构式、真实药片图、节律图标等，共用 Shittim Chest 素材库）
     NODE_IMAGE_MAP = {
-        "DRUG_ESKETAMINE": "assets/Esketamine2DCSD.svg",
+        "DRUG_ESKETAMINE": "assets/drug_sukailang.png",
         "DRUG_LISDEXAMFETAMINE": "assets/Dexmethylphenidate_structure.svg",
-        "DRUG_METHYLPHENIDATE": "assets/Methylphenidate.svg",
+        "DRUG_METHYLPHENIDATE": "assets/drug_concerta_18mg.png",
         "DRUG_PREGABALIN": "assets/Pregabalin.png",
         "DRUG_CLONAZEPAM": "assets/clonazepam.png",
-        "DRUG_TOLUDESVENLAFAXINE": "assets/63653-tablets-min.png",
+        "DRUG_TOLUDESVENLAFAXINE": "assets/pharma_capsule.png",
         "DRUG_DIMDAZENIL": "assets/63653-tablets-min.png",
         "DRUG_FAZAMOREXANT": "assets/icon_night.png",
         "DRUG_VORNOREXANT": "assets/icon_night.png",
@@ -85,11 +85,17 @@ class InteractiveGraphGenerator:
         "DRUG_PITOLISANT": "assets/icon_morning.png",
         "REC_MT1_MT2": "assets/icon_night.png",
         "REC_OX1R_OX2R": "assets/icon_night.png",
+        "REC_NMDA": "assets/mech_nmda_antag.png",
         "PATH_CIRCADIAN_SCN": "assets/icon_morning.png",
-        "DIS_INSOMNIA": "assets/icon_night.png",
         "PATH_HYPOTHALAMIC_AROUSAL": "assets/icon_evening.png",
+        "PATH_HIPPOCAMPAL_PLASTICITY": "assets/mech_rapid_onset.png",
         "PATH_CSTC_LOOPS": "assets/complete.png",
         "PATH_VTA_NACC_REWARD": "assets/Field_Inventory_Menu_02.png",
+        "DIS_INSOMNIA": "assets/icon_night.png",
+        "DIS_MDSI": "assets/mech_dissociation.png",
+        "DIS_AUD": "assets/item_wine_glass.png",
+        "DIS_ADHD": "assets/drug_ritalin_10mg.png",
+        "CLS_ADHD_STIMULANT": "assets/badge_psychotropic_label.png",
     }
 
     RELATION_CONFIG = {
@@ -236,11 +242,15 @@ class InteractiveGraphGenerator:
     * {{ box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }}
     body {{ background: var(--bg-dark); color: var(--text-main); height: 100vh; display: flex; overflow: hidden; }}
 
-    #network-container {{
+    #network-wrapper {{
       flex: 1;
       height: 100%;
       position: relative;
       background: radial-gradient(circle at 50% 50%, #0F1A2E 0%, #070B12 92%);
+    }}
+    #network-container {{
+      width: 100%;
+      height: 100%;
     }}
 
     #sidebar {{
@@ -470,7 +480,7 @@ class InteractiveGraphGenerator:
       </div>
       <div class="preset-chips">
         <span class="chip active" data-preset="INITIAL_SEED">
-          <img src="assets/Esketamine2DCSD.svg" alt="" />
+          <img src="assets/drug_sukailang.png" alt="" />
           🌟 开屏单点探索 (艾司氯胺酮 Spravato®)
         </span>
         <span class="chip" data-preset="DIMDAZENIL">
@@ -486,15 +496,15 @@ class InteractiveGraphGenerator:
           ☀️ 替洛利生 (铧可思®) / 莫达非尼 / 促醒睡病
         </span>
         <span class="chip" data-preset="ADHD_PFC">
-          <img src="assets/Dexmethylphenidate_structure.svg" alt="" />
+          <img src="assets/drug_concerta_18mg.png" alt="" />
           🚀 赖右苯丙胺（利右苯丙胺） / 维洛沙嗪 (ADHD)
         </span>
         <span class="chip" data-preset="CRISIS">
-          <img src="assets/Esketamine2DCSD.svg" alt="" />
+          <img src="assets/mech_nmda_antag.png" alt="" />
           🚨 自杀干预 (MDSI) / 难治抑郁 (TRD)
         </span>
         <span class="chip" data-preset="SNDRI">
-          <img src="assets/63653-tablets-min.png" alt="" />
+          <img src="assets/pharma_capsule.png" alt="" />
           💎 托鲁地文拉法辛 (若欣林®) / SNDRI
         </span>
         <span class="chip" data-preset="PPD">
@@ -522,7 +532,7 @@ class InteractiveGraphGenerator:
           🧩 多奈哌齐 (安理申®) / 美金刚 / 仑卡奈单抗
         </span>
         <span class="chip" data-preset="ADDICTION_REWARD">
-          <img src="assets/Field_Inventory_Menu_02.png" alt="" />
+          <img src="assets/item_wine_glass.png" alt="" />
           🍷 伐尼克兰 (畅沛®) / 纳曲酮 / 戒断奖赏回路
         </span>
         <span class="chip" data-preset="AGOMELATINE">
@@ -530,7 +540,7 @@ class InteractiveGraphGenerator:
           🌌 阿戈美拉汀 (韦度®) / 视交叉上核节律 (MASSA)
         </span>
         <span class="chip" data-preset="PLASTICITY">
-          <img src="assets/complete.png" alt="" />
+          <img src="assets/mech_rapid_onset.png" alt="" />
           🌱 神经可塑性与突触再生 (BDNF / mTOR / AMPA)
         </span>
         <span class="chip" data-preset="D2_D3_PARTIAL">
@@ -596,7 +606,8 @@ class InteractiveGraphGenerator:
     </div>
   </div>
 
-  <div id="network-container">
+  <div id="network-wrapper">
+    <div id="network-container"></div>
     <div class="top-floating-bar">
       <button class="tool-btn highlight" id="btn-cascade-mode">
         <img src="assets/mission.png" alt="" />

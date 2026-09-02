@@ -4502,26 +4502,26 @@
     "total_nodes": 187,
     "total_edges": 384,
     "categories": [
-      "DrugClass",
+      "Pathway",
       "Receptor",
       "SideEffect",
-      "Pathway",
-      "Drug",
-      "Disease"
+      "Disease",
+      "DrugClass",
+      "Drug"
     ],
     "relationships": [
-      "CAUSES",
-      "TREATS",
-      "MODULATES",
-      "PAM",
-      "ANTAGONIST",
-      "BLOCKER",
       "CORRELATED_WITH",
-      "INVERSE_AGONIST",
-      "IS_A",
-      "PARTIAL_AGONIST",
+      "TREATS",
+      "PAM",
+      "AGONIST",
+      "ANTAGONIST",
+      "MODULATES",
       "INHIBITS",
-      "AGONIST"
+      "PARTIAL_AGONIST",
+      "IS_A",
+      "BLOCKER",
+      "CAUSES",
+      "INVERSE_AGONIST"
     ]
   }
 }
