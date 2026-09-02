@@ -397,8 +397,12 @@
         <img src="assets/Field_Inventory_Menu_02.png" alt="" />
         全景宏观总网
       </button>
-      <button class="tool-btn" id="btn-zoom-fit">
+      <button class="tool-btn" id="btn-relax-physics">
         <img src="assets/complete.png" alt="" />
+        💫 智能舒展
+      </button>
+      <button class="tool-btn" id="btn-zoom-fit">
+        <img src="assets/NOTE.png" alt="" />
         适配视野
       </button>
     </div>
@@ -475,7 +479,7 @@
     const nodesDataSet = new vis.DataSet([]);
     const edgesDataSet = new vis.DataSet([]);
 
-    // 🛡️ 柔性流体动力学防挤飞配置
+    // 🛡️ 柔性流体动力学防挤飞配置 (高斥力、极小向心力、弹簧大自然舒展)
     const baseOptions = {
       nodes: {
         borderWidth: 2,
@@ -489,34 +493,80 @@
       },
       physics: {
         barnesHut: {
-          gravitationalConstant: -26000,
-          centralGravity: 0.20,
-          springLength: 145,
-          springConstant: 0.040,
-          damping: 0.50,
-          avoidOverlap: 0.88
+          gravitationalConstant: -75000,
+          centralGravity: 0.03,
+          springLength: 260,
+          springConstant: 0.015,
+          damping: 0.45,
+          avoidOverlap: 1.0
         },
-        maxVelocity: 20,
-        minVelocity: 0.1,
+        maxVelocity: 30,
+        minVelocity: 0.15,
         timestep: 0.35,
         solver: 'barnesHut',
         stabilization: {
           enabled: true,
-          iterations: 300,
-          updateInterval: 25,
+          iterations: 350,
+          updateInterval: 30,
           onlyDynamicEdges: false,
           fit: true
         }
       },
       interaction: {
         hover: true,
-        tooltipDelay: 80,
-        zoomView: true
+        hoverConnectedEdges: false,
+        tooltipDelay: 60,
+        zoomView: true,
+        selectConnectedEdges: false,
       }
     };
 
     const container = document.getElementById('network-container');
     const network = new vis.Network(container, { nodes: nodesDataSet, edges: edgesDataSet }, baseOptions);
+
+    // 🌟 拓扑悬浮聚焦与智能降噪 (Hover Neighborhood Focus)
+    network.on('hoverNode', function(params) {
+      if (isCascadeMode) return;
+      const hoveredId = params.node;
+      const neighbors = adjMap[hoveredId] || new Set();
+      const connectedNodeIds = new Set(neighbors);
+      connectedNodeIds.add(hoveredId);
+
+      const updateNodes = [];
+      nodesDataSet.forEach(n => {
+        if (connectedNodeIds.has(n.id)) {
+          updateNodes.push({ id: n.id, opacity: 1.0 });
+        } else {
+          updateNodes.push({ id: n.id, opacity: 0.20 });
+        }
+      });
+      nodesDataSet.update(updateNodes);
+
+      const updateEdges = [];
+      edgesDataSet.forEach(e => {
+        if (e.from === hoveredId || e.to === hoveredId) {
+          updateEdges.push({ id: e.id, color: { opacity: 0.95, color: '#38BDF8', highlight: '#FACC15' }, width: 3.5 });
+        } else {
+          updateEdges.push({ id: e.id, color: { opacity: 0.06, color: '#475569' }, width: 0.8 });
+        }
+      });
+      edgesDataSet.update(updateEdges);
+    });
+
+    network.on('blurNode', function(params) {
+      if (isCascadeMode) return;
+      const updateNodes = [];
+      nodesDataSet.forEach(n => {
+        updateNodes.push({ id: n.id, opacity: 1.0 });
+      });
+      nodesDataSet.update(updateNodes);
+
+      const updateEdges = [];
+      edgesDataSet.forEach(e => {
+        updateEdges.push({ id: e.id, color: { opacity: 0.55, color: '#38BDF8' }, width: 1.8 });
+      });
+      edgesDataSet.update(updateEdges);
+    });
 
     let currentVisibleNodeIds = new Set();
     let isCascadeMode = true;
@@ -836,13 +886,24 @@
       });
     });
 
-    // 布局切换
+    // 布局切换与动力学控制
     document.getElementById('btn-layout-force').addEventListener('click', function() {
       document.querySelectorAll('.layout-btn').forEach(b => b.classList.remove('active'));
       this.classList.add('active');
       network.setOptions({
         layout: { hierarchical: { enabled: false } },
-        physics: { enabled: true, solver: 'barnesHut' }
+        physics: {
+          enabled: true,
+          solver: 'barnesHut',
+          barnesHut: {
+            gravitationalConstant: -75000,
+            centralGravity: 0.03,
+            springLength: 260,
+            springConstant: 0.015,
+            damping: 0.45,
+            avoidOverlap: 1.0
+          }
+        }
       });
       network.fit({ animation: { duration: 600, easingFunction: 'easeInOutQuad' } });
     });
@@ -856,8 +917,9 @@
             enabled: true,
             direction: 'UD',
             sortMethod: 'directed',
-            nodeSpacing: 180,
-            levelSeparation: 150
+            nodeSpacing: 220,
+            levelSeparation: 180,
+            treeSpacing: 240
           }
         },
         physics: { enabled: false }
@@ -868,32 +930,93 @@
     document.getElementById('btn-layout-cluster').addEventListener('click', function() {
       document.querySelectorAll('.layout-btn').forEach(b => b.classList.remove('active'));
       this.classList.add('active');
+      
       const categories = ['Receptor', 'Drug', 'DrugClass', 'Pathway', 'Disease', 'SideEffect'];
-      const radii = { 'Receptor': 220, 'Drug': 420, 'DrugClass': 560, 'Pathway': 680, 'Disease': 820, 'SideEffect': 920 };
+      const baseRadii = {
+        'Receptor': 320,
+        'Drug': 650,
+        'DrugClass': 980,
+        'Pathway': 1220,
+        'Disease': 1480,
+        'SideEffect': 1720
+      };
+
       const catGroups = {};
       categories.forEach(c => catGroups[c] = []);
       graphData.nodes.forEach(n => {
-        if (currentVisibleNodeIds.has(n.id) && catGroups[n.category]) catGroups[n.category].push(n);
+        if (currentVisibleNodeIds.has(n.id) && catGroups[n.category] !== undefined) {
+          catGroups[n.category].push(n);
+        }
       });
 
       const positioned = [];
       categories.forEach(cat => {
         const group = catGroups[cat] || [];
-        const r = radii[cat] || 450;
         const total = group.length;
+        if (total === 0) return;
+
+        const baseR = baseRadii[cat] || 650;
+        let numSubRings = 1;
+        if (total > 35) numSubRings = 3;
+        else if (total > 14) numSubRings = 2;
+
         group.forEach((node, idx) => {
-          const angle = (idx / (total || 1)) * 2 * Math.PI;
+          const subRingIndex = idx % numSubRings;
+          const ringOffset = (subRingIndex - (numSubRings - 1) / 2) * 120;
+          const currentR = baseR + ringOffset;
+
+          const itemsInThisRing = Math.ceil(total / numSubRings);
+          const posInRing = Math.floor(idx / numSubRings);
+          const phaseShift = (subRingIndex * Math.PI) / (itemsInThisRing || 1);
+          const angle = (posInRing / (itemsInThisRing || 1)) * 2 * Math.PI + phaseShift;
+
           positioned.push({
             id: node.id,
-            x: r * Math.cos(angle),
-            y: r * Math.sin(angle),
+            x: currentR * Math.cos(angle),
+            y: currentR * Math.sin(angle),
             physics: false
           });
         });
       });
-      network.setOptions({ layout: { hierarchical: { enabled: false } }, physics: { enabled: false } });
+
+      network.setOptions({
+        layout: { hierarchical: { enabled: false } },
+        physics: { enabled: false }
+      });
       nodesDataSet.update(positioned);
-      network.fit({ animation: { duration: 600, easingFunction: 'easeInOutQuad' } });
+      network.fit({ animation: { duration: 700, easingFunction: 'easeInOutQuad' } });
+    });
+
+    // 💫 智能舒展按钮：施加瞬时排斥力驱散死球聚集，随后平稳收敛
+    document.getElementById('btn-relax-physics').addEventListener('click', function() {
+      network.setOptions({
+        layout: { hierarchical: { enabled: false } },
+        physics: {
+          enabled: true,
+          solver: 'barnesHut',
+          barnesHut: {
+            gravitationalConstant: -120000,
+            centralGravity: 0.01,
+            springLength: 300,
+            springConstant: 0.01,
+            damping: 0.35,
+            avoidOverlap: 1.0
+          }
+        }
+      });
+      setTimeout(() => {
+        network.setOptions({
+          physics: {
+            barnesHut: {
+              gravitationalConstant: -75000,
+              centralGravity: 0.03,
+              springLength: 260,
+              damping: 0.50
+            }
+          }
+        });
+        network.fit({ animation: { duration: 600, easingFunction: 'easeInOutQuad' } });
+      }, 1500);
     });
 
     document.getElementById('btn-zoom-fit').addEventListener('click', () => network.fit({ animation: { duration: 500, easingFunction: 'easeInOutQuad' } }));
