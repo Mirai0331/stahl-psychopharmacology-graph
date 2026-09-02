@@ -60,13 +60,17 @@ shutil.copy2(dist / "index.html", lite_dir / "index.html")
 shutil.copy2(dist / "knowledge_graph.json", lite_dir / "knowledge_graph.json")
 (lite_dir / ".nojekyll").touch()
 
-# 6. 复制到 docs 目录以原生支持 P·L·A·N·A 分支的 GitHub Pages (/docs 模式)
+# 6. 复制到 docs 目录与仓库根目录以支持所有模式的 GitHub Pages
 project_root = Path(__file__).resolve().parent.parent
 docs_dir = project_root / "docs"
 docs_dir.mkdir(parents=True, exist_ok=True)
 shutil.copy2(dist / "index.html", docs_dir / "index.html")
 shutil.copy2(dist / "knowledge_graph.json", docs_dir / "knowledge_graph.json")
 (docs_dir / ".nojekyll").touch()
+
+# 兼容根目录直接托管模式
+shutil.copy2(dist / "index.html", project_root / "index.html")
+shutil.copy2(dist / "knowledge_graph.json", project_root / "knowledge_graph.json")
 (project_root / ".nojekyll").touch()
 
 docs_assets = docs_dir / "assets"
@@ -74,6 +78,12 @@ if docs_assets.exists():
     shutil.rmtree(docs_assets)
 if dist_assets.exists():
     shutil.copytree(dist_assets, docs_assets)
+
+root_assets = project_root / "assets"
+if root_assets.exists():
+    shutil.rmtree(root_assets)
+if dist_assets.exists():
+    shutil.copytree(dist_assets, root_assets)
 
 # 7. 生成精简 ZIP 发布包
 zip_path = root / "stahl_web_deploy.zip"
