@@ -362,7 +362,7 @@
 
     <!-- 类别过滤 -->
     <div class="section-title">
-      <span>🎨 实体类别 (点击过滤)</span>
+      <span>🎨 实体类别 (以相互关系为证据连接呈现)</span>
       <span id="reset-filter-btn" style="cursor:pointer; color:var(--accent-blue); text-transform:none;">重置</span>
     </div>
     <div class="filter-list" id="filter-container"></div>
@@ -408,6 +408,13 @@
       catCounts[n.category] = (catCounts[n.category] || 0) + 1;
     });
 
+    const adjMap = {};
+    graphData.nodes.forEach(n => adjMap[n.id] = new Set());
+    graphData.edges.forEach(e => {
+      if (adjMap[e.from]) adjMap[e.from].add(e.to);
+      if (adjMap[e.to]) adjMap[e.to].add(e.from);
+    });
+
     const filterContainer = document.getElementById('filter-container');
     Object.keys(categoryConfig).forEach(cat => {
       const cfg = categoryConfig[cat];
@@ -423,22 +430,39 @@
         </div>
         <span class="filter-count">${count}</span>
       `;
-      // 点击类别项过滤
+      // 🌟 核心升级：以相互关系为证据将该类别节点与直接相互作用实体紧密连接在一起！
       item.addEventListener('click', function() {
         document.querySelectorAll('.filter-item').forEach(f => f.classList.remove('active'));
         this.classList.add('active');
+        document.querySelectorAll('.preset-chips .chip').forEach(c => c.classList.remove('active'));
         isCascadeMode = false;
-        const subNodes = graphData.nodes.filter(n => n.category === cat);
-        const subIds = new Set(subNodes.map(n => n.id));
-        currentVisibleNodeIds = subIds;
-        const subEdges = graphData.edges.filter(e => subIds.has(e.from) && subIds.has(e.to));
+
+        // 1. 找到所有本类别的核心节点
+        const primaryNodes = graphData.nodes.filter(n => n.category === cat);
+        const primaryIds = new Set(primaryNodes.map(n => n.id));
+        
+        // 2. 收集与这些节点有直接证据关系连线的邻居节点
+        const linkedIds = new Set(primaryIds);
+        primaryIds.forEach(pId => {
+          const neighbors = adjMap[pId] || new Set();
+          neighbors.forEach(nId => linkedIds.add(nId));
+        });
+
+        // 3. 构建完整的证据闭环子图
+        currentVisibleNodeIds = linkedIds;
+        const subNodes = graphData.nodes.filter(n => linkedIds.has(n.id));
+        const subEdges = graphData.edges.filter(e => linkedIds.has(e.from) && linkedIds.has(e.to));
 
         nodesDataSet.clear();
         edgesDataSet.clear();
         nodesDataSet.add(subNodes);
         edgesDataSet.add(subEdges);
-        network.fit({ animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
-        document.getElementById('mode-text').innerText = `已筛选类别: ${cfg.name} (${count}个)`;
+        network.fit({ animation: { duration: 600, easingFunction: 'easeInOutQuad' } });
+        document.getElementById('mode-text').innerText = `已激活: ${cfg.name} 证据关系全网 (共 ${subNodes.length} 节点, ${subEdges.length} 关系边)`;
+        
+        if (primaryNodes.length > 0) {
+          focusNode(primaryNodes[0].id);
+        }
       });
       filterContainer.appendChild(item);
     });
@@ -488,13 +512,6 @@
 
     const container = document.getElementById('network-container');
     const network = new vis.Network(container, { nodes: nodesDataSet, edges: edgesDataSet }, baseOptions);
-
-    const adjMap = {};
-    graphData.nodes.forEach(n => adjMap[n.id] = new Set());
-    graphData.edges.forEach(e => {
-      if (adjMap[e.from]) adjMap[e.from].add(e.to);
-      if (adjMap[e.to]) adjMap[e.to].add(e.from);
-    });
 
     let currentVisibleNodeIds = new Set();
     let isCascadeMode = true;
@@ -669,6 +686,7 @@
       chip.addEventListener('click', function() {
         document.querySelectorAll('.preset-chips .chip').forEach(c => c.classList.remove('active'));
         this.classList.add('active');
+        document.querySelectorAll('.filter-item').forEach(f => f.classList.remove('active'));
         const preset = this.dataset.preset;
 
         if (preset === 'INITIAL_SEED') {
