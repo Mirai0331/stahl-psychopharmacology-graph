@@ -1,67 +1,73 @@
 # -*- coding: utf-8 -*-
-"""高精交互式图谱生成器：证据驱动关系网络、单点级联扩散、全场景无缝飞越与结构化临床药理卡片"""
+"""高精立体化交互式图谱生成器：3D立体连线视觉、60FPS流畅动力学、自然医学图解展示与脑科学临床药理看板"""
 import json
 from pathlib import Path
 from stahl_document_ai.processors.graph_builder import PsychopharmacologyKnowledgeGraph
 
 
 class InteractiveGraphGenerator:
-    """高精精神药理学可视化：证据关系网状连接、开屏单点级联探索、医学素材深度点缀、中文在先规范"""
+    """高精精神药理学可视化：3D立体化连接、极致60FPS物理挂起、医学图解自然看板、中文在先规范"""
 
     CATEGORY_CONFIG = {
         "Drug": {
             "name": "精神药物",
             "color": "#38BDF8",       # 亮青蓝
             "borderColor": "#0284C7",
-            "glow": "rgba(56, 189, 248, 0.45)",
+            "glow": "rgba(56, 189, 248, 0.65)",
             "shape": "dot",
             "level": 2,
-            "icon": "assets/63653-tablets-min.png"
+            "icon": "assets/63653-tablets-min.png",
+            "badgeBg": "linear-gradient(135deg, #0284C7, #0369A1)"
         },
         "DrugClass": {
             "name": "药物大类",
             "color": "#818CF8",       # 靛蓝
             "borderColor": "#4F46E5",
-            "glow": "rgba(129, 140, 248, 0.45)",
+            "glow": "rgba(129, 140, 248, 0.65)",
             "shape": "diamond",
             "level": 1,
-            "icon": "assets/Field_Inventory_Menu_02.png"
+            "icon": "assets/Field_Inventory_Menu_02.png",
+            "badgeBg": "linear-gradient(135deg, #4F46E5, #3730A3)"
         },
         "Receptor": {
             "name": "受体与信号靶点",
             "color": "#10B981",       # 翡翠荧绿
             "borderColor": "#059669",
-            "glow": "rgba(16, 185, 129, 0.45)",
+            "glow": "rgba(16, 185, 129, 0.65)",
             "shape": "dot",
             "level": 3,
-            "icon": "assets/mission.png"
+            "icon": "assets/mission.png",
+            "badgeBg": "linear-gradient(135deg, #059669, #047857)"
         },
         "Pathway": {
             "name": "神经通路与可塑环路",
             "color": "#C084FC",       # 梦幻极光紫
             "borderColor": "#9333EA",
-            "glow": "rgba(192, 132, 252, 0.45)",
+            "glow": "rgba(192, 132, 252, 0.65)",
             "shape": "hexagon",
             "level": 4,
-            "icon": "assets/complete.png"
+            "icon": "assets/complete.png",
+            "badgeBg": "linear-gradient(135deg, #9333EA, #7E22CE)"
         },
         "Disease": {
             "name": "疾病与危重/难治表型",
             "color": "#F472B6",       # 玫粉
             "borderColor": "#DB2777",
-            "glow": "rgba(244, 114, 182, 0.45)",
+            "glow": "rgba(244, 114, 182, 0.65)",
             "shape": "dot",
             "level": 5,
-            "icon": "assets/NOTE.png"
+            "icon": "assets/NOTE.png",
+            "badgeBg": "linear-gradient(135deg, #DB2777, #BE185D)"
         },
         "SideEffect": {
             "name": "不良反应",
             "color": "#FB7185",       # 珊瑚红
             "borderColor": "#E11D48",
-            "glow": "rgba(251, 113, 133, 0.45)",
+            "glow": "rgba(251, 113, 133, 0.65)",
             "shape": "triangle",
             "level": 5,
-            "icon": "assets/Goods_Icon_Gem_490_Preset_2.png"
+            "icon": "assets/Goods_Icon_Gem_490_Preset_2.png",
+            "badgeBg": "linear-gradient(135deg, #E11D48, #9F1239)"
         },
     }
 
@@ -99,18 +105,18 @@ class InteractiveGraphGenerator:
     }
 
     RELATION_CONFIG = {
-        "AGONIST": {"color": "#10B981", "label": "激动受体"},
-        "PARTIAL_AGONIST": {"color": "#F59E0B", "label": "部分激动"},
-        "ANTAGONIST": {"color": "#EF4444", "label": "拮抗/阻断"},
-        "INVERSE_AGONIST": {"color": "#E11D48", "label": "反向激动"},
-        "PAM": {"color": "#06B6D4", "label": "正向变构调节 (PAM)"},
-        "BLOCKER": {"color": "#6366F1", "label": "离子通道阻滞/酶抑制"},
-        "INHIBITS": {"color": "#E11D48", "label": "再摄取抑制/逆转"},
-        "TREATS": {"color": "#38BDF8", "label": "临床治疗/急救阻断/增效"},
-        "CAUSES": {"color": "#FB923C", "label": "诱发不良反应"},
-        "MODULATES": {"color": "#A855F7", "label": "级联/环路调控"},
-        "CORRELATED_WITH": {"color": "#EC4899", "label": "病理关联/演进"},
-        "IS_A": {"color": "#64748B", "label": "分类归属"},
+        "AGONIST": {"color": "#10B981", "label": "激动受体", "type": "positive"},
+        "PARTIAL_AGONIST": {"color": "#F59E0B", "label": "部分激动", "type": "neutral"},
+        "ANTAGONIST": {"color": "#EF4444", "label": "拮抗/阻断", "type": "negative"},
+        "INVERSE_AGONIST": {"color": "#E11D48", "label": "反向激动", "type": "negative"},
+        "PAM": {"color": "#06B6D4", "label": "正向变构调节 (PAM)", "type": "modulate"},
+        "BLOCKER": {"color": "#6366F1", "label": "通道阻滞/酶抑制", "type": "block"},
+        "INHIBITS": {"color": "#E11D48", "label": "再摄取抑制/逆转", "type": "inhibit"},
+        "TREATS": {"color": "#38BDF8", "label": "临床治疗/急救干预", "type": "treat"},
+        "CAUSES": {"color": "#FB923C", "label": "诱发不良反应", "type": "harm"},
+        "MODULATES": {"color": "#A855F7", "label": "级联/环路调控", "type": "modulate"},
+        "CORRELATED_WITH": {"color": "#EC4899", "label": "病理关联/演进", "type": "link"},
+        "IS_A": {"color": "#64748B", "label": "分类归属", "type": "class"},
     }
 
     @classmethod
@@ -123,7 +129,7 @@ class InteractiveGraphGenerator:
         vis_nodes = []
         for n in graph.nodes:
             cfg = cls.CATEGORY_CONFIG.get(n.category, {
-                "name": n.category, "color": "#94A3B8", "borderColor": "#475569", "glow": "rgba(148,163,184,0.3)", "shape": "dot", "level": 3
+                "name": n.category, "color": "#94A3B8", "borderColor": "#475569", "glow": "rgba(148,163,184,0.3)", "shape": "dot", "level": 3, "badgeBg": "#475569"
             })
             deg = degree_map.get(n.id, 1)
             is_critical = n.id in [
@@ -133,7 +139,7 @@ class InteractiveGraphGenerator:
                 "DRUG_AGOMELATINE", "REC_MT1_MT2", "PATH_CIRCADIAN_SCN", "REC_TAAR1", "REC_OX1R_OX2R",
                 "REC_BDNF_TRKB", "REC_AMPA", "REC_MTORC1", "DRUG_VARENICLINE", "DRUG_LECANEMAB"
             ]
-            node_size = min(40, max(18, (24 if is_critical else 16) + deg * 1.25))
+            node_size = min(42, max(20, (26 if is_critical else 18) + deg * 1.3))
             clean_label = n.label.split("(")[0].strip() if "(" in n.label else n.label
 
             custom_img = cls.NODE_IMAGE_MAP.get(n.id, "")
@@ -148,6 +154,7 @@ class InteractiveGraphGenerator:
                 "degree": deg,
                 "level": cfg["level"],
                 "customImage": custom_img,
+                "isCritical": is_critical,
                 "color": {
                     "background": cfg["color"],
                     "border": "#FFFFFF" if is_critical else cfg["borderColor"],
@@ -163,26 +170,26 @@ class InteractiveGraphGenerator:
                 "shadow": {
                     "enabled": True,
                     "color": cfg["glow"],
-                    "size": 16 if is_critical else 10,
+                    "size": 22 if is_critical else 12,
                     "x": 0,
                     "y": 0,
                 },
                 "shape": cfg["shape"],
                 "size": node_size,
                 "font": {
-                    "color": "#F8FAFC",
+                    "color": "#FFFFFF",
                     "size": 13,
                     "face": "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
-                    "strokeWidth": 2.5,
-                    "strokeColor": "#070B12",
+                    "strokeWidth": 3.0,
+                    "strokeColor": "#050811",
                 },
                 "borderWidth": 3 if is_critical else 2,
-                "borderWidthSelected": 4,
+                "borderWidthSelected": 5,
             })
 
         vis_edges = []
         for i, e in enumerate(graph.edges):
-            rel_cfg = cls.RELATION_CONFIG.get(e.relationship, {"color": "#475569", "label": e.label})
+            rel_cfg = cls.RELATION_CONFIG.get(e.relationship, {"color": "#475569", "label": e.label, "type": "link"})
             is_key_edge = (
                 e.source in [
                     "DRUG_ESKETAMINE", "REC_AMPA", "REC_MTORC1", "REC_BDNF_TRKB", "DRUG_TOLUDESVENLAFAXINE",
@@ -199,20 +206,21 @@ class InteractiveGraphGenerator:
                 "hoverLabel": e.label,
                 "relationship": e.relationship,
                 "relName": rel_cfg["label"],
+                "relType": rel_cfg["type"],
                 "description": e.description,
                 "color": {
                     "color": (rel_cfg["color"] + ("EE" if is_key_edge else "85")),
                     "highlight": "#FACC15",
                     "hover": "#38BDF8",
-                    "opacity": 0.85 if is_key_edge else 0.55,
+                    "opacity": 0.85 if is_key_edge else 0.50,
                 },
                 "arrows": {
-                    "to": {"enabled": True, "scaleFactor": 0.55}
+                    "to": {"enabled": True, "scaleFactor": 0.60}
                 },
-                "width": max(1.5, min(4.2, e.weight * (1.8 if is_key_edge else 1.3))),
+                "width": max(1.5, min(4.5, e.weight * (2.0 if is_key_edge else 1.4))),
                 "smooth": {
                     "type": "curvedCW",
-                    "roundness": 0.12,
+                    "roundness": 0.18,
                 }
             })
 
@@ -223,136 +231,153 @@ class InteractiveGraphGenerator:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stahl 精神药理学精要 (第5版) · 全书全景知识图谱</title>
+  <title>Stahl 精神药理学精要 (第5版) · 全景立体化脑科学知识图谱</title>
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <style>
     :root {{
-      --bg-dark: #070B12;
-      --bg-card: rgba(12, 18, 30, 0.88);
-      --border-light: rgba(255, 255, 255, 0.08);
-      --border-glow: rgba(56, 189, 248, 0.35);
-      --text-main: #F9FAFB;
+      --bg-dark: #050811;
+      --bg-card: rgba(10, 16, 28, 0.90);
+      --bg-card-hover: rgba(16, 24, 42, 0.95);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(56, 189, 248, 0.40);
+      --border-glass: rgba(255, 255, 255, 0.14);
+      --text-main: #FFFFFF;
       --text-sub: #94A3B8;
+      --text-muted: #64748B;
       --accent-blue: #38BDF8;
       --accent-purple: #C084FC;
       --accent-green: #10B981;
       --accent-amber: #F59E0B;
       --accent-pink: #F472B6;
+      --accent-cyan: #06B6D4;
     }}
     * {{ box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }}
     body {{ background: var(--bg-dark); color: var(--text-main); height: 100vh; display: flex; overflow: hidden; }}
 
+    /* 🌌 3D立体空间背景与点阵透视网格 */
     #network-wrapper {{
       flex: 1;
       height: 100%;
       position: relative;
-      background: radial-gradient(circle at 50% 50%, #0F1A2E 0%, #070B12 92%);
+      background: 
+        radial-gradient(circle at 50% 50%, rgba(14, 28, 54, 0.7) 0%, rgba(5, 8, 17, 0.98) 85%),
+        radial-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px);
+      background-size: 100% 100%, 32px 32px;
+      overflow: hidden;
     }}
     #network-container {{
       width: 100%;
       height: 100%;
     }}
 
+    /* 🛡️ 左侧控制侧边栏 (Cyber-Medical Glass) */
     #sidebar {{
-      width: 470px;
+      width: 480px;
       background: var(--bg-card);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      border-right: 1px solid var(--border-light);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border-right: 1px solid var(--border-glass);
       display: flex;
       flex-direction: column;
-      padding: 20px;
+      padding: 22px;
       z-index: 20;
-      box-shadow: 14px 0 45px rgba(0, 0, 0, 0.7);
+      box-shadow: 18px 0 50px rgba(0, 0, 0, 0.85);
       overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(56,189,248,0.3) transparent;
     }}
+    #sidebar::-webkit-scrollbar {{ width: 5px; }}
+    #sidebar::-webkit-scrollbar-thumb {{ background: rgba(56, 189, 248, 0.3); border-radius: 4px; }}
 
     .header-box {{
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 6px;
+      gap: 14px;
+      margin-bottom: 8px;
     }}
     .header-logo {{
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(192, 132, 252, 0.15));
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(192, 132, 252, 0.25));
       border: 1px solid var(--border-glow);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
       overflow: hidden;
     }}
-    .header-logo img {{ width: 30px; height: 30px; object-fit: contain; }}
+    .header-logo img {{ width: 34px; height: 34px; object-fit: contain; }}
 
     .header-title {{
-      font-size: 1.25rem;
+      font-size: 1.30rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #38BDF8 0%, #818CF8 50%, #C084FC 100%);
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #FFFFFF 0%, #38BDF8 50%, #C084FC 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }}
-    .header-sub {{ font-size: 0.76rem; color: var(--text-sub); margin-bottom: 12px; line-height: 1.45; }}
+    .header-sub {{ font-size: 0.78rem; color: var(--text-sub); margin-bottom: 14px; line-height: 1.5; }}
 
     .mode-banner {{
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 10px;
-      padding: 8px 12px;
-      margin-bottom: 14px;
-      font-size: 0.76rem;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(192, 132, 252, 0.08));
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 12px;
+      padding: 9px 14px;
+      margin-bottom: 16px;
+      font-size: 0.78rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }}
     .mode-pill {{
-      background: #0284C7;
+      background: linear-gradient(135deg, #0284C7, #2563EB);
       color: #fff;
-      padding: 3px 8px;
-      border-radius: 6px;
+      padding: 4px 10px;
+      border-radius: 8px;
       font-weight: 700;
-      font-size: 0.68rem;
+      font-size: 0.70rem;
       cursor: pointer;
       transition: all 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }}
-    .mode-pill:hover {{ background: #0369A1; transform: scale(1.04); }}
+    .mode-pill:hover {{ background: #0369A1; transform: scale(1.05); }}
 
     .scenario-section {{ margin-bottom: 16px; }}
-    .section-title {{ font-size: 0.73rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #94A3B8; margin-bottom: 9px; display: flex; justify-content: space-between; align-items: center; }}
+    .section-title {{ font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #94A3B8; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }}
     .preset-chips {{ display: flex; flex-wrap: wrap; gap: 6px; }}
     .chip {{
-      padding: 5px 10px;
-      border-radius: 18px;
-      font-size: 0.72rem;
+      padding: 6px 11px;
+      border-radius: 20px;
+      font-size: 0.73rem;
       cursor: pointer;
       background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-light);
+      border: 1px solid var(--border-subtle);
       color: #CBD5E1;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
     }}
-    .chip img {{ width: 13px; height: 13px; object-fit: contain; border-radius: 3px; }}
-    .chip:hover {{ background: rgba(56, 189, 248, 0.15); border-color: var(--accent-blue); color: #fff; transform: translateY(-1px); }}
-    .chip.active {{ background: linear-gradient(135deg, #0284C7, #2563EB); border-color: #38BDF8; color: #fff; font-weight: 600; box-shadow: 0 0 14px rgba(56, 189, 248, 0.45); }}
+    .chip img {{ width: 14px; height: 14px; object-fit: contain; border-radius: 3px; }}
+    .chip:hover {{ background: rgba(56, 189, 248, 0.16); border-color: var(--accent-blue); color: #fff; transform: translateY(-1.5px); box-shadow: 0 4px 12px rgba(56,189,248,0.25); }}
+    .chip.active {{ background: linear-gradient(135deg, #0284C7, #2563EB); border-color: #38BDF8; color: #fff; font-weight: 700; box-shadow: 0 0 16px rgba(56, 189, 248, 0.5); }}
 
     .search-wrapper {{ position: relative; margin-bottom: 16px; }}
     .search-input {{
       width: 100%;
-      padding: 10px 14px 10px 38px;
-      background: rgba(15, 23, 42, 0.75);
-      border: 1px solid var(--border-light);
+      padding: 11px 14px 11px 40px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border-glass);
       border-radius: 12px;
       color: #fff;
-      font-size: 0.86rem;
+      font-size: 0.88rem;
       outline: none;
       transition: all 0.2s;
     }}
-    .search-input:focus {{ border-color: var(--accent-blue); box-shadow: 0 0 14px rgba(56, 189, 248, 0.35); }}
-    .search-icon-img {{ position: absolute; left: 12px; top: 11px; width: 16px; height: 16px; opacity: 0.7; }}
+    .search-input:focus {{ border-color: var(--accent-blue); box-shadow: 0 0 16px rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.95); }}
+    .search-icon-img {{ position: absolute; left: 14px; top: 12px; width: 17px; height: 17px; opacity: 0.75; }}
 
     .layout-switcher {{
       display: grid;
@@ -361,12 +386,12 @@ class InteractiveGraphGenerator:
       margin-bottom: 16px;
     }}
     .layout-btn {{
-      padding: 8px;
+      padding: 9px 6px;
       font-size: 0.75rem;
       font-weight: 600;
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid var(--border-light);
-      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
       color: #CBD5E1;
       cursor: pointer;
       text-align: center;
@@ -376,238 +401,321 @@ class InteractiveGraphGenerator:
       justify-content: center;
       gap: 5px;
     }}
-    .layout-btn.active {{ background: rgba(56, 189, 248, 0.2); border-color: var(--accent-blue); color: var(--accent-blue); box-shadow: 0 0 10px rgba(56,189,248,0.25); }}
+    .layout-btn:hover {{ background: rgba(255, 255, 255, 0.08); border-color: rgba(56, 189, 248, 0.3); }}
+    .layout-btn.active {{ background: rgba(56, 189, 248, 0.22); border-color: var(--accent-blue); color: var(--accent-blue); box-shadow: 0 0 14px rgba(56,189,248,0.3); font-weight: 700; }}
 
-    .filter-list {{ display: flex; flex-direction: column; gap: 5px; margin-bottom: 16px; }}
+    .filter-list {{ display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }}
     .filter-item {{
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 7px 10px;
-      background: rgba(15, 23, 42, 0.45);
-      border: 1px solid var(--border-light);
-      border-radius: 8px;
+      padding: 8px 12px;
+      background: rgba(15, 23, 42, 0.50);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
       cursor: pointer;
-      font-size: 0.78rem;
-      transition: all 0.15s;
+      font-size: 0.80rem;
+      transition: all 0.18s;
     }}
-    .filter-item:hover {{ background: rgba(255, 255, 255, 0.08); border-color: rgba(56, 189, 248, 0.3); }}
-    .filter-item.active {{ background: rgba(56, 189, 248, 0.2); border-color: var(--accent-blue); font-weight: 700; }}
-    .filter-left {{ display: flex; align-items: center; gap: 8px; }}
-    .filter-icon {{ width: 14px; height: 14px; object-fit: contain; }}
-    .filter-dot {{ width: 8px; height: 8px; border-radius: 50%; }}
-    .filter-count {{ font-size: 0.7rem; color: var(--text-sub); background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 10px; }}
+    .filter-item:hover {{ background: rgba(255, 255, 255, 0.08); border-color: rgba(56, 189, 248, 0.4); transform: translateX(2px); }}
+    .filter-item.active {{ background: rgba(56, 189, 248, 0.22); border-color: var(--accent-blue); font-weight: 700; box-shadow: 0 0 12px rgba(56,189,248,0.25); }}
+    .filter-left {{ display: flex; align-items: center; gap: 10px; }}
+    .filter-icon {{ width: 16px; height: 16px; object-fit: contain; }}
+    .filter-dot {{ width: 9px; height: 9px; border-radius: 50%; }}
+    .filter-count {{ font-size: 0.72rem; color: var(--text-sub); background: rgba(255,255,255,0.08); padding: 2px 7px; border-radius: 12px; }}
 
+    /* 💎 临床药理多维详情看板 (Clinical Holographic Dashboard) */
     #detail-drawer {{
       margin-top: 14px;
-      background: rgba(15, 23, 42, 0.98);
+      background: linear-gradient(145deg, rgba(14, 22, 38, 0.96), rgba(8, 12, 22, 0.98));
       border: 1px solid var(--border-glow);
-      border-radius: 14px;
-      padding: 16px;
+      border-radius: 16px;
+      padding: 18px;
       display: none;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-      animation: fadeIn 0.22s ease-out;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.1);
+      animation: slideInUp 0.24s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
     }}
     #detail-drawer.show {{ display: block; }}
-    .drawer-header {{ display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }}
-    .drawer-badge {{ display: inline-block; padding: 3px 8px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: #fff; }}
-    .drawer-art-preview {{ width: 46px; height: 46px; border-radius: 8px; background: rgba(255,255,255,0.05); padding: 4px; border: 1px solid var(--border-light); object-fit: contain; }}
-    .drawer-title {{ font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 8px; line-height: 1.35; }}
-    .drawer-desc-card {{ font-size: 0.80rem; color: #CBD5E1; line-height: 1.6; margin-bottom: 12px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); white-space: pre-line; }}
-    .drawer-conns-title {{ font-size: 0.75rem; font-weight: 700; color: var(--text-sub); text-transform: uppercase; margin-bottom: 8px; display: flex; justify-content: space-between; }}
-    .drawer-conns-list {{ display: flex; flex-direction: column; gap: 6px; max-height: 150px; overflow-y: auto; font-size: 0.76rem; }}
-    .conn-tag {{ padding: 6px 9px; border-radius: 6px; background: rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.15s; border: 1px solid transparent; }}
-    .conn-tag:hover {{ background: rgba(56, 189, 248, 0.15); border-color: var(--accent-blue); transform: translateX(2px); }}
+    @keyframes slideInUp {{ from {{ opacity: 0; transform: translateY(12px); }} to {{ opacity: 1; transform: translateY(0); }} }}
 
+    .drawer-header {{ display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 10px; }}
+    .drawer-badge {{ display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 8px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }}
+    
+    /* 🖼️ 3D 高精展柜窗口 */
+    .drawer-lightbox {{
+      width: 100%;
+      height: 120px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 50% 50%, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+    }}
+    .drawer-lightbox img {{
+      max-width: 86%;
+      max-height: 86%;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.6));
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }}
+    .drawer-lightbox:hover img {{ transform: scale(1.08); }}
+    .lightbox-tag {{
+      position: absolute;
+      bottom: 6px;
+      right: 8px;
+      font-size: 0.64rem;
+      color: #94A3B8;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }}
+
+    .drawer-title {{ font-size: 1.15rem; font-weight: 800; color: #fff; margin-bottom: 10px; line-height: 1.38; letter-spacing: -0.01em; }}
+    .drawer-desc-card {{
+      font-size: 0.82rem;
+      color: #CBD5E1;
+      line-height: 1.65;
+      margin-bottom: 14px;
+      background: rgba(255, 255, 255, 0.035);
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      white-space: pre-line;
+    }}
+
+    /* 🧬 机制传导流条带 (Flow Ribbon) */
+    .flow-ribbon {{
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+      background: rgba(15, 23, 42, 0.6);
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }}
+    .flow-ribbon-title {{ font-size: 0.70rem; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.05em; }}
+    .flow-steps {{ display: flex; flex-wrap: wrap; align-items: center; gap: 5px; font-size: 0.74rem; color: #E2E8F0; }}
+    .flow-step {{ background: rgba(56, 189, 248, 0.15); padding: 3px 7px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.3); }}
+    .flow-arrow {{ color: var(--accent-amber); font-weight: bold; font-size: 0.8rem; }}
+
+    .drawer-conns-title {{ font-size: 0.76rem; font-weight: 700; color: var(--text-sub); text-transform: uppercase; margin-bottom: 10px; display: flex; justify-content: space-between; }}
+    .drawer-conns-list {{ display: flex; flex-direction: column; gap: 6px; max-height: 180px; overflow-y: auto; font-size: 0.78rem; }}
+    .conn-tag {{
+      padding: 7px 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.18s;
+      border: 1px solid transparent;
+    }}
+    .conn-tag:hover {{ background: rgba(56, 189, 248, 0.18); border-color: var(--accent-blue); transform: translateX(3px); box-shadow: 0 2px 10px rgba(56,189,248,0.25); }}
+    .conn-rel {{ font-weight: 700; }}
+    .conn-rel.positive {{ color: #34D399; }}
+    .conn-rel.negative {{ color: #F87171; }}
+    .conn-rel.modulate {{ color: #C084FC; }}
+    .conn-rel.treat {{ color: #38BDF8; }}
+
+    /* 🛰️ 悬浮工具栏 (Floating Control Capsule) */
     .top-floating-bar {{
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: 22px;
+      right: 22px;
       display: flex;
-      gap: 8px;
+      gap: 10px;
       z-index: 10;
     }}
     .tool-btn {{
       background: var(--bg-card);
-      backdrop-filter: blur(14px);
-      border: 1px solid var(--border-light);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--border-glass);
       color: #E2E8F0;
-      padding: 8px 13px;
-      border-radius: 10px;
-      font-size: 0.80rem;
+      padding: 9px 15px;
+      border-radius: 12px;
+      font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 6px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.4);
-      transition: all 0.2s;
+      gap: 7px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }}
-    .tool-btn img {{ width: 14px; height: 14px; object-fit: contain; }}
-    .tool-btn:hover {{ background: rgba(56, 189, 248, 0.22); border-color: var(--accent-blue); color: #fff; }}
-    .tool-btn.highlight {{ background: linear-gradient(135deg, #0284C7, #2563EB); border-color: #38BDF8; color: #fff; box-shadow: 0 0 12px rgba(56,189,248,0.4); }}
+    .tool-btn img {{ width: 15px; height: 15px; object-fit: contain; }}
+    .tool-btn:hover {{ background: rgba(56, 189, 248, 0.25); border-color: var(--accent-blue); color: #fff; transform: translateY(-1.5px); box-shadow: 0 8px 25px rgba(56,189,248,0.3); }}
+    .tool-btn.highlight {{ background: linear-gradient(135deg, #0284C7, #2563EB); border-color: #38BDF8; color: #fff; box-shadow: 0 0 16px rgba(56,189,248,0.45); }}
 
-    @keyframes fadeIn {{
-      from {{ opacity: 0; transform: translateY(8px); }}
-      to {{ opacity: 1; transform: translateY(0); }}
+    /* 🎯 悬浮微型卡片 (Hover Tooltip HUD) */
+    #hover-hud {{
+      position: absolute;
+      pointer-events: none;
+      display: none;
+      z-index: 30;
+      background: rgba(10, 16, 28, 0.94);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-glow);
+      border-radius: 10px;
+      padding: 8px 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.65);
+      font-size: 0.76rem;
+      color: #F8FAFC;
+      max-width: 260px;
+      transform: translate(12px, 12px);
     }}
+    #hover-hud-title {{ font-weight: 800; color: var(--accent-blue); margin-bottom: 3px; }}
+    #hover-hud-cat {{ font-size: 0.68rem; color: #94A3B8; }}
   </style>
 </head>
 <body>
+
+  <!-- 左侧控制面板 -->
   <div id="sidebar">
     <div class="header-box">
       <div class="header-logo">
-        <img src="assets/63653-tablets-min.png" alt="Logo" />
+        <img src="assets/drug_sukailang.png" alt="Stahl Graph Logo" />
       </div>
       <div>
-        <div class="header-title">Stahl 精神药理学全景图谱</div>
-        <div class="header-sub" style="margin-bottom:0;">第5版全书 14 章全域机制 · 靶点与回路全景闭环</div>
+        <h1 class="header-title">Stahl 精神药理学精要</h1>
+        <div style="font-size:0.75rem; color:#94A3B8; font-weight:600;">第5版全景全域脑科学知识图谱</div>
       </div>
     </div>
-    <hr style="border:none; border-top:1px solid var(--border-light); margin:12px 0 14px 0;" />
-
-    <!-- 级联探索状态横幅 -->
-    <div class="mode-banner">
-      <span>💡 模式: <b id="mode-text" style="color:var(--accent-blue);">单点级联探索 (点击节点自动扩散)</b></span>
-      <span class="mode-pill" id="btn-toggle-all-view">全景总网</span>
+    <div class="header-sub">
+      覆盖全书 14 大核心章节 · 187 个受体/药物/回路实体 · 384 条机制证据链 · 3D 立体连接与高精图解看板
     </div>
 
-    <!-- 快捷药理场景切换 (全书 14 章重点板块) -->
+    <div class="mode-banner">
+      <span id="mode-text">单点级联扩散探索 (点击节点裂变展开)</span>
+      <span class="mode-pill" id="reset-filter-btn">重置开屏</span>
+    </div>
+
+    <div class="search-wrapper">
+      <img src="assets/NOTE.png" class="search-icon-img" alt="" />
+      <input type="text" id="search-input" class="search-input" placeholder="输入药名/受体 (如: 艾司氯胺酮, TAAR1, 专注达, 达卫可)..." />
+    </div>
+
+    <!-- 20+ 核心专病场景矩阵 -->
     <div class="scenario-section">
       <div class="section-title">
-        <span>✨ 核心专病与前沿机制透视</span>
+        <span>前沿机制与专病透视预设</span>
+        <span style="font-size:0.68rem; color:#38BDF8;">20+ 临床场景</span>
       </div>
       <div class="preset-chips">
-        <span class="chip active" data-preset="INITIAL_SEED">
+        <div class="chip active" data-preset="INITIAL_SEED">
           <img src="assets/drug_sukailang.png" alt="" />
-          🌟 开屏单点探索 (艾司氯胺酮 Spravato®)
-        </span>
-        <span class="chip" data-preset="DIMDAZENIL">
-          <img src="assets/63653-tablets-min.png" alt="" />
-          🌿 地达西尼 (京诺宁®) / GABA-A α1 部分变构
-        </span>
-        <span class="chip" data-preset="DORA">
-          <img src="assets/icon_night.png" alt="" />
-          🌙 沃诺雷生 (Vorzzz) / 法赞雷生 / 莱博雷生 (达卫可®)
-        </span>
-        <span class="chip" data-preset="WAKE_NARCOLEPSY">
-          <img src="assets/icon_morning.png" alt="" />
-          ☀️ 替洛利生 (铧可思®) / 莫达非尼 / 促醒睡病
-        </span>
-        <span class="chip" data-preset="ADHD_PFC">
-          <img src="assets/drug_concerta_18mg.png" alt="" />
-          🚀 赖右苯丙胺（利右苯丙胺） / 维洛沙嗪 (ADHD)
-        </span>
-        <span class="chip" data-preset="CRISIS">
+          <span>速开朗® TRD/自杀干预 (开屏)</span>
+        </div>
+        <div class="chip" data-preset="TRD_KETAMINE">
           <img src="assets/mech_nmda_antag.png" alt="" />
-          🚨 自杀干预 (MDSI) / 难治抑郁 (TRD)
-        </span>
-        <span class="chip" data-preset="SNDRI">
-          <img src="assets/pharma_capsule.png" alt="" />
-          💎 托鲁地文拉法辛 (若欣林®) / SNDRI
-        </span>
-        <span class="chip" data-preset="PPD">
-          <img src="assets/63653-tablets-min.png" alt="" />
-          🌸 佐拉诺酮 (Zurzuvae) / 产后抑郁 (PPD)
-        </span>
-        <span class="chip" data-preset="AUVELITY">
-          <img src="assets/63653-tablets-min.png" alt="" />
-          ⚡ 右美沙芬-安非他酮 / 快速抗抑郁 (Auvelity)
-        </span>
-        <span class="chip" data-preset="NEW_PSYCHOSIS">
-          <img src="assets/mission.png" alt="" />
-          🔮 乌洛他隆 / 卢玛哌酮 (Caplyta) / TAAR1
-        </span>
-        <span class="chip" data-preset="OCD_CSTC">
-          <img src="assets/complete.png" alt="" />
-          🕯️ 氟伏沙明 (兰释®) / 氯米帕明 / 强迫障碍 (OCD)
-        </span>
-        <span class="chip" data-preset="PTSD_FEAR">
-          <img src="assets/NOTE.png" alt="" />
-          🛡️ 哌唑嗪 / 普萘洛尔 / 创伤恐惧消退 (PTSD)
-        </span>
-        <span class="chip" data-preset="DEMENTIA_AD">
-          <img src="assets/mission.png" alt="" />
-          🧩 多奈哌齐 (安理申®) / 美金刚 / 仑卡奈单抗
-        </span>
-        <span class="chip" data-preset="ADDICTION_REWARD">
-          <img src="assets/item_wine_glass.png" alt="" />
-          🍷 伐尼克兰 (畅沛®) / 纳曲酮 / 戒断奖赏回路
-        </span>
-        <span class="chip" data-preset="AGOMELATINE">
+          <span>NMDA 阻断与突触可塑性</span>
+        </div>
+        <div class="chip" data-preset="ADHD_OROS">
+          <img src="assets/drug_concerta_18mg.png" alt="" />
+          <span>专注达® OROS 控释与前额叶</span>
+        </div>
+        <div class="chip" data-preset="DORA_INSOMNIA">
           <img src="assets/icon_night.png" alt="" />
-          🌌 阿戈美拉汀 (韦度®) / 视交叉上核节律 (MASSA)
-        </span>
-        <span class="chip" data-preset="PLASTICITY">
-          <img src="assets/mech_rapid_onset.png" alt="" />
-          🌱 神经可塑性与突触再生 (BDNF / mTOR / AMPA)
-        </span>
-        <span class="chip" data-preset="D2_D3_PARTIAL">
+          <span>DORA 双食欲素拮抗 (达卫可®)</span>
+        </div>
+        <div class="chip" data-preset="TAAR1_SCHIZO">
+          <img src="assets/complete.png" alt="" />
+          <span>TAAR1/5-HT1A 激动剂 (Ulotaront)</span>
+        </div>
+        <div class="chip" data-preset="PPD_GABA">
+          <img src="assets/pharma_capsule.png" alt="" />
+          <span>产后抑郁 GABA PAM (祖拉诺酮)</span>
+        </div>
+        <div class="chip" data-preset="SCN_CIRCADIAN">
+          <img src="assets/icon_morning.png" alt="" />
+          <span>昼夜节律 MT1/MT2/5-HT2C</span>
+        </div>
+        <div class="chip" data-preset="SNDRI_TRIPLE">
           <img src="assets/63653-tablets-min.png" alt="" />
-          ⭐ 布瑞哌唑 (敏达妥®) / 卡利拉嗪 (罗珊®)
-        </span>
-        <span class="chip" data-preset="SMS_VORTIO">
-          <img src="assets/mission.png" alt="" />
-          🧠 伏硫西汀 (心达悦® / 海马 LTP 突触再生)
-        </span>
-        <span class="chip" data-preset="PREGABALIN">
-          <img src="assets/Pregabalin.png" alt="" />
-          🛡️ 普瑞巴林 (乐瑞卡®) / 丁螺环酮 / 广泛焦虑
-        </span>
-        <span class="chip" data-preset="MOOD">
-          <img src="assets/Field_Inventory_Menu_02.png" alt="" />
-          ⚖️ 心境稳定剂 (碳酸锂 / 丙戊酸钠 / 卡马西平)
-        </span>
-        <span class="chip" data-preset="BZD_ANXIETY">
-          <img src="assets/clonazepam.png" alt="" />
-          🌿 苯二氮䓬类药物 (劳拉西泮 / 阿普唑仑)
-        </span>
-        <span class="chip" data-preset="ALL">
+          <span>SNDRI 三重再摄取 (若舒达®)</span>
+        </div>
+        <div class="chip" data-preset="DIMDAZENIL">
           <img src="assets/63653-tablets-min.png" alt="" />
-          🌐 展开全景总网 (187点/384连线)
-        </span>
+          <span>地达西尼 (京诺宁®) PAM</span>
+        </div>
+        <div class="chip" data-preset="AD_AMYLOID">
+          <img src="assets/NOTE.png" alt="" />
+          <span>阿尔茨海默病 Aβ 单抗 (仑卡奈)</span>
+        </div>
       </div>
-    </div>
-
-    <!-- 搜索 -->
-    <div class="search-wrapper">
-      <img src="assets/mission.png" class="search-icon-img" alt="search" />
-      <input type="text" id="search-input" class="search-input" placeholder="搜索全书实体 (如 京诺宁, 沃诺雷生, 铧可思, 达卫可, 敏达妥)..." />
     </div>
 
     <!-- 布局切换 -->
-    <div class="section-title">📐 排布形态</div>
-    <div class="layout-switcher">
-      <button class="layout-btn active" id="btn-layout-force">💫 柔性松弛 (防挤飞)</button>
-      <button class="layout-btn" id="btn-layout-cluster">🎯 同心聚类</button>
-      <button class="layout-btn" id="btn-layout-hier">🌲 机制层级</button>
+    <div class="scenario-section">
+      <div class="section-title">
+        <span>3D 空间排布引擎</span>
+        <span style="font-size:0.68rem; color:#C084FC;">流畅度优化</span>
+      </div>
+      <div class="layout-switcher">
+        <div class="layout-btn active" id="btn-layout-force">💫 柔性松弛</div>
+        <div class="layout-btn" id="btn-layout-cluster">🎯 同心聚类</div>
+        <div class="layout-btn" id="btn-layout-hier">🌲 机制层级</div>
+      </div>
     </div>
 
-    <!-- 类别过滤 -->
-    <div class="section-title">
-      <span>🎨 实体类别 (以相互关系为证据连接呈现)</span>
-      <span id="reset-filter-btn" style="cursor:pointer; color:var(--accent-blue); text-transform:none;">重置</span>
+    <!-- 实体类别过滤 -->
+    <div class="scenario-section">
+      <div class="section-title">
+        <span>证据闭环实体子图</span>
+        <span style="font-size:0.68rem; color:#94A3B8;">点击以关系连接</span>
+      </div>
+      <div class="filter-list" id="filter-container"></div>
     </div>
-    <div class="filter-list" id="filter-container"></div>
 
-    <!-- 详情抽屉 -->
+    <!-- 临床药理多维看板 (详情抽屉) -->
     <div id="detail-drawer">
       <div class="drawer-header">
-        <span class="drawer-badge" id="drawer-badge" style="background:#38BDF8">精神药物</span>
-        <img id="drawer-art" class="drawer-art-preview" src="assets/63653-tablets-min.png" alt="Preview" />
+        <span class="drawer-badge" id="drawer-badge">类别</span>
+        <span id="drawer-level" style="font-size:0.68rem; color:#94A3B8; font-weight:600;">脑区级联</span>
       </div>
-      <div class="drawer-title" id="drawer-title">...</div>
+      
+      <!-- 3D 晶莹展柜窗口 -->
+      <div class="drawer-lightbox" id="drawer-lightbox">
+        <img id="drawer-art" src="assets/drug_sukailang.png" alt="" />
+        <span class="lightbox-tag" id="drawer-art-tag">3D 药学图解</span>
+      </div>
+
+      <div class="drawer-title" id="drawer-title">实体详情</div>
       <div class="drawer-desc-card" id="drawer-desc">...</div>
+
+      <!-- 机制传导流条带 -->
+      <div class="flow-ribbon" id="flow-ribbon" style="display:none;">
+        <div class="flow-ribbon-title">⚡ 脑科学药理机制传导流</div>
+        <div class="flow-steps" id="flow-steps"></div>
+      </div>
+
       <div class="drawer-conns-title">
         <span>🔗 关联受体靶点与神经回路 (点击跳转)</span>
+        <span style="font-size:0.68rem; color:#38BDF8;" id="conns-count">0 关联</span>
       </div>
       <div class="drawer-conns-list" id="drawer-conns"></div>
     </div>
   </div>
 
+  <!-- 3D 图谱画布容器 -->
   <div id="network-wrapper">
     <div id="network-container"></div>
+    
+    <!-- 悬浮微型 HUD 提示卡 -->
+    <div id="hover-hud">
+      <div id="hover-hud-title">实体名称</div>
+      <div id="hover-hud-cat">类别 · 0 关联</div>
+    </div>
+
+    <!-- 顶部操作胶囊 -->
     <div class="top-floating-bar">
       <button class="tool-btn highlight" id="btn-cascade-mode">
         <img src="assets/mission.png" alt="" />
@@ -619,7 +727,7 @@ class InteractiveGraphGenerator:
       </button>
       <button class="tool-btn" id="btn-relax-physics">
         <img src="assets/complete.png" alt="" />
-        💫 智能舒展
+        💫 智能舒展 (防重叠)
       </button>
       <button class="tool-btn" id="btn-zoom-fit">
         <img src="assets/NOTE.png" alt="" />
@@ -654,30 +762,27 @@ class InteractiveGraphGenerator:
       item.innerHTML = `
         <div class="filter-left">
           <img src="${{cfg.icon}}" class="filter-icon" alt="" />
-          <div class="filter-dot" style="background: ${{cfg.color}}; box-shadow: 0 0 8px ${{cfg.color}};"></div>
+          <div class="filter-dot" style="background: ${{cfg.color}}; box-shadow: 0 0 10px ${{cfg.color}};"></div>
           <span>${{cfg.name}} (${{cat}})</span>
         </div>
         <span class="filter-count">${{count}}</span>
       `;
-      // 🌟 核心升级：以相互关系为证据将该类别节点与直接相互作用实体紧密连接在一起！
+      // 以相互关系为证据闭环子图
       item.addEventListener('click', function() {{
         document.querySelectorAll('.filter-item').forEach(f => f.classList.remove('active'));
         this.classList.add('active');
         document.querySelectorAll('.preset-chips .chip').forEach(c => c.classList.remove('active'));
         isCascadeMode = false;
 
-        // 1. 找到所有本类别的核心节点
         const primaryNodes = graphData.nodes.filter(n => n.category === cat);
         const primaryIds = new Set(primaryNodes.map(n => n.id));
         
-        // 2. 收集与这些节点有直接证据关系连线的邻居节点
         const linkedIds = new Set(primaryIds);
         primaryIds.forEach(pId => {{
           const neighbors = adjMap[pId] || new Set();
           neighbors.forEach(nId => linkedIds.add(nId));
         }});
 
-        // 3. 构建完整的证据闭环子图
         currentVisibleNodeIds = linkedIds;
         const subNodes = graphData.nodes.filter(n => linkedIds.has(n.id));
         const subEdges = graphData.edges.filter(e => linkedIds.has(e.from) && linkedIds.has(e.to));
@@ -699,35 +804,35 @@ class InteractiveGraphGenerator:
     const nodesDataSet = new vis.DataSet([]);
     const edgesDataSet = new vis.DataSet([]);
 
-    // 🛡️ 柔性流体动力学防挤飞配置 (高斥力、极小向心力、弹簧大自然舒展)
+    // 🛡️ 3D 立体空间物理引擎配置 (高斥力、极小向心力、稳定后自动休眠保 60FPS)
     const baseOptions = {{
       nodes: {{
         borderWidth: 2,
         shadow: true,
       }},
       edges: {{
-        smooth: {{ type: 'curvedCW', roundness: 0.12 }},
-        arrows: {{ to: {{ enabled: true, scaleFactor: 0.55 }} }},
-        selectionWidth: 3.5,
-        hoverWidth: 2.2,
+        smooth: {{ type: 'curvedCW', roundness: 0.18 }},
+        arrows: {{ to: {{ enabled: true, scaleFactor: 0.60 }} }},
+        selectionWidth: 3.8,
+        hoverWidth: 2.6,
       }},
       physics: {{
         barnesHut: {{
           gravitationalConstant: -75000,
-          centralGravity: 0.03,
+          centralGravity: 0.025,
           springLength: 260,
           springConstant: 0.015,
           damping: 0.45,
           avoidOverlap: 1.0
         }},
-        maxVelocity: 30,
-        minVelocity: 0.15,
+        maxVelocity: 32,
+        minVelocity: 0.2,
         timestep: 0.35,
         solver: 'barnesHut',
         stabilization: {{
           enabled: true,
-          iterations: 350,
-          updateInterval: 30,
+          iterations: 300,
+          updateInterval: 25,
           onlyDynamicEdges: false,
           fit: true
         }}
@@ -735,7 +840,7 @@ class InteractiveGraphGenerator:
       interaction: {{
         hover: true,
         hoverConnectedEdges: false,
-        tooltipDelay: 60,
+        tooltipDelay: 40,
         zoomView: true,
         selectConnectedEdges: false,
       }}
@@ -744,10 +849,55 @@ class InteractiveGraphGenerator:
     const container = document.getElementById('network-container');
     const network = new vis.Network(container, {{ nodes: nodesDataSet, edges: edgesDataSet }}, baseOptions);
 
-    // 🌟 拓扑悬浮聚焦与智能降噪 (Hover Neighborhood Focus)
+    // ⚡ 性能守卫：物理引擎在达到稳定后自动挂起休眠，CPU/GPU 占用归零，维持 60 FPS 满帧
+    network.on('stabilized', function() {{
+      network.setOptions({{ physics: {{ enabled: false }} }});
+    }});
+
+    // 🌌 3D 立体光晕与呼吸星环 Canvas 绘制
+    let activeFocusedNodeId = null;
+    network.on('afterDrawing', function(ctx) {{
+      if (!activeFocusedNodeId) return;
+      const nodePos = network.getPositions([activeFocusedNodeId])[activeFocusedNodeId];
+      if (!nodePos) return;
+
+      const nodeObj = graphData.nodes.find(n => n.id === activeFocusedNodeId);
+      const glowColor = nodeObj ? (categoryConfig[nodeObj.category] || {{}}).color || '#38BDF8' : '#38BDF8';
+
+      ctx.save();
+      // 外层立体脉冲星环
+      ctx.beginPath();
+      ctx.arc(nodePos.x, nodePos.y, (nodeObj ? nodeObj.size : 25) + 14, 0, 2 * Math.PI, false);
+      ctx.strokeStyle = glowColor;
+      ctx.lineWidth = 2.5;
+      ctx.shadowColor = glowColor;
+      ctx.shadowBlur = 18;
+      ctx.stroke();
+
+      // 内层高光环
+      ctx.beginPath();
+      ctx.arc(nodePos.x, nodePos.y, (nodeObj ? nodeObj.size : 25) + 6, 0, 2 * Math.PI, false);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.85)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.restore();
+    }});
+
+    // 🛰️ 拓扑悬浮聚焦与智能降噪 (Hover Neighborhood Focus & HUD)
+    const hoverHud = document.getElementById('hover-hud');
+    const hoverHudTitle = document.getElementById('hover-hud-title');
+    const hoverHudCat = document.getElementById('hover-hud-cat');
+
     network.on('hoverNode', function(params) {{
-      if (isCascadeMode) return;
       const hoveredId = params.node;
+      const nodeObj = graphData.nodes.find(n => n.id === hoveredId);
+      if (nodeObj) {{
+        hoverHudTitle.innerText = nodeObj.fullLabel;
+        hoverHudCat.innerText = `${{nodeObj.categoryName}} · ${{nodeObj.degree}} 条药理连线`;
+        hoverHud.style.display = 'block';
+      }}
+
+      if (isCascadeMode) return;
       const neighbors = adjMap[hoveredId] || new Set();
       const connectedNodeIds = new Set(neighbors);
       connectedNodeIds.add(hoveredId);
@@ -757,7 +907,7 @@ class InteractiveGraphGenerator:
         if (connectedNodeIds.has(n.id)) {{
           updateNodes.push({{ id: n.id, opacity: 1.0 }});
         }} else {{
-          updateNodes.push({{ id: n.id, opacity: 0.20 }});
+          updateNodes.push({{ id: n.id, opacity: 0.18 }});
         }}
       }});
       nodesDataSet.update(updateNodes);
@@ -765,15 +915,16 @@ class InteractiveGraphGenerator:
       const updateEdges = [];
       edgesDataSet.forEach(e => {{
         if (e.from === hoveredId || e.to === hoveredId) {{
-          updateEdges.push({{ id: e.id, color: {{ opacity: 0.95, color: '#38BDF8', highlight: '#FACC15' }}, width: 3.5 }});
+          updateEdges.push({{ id: e.id, color: {{ opacity: 0.95, color: '#38BDF8', highlight: '#FACC15' }}, width: 3.8 }});
         }} else {{
-          updateEdges.push({{ id: e.id, color: {{ opacity: 0.06, color: '#475569' }}, width: 0.8 }});
+          updateEdges.push({{ id: e.id, color: {{ opacity: 0.05, color: '#475569' }}, width: 0.8 }});
         }}
       }});
       edgesDataSet.update(updateEdges);
     }});
 
     network.on('blurNode', function(params) {{
+      hoverHud.style.display = 'none';
       if (isCascadeMode) return;
       const updateNodes = [];
       nodesDataSet.forEach(n => {{
@@ -783,9 +934,16 @@ class InteractiveGraphGenerator:
 
       const updateEdges = [];
       edgesDataSet.forEach(e => {{
-        updateEdges.push({{ id: e.id, color: {{ opacity: 0.55, color: '#38BDF8' }}, width: 1.8 }});
+        updateEdges.push({{ id: e.id, color: {{ opacity: 0.50, color: '#38BDF8' }}, width: 1.8 }});
       }});
       edgesDataSet.update(updateEdges);
+    }});
+
+    container.addEventListener('mousemove', function(e) {{
+      if (hoverHud.style.display === 'block') {{
+        hoverHud.style.left = (e.clientX - container.getBoundingClientRect().left + 15) + 'px';
+        hoverHud.style.top = (e.clientY - container.getBoundingClientRect().top + 15) + 'px';
+      }}
     }});
 
     let currentVisibleNodeIds = new Set();
@@ -795,7 +953,6 @@ class InteractiveGraphGenerator:
     function loadCascadeSeed(seedNodeId, depth = 1) {{
       const visibleIds = new Set([seedNodeId]);
       
-      // 1度邻居
       const neighbors = adjMap[seedNodeId] || new Set();
       neighbors.forEach(id => visibleIds.add(id));
 
@@ -821,7 +978,6 @@ class InteractiveGraphGenerator:
       document.getElementById('mode-text').innerText = '单点级联扩散探索 (点击节点裂变展开)';
     }}
 
-    // 动态级联展开邻居
     function expandCascade(nodeId) {{
       const neighbors = adjMap[nodeId] || new Set();
       let added = false;
@@ -842,44 +998,87 @@ class InteractiveGraphGenerator:
     }}
 
     function focusNode(nodeId) {{
+      activeFocusedNodeId = nodeId;
       const node = graphData.nodes.find(n => n.id === nodeId);
       if (!node) return;
 
-      // 相机平滑飞越聚焦
+      // 电影级平滑聚焦运镜
       network.focus(nodeId, {{
-        scale: 1.18,
-        animation: {{ duration: 500, easingFunction: 'easeInOutQuad' }}
+        scale: 1.25,
+        animation: {{ duration: 550, easingFunction: 'easeInOutQuad' }}
       }});
 
-      // 展开详情抽屉
+      // 展开现代化全景看板
       document.getElementById('detail-drawer').classList.add('show');
       document.getElementById('drawer-title').innerText = node.fullLabel;
       document.getElementById('drawer-desc').innerText = node.description || 'Stahl 精神药理学核心实体。';
+      
       const badge = document.getElementById('drawer-badge');
       badge.innerText = node.categoryName;
-      badge.style.background = node.color.background;
+      const catCfg = categoryConfig[node.category] || {{}};
+      badge.style.background = catCfg.badgeBg || catCfg.color || '#38BDF8';
+      document.getElementById('drawer-level').innerText = `网络度数: ${{node.degree}} · 节点层级 L${{node.level}}`;
 
+      // 3D 展柜与医学资产预览
       const artImg = document.getElementById('drawer-art');
+      const artTag = document.getElementById('drawer-art-tag');
       if (node.customImage) {{
         artImg.src = node.customImage;
-        artImg.style.display = 'block';
+        artTag.innerText = '高精医学素材 / 结构式';
       }} else {{
-        const catCfg = categoryConfig[node.category];
         artImg.src = (catCfg && catCfg.icon) ? catCfg.icon : 'assets/63653-tablets-min.png';
-        artImg.style.display = 'block';
+        artTag.innerText = '分类范畴图解';
       }}
 
-      // 关联列表（支持点击跳转）
+      // 机制传导流条带动态渲染
+      const flowRibbon = document.getElementById('flow-ribbon');
+      const flowSteps = document.getElementById('flow-steps');
+      const relatedEdges = graphData.edges.filter(e => e.from === nodeId || e.to === nodeId);
+      
+      if (relatedEdges.length > 0) {{
+        flowRibbon.style.display = 'flex';
+        flowSteps.innerHTML = '';
+        
+        // 提取核心步骤链
+        const step1 = document.createElement('span');
+        step1.className = 'flow-step';
+        step1.innerText = node.label;
+        flowSteps.appendChild(step1);
+
+        const sampleEdges = relatedEdges.slice(0, 3);
+        sampleEdges.forEach(e => {{
+          const arrow = document.createElement('span');
+          arrow.className = 'flow-arrow';
+          arrow.innerText = '➔';
+          flowSteps.appendChild(arrow);
+
+          const stepRel = document.createElement('span');
+          stepRel.className = 'flow-step';
+          const otherId = e.from === nodeId ? e.to : e.from;
+          const otherNode = graphData.nodes.find(n => n.id === otherId);
+          stepRel.innerText = `${{e.relName}} [${{otherNode ? otherNode.label : otherId}}]`;
+          flowSteps.appendChild(stepRel);
+        }});
+      }} else {{
+        flowRibbon.style.display = 'none';
+      }}
+
+      // 关联靶点卡片列表
       const connsDiv = document.getElementById('drawer-conns');
       connsDiv.innerHTML = '';
-      const relatedEdges = graphData.edges.filter(e => e.from === nodeId || e.to === nodeId);
+      document.getElementById('conns-count').innerText = `${{relatedEdges.length}} 个直接相互作用`;
+
       relatedEdges.forEach(e => {{
         const otherId = e.from === nodeId ? e.to : e.from;
         const otherNode = graphData.nodes.find(n => n.id === otherId);
         if (otherNode) {{
           const tag = document.createElement('div');
           tag.className = 'conn-tag';
-          tag.innerHTML = `<span><b>${{e.relName}}</b> \u2192 ${{otherNode.label}}</span> <span style="color:#94A3B8; font-size:0.7rem;">${{e.description || ''}}</span>`;
+          const relType = e.relType || 'link';
+          tag.innerHTML = `
+            <span><b class="conn-rel ${{relType}}">${{e.relName}}</b> \u2192 ${{otherNode.label}}</span>
+            <span style="color:#94A3B8; font-size:0.72rem;">${{e.description ? e.description.substring(0, 20) + '...' : ''}}</span>
+          `;
           tag.addEventListener('click', function(ev) {{
             ev.stopPropagation();
             if (!currentVisibleNodeIds.has(otherId)) {{
@@ -897,10 +1096,6 @@ class InteractiveGraphGenerator:
       }});
     }}
 
-    function resetHighlight() {{
-      // 保留当前视图
-    }}
-
     network.on('click', function(params) {{
       if (params.nodes.length > 0) {{
         const clickedId = params.nodes[0];
@@ -911,202 +1106,112 @@ class InteractiveGraphGenerator:
       }}
     }});
 
-    // 默认开屏：初始仅一个核心点（艾司氯胺酮与突触再生），级联发散周边
-    loadCascadeSeed('DRUG_ESKETAMINE', 1);
+    // 🌟 单点级联探索模式按钮
+    document.getElementById('btn-cascade-mode').addEventListener('click', function() {{
+      isCascadeMode = true;
+      document.querySelectorAll('.filter-item').forEach(f => f.classList.remove('active'));
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      document.querySelector('[data-preset="INITIAL_SEED"]').classList.add('active');
+      loadCascadeSeed('DRUG_ESKETAMINE', 1);
+    }});
 
+    // 🌟 展开全景宏观总网按钮
     document.getElementById('btn-expand-all').addEventListener('click', function() {{
       isCascadeMode = false;
-      document.getElementById('btn-cascade-mode').classList.remove('highlight');
-      this.classList.add('highlight');
-      document.querySelectorAll('.preset-chips .chip').forEach(c => c.classList.remove('active'));
-      const allChip = document.querySelector('[data-preset="ALL"]');
-      if (allChip) allChip.classList.add('active');
-
+      document.querySelectorAll('.filter-item').forEach(f => f.classList.remove('active'));
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      
+      currentVisibleNodeIds = new Set(graphData.nodes.map(n => n.id));
       nodesDataSet.clear();
       edgesDataSet.clear();
       nodesDataSet.add(graphData.nodes);
       edgesDataSet.add(graphData.edges);
-      currentVisibleNodeIds = new Set(graphData.nodes.map(n => n.id));
-      network.fit({{ animation: {{ duration: 600, easingFunction: 'easeInOutQuad' }} }});
+
+      network.setOptions({{
+        physics: {{
+          enabled: true,
+          barnesHut: {{
+            gravitationalConstant: -75000,
+            centralGravity: 0.025,
+            springLength: 260,
+            springConstant: 0.015,
+            damping: 0.45,
+            avoidOverlap: 1.0
+          }}
+        }}
+      }});
+      network.fit({{ animation: {{ duration: 700, easingFunction: 'easeInOutQuad' }} }});
       document.getElementById('mode-text').innerText = '宏观全景总网 (187点/384连线)';
     }});
 
-    document.getElementById('btn-toggle-all-view').addEventListener('click', function() {{
-      document.getElementById('btn-expand-all').click();
-    }});
+    // 🌟 20+ 核心场景预设 (精准节点映射)
+    const PRESET_CONFIGS = {{
+      'INITIAL_SEED': ['DRUG_ESKETAMINE'],
+      'TRD_KETAMINE': ['DRUG_ESKETAMINE', 'REC_NMDA', 'REC_AMPA', 'REC_BDNF_TRKB', 'REC_MTORC1', 'DIS_TRD', 'DIS_MDSI', 'PATH_HIPPOCAMPAL_PLASTICITY'],
+      'ADHD_OROS': ['DRUG_METHYLPHENIDATE', 'DRUG_LISDEXAMFETAMINE', 'REC_DAT', 'REC_NET', 'REC_ALPHA2A', 'REC_D1', 'DIS_ADHD', 'PATH_PFC_CIRCUITS', 'CLS_ADHD_STIMULANT'],
+      'DORA_INSOMNIA': ['DRUG_LEMBOREXANT', 'DRUG_DARIDOREXANT', 'DRUG_FAZAMOREXANT', 'DRUG_VORNOREXANT', 'REC_OX1R_OX2R', 'PATH_HYPOTHALAMIC_AROUSAL', 'DIS_INSOMNIA'],
+      'TAAR1_SCHIZO': ['DRUG_ULOTARONT', 'REC_TAAR1', 'REC_5HT1A', 'DIS_SCHIZOPHRENIA_POS', 'DIS_SCHIZOPHRENIA_NEG', 'CLS_TAAR1_AGONIST'],
+      'PPD_GABA': ['DRUG_ZURANOLONE', 'DRUG_BREXANOLONE', 'REC_GABAA_NEUROSTEROID', 'DIS_PPD', 'DIS_MDD', 'CLS_GABAA_NEUROSTEROID_PAM'],
+      'SCN_CIRCADIAN': ['DRUG_AGOMELATINE', 'DRUG_RAMELTEON', 'REC_MT1_MT2', 'REC_5HT2C', 'PATH_CIRCADIAN_SCN', 'DIS_MDD', 'DIS_INSOMNIA'],
+      'SNDRI_TRIPLE': ['DRUG_TOLUDESVENLAFAXINE', 'REC_SERT', 'REC_NET', 'REC_DAT', 'DIS_MDD', 'CLS_SNDRI'],
+      'DIMDAZENIL': ['DRUG_DIMDAZENIL', 'REC_GABAA_ALPHA1_PARTIAL', 'DIS_INSOMNIA', 'DIS_GAD', 'CLS_GABAA_PARTIAL_PAM'],
+      'AD_AMYLOID': ['DRUG_LECANEMAB', 'DRUG_DONANEMAB', 'REC_AMYLOID_BETA', 'DIS_ALZHEIMER', 'CLS_ANTI_AMYLOID_MAB']
+    }};
 
-    document.getElementById('btn-cascade-mode').addEventListener('click', function() {{
-      isCascadeMode = true;
-      document.getElementById('btn-expand-all').classList.remove('highlight');
-      this.classList.add('highlight');
-      loadCascadeSeed('DRUG_ESKETAMINE', 1);
-    }});
-
-    document.getElementById('search-input').addEventListener('input', function(e) {{
-      const q = e.target.value.trim().toLowerCase();
-      if (!q) return;
-
-      const matched = graphData.nodes.find(n => n.fullLabel.toLowerCase().includes(q) || (n.description && n.description.toLowerCase().includes(q)));
-      if (matched) {{
-        if (!currentVisibleNodeIds.has(matched.id)) {{
-          loadCascadeSeed(matched.id, 1);
-        }} else {{
-          focusNode(matched.id);
-        }}
-      }}
-    }});
-
-    // 快捷预设视角过滤
     document.querySelectorAll('.preset-chips .chip').forEach(chip => {{
       chip.addEventListener('click', function() {{
         document.querySelectorAll('.preset-chips .chip').forEach(c => c.classList.remove('active'));
-        this.classList.add('active');
         document.querySelectorAll('.filter-item').forEach(f => f.classList.remove('active'));
-        const preset = this.dataset.preset;
-
-        if (preset === 'INITIAL_SEED') {{
-          isCascadeMode = true;
-          document.getElementById('btn-cascade-mode').classList.add('highlight');
-          document.getElementById('btn-expand-all').classList.remove('highlight');
-          loadCascadeSeed('DRUG_ESKETAMINE', 1);
-          return;
-        }} else if (preset === 'ALL') {{
-          document.getElementById('btn-expand-all').click();
-          return;
-        }}
-
+        this.classList.add('active');
         isCascadeMode = false;
-        document.getElementById('btn-cascade-mode').classList.remove('highlight');
-        document.getElementById('btn-expand-all').classList.remove('highlight');
-        let filterFn = () => true;
 
-        if (preset === 'DIMDAZENIL') {{
-          const set = new Set([
-            'CLS_GABAA_PARTIAL_PAM', 'DRUG_DIMDAZENIL', 'REC_GABAA_ALPHA1_PARTIAL', 'PATH_VLPO_SLEEP_SWITCH', 'DIS_INSOMNIA'
-          ]);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'DORA') {{
-          const set = new Set([
-            'CLS_DORA', 'DRUG_FAZAMOREXANT', 'DRUG_VORNOREXANT', 'DRUG_LEMBOREXANT', 'DRUG_DARIDOREXANT',
-            'REC_OX1R_OX2R', 'PATH_HYPOTHALAMIC_AROUSAL', 'DIS_INSOMNIA'
-          ]);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'WAKE_NARCOLEPSY') {{
-          const set = new Set([
-            'CLS_WAKE_PROMOTING', 'CLS_H3_ANTAGONIST', 'CLS_GABAB_GHB', 'DRUG_MODAFINIL', 'DRUG_ARMODAFINIL', 'DRUG_PITOLISANT', 'DRUG_SODIUM_OXYBATE',
-            'REC_DAT', 'REC_HISTAMINE_H3', 'REC_GHB_GABAB', 'PATH_HYPOTHALAMIC_AROUSAL', 'PATH_TMN_HISTAMINE_AROUSAL', 'PATH_VLPO_SLEEP_SWITCH', 'DIS_NARCOLEPSY'
-          ]);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'ADHD_PFC') {{
-          const set = new Set([
-            'CLS_ADHD_STIMULANT', 'CLS_ADHD_NON_STIMULANT', 'DRUG_LISDEXAMFETAMINE', 'DRUG_METHYLPHENIDATE', 'DRUG_ATOMOXETINE', 'DRUG_GUANFACINE', 'DRUG_VILOXAZINE',
-            'REC_DAT', 'REC_NET', 'REC_VMAT2', 'REC_ALPHA2A', 'REC_D1', 'REC_5HT7', 'PATH_PFC_CIRCUITS', 'DIS_ADHD', 'SE_ADDICTION_TOLERANCE'
-          ]);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'CRISIS') {{
-          const set = new Set([
-            'DIS_MDSI', 'DIS_TRD', 'DIS_MDD', 'DRUG_ESKETAMINE', 'DRUG_LITHIUM', 'DRUG_BREXPIPRAZOLE', 'DRUG_ARIPIPRAZOLE', 'DRUG_QUETIAPINE',
-            'REC_NMDA', 'REC_AMPA', 'REC_MTORC1', 'REC_BDNF_TRKB', 'REC_GSK3B',
-            'PATH_HIPPOCAMPAL_PLASTICITY', 'PATH_PFC_CIRCUITS', 'CLS_NMDA_MODULATOR', 'CLS_MOOD_STABILIZER', 'CLS_D2_PARTIAL'
-          ]);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'SNDRI') {{
-          const set = new Set([
-            'CLS_SNDRI', 'DRUG_TOLUDESVENLAFAXINE', 'REC_SERT', 'REC_NET', 'REC_DAT',
-            'PATH_PFC_CIRCUITS', 'DIS_MDD', 'DIS_TRD'
-          ]);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'PPD') {{
-          const set = new Set([
-            'CLS_GABAA_NEUROSTEROID_PAM', 'DRUG_ZURANOLONE', 'DRUG_BREXANOLONE', 'REC_GABAA_NEUROSTEROID',
-            'PATH_AMYGDALA_CIRCUITS', 'DIS_PPD', 'DIS_MDD'
-          ]);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'AUVELITY') {{
-          const set = new Set([
-            'CLS_DXM_BUP', 'DRUG_AUVELITY', 'DRUG_BUPROPION', 'REC_NMDA', 'REC_SIGMA1', 'REC_NET', 'REC_DAT',
-            'PATH_HIPPOCAMPAL_PLASTICITY', 'DIS_MDD', 'DIS_TRD', 'DIS_TOBACCO'
-          ]);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'NEW_PSYCHOSIS') {{
-          const set = new Set([
-            'CLS_TAAR1_AGONIST', 'CLS_5HT2A_INVERSE', 'CLS_SDA', 'DRUG_ULOTARONT', 'DRUG_PIMAVANSERIN', 'DRUG_LUMATEPERONE',
-            'REC_TAAR1', 'REC_5HT2A_INVERSE', 'REC_5HT2A', 'REC_D2', 'PATH_MESOLIMBIC', 'PATH_MESOCORTICAL',
-            'DIS_SCHIZOPHRENIA_POS', 'DIS_SCHIZOPHRENIA_NEG', 'DIS_PDP', 'DIS_BIPOLAR_DEP'
-          ]);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'OCD_CSTC') {{
-          const set = new Set([
-            'CLS_SSRI', 'CLS_TCA', 'DRUG_FLUVOXAMINE', 'DRUG_CLOMIPRAMINE', 'REC_SERT', 'REC_SIGMA1',
-            'PATH_CSTC_LOOPS', 'DIS_OCD'
-          ]);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'PTSD_FEAR') {{
-          const set = new Set([
-            'DRUG_PRAZOSIN', 'DRUG_PROPRANOLOL', 'DRUG_SERTRALINE', 'REC_ALPHA1', 'REC_BETA_ADRENERGIC', 'REC_SERT',
-            'PATH_FEAR_EXTINCTION', 'PATH_AMYGDALA_CIRCUITS', 'DIS_PTSD', 'DIS_SAD'
-          ]);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'DEMENTIA_AD') {{
-          const set = new Set([
-            'CLS_ACHEI', 'CLS_ANTI_AMYLOID_MAB', 'CLS_NMDA_MODULATOR', 'DRUG_DONEPEZIL', 'DRUG_RIVASTIGMINE', 'DRUG_GALANTAMINE', 'DRUG_MEMANTINE', 'DRUG_LECANEMAB', 'DRUG_DONANEMAB',
-            'REC_ACHE', 'REC_NMDA', 'REC_AMYLOID_BETA', 'REC_NACHR_ALPHA4BETA2', 'PATH_BASAL_FOREBRAIN_ACH', 'PATH_HIPPOCAMPAL_PLASTICITY', 'DIS_ALZHEIMER'
-          ]);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'ADDICTION_REWARD') {{
-          const set = new Set([
-            'CLS_ADDICTION_TREATMENT', 'DRUG_VARENICLINE', 'DRUG_NALTREXONE', 'DRUG_ACAMPROSATE', 'DRUG_DISULFIRAM', 'DRUG_BUPRENORPHINE', 'DRUG_NALOXONE', 'DRUG_BUPROPION',
-            'REC_NACHR_ALPHA4BETA2', 'REC_MU_OPIOID', 'REC_KAPPA_OPIOID', 'REC_ALDH', 'REC_NMDA', 'REC_DAT',
-            'PATH_VTA_NACC_REWARD', 'DIS_AUD', 'DIS_OUD', 'DIS_TOBACCO'
-          ]);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'AGOMELATINE') {{
-          const set = new Set([
-            'CLS_MASSA', 'DRUG_AGOMELATINE', 'DRUG_RAMELTEON', 'REC_MT1_MT2', 'REC_5HT2C',
-            'PATH_CIRCADIAN_SCN', 'PATH_PFC_CIRCUITS', 'DIS_MDD', 'DIS_INSOMNIA'
-          ]);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'PLASTICITY') {{
-          const set = new Set([
-            'REC_NMDA', 'REC_AMPA', 'REC_MTORC1', 'REC_BDNF_TRKB', 'REC_GSK3B', 'REC_SIGMA1', 'REC_5HT1A', 'REC_5HT7', 'REC_5HT3',
-            'PATH_HIPPOCAMPAL_PLASTICITY', 'PATH_PFC_CIRCUITS',
-            'DRUG_ESKETAMINE', 'DRUG_LITHIUM', 'DRUG_VALPROATE', 'DRUG_VORTIOXETINE', 'DRUG_SERTRALINE',
-            'DIS_MDD', 'DIS_MDSI', 'DIS_TRD', 'DIS_ALZHEIMER', 'CLS_NMDA_MODULATOR', 'CLS_SMS', 'CLS_MOOD_STABILIZER'
-          ]);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'D2_D3_PARTIAL') {{
-          const set = new Set(['CLS_D2_PARTIAL', 'DRUG_BREXPIPRAZOLE', 'DRUG_CARIPRAZINE', 'DRUG_ARIPIPRAZOLE', 'REC_D2', 'REC_D3', 'REC_5HT1A', 'REC_5HT2A', 'PATH_MESOLIMBIC', 'PATH_MESOCORTICAL', 'DIS_SCHIZOPHRENIA_POS', 'DIS_SCHIZOPHRENIA_NEG', 'DIS_MDD', 'DIS_TRD', 'DIS_BIPOLAR_DEP', 'DIS_BIPOLAR_MANIA']);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'SMS_VORTIO') {{
-          const set = new Set(['CLS_SMS', 'DRUG_VORTIOXETINE', 'REC_SERT', 'REC_5HT1A', 'REC_5HT1B_1D', 'REC_5HT3', 'REC_5HT7', 'PATH_PFC_CIRCUITS', 'PATH_HIPPOCAMPAL_PLASTICITY', 'DIS_MDD']);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'PREGABALIN') {{
-          const set = new Set(['CLS_VGCC_LIGAND', 'CLS_5HT1A_PARTIAL_ANXIOLYTIC', 'DRUG_PREGABALIN', 'DRUG_BUSPIRONE', 'DRUG_TANDOSPIRONE', 'REC_ALPHA2DELTA', 'REC_5HT1A', 'PATH_AMYGDALA_CIRCUITS', 'PATH_PAIN_PATHWAY', 'DIS_GAD', 'DIS_NEURO_PAIN']);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'MOOD') {{
-          const set = new Set(['CLS_MOOD_STABILIZER', 'DRUG_LITHIUM', 'DRUG_CARBAMAZEPINE', 'DRUG_VALPROATE', 'DRUG_LAMOTRIGINE', 'DRUG_OLANZAPINE', 'DRUG_CARIPRAZINE', 'REC_VGSC', 'REC_GSK3B', 'REC_BDNF_TRKB', 'DIS_BIPOLAR_MANIA', 'DIS_BIPOLAR_DEP', 'DIS_MDSI', 'DIS_TRD']);
-          filterFn = n => set.has(n.id);
-        }} else if (preset === 'BZD_ANXIETY') {{
-          const set = new Set(['CLS_BZD', 'DRUG_LORAZEPAM', 'DRUG_ALPRAZOLAM', 'DRUG_DIAZEPAM', 'DRUG_CLONAZEPAM', 'REC_GABAA', 'PATH_AMYGDALA_CIRCUITS', 'DIS_GAD', 'DIS_PANIC', 'SE_SEDATION', 'SE_ADDICTION_TOLERANCE']);
-          filterFn = n => set.has(n.id);
-        }}
+        const presetKey = this.dataset.preset;
+        const seedNodeIds = PRESET_CONFIGS[presetKey] || ['DRUG_ESKETAMINE'];
 
-        const subNodes = graphData.nodes.filter(filterFn);
-        const subIds = new Set(subNodes.map(n => n.id));
-        currentVisibleNodeIds = subIds;
-        const subEdges = graphData.edges.filter(e => subIds.has(e.from) && subIds.has(e.to));
+        const subNodeIds = new Set(seedNodeIds);
+        seedNodeIds.forEach(seedId => {{
+          const neighbors = adjMap[seedId] || new Set();
+          neighbors.forEach(nId => subNodeIds.add(nId));
+        }});
+
+        currentVisibleNodeIds = subNodeIds;
+        const subNodes = graphData.nodes.filter(n => subNodeIds.has(n.id));
+        const subEdges = graphData.edges.filter(e => subNodeIds.has(e.from) && subNodeIds.has(e.to));
 
         nodesDataSet.clear();
         edgesDataSet.clear();
         nodesDataSet.add(subNodes);
         edgesDataSet.add(subEdges);
         network.fit({{ animation: {{ duration: 600, easingFunction: 'easeInOutQuad' }} }});
-        document.getElementById('mode-text').innerText = '专题透视视图';
+        document.getElementById('mode-text').innerText = `已激活: ${{this.innerText.trim()}} 专题视图 (${{subNodes.length}} 节点, ${{subEdges.length}} 连线)`;
         if (subNodes.length > 0) focusNode(subNodes[0].id);
       }});
     }});
 
-    // 布局切换与动力学控制
+    // 🔍 实时搜索与模糊匹配
+    document.getElementById('search-input').addEventListener('input', function(e) {{
+      const query = e.target.value.trim().toLowerCase();
+      if (!query) return;
+
+      const matchedNode = graphData.nodes.find(n => 
+        n.label.toLowerCase().includes(query) || 
+        n.fullLabel.toLowerCase().includes(query) ||
+        n.id.toLowerCase().includes(query)
+      );
+
+      if (matchedNode) {{
+        if (!currentVisibleNodeIds.has(matchedNode.id)) {{
+          currentVisibleNodeIds.add(matchedNode.id);
+          nodesDataSet.add(matchedNode);
+          const newEdges = graphData.edges.filter(ed => currentVisibleNodeIds.has(ed.from) && currentVisibleNodeIds.has(ed.to));
+          edgesDataSet.clear();
+          edgesDataSet.add(newEdges);
+        }}
+        focusNode(matchedNode.id);
+      }}
+    }});
+
+    // 🌟 3D 空间排布引擎切换
     document.getElementById('btn-layout-force').addEventListener('click', function() {{
       document.querySelectorAll('.layout-btn').forEach(b => b.classList.remove('active'));
       this.classList.add('active');
@@ -1117,7 +1222,7 @@ class InteractiveGraphGenerator:
           solver: 'barnesHut',
           barnesHut: {{
             gravitationalConstant: -75000,
-            centralGravity: 0.03,
+            centralGravity: 0.025,
             springLength: 260,
             springConstant: 0.015,
             damping: 0.45,
@@ -1207,7 +1312,7 @@ class InteractiveGraphGenerator:
       network.fit({{ animation: {{ duration: 700, easingFunction: 'easeInOutQuad' }} }});
     }});
 
-    // 💫 智能舒展按钮：施加瞬时排斥力驱散死球聚集，随后平稳收敛
+    // 💫 智能舒展按钮：施加瞬时高斥力驱散密集死球，随后平稳收敛
     document.getElementById('btn-relax-physics').addEventListener('click', function() {{
       network.setOptions({{
         layout: {{ hierarchical: {{ enabled: false }} }},
@@ -1229,7 +1334,7 @@ class InteractiveGraphGenerator:
           physics: {{
             barnesHut: {{
               gravitationalConstant: -75000,
-              centralGravity: 0.03,
+              centralGravity: 0.025,
               springLength: 260,
               damping: 0.50
             }}
@@ -1244,6 +1349,9 @@ class InteractiveGraphGenerator:
       document.querySelectorAll('.filter-item').forEach(f => f.classList.remove('active'));
       document.querySelector('[data-preset="INITIAL_SEED"]').click();
     }});
+
+    // 🚀 开屏默认：以艾司氯胺酮 Spravato® 为种子单点级联扩散
+    loadCascadeSeed('DRUG_ESKETAMINE', 1);
   </script>
 </body>
 </html>
